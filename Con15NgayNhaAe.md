@@ -22,6 +22,7 @@
   + Ae có thể publish sail như link này rồi sửa dockerfile xem fix được lỗi của pảy k nha 
       https://viblo.asia/p/cai-dat-laravel-ket-noi-voi-mongodb-maGK76XO5j2#_laravel-sail-co-ho-tro-mongodb-khong-0
   + kèm theo nhớ ./vendor/bin/sail down khi làm theo link để tránh lỗi nhé brủh
+- ask me for .env file and save it into project
 - run .vendor/bin/sail composer install --> install package for laravel
 - chạy ./vendor/bin/sail artisan migrate để test dữ liệu
 - ./vendor/bin/sail artisan migrate --seed để tạo db mẫu
