@@ -1,6 +1,6 @@
-*Đây là hướng dẫn cài đặt
+# Đây là hướng dẫn cài đặt
 
-1. Quan trọng: Cài ubuntu trước mấy e gái
+## Quan trọng: Cài ubuntu trước mấy e gái
 
 - Cài docker, docker compose theo hướng dẫn trên docker docs
 - run docker up, docker-compose up để check cài đặt oce
@@ -31,6 +31,6 @@
 - connect mongodb, chỗ post là 0.0.0.0 và username = password = root
 - giờ oce cả rồi, run ./vendor/bin/sail npm run watch rồi code
 - chúc ae may mắn
-1. Một số lưu ý khi thao tác database với mongo, ae bết thêm chỗ nào update hoặc thêm vào cho mn đỡ mò:
+## Một số lưu ý khi thao tác database với mongo, ae bết thêm chỗ nào update hoặc thêm vào cho mn đỡ mò:
 - https://github.com/jenssegers/laravel-mongodb
 - https://tech.osteel.me/posts/you-dont-need-laravel-sail#extending-laravel-sail
