@@ -1,4 +1,4 @@
-<title>Đây là hướng dẫn cài đặt</title>
+*Đây là hướng dẫn cài đặt
 
 1. Quan trọng: Cài ubuntu trước mấy e gái
 
