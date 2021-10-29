@@ -14,6 +14,7 @@
 - cài php8 vào máy
 - sau đó check lại phát chỗ dockerfile chỗ đánh dấu
   ![image](https://user-images.githubusercontent.com/71328121/139451660-a43be4e2-72ec-4fae-b025-6dcd5cb54ce1.png)
+- install jessenger, passport, tinker
 - run ./vendor/bin/sail build (nhớ tắt tab sail up trước, chạy lệnh này rồi run sail up nền lại lmao :) )
 - đến thư mục chứa php, thường là etc/8.0/cli/... mở file php.ini
 - trong phần script thêm dòng ";extention=mongodb.so", nhớ sudo
@@ -21,6 +22,7 @@
   + Ae có thể publish sail như link này rồi sửa dockerfile xem fix được lỗi của pảy k nha 
       https://viblo.asia/p/cai-dat-laravel-ket-noi-voi-mongodb-maGK76XO5j2#_laravel-sail-co-ho-tro-mongodb-khong-0
   + kèm theo nhớ ./vendor/bin/sail down khi làm theo link để tránh lỗi nhé brủh
+- run .vendor/bin/sail composer install --> install package for laravel
 - chạy ./vendor/bin/sail artisan migrate để test dữ liệu
 - ./vendor/bin/sail artisan migrate --seed để tạo db mẫu
 - 
