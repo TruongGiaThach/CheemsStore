@@ -10,6 +10,7 @@
 - cài laravel sail theo cú pháp
   + ![image](https://user-images.githubusercontent.com/71328121/139443708-163918f9-1989-4893-be19-be68b49ca32a.png)
   + chú ý: bỏ cái dòng -u đi
+  + từ sau, các câu lệnh yêu cần để ./vendor/bin/sail  ở đầu
 - run .vendor/bin/sail up rồi mở tab terminal mới
 - cài php8 vào máy
 - sau đó check lại phát chỗ dockerfile chỗ đánh dấu
