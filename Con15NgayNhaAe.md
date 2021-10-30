@@ -16,6 +16,9 @@
 - sau đó check lại phát chỗ dockerfile chỗ đánh dấu
   ![image](https://user-images.githubusercontent.com/71328121/139451660-a43be4e2-72ec-4fae-b025-6dcd5cb54ce1.png)
 - install jessenger, passport, tinker
+  + note: sau khi cài passport, vào vendor/ {này chiều update sau hoặc ae search lỗi cx đc r fix } 
+  + note số 2: k cài thằng nào liên quan đến designmynight
+  + cú pháp đề nghị {UPDATE sau}
 - run ./vendor/bin/sail build (nhớ tắt tab sail up trước, chạy lệnh này rồi run sail up nền lại lmao :) )
 - đến thư mục chứa php, thường là etc/8.0/cli/... mở file php.ini
 - trong phần script thêm dòng ";extention=mongodb.so", nhớ sudo
