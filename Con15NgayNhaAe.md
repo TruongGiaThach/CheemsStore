@@ -34,3 +34,5 @@
 ## Một số lưu ý khi thao tác database với mongo, ae bết thêm chỗ nào update hoặc thêm vào cho mn đỡ mò:
 - https://github.com/jenssegers/laravel-mongodb
 - https://tech.osteel.me/posts/you-dont-need-laravel-sail#extending-laravel-sail
+## Tips (thêm link vào đây, chú ý nội dung học thuật hoặc chia sẻ kiến thức:
+- https://chungnguyen.xyz/posts/code-laravel-lam-sao-cho-chuan
