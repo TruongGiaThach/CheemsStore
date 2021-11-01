@@ -13,7 +13,12 @@
 - clone project này về máy
 - vào CheemsStore/app, mở terminal
 - cài laravel sail theo cú pháp
-  + ![image](https://user-images.githubusercontent.com/71328121/139443708-163918f9-1989-4893-be19-be68b49ca32a.png)
+  +   docker run — rm \
+     -u “$(id -u):$(id -g)” \
+     -v $(pwd):/opt \
+     -w /opt \
+     laravelsail/php80-composer:latest \
+ composer install — ignore-platform-reqs
   + chú ý: bỏ cái dòng -u đi
   + từ sau, các câu lệnh yêu cần để ./vendor/bin/sail  ở đầu
   + dùng chown add owner -R là user vào thư mục /var/www
