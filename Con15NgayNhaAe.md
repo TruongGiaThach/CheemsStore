@@ -19,7 +19,10 @@
      -w /opt \
      laravelsail/php80-composer:latest \
  composer install — ignore-platform-reqs
-  + chú ý: bỏ cái dòng -u đi
+  + chú ý: bỏ cái dòng -u đi hoặc không được thì chạy lệnh sau 
+     docker run 
+     laravelsail/php80-composer:latest \
+     composer install — ignore-platform-reqs
   + từ sau, các câu lệnh yêu cần để ./vendor/bin/sail  ở đầu
   + dùng chown add owner -R là user vào thư mục /var/www
 - run ./vendor/bin/sail up rồi mở tab terminal mới
