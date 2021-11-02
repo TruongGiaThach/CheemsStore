@@ -13,8 +13,16 @@
 - clone project này về máy
 - vào CheemsStore/app, mở terminal
 - cài laravel sail theo cú pháp
-  + ![image](https://user-images.githubusercontent.com/71328121/139443708-163918f9-1989-4893-be19-be68b49ca32a.png)
-  + chú ý: bỏ cái dòng -u đi
+  +   docker run — rm \
+     -u “$(id -u):$(id -g)” \
+     -v $(pwd):/opt \
+     -w /opt \
+     laravelsail/php80-composer:latest \
+ composer install — ignore-platform-reqs
+  + chú ý: bỏ cái dòng -u đi hoặc không được thì chạy lệnh sau 
+     docker run 
+     laravelsail/php80-composer:latest \
+     composer install — ignore-platform-reqs
   + từ sau, các câu lệnh yêu cần để ./vendor/bin/sail  ở đầu
   + dùng chown add owner -R là user vào thư mục /var/www
 - run ./vendor/bin/sail up rồi mở tab terminal mới
@@ -52,3 +60,8 @@ RUN pecl install grpc -q
 ## Tips (thêm link vào đây, chú ý nội dung học thuật hoặc chia sẻ kiến thức:
 - https://chungnguyen.xyz/posts/code-laravel-lam-sao-cho-chuan
 - https://www.youtube.com/watch?v=CjA79XhHVQI
+## Hướng dẫn giao diện và code
+- https://www.youtube.com/watch?v=gvnxd1xne7Q (giao diện, code admin page)
+- https://www.youtube.com/watch?v=BEogCy3Ux2I
+- https://www.youtube.com/watch?v=4ZC6OisRPfE
+- https://themeselection.com/10-best-laravel-vue-admin-template-free/
