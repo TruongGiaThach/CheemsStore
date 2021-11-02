@@ -8,19 +8,22 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
 
-class Product extends Eloquent
+class ReceiptDetail extends Eloquent
 {
     use HasFactory, SoftDeletes;
 
     protected $connection = 'mongodb';
-    protected $colection = 'products';
+    protected $colection = 'receipt_detail';
     protected $fillable = [
-        'name','amount','importPrice','outportPrice','manufacture','warrantyPeriod',
-        'category_id','description','tag'
+        'receipt_id','product_id','unitPrice','total',
     ];
-    public function category()
+
+    public function product()
     {
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->belongsTo(Product::class, 'product_id');
     }
-    
+    public function receipt()
+    {
+        return $this->belongsTo(Receipt::class, 'receipt_id');
+    }
 }
