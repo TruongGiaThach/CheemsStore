@@ -60,3 +60,7 @@ RUN pecl install grpc -q
 ## Tips (thêm link vào đây, chú ý nội dung học thuật hoặc chia sẻ kiến thức:
 - https://chungnguyen.xyz/posts/code-laravel-lam-sao-cho-chuan
 - https://www.youtube.com/watch?v=CjA79XhHVQI
+## Hướng dẫn giao diện và code
+- https://www.youtube.com/watch?v=gvnxd1xne7Q (giao diện, code admin page)
+- https://www.youtube.com/watch?v=BEogCy3Ux2I
+- https://www.youtube.com/watch?v=4ZC6OisRPfE
