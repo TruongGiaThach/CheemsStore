@@ -27,8 +27,13 @@ const router = new VueRouter({
     mode: 'history',
     routes: [
         {
-            path: '/',
+            path: '/home',
             name: 'home',
+            component: Home
+        },
+        {
+            path: '/',
+            name: 'home_or',
             component: Home
         },
         {
@@ -63,7 +68,7 @@ const router = new VueRouter({
             component: UserBoard,
             meta: {
                 requiresAuth: true,
-                is_user: true
+                role: 'user'
             }
         },
         {
@@ -72,7 +77,7 @@ const router = new VueRouter({
             component: Admin,
             meta: {
                 requiresAuth: true,
-                is_admin: true
+                role: 'admin'
             }
         },
         {
@@ -81,7 +86,7 @@ const router = new VueRouter({
             component: Admin,
             meta: {
                 requiresAuth: true,
-                is_admin: true
+                role: 'admin'
             }
         },
     ],

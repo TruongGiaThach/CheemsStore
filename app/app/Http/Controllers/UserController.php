@@ -51,13 +51,24 @@ class UserController extends Controller
 
         return response()->json([
             'user' => $user,
-            'token' => $user->createToken('bigStore')->accessToken,
+            'token' => $user->createToken('cheemsstore')->accessToken,
         ]);
     }
-
+   
     public function show(User $user)
     {
         return response()->json($user);
+    }
+    public function details()
+    {
+        $user = Auth::user();
+
+        return response()->json(
+            [
+                'success' => $user
+            ],
+            $this->successStatus
+        );
     }
 
     public function showOrders(User $user)
