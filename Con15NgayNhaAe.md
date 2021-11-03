@@ -46,7 +46,7 @@
       https://viblo.asia/p/cai-dat-laravel-ket-noi-voi-mongodb-maGK76XO5j2#_laravel-sail-co-ho-tro-mongodb-khong-0
   + kèm theo nhớ ./vendor/bin/sail down khi làm theo link để tránh lỗi nhé brủh
 - inbox Thạch để lấy .env
-- ae nào mà bị exit ngay laravel:test "/usr/bin/env: 'bash\r': No such file or directory" thì chạy: sudo apt-get install -y dos2unix \ sudo find . -type f -exec dos2unix {} \; sau đó build lại sail.
+- ae nào mà bị exit ngay laravel:test "/usr/bin/env: 'bash\r': No such file or directory" thì chạy: sudo apt-get install -y dos2unix \ sudo find . -type f -exec dos2unix {} \\; sau đó build lại sail.
 - run .vendor/bin/sail composer install --> install package for laravel
 - chạy ./vendor/bin/sail artisan migrate để test dữ liệu
 - ./vendor/bin/sail artisan migrate --seed để tạo db mẫu
