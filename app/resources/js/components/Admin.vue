@@ -1,21 +1,30 @@
  <template>
         <div>
-            <div class="container-fluid hero-section d-flex align-content-center justify-content-center flex-wrap ml-auto">
-                <h2 class="title">Admin Dashboard</h2>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
-                        <ul style="list-style-type:none">
-                            <li class="active"><button class="btn" @click="setComponent('main')">Dashboard</button></li>
-                            <li><button class="btn" @click="setComponent('orders')">Orders</button></li>
-                            <li><button class="btn" @click="setComponent('products')">Products</button></li>
-                            <li><button class="btn" @click="setComponent('users')">Users</button></li>
-                        </ul>
+            <div class="dashboard">
+                <div class="sidebar">
+                    <div class="sidebar-title">
+                        Menu
                     </div>
-                    <div class="col-md-9">
-                        <component :is="activeComponent"></component>
+                    <div class="sidebar-menu-items">
+                        <button active-class="active" class="sidebar-menu-items-button" @click="setComponent(oders)">
+                            <div class="link-container">
+                                Orders
+                            </div>
+                        </button>
+                        <button active-class="active" class="sidebar-menu-items-button" @click="setComponent(products)">
+                            <div class="link-container">
+                                Products
+                            </div>
+                        </button>
+                        <button active-class="active" class="sidebar-menu-items-button" @click="setComponent(users)">
+                            <div class="link-container">
+                                Users
+                            </div>
+                        </button>
                     </div>
+                </div>
+                <div class="dashboard-content">
+                    
                 </div>
             </div>
         </div>
@@ -71,4 +80,53 @@
 <style scoped>
 .hero-section { height: 20vh; background: #ababab; align-items: center; margin-bottom: 20px; margin-top: -20px; }
 .title { font-size: 60px; color: #ffffff; }
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    background-color: seagreen;
+    height: 100vh;
+    width: 100vw;
+}
+
+.sidebar-title {
+    color: white;
+    font-size: 24px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.sidebar-menu-items {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.sidebar-menu-items > * {
+    margin-top: 60px;
+}
+
+.dashboard-content {
+    background-color: white;
+    border-radius: 10px;
+    margin: 6px 6px 6px 6px;
+}
+
+.sidebar-menu-items-button:focus {
+    outline: none;
+}
+
+.sidebar-menu-items-button.active {
+    background-color: white;
+    color: seagreen;
+    font-weight: 500;
+}
+
+.sidebar-menu-items-button {
+    border: none;
+    padding: 10px 8px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+}
+
 </style>

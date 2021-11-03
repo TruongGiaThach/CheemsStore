@@ -6,7 +6,9 @@ window.Vue = require('vue');
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import BootstrapVue from 'bootstrap-vue'
 Vue.use(VueRouter);
+Vue.use(BootstrapVue)
 
 import VueAxios from 'vue-axios';
 import axios from 'axios';
@@ -76,7 +78,7 @@ const router = new VueRouter({
             name: 'admin-pages',
             component: Admin,
             meta: {
-                requiresAuth: true,
+                //requiresAuth: true,
                 role: 'admin'
             }
         },
@@ -85,7 +87,7 @@ const router = new VueRouter({
             name: 'admin',
             component: Admin,
             meta: {
-                requiresAuth: true,
+                //requiresAuth: true,
                 role: 'admin'
             }
         },

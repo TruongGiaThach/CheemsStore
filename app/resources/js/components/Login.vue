@@ -43,6 +43,7 @@
             methods: {
                 handleSubmit(e) {
                     e.preventDefault()
+                    console.log("login button click");
                     if (this.password.length > 0) {
                         let email = this.email
                         let password = this.password
