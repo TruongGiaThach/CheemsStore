@@ -2201,6 +2201,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -2507,6 +2510,7 @@ __webpack_require__.r(__webpack_exports__);
         }).then(function (response) {
           var user = response.data.user;
           var role = user.role;
+          console.log(role);
           localStorage.setItem('bigStore.user', JSON.stringify(user));
           localStorage.setItem('bigStore.jwt', response.data.token);
 
@@ -2516,7 +2520,7 @@ __webpack_require__.r(__webpack_exports__);
             if (_this.$route.params.nextUrl != null) {
               _this.$router.push(_this.$route.params.nextUrl);
             } else {
-              _this.$router.push(role == 'admin' ? 'admin' : 'dashboard');
+              _this.$router.push(role == 'admin' || role == 'staff' ? 'admin' : 'dashboard');
             }
           }
         });
@@ -40800,75 +40804,63 @@ var render = function () {
               [
                 _c("ul", { staticClass: "navbar-nav mr-auto" }),
                 _vm._v(" "),
-                _c(
-                  "ul",
-                  { staticClass: "navbar-nav ml-auto" },
-                  [
-                    !_vm.isLoggedIn
-                      ? _c(
-                          "router-link",
-                          {
-                            staticClass: "nav-link",
-                            attrs: { to: { name: "login" } },
-                          },
-                          [_vm._v("Login")]
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    !_vm.isLoggedIn
-                      ? _c(
-                          "router-link",
-                          {
-                            staticClass: "nav-link",
-                            attrs: { to: { name: "register" } },
-                          },
-                          [_vm._v("Register")]
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.isLoggedIn
-                      ? _c(
-                          "span",
-                          [
-                            _vm.user_type == _vm.user
-                              ? _c(
-                                  "router-link",
-                                  {
-                                    staticClass: "nav-link",
-                                    attrs: { to: { name: "userboard" } },
-                                  },
-                                  [_vm._v(" Hi, " + _vm._s(_vm.name))]
-                                )
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _vm.user_type == _vm.admin
-                              ? _c(
-                                  "router-link",
-                                  {
-                                    staticClass: "nav-link",
-                                    attrs: { to: { name: "admin" } },
-                                  },
-                                  [_vm._v(" Hi, " + _vm._s(_vm.name))]
-                                )
-                              : _vm._e(),
-                          ],
-                          1
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.isLoggedIn
-                      ? _c(
-                          "li",
-                          {
-                            staticClass: "nav-link",
-                            on: { click: _vm.logout },
-                          },
-                          [_vm._v(" Logout")]
-                        )
-                      : _vm._e(),
-                  ],
-                  1
-                ),
+                _c("ul", { staticClass: "navbar-nav ml-auto" }, [
+                  !_vm.isLoggedIn
+                    ? _c(
+                        "span",
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "nav-link",
+                              attrs: { to: { name: "login" } },
+                            },
+                            [_vm._v("Login")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "nav-link",
+                              attrs: { to: { name: "register" } },
+                            },
+                            [_vm._v("Register")]
+                          ),
+                        ],
+                        1
+                      )
+                    : _c(
+                        "span",
+                        [
+                          _vm.user_type == _vm.user
+                            ? _c(
+                                "router-link",
+                                {
+                                  staticClass: "nav-link",
+                                  attrs: { to: { name: "userboard" } },
+                                },
+                                [_vm._v(" Hi, " + _vm._s(_vm.name))]
+                              )
+                            : _c(
+                                "router-link",
+                                {
+                                  staticClass: "nav-link",
+                                  attrs: { to: { name: "admin" } },
+                                },
+                                [_vm._v(" Hi, " + _vm._s(_vm.name))]
+                              ),
+                        ],
+                        1
+                      ),
+                  _vm._v(" "),
+                  _vm.isLoggedIn
+                    ? _c(
+                        "li",
+                        { staticClass: "nav-link", on: { click: _vm.logout } },
+                        [_vm._v(" Logout")]
+                      )
+                    : _vm._e(),
+                ]),
               ]
             ),
           ],
