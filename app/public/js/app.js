@@ -2217,7 +2217,7 @@ __webpack_require__.r(__webpack_exports__);
       if (this.isLoggedIn) {
         var user = JSON.parse(localStorage.getItem('bigStore.user'));
         this.name = user.name;
-        this.user_type = user.is_admin;
+        this.user_type = user.role;
       }
     },
     change: function change() {
@@ -40830,7 +40830,7 @@ var render = function () {
                       ? _c(
                           "span",
                           [
-                            _vm.user_type == 0
+                            _vm.user_type == _vm.user
                               ? _c(
                                   "router-link",
                                   {
@@ -40841,7 +40841,7 @@ var render = function () {
                                 )
                               : _vm._e(),
                             _vm._v(" "),
-                            _vm.user_type == 1
+                            _vm.user_type == _vm.admin
                               ? _c(
                                   "router-link",
                                   {
