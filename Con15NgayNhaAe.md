@@ -28,9 +28,9 @@
 - run ./vendor/bin/sail up rồi mở tab terminal mới
 - Chạy lệnh ./vendor/bin/sail up mà ai dính lỗi "Array and string offset access syntax with curly braces is no longer supported in code example" ở "RUN pecl install mongodb && echo "extension=mongodb.so" > /etc/php/8.0/cli/php.ini" thì thêm  dòng này vô trước nó trong docker/8.0/Dockerfile:
 
-RUN curl -O https://pear.php.net/go-pear.phar
-RUN php go-pear.phar
-RUN pecl install grpc -q
+- RUN curl -O https://pear.php.net/go-pear.phar
+- RUN php go-pear.phar
+- RUN pecl install grpc -q
 
 - sau đó check lại phát chỗ dockerfile chỗ đánh dấu
   ![image](https://user-images.githubusercontent.com/71328121/139451660-a43be4e2-72ec-4fae-b025-6dcd5cb54ce1.png)
@@ -46,6 +46,7 @@ RUN pecl install grpc -q
       https://viblo.asia/p/cai-dat-laravel-ket-noi-voi-mongodb-maGK76XO5j2#_laravel-sail-co-ho-tro-mongodb-khong-0
   + kèm theo nhớ ./vendor/bin/sail down khi làm theo link để tránh lỗi nhé brủh
 - inbox Thạch để lấy .env
+- ae nào mà bị exit ngay laravel:test "/usr/bin/env: 'bash\r': No such file or directory" thì chạy: sudo apt-get install -y dos2unix \ sudo find . -type f -exec dos2unix {} \; sau đó build lại sail.
 - run .vendor/bin/sail composer install --> install package for laravel
 - chạy ./vendor/bin/sail artisan migrate để test dữ liệu
 - ./vendor/bin/sail artisan migrate --seed để tạo db mẫu
