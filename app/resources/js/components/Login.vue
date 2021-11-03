@@ -50,7 +50,7 @@
                         axios.post('api/login', {email, password}).then(response => {
                             let user = response.data.user
                             let role = user.role
-
+                            console.log(role)
                             localStorage.setItem('bigStore.user', JSON.stringify(user))
                             localStorage.setItem('bigStore.jwt', response.data.token)
 
@@ -59,7 +59,7 @@
                                 if (this.$route.params.nextUrl != null) {
                                     this.$router.push(this.$route.params.nextUrl)
                                 } else {
-                                    this.$router.push((role == 'admin' ? 'admin' : 'dashboard'))
+                                    this.$router.push((role == 'admin'||role == 'staff' ? 'admin' : 'dashboard'))
                                 }
                             }
                         });
