@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use Auth;
-use App\User;
+use App\Models\User;
 use Validator;
 use Illuminate\Http\Request;
 
+
 class UserController extends Controller
 {
+
     public function index()
     {
-        return response()->json(User::with(['orders'])->get());
+        return response()->json(User::with(['receipt'])->get());
     }
 
     public function login(Request $request)
@@ -47,11 +49,11 @@ class UserController extends Controller
         $data['password'] = bcrypt($data['password']);
 
         $user = User::create($data);
-        $user->role = "nhanvien";
+        $user->role = "staff";
 
         return response()->json([
             'user' => $user,
-            'token' => $user->createToken('cheemsstore')->accessToken,
+            'token' => $user->createToken('bigStore')->accessToken,
         ]);
     }
    
