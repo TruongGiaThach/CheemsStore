@@ -61,6 +61,7 @@
 ## Tips (thêm link vào đây, chú ý nội dung học thuật hoặc chia sẻ kiến thức:
 - https://chungnguyen.xyz/posts/code-laravel-lam-sao-cho-chuan
 - https://www.youtube.com/watch?v=CjA79XhHVQI
+- https://viblo.asia/p/tim-hieu-eloquent-trong-laravel-phan-1-eloquent-model-database-QpmleBAo5rd
 ## Hướng dẫn giao diện và code
 - https://www.youtube.com/watch?v=gvnxd1xne7Q (giao diện, code admin page)
 - https://www.youtube.com/watch?v=BEogCy3Ux2I
