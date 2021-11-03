@@ -5,17 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
 
-class Product extends Model
+class Product extends Eloquent
 {
     use HasFactory, SoftDeletes;
 
+    protected $connection = 'mongodb';
+    protected $colection = 'products';
     protected $fillable = [
-        'name', 'price', 'units', 'description', 'image'
+        'name','amount','importPrice','outportPrice','manufacture','warrantyPeriod',
+        'category_id','description','tag'
     ];
-
-    public function orders(){
-        return $this->hasMany(Order::class);
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
     }
+    
 }

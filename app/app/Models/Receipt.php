@@ -5,23 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
 
-class Order extends Model
+class Receipt extends Eloquent
 {
     use HasFactory, SoftDeletes;
 
+    protected $connection = 'mongodb';
+    protected $colection = 'receipt';
     protected $fillable = [
-        'product_id', 'user_id', 'quantity', 'address' 
+        'user_id','createDay','total','VAT',
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
-    }
-
-    public function product()
-    {
-        return $this->belongsTo(Product::class, 'product_id');
     }
 }
