@@ -55,6 +55,48 @@
 - connect mongodb, chỗ post là 0.0.0.0 và username = password = root
 - giờ oce cả rồi, run ./vendor/bin/sail npm run watch rồi code
 - chúc ae may mắn
+## Cho những ai muốn dùng vuetify
+Step-1: Run the below commands into your project terminal.
+    => $ sudo npm install
+    => $ sudo npm install vuetify
+    => $ sudo npm install sass sass-loader fibers deepmerge -D
+    => $ sudo npm install vuetify-loader
+
+Step-2: Create a folder named 'plugins' into the project under '/resources' and create a file named 'vuetify.js' i.e. 
+    '/resources/plugins/vuetify.js' also copy the below codes from the documentation into the file 'vuetify.js'
+
+        // src/plugins/vuetify.js
+
+        import Vue from 'vue'
+        import Vuetify from 'vuetify/lib'
+
+        Vue.use(Vuetify)
+
+        const opts = {}
+
+        export default new Vuetify(opts)
+
+Step-3: Open the file "/resources/js/app.js" and write two lines as follows-
+        window.Vue = require('vue');
+        import Vuetify from "../plugins/vuetify"; //write this new line
+        
+        const app = new Vue({
+                    vuetify: Vuetify, //write this new line
+                    el: '#app'
+            });
+
+Step-4: Open the file "webpack.mix.js" and write the below codes-
+        const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin');
+        var webpackConfig = {
+                plugins: [
+                    new VuetifyLoaderPlugin()
+                    // other plugins ...
+                ]
+            // other webpack config ...
+        }
+        mix.webpackConfig(webpackConfig);
+
+Step-5 : Run the command => $ sudo npm run watch
 ## Một số lưu ý khi thao tác database với mongo, ae bết thêm chỗ nào update hoặc thêm vào cho mn đỡ mò:
 - https://github.com/jenssegers/laravel-mongodb
 - https://tech.osteel.me/posts/you-dont-need-laravel-sail#extending-laravel-sail
