@@ -1,45 +1,242 @@
 <template>
-        <div>
-            <table class="table table-responsive table-striped">
-                <thead>
-                    <tr>
-                        <td></td>
-                        <td>Product</td>
-                        <td>Units</td>
-                        <td>Price</td>
-                        <td>Description</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="(product,index) in products" :key="index" @dblclick="editingItem = product">
-                        <td>{{index+1}}</td>
-                        <td v-html="product.name"></td>
-                        <td v-model:propName.="product.units">{{product.units}}</td>
-                        <td v-model:propName.="product.price">{{product.price}}</td>
-                        <td v-model:propName.="product.price">{{product.description}}</td>
-                    </tr>
-                </tbody>
-            </table>
-            <modal @close="endEditing" :product="editingItem" v-show="editingItem != null"></modal>
-            <modal @close="addProduct"  :product="addingProduct" v-show="addingProduct != null"></modal>
-            <br>
-            <button class="btn btn-primary" @click="newProduct">Add New Product</button>
-        </div>
+  <v-card>
+    <v-card-title class="mx-auto" elevate-on-scroll scroll-target="#scrolling-techniques-7">
+
+      <v-col>
+        <h2>Products</h2>
+
+        <v-btn-toggle v-model="toggle_exclusive">
+          <v-btn icon color="#2a9d8f" small>
+            <v-icon>mdi-plus</v-icon>
+          </v-btn>
+          <v-btn icon color="#f4a261" small>
+            <v-icon>mdi-pencil</v-icon>
+          </v-btn>
+          <v-btn icon color="#264653" small>
+            <v-icon>mdi-delete</v-icon>
+          </v-btn>
+        </v-btn-toggle>
+      </v-col>
+
+      <v-spacer></v-spacer>
+      <v-text-field
+        v-model="search"
+        append-icon="mdi-magnify"
+        label="Search"
+        single-line
+        hide-details
+      ></v-text-field>
+    </v-card-title>
+    <v-sheet
+      id="scrolling-techniques-7"
+      class="overflow-y-auto"
+      max-height="600"
+    >
+      <v-data-table
+        v-model="selected"
+        :headers="headers"
+        :items="products"
+        :search="search"
+        :single-select="singleSelect"
+        show-select
+      ></v-data-table>
+    </v-sheet>
+  </v-card>
 </template>
+
 <script>
     import Modal from './ProductModal'
 
     export default {
         data() {
             return {
-                products: [],
                 editingItem: null,
-                addingProduct: null
+                addingProduct: null,
+                search: '',
+                selected: [],
+                singleSelect: true,
+                toggle_exclusive: 2,
+                headers: [
+                  {
+                    text: 'Name',
+                    align: 'start',
+                    sortable: false,
+                    value: 'name',
+                  },
+                  { text: 'Amount', value: 'amount' },
+                  { text: 'Price', value: 'price' },
+                  { text: 'Image', value: 'image' },
+                  { text: 'Description', value: 'description' },
+                ],
+                products: [
+                    {
+                        name: 'paper',
+                        amount: 19,
+                        price: 1000,
+                        image: null,
+                        description: 'yeah',
+                    },
+                    {
+                        name: 'paper',
+                        amount: 19,
+                        price: 1000,
+                        image: null,
+                        description: 'yeah',
+                    },
+                    {
+                        name: 'paper',
+                        amount: 19,
+                        price: 1000,
+                        image: null,
+                        description: 'yeah',
+                    },
+                    {
+                        name: 'paper',
+                        amount: 19,
+                        price: 1000,
+                        image: null,
+                        description: 'yeah',
+                    },
+                    {
+                        name: 'paper',
+                        amount: 19,
+                        price: 1000,
+                        image: null,
+                        description: 'yeah',
+                    },
+                    {
+                        name: 'paper',
+                        amount: 19,
+                        price: 1000,
+                        image: null,
+                        description: 'yeah',
+                    },
+                    {
+                        name: 'paper',
+                        amount: 19,
+                        price: 1000,
+                        image: null,
+                        description: 'yeah',
+                    },
+                    {
+                        name: 'paper',
+                        amount: 19,
+                        price: 1000,
+                        image: null,
+                        description: 'yeah',
+                    },
+                    {
+                        name: 'paper',
+                        amount: 19,
+                        price: 1000,
+                        image: null,
+                        description: 'yeah',
+                    },
+                    {
+                        name: 'paper',
+                        amount: 19,
+                        price: 1000,
+                        image: null,
+                        description: 'yeah',
+                    },
+                    {
+                        name: 'paper',
+                        amount: 19,
+                        price: 1000,
+                        image: null,
+                        description: 'yeah',
+                    },
+                    {
+                        name: 'paper',
+                        amount: 19,
+                        price: 1000,
+                        image: null,
+                        description: 'yeah',
+                    },
+                    {
+                        name: 'paper',
+                        amount: 19,
+                        price: 1000,
+                        image: null,
+                        description: 'yeah',
+                    },
+
+                    {
+                        name: 'paper',
+                        amount: 19,
+                        price: 1000,
+                        image: null,
+                        description: 'yeah',
+                    },
+                    {
+                        name: 'paper',
+                        amount: 19,
+                        price: 1000,
+                        image: null,
+                        description: 'yeah',
+                    },
+                    {
+                        name: 'paper',
+                        amount: 19,
+                        price: 1000,
+                        image: null,
+                        description: 'yeah',
+                    },
+                    {
+                        name: 'paper',
+                        amount: 19,
+                        price: 1000,
+                        image: null,
+                        description: 'yeah',
+                    },
+                    {
+                        name: 'paper',
+                        amount: 19,
+                        price: 1000,
+                        image: null,
+                        description: 'yeah',
+                    },
+                    {
+                        name: 'paper',
+                        amount: 19,
+                        price: 1000,
+                        image: null,
+                        description: 'yeah',
+                    },
+                    {
+                        name: 'paper',
+                        amount: 19,
+                        price: 1000,
+                        image: null,
+                        description: 'yeah',
+                    },
+                    {
+                        name: 'paper',
+                        amount: 19,
+                        price: 1000,
+                        image: null,
+                        description: 'yeah',
+                    },
+                    {
+                        name: 'paper',
+                        amount: 19,
+                        price: 1000,
+                        image: null,
+                        description: 'yeah',
+                    },
+                    {
+                        name: 'paper',
+                        amount: 19,
+                        price: 1000,
+                        image: null,
+                        description: 'yeah',
+                    },
+                ],
             }
         },
         components: {Modal},
         beforeMount() {
-            axios.get('/api/products/').then(response => this.products = response.data)
+            //axios.get('/api/products/').then(response => this.products = response.data)
         },
         methods: {
             newProduct() {

@@ -55,6 +55,11 @@ const router = new VueRouter({
             component: SingleProduct
         },
         {
+            path: '/statistic/:id',
+            name: 'single-products',
+            component: SingleProduct
+        },
+        {
             path: '/confirmation',
             name: 'confirmation',
             component: Confirmation

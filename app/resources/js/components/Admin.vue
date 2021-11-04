@@ -6,7 +6,7 @@
                 absolute
                 color="white"
                 elevate-on-scroll
-                    elevation-4
+                scroll-target="#scrolling-techniques-7"
             >
                 <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
@@ -15,21 +15,25 @@
                 <v-spacer></v-spacer>
                 
             </v-app-bar>
-                <v-navigation-drawer
-                    v-model="drawer"
-                    app
-                >
-                    <v-img src="" class="pa-4">
-                        <div class="text-center mt-4">
-                            <v-avatar class="mb-4" color="grey darken-1" size="64">
-                                <v-img aspect-ratio="30" src="" />
-                            </v-avatar>
-                            <h1>
-                                {{ user!=null?user.name:"admin" }}
-                            </h1>
-                        </div>
-                    </v-img>
+                <v-navigation-drawer v-model="drawer" app permanent expand-on-hover>
+                    
+                    <v-list>
+                        <v-list-item class="px-2">
+                            <v-list-item-avatar color="grey darken-1">
+                                <v-img src="" />
+                            </v-list-item-avatar>
+                        </v-list-item>
 
+                        <v-list-item link>
+                            <v-list-item-content>
+                                <v-list-item-title class="text-h6">
+                                    {{ user!=null?user.name:"admin" }}
+                                </v-list-item-title>
+                                <v-list-item-subtitle>{{ user!=null?user.gmail:"admin@gmail.com" }}</v-list-item-subtitle>
+                            </v-list-item-content>
+                        </v-list-item>
+                    </v-list>
+                        
                     <v-divider></v-divider>
 
                         <v-list>
@@ -49,11 +53,15 @@
                             </v-list-item>
                         </v-list>
                 </v-navigation-drawer>
-                <v-main>
-                    <div class="dashboard-content">
-                        <component :is="activeComponent"></component>
-                    </div>
-                </v-main>
+                <v-sheet
+                    id="scrolling-techniques-7"
+                    class="overflow-y-auto"
+                    max-height="600"
+                >
+                    <v-main>
+                            <component :is="activeComponent"></component>
+                    </v-main>
+                </v-sheet>
         </v-app>
     </div>
 </template>
@@ -63,6 +71,7 @@
     import Users from './admin/Users'
     import Products from './admin/Products'
     import Orders from './admin/Orders'
+    import Statistic from './admin/Statistic'
 
     export default {
         data() {
@@ -74,6 +83,7 @@
                     ['mdi-paper-roll', 'Orders', 'orders'],
                     ['mdi-store-search', 'Product', 'products'],
                     ['mdi-account-group', 'users', 'users'],
+                    ['mdi-chart-line','Statistic','statistic'],
                 ],
             }
         },
@@ -101,6 +111,10 @@
                         this.activeComponent = Products
                         this.$router.push({name: 'admin-pages', params: {page: 'products'}})
                         break;
+                    case "statistic":
+                        this.activeComponent = Statistic
+                        this.$router.push({name: 'admin-pages', params: {page: 'statistic'}})
+                        break;
                     default:
                         this.activeComponent = Main
                         this.$router.push({name: 'admin'})
@@ -114,10 +128,5 @@
 <style scoped>
 .hero-section { height: 20vh; background: seagreen; align-items: center; margin-bottom: 20px; margin-top: -20px; }
 .title { font-size: 60px; color: #ffffff; }
-.dashboard {
-    background-color: seagreen;
-    height: 100vh;
-    width: 100vw;
-}
 
 </style>
