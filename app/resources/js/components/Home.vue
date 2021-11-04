@@ -390,7 +390,7 @@
 
     .overlap{
         position: absolute;
-        bottom:44px;
+        bottom:0px;
         z-index: 1;
         background-color:transparent;
         width: 100%;

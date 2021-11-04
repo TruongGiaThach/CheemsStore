@@ -2209,6 +2209,70 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -8150,7 +8214,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.navbar-brand #logo[data-v-332fccf4]{\n    float: left;\n    margin-right: 0.5em;\n}\n.navbar-brand #title[data-v-332fccf4]{\n    color: chocolate;\n    padding-top: 0.5em;\n}\n.navbar-brand[data-v-332fccf4] :hover{\n    opacity: 0.9;\n    filter: alpha(opacity=90);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.navbar-brand #logo[data-v-332fccf4]{\n    float: left;\n    margin-right: 0.5em;\n}\n.navbar-brand #title[data-v-332fccf4]{\n    color: #d2691e;\n    padding-top: 0.4em;\n}\n.navbar-brand[data-v-332fccf4] :hover{\n    opacity: 0.9;\n    filter: alpha(opacity=90);\n}\n.dropdown .dropdown-menu[data-v-332fccf4]{\n    min-width: 6.2em;\n}\n.navbar-nav[data-v-332fccf4]{\n    margin-bottom: -2em;\n}\n.dropdown:hover>.dropdown-menu[data-v-332fccf4]{\n    display: block;\n}\n.dropdown-menu .nav-link[data-v-332fccf4]:hover{\n    color:#d2691e;\n}\n.navbar-nav .navbar-icon[data-v-332fccf4]{\n    filter: invert(47%) sepia(15%) saturate(7%) hue-rotate(59deg) brightness(103%) contrast(89%);\n}\n.navbar-nav .navbar-icon[data-v-332fccf4]:hover{\n    filter: invert(45%) sepia(26%) saturate(2077%) hue-rotate(349deg) brightness(96%) contrast(88%);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8222,7 +8286,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.small-text[data-v-f2b6376c] {\n    font-size: 14px;\n}\n.product-box[data-v-f2b6376c] {\n    border: 1px solid #3f3f3f;\n    padding: 10px 15px;\n    width: 300;\n    height: 500;\n}\n.overlap[data-v-f2b6376c]{\n    position: absolute;\n    bottom:44px;\n    z-index: 1;\n    background-color:transparent;\n    width: 100%;\n    height: 566px;\n}\n.overlap .categorty-menu-area[data-v-f2b6376c]{\n    position: absolute;\n    width: 1200px;\n    height: 447px;\n    top: 10px;\n    left: 150px;\n    border-radius: 10px;\n}\n.overlap .categorty-menu-area .side-menu[data-v-f2b6376c]{\n    position: absolute;\n    background-color: white;\n    width: 230px;\n    height: inherit;\n    border-radius: inherit;\n}\n.overlap .categorty-menu-area .mega-dropdown[data-v-f2b6376c]{\n    display: none;\n    position: absolute;\n    height: 447px;\n    background-color: white;\n    width: 960px;\n    left: 240px;\n    border-radius: 10px;\n    top: 0;\n}\n.side-menu .side-menu-section table[data-v-f2b6376c]{\n    width: 100%;\n    font-size: 13px;\n    border-radius: 10px;\n}\n.side-menu .side-menu-section table td[data-v-f2b6376c]{\n    padding: 0.4em;\n}\n.side-menu .side-menu-section table[data-v-f2b6376c]:hover{\n    background-color: #9bc7f328;\n}\n.side-menu .side-menu-section a[data-v-f2b6376c]{\n    text-decoration: none;\n    color: rgb(36, 36, 36);\n}\n.side-menu .side-menu-section a[data-v-f2b6376c]:hover{\n    color: #005ba6;\n}\n.side-menu .side-menu-section table:hover + .mega-dropdown[data-v-f2b6376c]{\n    display:block;\n}\n.side-menu .side-menu-section .mega-dropdown[data-v-f2b6376c]:hover{\n    display:block;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.small-text[data-v-f2b6376c] {\n    font-size: 14px;\n}\n.product-box[data-v-f2b6376c] {\n    border: 1px solid #3f3f3f;\n    padding: 10px 15px;\n    width: 300;\n    height: 500;\n}\n.overlap[data-v-f2b6376c]{\n    position: absolute;\n    bottom:0px;\n    z-index: 1;\n    background-color:transparent;\n    width: 100%;\n    height: 566px;\n}\n.overlap .categorty-menu-area[data-v-f2b6376c]{\n    position: absolute;\n    width: 1200px;\n    height: 447px;\n    top: 10px;\n    left: 150px;\n    border-radius: 10px;\n}\n.overlap .categorty-menu-area .side-menu[data-v-f2b6376c]{\n    position: absolute;\n    background-color: white;\n    width: 230px;\n    height: inherit;\n    border-radius: inherit;\n}\n.overlap .categorty-menu-area .mega-dropdown[data-v-f2b6376c]{\n    display: none;\n    position: absolute;\n    height: 447px;\n    background-color: white;\n    width: 960px;\n    left: 240px;\n    border-radius: 10px;\n    top: 0;\n}\n.side-menu .side-menu-section table[data-v-f2b6376c]{\n    width: 100%;\n    font-size: 13px;\n    border-radius: 10px;\n}\n.side-menu .side-menu-section table td[data-v-f2b6376c]{\n    padding: 0.4em;\n}\n.side-menu .side-menu-section table[data-v-f2b6376c]:hover{\n    background-color: #9bc7f328;\n}\n.side-menu .side-menu-section a[data-v-f2b6376c]{\n    text-decoration: none;\n    color: rgb(36, 36, 36);\n}\n.side-menu .side-menu-section a[data-v-f2b6376c]:hover{\n    color: #005ba6;\n}\n.side-menu .side-menu-section table:hover + .mega-dropdown[data-v-f2b6376c]{\n    display:block;\n}\n.side-menu .side-menu-section .mega-dropdown[data-v-f2b6376c]:hover{\n    display:block;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8476,6 +8540,21 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/images/home/icons/icons8-heart-90.png":
+/*!*********************************************************!*\
+  !*** ./resources/images/home/icons/icons8-heart-90.png ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-heart-90.png?2dcb97edcc3d8936cd5a9ae917ceb94b");
+
+/***/ }),
+
 /***/ "./resources/images/home/icons/icons8-laptop-50.png":
 /*!**********************************************************!*\
   !*** ./resources/images/home/icons/icons8-laptop-50.png ***!
@@ -8488,6 +8567,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-laptop-50.png?dc8fb1fb1b4985a196bcb17ce8f5ae0a");
+
+/***/ }),
+
+/***/ "./resources/images/home/icons/icons8-male-user-90.png":
+/*!*************************************************************!*\
+  !*** ./resources/images/home/icons/icons8-male-user-90.png ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-male-user-90.png?9fa4cd45df2bce5cc0d21145784459b3");
 
 /***/ }),
 
@@ -8518,6 +8612,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-print-50.png?c1c160bfb83b9de06b17a64a4a6b768a");
+
+/***/ }),
+
+/***/ "./resources/images/home/icons/icons8-sale-90.png":
+/*!********************************************************!*\
+  !*** ./resources/images/home/icons/icons8-sale-90.png ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-sale-90.png?5523c2b8bcb8a780c069cc5804c10cd2");
 
 /***/ }),
 
@@ -41478,7 +41587,7 @@ var render = function () {
                     attrs: {
                       id: "logo",
                       src: __webpack_require__(/*! ../../images/home/logo/CheemsIcons.png */ "./resources/images/home/logo/CheemsIcons.png")["default"],
-                      width: "60px",
+                      width: "55em",
                     },
                   }),
                   _vm._v(" "),
@@ -41489,20 +41598,54 @@ var render = function () {
               ]
             ),
             _vm._v(" "),
-            _vm._m(0),
+            _c("div", { staticClass: "navbar-nav mr-auto" }),
             _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "collapse navbar-collapse",
-                attrs: { id: "navbarSupportedContent" },
-              },
-              [
-                _c("ul", { staticClass: "navbar-nav mr-auto" }),
-                _vm._v(" "),
+            _c("div", { staticClass: "navbar-nav ml-auto" }, [
+              _c("div", { staticClass: "dropdown" }, [
                 _c(
-                  "ul",
-                  { staticClass: "navbar-nav ml-auto" },
+                  "div",
+                  {
+                    staticClass: "btn dropdown ",
+                    attrs: {
+                      id: "dropdownMenuButton",
+                      "aria-expanded": "false",
+                    },
+                  },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: { name: "login" } },
+                      },
+                      [
+                        _c("div", { staticClass: "navbar-icon" }, [
+                          _c("img", {
+                            attrs: {
+                              src: __webpack_require__(/*! ../../images/home/icons/icons8-sale-90.png */ "./resources/images/home/icons/icons8-sale-90.png")["default"],
+                              width: "40em",
+                            },
+                          }),
+                          _vm._v(" "),
+                          _c("p", [_c("b", [_vm._v("Khuyến mãi")])]),
+                        ]),
+                      ]
+                    ),
+                  ],
+                  1
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "dropdown" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "btn dropdown ",
+                    attrs: {
+                      id: "dropdownMenuButton",
+                      "aria-expanded": "false",
+                    },
+                  },
                   [
                     !_vm.isLoggedIn
                       ? _c(
@@ -41511,18 +41654,78 @@ var render = function () {
                             staticClass: "nav-link",
                             attrs: { to: { name: "login" } },
                           },
-                          [_vm._v("Login")]
+                          [
+                            _c("div", { staticClass: "navbar-icon" }, [
+                              _c("img", {
+                                attrs: {
+                                  src: __webpack_require__(/*! ../../images/home/icons/icons8-heart-90.png */ "./resources/images/home/icons/icons8-heart-90.png")["default"],
+                                  width: "40em",
+                                },
+                              }),
+                              _vm._v(" "),
+                              _c("p", [_c("b", [_vm._v("Yêu thích")])]),
+                            ]),
+                          ]
                         )
                       : _vm._e(),
                     _vm._v(" "),
+                    _vm.isLoggedIn
+                      ? _c(
+                          "router-link",
+                          {
+                            staticClass: "nav-link",
+                            attrs: { to: { name: "login" } },
+                          },
+                          [
+                            _c("div", { staticClass: "navbar-icon" }, [
+                              _c("img", {
+                                attrs: {
+                                  src: __webpack_require__(/*! ../../images/home/icons/icons8-heart-90.png */ "./resources/images/home/icons/icons8-heart-90.png")["default"],
+                                  width: "40em",
+                                },
+                              }),
+                              _vm._v(" "),
+                              _c("p", [_c("b", [_vm._v("Yêu thích")])]),
+                            ]),
+                          ]
+                        )
+                      : _vm._e(),
+                  ],
+                  1
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "dropdown" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "btn dropdown ",
+                    attrs: {
+                      id: "dropdownMenuButton",
+                      "aria-expanded": "false",
+                      "data-offset": "100,20",
+                    },
+                  },
+                  [
                     !_vm.isLoggedIn
                       ? _c(
                           "router-link",
                           {
                             staticClass: "nav-link",
-                            attrs: { to: { name: "register" } },
+                            attrs: { to: { name: "login" } },
                           },
-                          [_vm._v("Register")]
+                          [
+                            _c("div", { staticClass: "navbar-icon" }, [
+                              _c("img", {
+                                attrs: {
+                                  src: __webpack_require__(/*! ../../images/home/icons/icons8-male-user-90.png */ "./resources/images/home/icons/icons8-male-user-90.png")["default"],
+                                  width: "40em",
+                                },
+                              }),
+                              _vm._v(" "),
+                              _c("p", [_c("b", [_vm._v("Tài khoản")])]),
+                            ]),
+                          ]
                         )
                       : _vm._e(),
                     _vm._v(" "),
@@ -41537,7 +41740,20 @@ var render = function () {
                                     staticClass: "nav-link",
                                     attrs: { to: { name: "userboard" } },
                                   },
-                                  [_vm._v(" Hi, " + _vm._s(_vm.name))]
+                                  [
+                                    _c("div", { staticClass: "navbar-icon" }, [
+                                      _c("img", {
+                                        attrs: {
+                                          src: __webpack_require__(/*! ../../images/home/icons/icons8-male-user-90.png */ "./resources/images/home/icons/icons8-male-user-90.png")["default"],
+                                          width: "40em",
+                                        },
+                                      }),
+                                      _vm._v(" "),
+                                      _c("p", [
+                                        _c("b", [_vm._v(_vm._s(_vm.name))]),
+                                      ]),
+                                    ]),
+                                  ]
                                 )
                               : _vm._e(),
                             _vm._v(" "),
@@ -41548,7 +41764,82 @@ var render = function () {
                                     staticClass: "nav-link",
                                     attrs: { to: { name: "admin" } },
                                   },
-                                  [_vm._v(" Hi, " + _vm._s(_vm.name))]
+                                  [
+                                    _c("div", { staticClass: "navbar-icon" }, [
+                                      _c("img", {
+                                        attrs: {
+                                          src: __webpack_require__(/*! ../../images/home/icons/icons8-male-user-90.png */ "./resources/images/home/icons/icons8-male-user-90.png")["default"],
+                                          width: "40em",
+                                        },
+                                      }),
+                                      _vm._v(" "),
+                                      _c("p", [
+                                        _c("b", [_vm._v(_vm._s(_vm.name))]),
+                                      ]),
+                                    ]),
+                                  ]
+                                )
+                              : _vm._e(),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "dropdown-menu",
+                    attrs: { "aria-labelledby": "dropdownMenuButton" },
+                  },
+                  [
+                    !_vm.isLoggedIn
+                      ? _c(
+                          "router-link",
+                          {
+                            staticClass: "nav-link",
+                            attrs: { to: { name: "login" } },
+                          },
+                          [_vm._v("Đăng nhập")]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    !_vm.isLoggedIn
+                      ? _c(
+                          "router-link",
+                          {
+                            staticClass: "nav-link",
+                            attrs: { to: { name: "register" } },
+                          },
+                          [_vm._v("Đăng ký")]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.isLoggedIn
+                      ? _c(
+                          "span",
+                          [
+                            _vm.user_type == 0
+                              ? _c(
+                                  "router-link",
+                                  {
+                                    staticClass: "nav-link",
+                                    attrs: { to: { name: "userboard" } },
+                                  },
+                                  [_vm._v("Hồ sơ")]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.user_type == 1
+                              ? _c(
+                                  "router-link",
+                                  {
+                                    staticClass: "nav-link",
+                                    attrs: { to: { name: "admin" } },
+                                  },
+                                  [_vm._v("Quản lý")]
                                 )
                               : _vm._e(),
                           ],
@@ -41563,14 +41854,14 @@ var render = function () {
                             staticClass: "nav-link",
                             on: { click: _vm.logout },
                           },
-                          [_vm._v(" Logout")]
+                          [_vm._v(" Đăng xuất")]
                         )
                       : _vm._e(),
                   ],
                   1
                 ),
-              ]
-            ),
+              ]),
+            ]),
           ],
           1
         ),
@@ -41585,28 +41876,7 @@ var render = function () {
     ),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "navbar-toggler",
-        attrs: {
-          type: "button",
-          "data-toggle": "collapse",
-          "data-target": "#navbarSupportedContent",
-          "aria-controls": "navbarSupportedContent",
-          "aria-expanded": "false",
-          "aria-label": "Toggle navigation",
-        },
-      },
-      [_c("span", { staticClass: "navbar-toggler-icon" })]
-    )
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
