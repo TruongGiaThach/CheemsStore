@@ -1,33 +1,61 @@
+ <!DOCTYPE html>
  <template>
-        <div>
-            <div class="dashboard">
-                <div class="sidebar">
-                    <div class="sidebar-title">
-                        Menu
+    <div class="dashboard">
+        <v-app id="inspire">
+            <v-app-bar app
+                absolute
+                color="white"
+                elevate-on-scroll
+                    elevation-4
+            >
+                <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+
+                <v-toolbar-title>Admin Dashboard</v-toolbar-title>
+
+                <v-spacer></v-spacer>
+                
+            </v-app-bar>
+                <v-navigation-drawer
+                    v-model="drawer"
+                    app
+                >
+                    <v-img src="" class="pa-4">
+                        <div class="text-center mt-4">
+                            <v-avatar class="mb-4" color="grey darken-1" size="64">
+                                <v-img aspect-ratio="30" src="" />
+                            </v-avatar>
+                            <h1>
+                                {{ user!=null?user.name:"admin" }}
+                            </h1>
+                        </div>
+                    </v-img>
+
+                    <v-divider></v-divider>
+
+                        <v-list>
+                            <v-list-item
+                                v-for="[icon, text, page] in Nav_bar_items"
+                                :key="icon"
+                                    link
+                                @click="setComponent(page)"
+                            >
+                                <v-list-item-icon>
+                                    <v-icon>{{ icon }}</v-icon>
+                                </v-list-item-icon>
+
+                                <v-list-item-content>
+                                    <v-list-item-title>{{ text }}</v-list-item-title>
+                                </v-list-item-content>
+                            </v-list-item>
+                        </v-list>
+                </v-navigation-drawer>
+                <v-main>
+                    <div class="dashboard-content">
+                        <component :is="activeComponent"></component>
                     </div>
-                    <div class="sidebar-menu-items">
-                        <button active-class="active" class="sidebar-menu-items-button" @click="setComponent(oders)">
-                            <div class="link-container">
-                                Orders
-                            </div>
-                        </button>
-                        <button active-class="active" class="sidebar-menu-items-button" @click="setComponent(products)">
-                            <div class="link-container">
-                                Products
-                            </div>
-                        </button>
-                        <button active-class="active" class="sidebar-menu-items-button" @click="setComponent(users)">
-                            <div class="link-container">
-                                Users
-                            </div>
-                        </button>
-                    </div>
-                </div>
-                <div class="dashboard-content">
-                    
-                </div>
-            </div>
-        </div>
+                </v-main>
+        </v-app>
+    </div>
 </template>
 
 <script>
@@ -40,7 +68,13 @@
         data() {
             return {
                 user: null,
-                activeComponent: null
+                activeComponent: null,
+                drawer: true,
+                Nav_bar_items: [
+                    ['mdi-paper-roll', 'Orders', 'orders'],
+                    ['mdi-store-search', 'Product', 'products'],
+                    ['mdi-account-group', 'users', 'users'],
+                ],
             }
         },
         components: {
@@ -78,55 +112,12 @@
 </script>
 
 <style scoped>
-.hero-section { height: 20vh; background: #ababab; align-items: center; margin-bottom: 20px; margin-top: -20px; }
+.hero-section { height: 20vh; background: seagreen; align-items: center; margin-bottom: 20px; margin-top: -20px; }
 .title { font-size: 60px; color: #ffffff; }
 .dashboard {
-    display: grid;
-    grid-template-columns: 1fr 5fr;
     background-color: seagreen;
     height: 100vh;
     width: 100vw;
-}
-
-.sidebar-title {
-    color: white;
-    font-size: 24px;
-    margin-top: 10px;
-    text-align: center;
-}
-
-.sidebar-menu-items {
-    display: flex;
-    flex-direction: column;
-    margin-top: 40px;
-}
-
-.sidebar-menu-items > * {
-    margin-top: 60px;
-}
-
-.dashboard-content {
-    background-color: white;
-    border-radius: 10px;
-    margin: 6px 6px 6px 6px;
-}
-
-.sidebar-menu-items-button:focus {
-    outline: none;
-}
-
-.sidebar-menu-items-button.active {
-    background-color: white;
-    color: seagreen;
-    font-weight: 500;
-}
-
-.sidebar-menu-items-button {
-    border: none;
-    padding: 10px 8px;
-    cursor: pointer;
-    font-size: 16px;
-    color: white;
 }
 
 </style>
