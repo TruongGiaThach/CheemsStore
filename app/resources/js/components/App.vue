@@ -2,7 +2,15 @@
         <div>
             <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
                 <div class="container">
-                    <router-link :to="{name: 'home'}" class="navbar-brand">Big Store</router-link>
+                    <router-link :to="{name: 'home'}" class="navbar-brand">
+                        <div>
+                            <img id="logo" :src = "require('../../images/home/logo/CheemsIcons.png').default" width="60px">
+                            <h2 id="title">
+                                <b>Cheems Store</b>
+                            </h2>
+                        </div>
+                        
+                        </router-link>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -60,3 +68,18 @@
         }
     }
 </script>
+
+<style scoped>
+.navbar-brand #logo{
+    float: left;
+    margin-right: 0.5em;
+}
+.navbar-brand #title{
+    color: chocolate;
+    padding-top: 0.5em;
+}
+.navbar-brand :hover{
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+}
+</style>
