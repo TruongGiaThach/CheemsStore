@@ -11,11 +11,14 @@
                         <ul class="navbar-nav mr-auto"></ul>
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
-                            <router-link :to="{ name: 'login' }" class="nav-link" v-if="!isLoggedIn">Login</router-link>
-                            <router-link :to="{ name: 'register' }" class="nav-link" v-if="!isLoggedIn">Register</router-link>
-                            <span v-if="isLoggedIn">
-                                <router-link :to="{ name: 'userboard' }" class="nav-link" v-if="user_type == 0"> Hi, {{name}}</router-link>
-                                <router-link :to="{ name: 'admin' }" class="nav-link" v-if="user_type == 1"> Hi, {{name}}, {{ nav_active = false }}</router-link>
+                            <span v-if="!isLoggedIn">
+                               <router-link :to="{ name: 'login' }" class="nav-link" >Login</router-link>
+                               <router-link :to="{ name: 'register' }" class="nav-link" >Register</router-link>
+                            </span>
+                           
+                            <span v-else>
+                                <router-link :to="{ name: 'userboard' }" class="nav-link" v-if="user_type == user"> Hi, {{name}}</router-link>
+                                <router-link :to="{ name: 'admin' }" class="nav-link" v-else> Hi, {{name}}, {{ nav_active = false }}</router-link>
                             </span>
                             <li class="nav-link" v-if="isLoggedIn" @click="logout"> Logout</li>
                         </ul>
@@ -45,7 +48,7 @@
                 if (this.isLoggedIn) {
                     let user = JSON.parse(localStorage.getItem('bigStore.user'))
                     this.name = user.name
-                    this.user_type = user.is_admin
+                    this.user_type = user.role
                 }
             },
             change() {
