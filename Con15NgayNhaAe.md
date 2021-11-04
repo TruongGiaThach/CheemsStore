@@ -49,6 +49,11 @@
 - ae nào mà bị exit ngay laravel:test "/usr/bin/env: 'bash\r': No such file or directory" thì chạy: sudo apt-get install -y dos2unix \ sudo find . -type f -exec dos2unix {} \\; sau đó build lại sail.
 - run .vendor/bin/sail composer install --> install package for laravel
 - chạy ./vendor/bin/sail artisan migrate để test dữ liệu
+- Nếu có ai gặp lối authenticate fail khi kết nối database hoặc migrate thì
+  + sail down nếu đang sail up
+  + vào file docker-compose.yml ngày chỗ volumes của service mongo, thêm /sail vào sau db
+  + chạy sail build rồi sail up lên chạy migrate như bình thường
+  + nếu vẫn gặp lỗi thì xem đã có file .env trong thư mục gốc chưa, nếu chưa thì inbox thạch hay bất cứ ai trong nhóm để xin, để vào thư mục gốc Cheemstore/app rồi chạy sail build
 - ./vendor/bin/sail artisan migrate --seed để tạo db mẫu
 
 - tải mongodb compass gui
