@@ -57,10 +57,10 @@
 - chúc ae may mắn
 ## Cho những ai muốn dùng vuetify
 Step-1: Run the below commands into your project terminal.
-    => $ sudo npm install
-    => $ sudo npm install vuetify
-    => $ sudo npm install sass sass-loader fibers deepmerge -D
-    => $ sudo npm install vuetify-loader
+      => $ sudo npm install
+      => $ sudo npm install vuetify
+      => $ sudo npm install sass sass-loader fibers deepmerge -D
+      => $ sudo npm install vuetify-loader
 
 Step-2: Create a folder named 'plugins' into the project under '/resources' and create a file named 'vuetify.js' i.e. 
     '/resources/plugins/vuetify.js' also copy the below codes from the documentation into the file 'vuetify.js'
