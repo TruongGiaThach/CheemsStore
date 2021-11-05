@@ -1,33 +1,156 @@
-
-  
 <template>
-	<div>
-        <table class="table table-responsive table-striped">
-            <thead>
-                <tr>
-                    <td></td>
-                    <td>Product</td>
-                    <td>Units</td>
-                    <td>Price</td>
-                    <td>Description</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="(product,index) in products" :key="index" @dblclick="editingItem = product">
-                    <td>{{index+1}}</td>
-                    <td v-html="product.name"></td>
-                    <td v-model:="product.units">{{product.units}}</td>
-                    <td v-model:="product.price">{{product.price}}</td>
-                    <td v-model:="product.price">{{product.description}}</td>
-                </tr>
-            </tbody>
-        </table>
-        <modal @close="endEditing" :product="editingItem" v-show="editingItem != null"></modal>
-        <modal @close="addProduct"  :product="addingProduct" v-show="addingProduct != null"></modal>
-        <br>
-        <button class="btn btn-primary" @click="newProduct">Add New Product</button>
-    </div>
+  <v-data-table
+    :headers="headers"
+    :items="products"
+    sort-by="calories"
+    class="elevation-1"
+  >
+    <template v-slot:top>
+      <v-toolbar
+        flat
+      >
+        <v-toolbar-title>Products</v-toolbar-title>
+        <v-divider
+          class="mx-4"
+          inset
+          vertical
+        ></v-divider>
+        <v-spacer></v-spacer>
+        <v-dialog
+          v-model="dialog"
+          max-width="500px"
+        >
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn
+              color="primary"
+              dark
+              class="mb-2"
+              v-bind="attrs"
+              v-on="on"
+            >
+              New Item
+            </v-btn>
+          </template>
+          <v-card>
+            <v-card-title>
+              <span class="text-h5">{{ formTitle }}</span>
+            </v-card-title>
+
+            <v-card-text>
+              <v-container>
+                <v-row>
+                  <v-col
+                    cols="12"
+                    sm="6"
+                    md="4"
+                  >
+                    <v-text-field
+                      v-model="editedItem.name"
+                      label="Product Name"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col
+                    cols="12"
+                    sm="6"
+                    md="4"
+                  >
+                    <v-text-field
+                      v-model="editedItem.units"
+                      label="Amount"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col
+                    cols="12"
+                    sm="6"
+                    md="4"
+                  >
+                    <v-text-field
+                      v-model="editedItem.price"
+                      label="Price"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col
+                    cols="12"
+                    sm="6"
+                    md="4"
+                  >
+                    <v-text-field
+                      v-model="editedItem.image"
+                      label="Image"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col
+                    cols="12"
+                    sm="6"
+                    md="4"
+                  >
+                    <v-text-field
+                      v-model="editedItem.description"
+                      label="Description"
+                    ></v-text-field>
+                  </v-col>
+                </v-row>
+              </v-container>
+            </v-card-text>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn
+                color="blue darken-1"
+                text
+                @click="close"
+              >
+                Cancel
+              </v-btn>
+              <v-btn
+                color="blue darken-1"
+                text
+                @click="save"
+              >
+                Save
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+        <v-dialog v-model="dialogDelete" max-width="500px">
+          <v-card>
+            <v-card-title class="text-h6">Are you sure you want to delete this item?</v-card-title>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
+              <v-btn color="blue darken-1" text @click="deleteItemConfirm">OK</v-btn>
+              <v-spacer></v-spacer>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      </v-toolbar>
+    </template>
+    <template v-slot:item.actions="{ item }">
+      <v-icon
+        small
+        class="mr-2"
+        @click="editItem(item)"
+      >
+        mdi-pencil
+      </v-icon>
+      <v-icon
+        small
+        @click="deleteItem(item)"
+      >
+        mdi-delete
+      </v-icon>
+    </template>
+    <template v-slot:no-data>
+      <v-btn
+        color="primary"
+        @click="initialize"
+      >
+        Reset
+      </v-btn>
+    </template>
+  </v-data-table>
 </template>
+
 <script>
     import Modal from './ProductModal'
 	export default {
@@ -35,12 +158,58 @@
             return {
                 products : [],
                 editingItem : null,
-                addingProduct : null
+                addingProduct : null,
+                dialog: false,
+                dialogDelete: false,
+                headers: [
+                    {
+                      text: 'Name',
+                      align: 'start',
+                      sortable: false,
+                      value: 'name',
+                    },
+                    { text: 'Units', value: 'units' },
+                    { text: 'Price', value: 'price' },
+                    { text: 'Image', value: 'image' },
+                    { text: 'Description', value: 'description' },
+                    { text: 'Actions', value: 'actions', sortable: false },
+                ],
+                editedIndex: -1,
+                editedItem: {
+                    name: '',
+                    units: 0,
+                    price: 0,
+                    image: null,
+                    description: '',
+                },
+                defaultItem: {
+                    name: '',
+                    units: 0,
+                    price: 0,
+                    image: null,
+                    description: '',
+                },
             }
         },
-        components : {
-            Modal
+        computed: {
+            formTitle () {
+                return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+            },
         },
+
+        watch: {
+            dialog (val) {
+                val || this.close()
+            },
+            dialogDelete (val) {
+            val || this.closeDelete()
+            },
+        },
+
+        created () {
+            this.initialize()
+        },
+
         beforeMount(){
             axios.get('/api/products/')
             .then(response => {
@@ -51,6 +220,165 @@
             })     
         },
         methods : {
+            initialize () {
+                this.products = [
+                    {
+                        name: 'paper',
+                        units: 10,
+                        price: 10000,
+                        image: null,
+                        description: 'NO',
+                    },
+                    {
+                        name: 'paper',
+                        units: 10,
+                        price: 10000,
+                        image: null,
+                        description: 'NO',
+                    },
+                    {
+                        name: 'paper',
+                        units: 10,
+                        price: 10000,
+                        image: null,
+                        description: 'NO',
+                    },
+                    {
+                        name: 'paper',
+                        units: 10,
+                        price: 10000,
+                        image: null,
+                        description: 'NO',
+                    },
+                    {
+                        name: 'paper',
+                        units: 10,
+                        price: 10000,
+                        image: null,
+                        description: 'NO',
+                    },
+                    {
+                        name: 'paper',
+                        units: 10,
+                        price: 10000,
+                        image: null,
+                        description: 'NO',
+                    },
+                    {
+                        name: 'paper',
+                        units: 10,
+                        price: 10000,
+                        image: null,
+                        description: 'NO',
+                    },
+                    {
+                        name: 'paper',
+                        units: 10,
+                        price: 10000,
+                        image: null,
+                        description: 'NO',
+                    },
+                    {
+                        name: 'paper',
+                        units: 10,
+                        price: 10000,
+                        image: null,
+                        description: 'NO',
+                    },
+                    {
+                        name: 'paper',
+                        units: 10,
+                        price: 10000,
+                        image: null,
+                        description: 'NO',
+                    },
+                    {
+                        name: 'paper',
+                        units: 10,
+                        price: 10000,
+                        image: null,
+                        description: 'NO',
+                    },
+                    {
+                        name: 'paper',
+                        units: 10,
+                        price: 10000,
+                        image: null,
+                        description: 'NO',
+                    },
+                    {
+                        name: 'paper',
+                        units: 10,
+                        price: 10000,
+                        image: null,
+                        description: 'NO',
+                    },
+                    {
+                        name: 'paper',
+                        units: 10,
+                        price: 10000,
+                        image: null,
+                        description: 'NO',
+                    },
+                    {
+                        name: 'paper',
+                        units: 10,
+                        price: 10000,
+                        image: null,
+                        description: 'NO',
+                    },
+                    {
+                        name: 'paper',
+                        units: 10,
+                        price: 10000,
+                        image: null,
+                        description: 'NO',
+                    },
+                    {
+                        name: 'paper',
+                        units: 10,
+                        price: 10000,
+                        image: null,
+                        description: 'NO',
+                    },
+                    {
+                        name: 'paper',
+                        units: 10,
+                        price: 10000,
+                        image: null,
+                        description: 'NO',
+                    },
+                    {
+                        name: 'paper',
+                        units: 10,
+                        price: 10000,
+                        image: null,
+                        description: 'NO',
+                    },
+                    {
+                        name: 'paper',
+                        units: 10,
+                        price: 10000,
+                        image: null,
+                        description: 'NO',
+                    },
+                    {
+                        name: 'paper',
+                        units: 10,
+                        price: 10000,
+                        image: null,
+                        description: 'NO',
+                    },
+                    {
+                        name: 'paper',
+                        units: 10,
+                        price: 10000,
+                        image: null,
+                        description: 'NO',
+                    },
+                ]
+            },
+
             newProduct(){
                 this.addingProduct = {
                     name : null, 
@@ -69,9 +397,6 @@
                     price : product.price,
                     description : product.description,
                 })
-                .then(response =>{
-                    this.products[index] = product
-                })
                 .catch(response => {
                 })
             },
@@ -84,12 +409,52 @@
                     description : product.description,
                     image : product.image
                 })
-                .then(response =>{
-                    this.products.push(product)
-                })
                 .catch(response => {
                 })
-            }
+            },
+            editItem (item) {
+                this.editedIndex = this.products.indexOf(item)
+                this.editedItem = Object.assign({}, item)
+                this.dialog = true
+            },
+
+            deleteItem (item) {
+                this.editedIndex = this.products.indexOf(item)
+                this.editedItem = Object.assign({}, item)
+                this.dialogDelete = true
+            },
+
+            deleteItemConfirm () {
+                this.products.splice(this.editedIndex, 1)
+                this.closeDelete()
+            },
+
+            close () {
+                this.dialog = false
+                this.$nextTick(() => {
+                this.editedItem = Object.assign({}, this.defaultItem)
+                this.editedIndex = -1
+                })
+            },
+
+            closeDelete () {
+                this.dialogDelete = false
+                this.$nextTick(() => {
+                this.editedItem = Object.assign({}, this.defaultItem)
+                this.editedIndex = -1
+                })
+            },
+
+            save () {
+                if (this.editedIndex > -1) {
+                Object.assign(this.products[this.editedIndex], this.editedItem)
+                this.endEditing(this.editedItem)
+                } else {
+                this.addProduct(this.editedItem)
+                this.products.push(this.editedItem)
+                }
+                this.close()
+            },
         }
     }
 </script>

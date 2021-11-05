@@ -4,20 +4,39 @@
         <v-app id="inspire">
             <v-app-bar app
                 absolute
-                color="white"
                 elevate-on-scroll
                 scroll-target="#scrolling-techniques-7"
             >
-                <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
                 <v-toolbar-title>Admin Dashboard</v-toolbar-title>
 
                 <v-spacer></v-spacer>
                 
-            </v-app-bar>
-                <v-navigation-drawer v-model="drawer" app permanent expand-on-hover>
-                    
+                <v-menu left bottom>
+                    <template v-slot:activator="{ on, attrs }">
+                        <v-btn icon v-bind="attrs" v-on="on">
+                            <v-icon>mdi-dots-vertical</v-icon>
+                        </v-btn>
+                    </template>
+
                     <v-list>
+                         <v-list-item active-class="" @click="() => {}">
+                            <v-btn @click="toggleTheme" text rounded>
+                                {{ this.$vuetify.theme.dark?'Light mode':'Dark mode'}}
+                            </v-btn>
+                        </v-list-item>
+                        <v-list-item active-class="" @click="() => {}">
+                            <v-list-item-title>Settings</v-list-item-title>
+                        </v-list-item>
+                        <v-list-item active-class="" @click="() => {}">
+                            <v-list-item-title>Log out</v-list-item-title>
+                        </v-list-item>
+                    </v-list>
+                </v-menu>
+            </v-app-bar>
+                <v-navigation-drawer v-model="drawer" app permanent expand-on-hover color="#52b69a">
+                    
+                    <v-list color="#34a0a4">
                         <v-list-item class="px-2">
                             <v-list-item-avatar color="grey darken-1">
                                 <v-img src="" />
@@ -26,15 +45,13 @@
 
                         <v-list-item link>
                             <v-list-item-content>
-                                <v-list-item-title class="text-h6">
+                                <v-list-item-title class="text-h6" color="#f1faee">
                                     {{ user!=null?user.name:"admin" }}
                                 </v-list-item-title>
                                 <v-list-item-subtitle>{{ user!=null?user.gmail:"admin@gmail.com" }}</v-list-item-subtitle>
                             </v-list-item-content>
                         </v-list-item>
                     </v-list>
-                        
-                    <v-divider></v-divider>
 
                         <v-list>
                             <v-list-item
@@ -56,7 +73,6 @@
                 <v-sheet
                     id="scrolling-techniques-7"
                     class="overflow-y-auto"
-                    max-height="600"
                 >
                     <v-main>
                             <component :is="activeComponent"></component>
@@ -97,6 +113,9 @@
             axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('bigStore.jwt')
         },
         methods: {
+            toggleTheme() {
+                this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+            },
             setComponent(value) {
                 switch(value) {
                     case "users":
