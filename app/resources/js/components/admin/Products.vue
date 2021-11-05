@@ -55,7 +55,7 @@
                 search: '',
                 selected: [],
                 singleSelect: true,
-                toggle_exclusive: 2,
+                toggle_exclusive: -1,
                 headers: [
                   {
                     text: 'Name',

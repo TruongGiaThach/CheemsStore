@@ -34,7 +34,7 @@
     export default {
         data() {
             return {
-                nav_active: false,
+                nav_active: true,
                 name: null,
                 user_type: 0,
                 isLoggedIn: localStorage.getItem('bigStore.jwt') != null
