@@ -2273,6 +2273,41 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -8214,7 +8249,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.navbar-brand #logo[data-v-332fccf4]{\n    float: left;\n    margin-right: 0.5em;\n}\n.navbar-brand #title[data-v-332fccf4]{\n    color: #d2691e;\n    padding-top: 0.4em;\n}\n.navbar-brand[data-v-332fccf4] :hover{\n    opacity: 0.9;\n    filter: alpha(opacity=90);\n}\n.dropdown .dropdown-menu[data-v-332fccf4]{\n    min-width: 6.2em;\n}\n.navbar-nav[data-v-332fccf4]{\n    margin-bottom: -2em;\n}\n.dropdown:hover>.dropdown-menu[data-v-332fccf4]{\n    display: block;\n}\n.dropdown-menu .nav-link[data-v-332fccf4]:hover{\n    color:#d2691e;\n}\n.navbar-nav .navbar-icon[data-v-332fccf4]{\n    filter: invert(47%) sepia(15%) saturate(7%) hue-rotate(59deg) brightness(103%) contrast(89%);\n}\n.navbar-nav .navbar-icon[data-v-332fccf4]:hover{\n    filter: invert(45%) sepia(26%) saturate(2077%) hue-rotate(349deg) brightness(96%) contrast(88%);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/**************************\r\n*******Top header CSS******\r\n***************************/\n.topbar[data-v-332fccf4]{\r\n    height: 3em;\r\n    background-color: #d2691e;\n}\n.header_top[data-v-332fccf4] {\r\n  background: none repeat scroll 0 0 #F0F0E9;\n}\n.contactinfo ul li[data-v-332fccf4]:first-child{\r\n    margin-left: -15px;\n}\n.contactinfo ul li a[data-v-332fccf4]{\r\n  font-size: 12px;\r\n  color: #696763;\r\n  font-family: 'Roboto', sans-serif;\n}\n.contactinfo ul li a[data-v-332fccf4]:hover{\r\n\tbackground:inherit;\n}\n.social-icons ul li a[data-v-332fccf4] {\r\n  border: 0 none;\r\n  border-radius: 0;\r\n  color: #696763;\r\n  padding:0px;\n}\n.social-icons ul li[data-v-332fccf4]{\r\n\tdisplay:inline-block;\n}\n.social-icons ul li a i[data-v-332fccf4] {\r\n  padding: 11px 15px;\r\n   transition: all 0.9s ease 0s;\r\n  -moz-transition: all 0.9s ease 0s;\r\n  -webkit-transition: all 0.9s ease 0s;\r\n  -o-transition: all 0.9s ease 0s;\n}\n.social-icons ul li a i[data-v-332fccf4]:hover{\r\n  color: #fff;\r\n   transition: all 0.9s ease 0s;\r\n  -moz-transition: all 0.9s ease 0s;\r\n  -webkit-transition: all 0.9s ease 0s;\r\n  -o-transition: all 0.9s ease 0s;\n}\n.fa-facebook[data-v-332fccf4]:hover {\r\n  background: #0083C9;\n}\n.fa-twitter[data-v-332fccf4]:hover  {\r\n\tbackground:#5BBCEC;\n}\n.fa-linkedin[data-v-332fccf4]:hover  {\r\n\tbackground:#FF4518;\n}\n.fa-dribbble[data-v-332fccf4]:hover  {\r\n\tbackground:#90C9DC;\n}\n.fa-google-plus[data-v-332fccf4]:hover  {\r\n\tbackground:#CE3C2D;\n}\r\n\r\n/***************************\r\n*******Main header CSS******\r\n****************************/\n.mainbar[data-v-332fccf4]{\r\n    height: 5em;\n}\n.mainbar .container[data-v-332fccf4]{\r\n    margin-top: 1em ;\n}\n.navbar-brand[data-v-332fccf4] {\r\n    margin-left: -4em;\n}\n.navbar-brand #logo[data-v-332fccf4]{\r\n    float: left;\r\n    margin-right: 0.5em;\n}\n.navbar-brand #title[data-v-332fccf4]{\r\n    color: #d2691e;\r\n    padding-top: 0.4em;\n}\n.navbar-brand[data-v-332fccf4] :hover{\r\n    opacity: 0.9;\r\n    filter: alpha(opacity=90);\n}\n.dropdown .dropdown-menu[data-v-332fccf4]{\r\n    min-width: 6.2em;\n}\n.navbar-nav[data-v-332fccf4]{\r\n    margin-bottom: -2em;\n}\n.mr-auto[data-v-332fccf4]{\r\n    margin-left:8em;\r\n    margin-bottom: 0em;\n}\n.dropdown:hover>.dropdown-menu[data-v-332fccf4]{\r\n    display: block;\n}\n.dropdown-menu .nav-link[data-v-332fccf4]:hover{\r\n    color:#d2691e;\n}\n.navbar-nav .navbar-icon[data-v-332fccf4]{\r\n    filter: \r\n    invert(47%) \r\n    sepia(15%) \r\n    saturate(7%) \r\n    hue-rotate(59deg) \r\n    brightness(103%) \r\n    contrast(89%);\n}\n.navbar-nav .navbar-icon[data-v-332fccf4]:hover{\r\n    filter: \r\n    invert(45%) \r\n    sepia(26%) \r\n    saturate(2077%)\r\n    hue-rotate(349deg) \r\n    brightness(96%) \r\n    contrast(88%);\n}\n.cheems-color[data-v-332fccf4]{\r\n    background-color: #d2691e;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8627,6 +8662,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-sale-90.png?5523c2b8bcb8a780c069cc5804c10cd2");
+
+/***/ }),
+
+/***/ "./resources/images/home/icons/icons8-search-90.png":
+/*!**********************************************************!*\
+  !*** ./resources/images/home/icons/icons8-search-90.png ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-search-90.png?5219d6d28ce445e7fc5bd6e18980ffff");
 
 /***/ }),
 
@@ -41570,301 +41620,329 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
     _c(
       "nav",
-      { staticClass: "navbar navbar-expand-md navbar-light navbar-laravel" },
+      {
+        staticClass:
+          "navbar navbar-expand-md navbar-light navbar-laravel mainbar",
+      },
       [
-        _c(
-          "div",
-          { staticClass: "container" },
-          [
-            _c(
-              "router-link",
-              { staticClass: "navbar-brand", attrs: { to: { name: "home" } } },
-              [
-                _c("div", [
+        _c("div", { staticClass: "container" }, [
+          _c(
+            "div",
+            { staticClass: "brand" },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "navbar-brand",
+                  attrs: { to: { name: "home" } },
+                },
+                [
+                  _c("div", [
+                    _c("img", {
+                      attrs: {
+                        id: "logo",
+                        src: __webpack_require__(/*! ../../images/home/logo/CheemsIcons.png */ "./resources/images/home/logo/CheemsIcons.png")["default"],
+                        width: "55em",
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c("h2", { attrs: { id: "title" } }, [
+                      _c("b", [_vm._v("Cheems Store")]),
+                    ]),
+                  ]),
+                ]
+              ),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "navbar-nav mr-auto" }, [
+            _c("form", { staticClass: "form-inline" }, [
+              _c("input", {
+                staticClass: "form-control mr-sm-2 ",
+                attrs: {
+                  type: "search",
+                  placeholder: "Tìm kiếm...",
+                  "aria-label": "Search",
+                },
+              }),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-warning my-2 my-sm-0 cheems-color",
+                  attrs: { type: "submit" },
+                },
+                [
                   _c("img", {
                     attrs: {
-                      id: "logo",
-                      src: __webpack_require__(/*! ../../images/home/logo/CheemsIcons.png */ "./resources/images/home/logo/CheemsIcons.png")["default"],
-                      width: "55em",
+                      src: __webpack_require__(/*! ../../images/home/icons/icons8-search-90.png */ "./resources/images/home/icons/icons8-search-90.png")["default"],
+                      width: "20em",
                     },
                   }),
-                  _vm._v(" "),
-                  _c("h2", { attrs: { id: "title" } }, [
-                    _c("b", [_vm._v("Cheems Store")]),
-                  ]),
-                ]),
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "navbar-nav mr-auto" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "navbar-nav ml-auto" }, [
-              _c("div", { staticClass: "dropdown" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "btn dropdown ",
-                    attrs: {
-                      id: "dropdownMenuButton",
-                      "aria-expanded": "false",
-                    },
-                  },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-link",
-                        attrs: { to: { name: "login" } },
-                      },
-                      [
-                        _c("div", { staticClass: "navbar-icon" }, [
-                          _c("img", {
-                            attrs: {
-                              src: __webpack_require__(/*! ../../images/home/icons/icons8-sale-90.png */ "./resources/images/home/icons/icons8-sale-90.png")["default"],
-                              width: "40em",
-                            },
-                          }),
-                          _vm._v(" "),
-                          _c("p", [_c("b", [_vm._v("Khuyến mãi")])]),
-                        ]),
-                      ]
-                    ),
-                  ],
-                  1
-                ),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "dropdown" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "btn dropdown ",
-                    attrs: {
-                      id: "dropdownMenuButton",
-                      "aria-expanded": "false",
-                    },
-                  },
-                  [
-                    !_vm.isLoggedIn
-                      ? _c(
-                          "router-link",
-                          {
-                            staticClass: "nav-link",
-                            attrs: { to: { name: "login" } },
-                          },
-                          [
-                            _c("div", { staticClass: "navbar-icon" }, [
-                              _c("img", {
-                                attrs: {
-                                  src: __webpack_require__(/*! ../../images/home/icons/icons8-heart-90.png */ "./resources/images/home/icons/icons8-heart-90.png")["default"],
-                                  width: "40em",
-                                },
-                              }),
-                              _vm._v(" "),
-                              _c("p", [_c("b", [_vm._v("Yêu thích")])]),
-                            ]),
-                          ]
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.isLoggedIn
-                      ? _c(
-                          "router-link",
-                          {
-                            staticClass: "nav-link",
-                            attrs: { to: { name: "login" } },
-                          },
-                          [
-                            _c("div", { staticClass: "navbar-icon" }, [
-                              _c("img", {
-                                attrs: {
-                                  src: __webpack_require__(/*! ../../images/home/icons/icons8-heart-90.png */ "./resources/images/home/icons/icons8-heart-90.png")["default"],
-                                  width: "40em",
-                                },
-                              }),
-                              _vm._v(" "),
-                              _c("p", [_c("b", [_vm._v("Yêu thích")])]),
-                            ]),
-                          ]
-                        )
-                      : _vm._e(),
-                  ],
-                  1
-                ),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "dropdown" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "btn dropdown ",
-                    attrs: {
-                      id: "dropdownMenuButton",
-                      "aria-expanded": "false",
-                      "data-offset": "100,20",
-                    },
-                  },
-                  [
-                    !_vm.isLoggedIn
-                      ? _c(
-                          "router-link",
-                          {
-                            staticClass: "nav-link",
-                            attrs: { to: { name: "login" } },
-                          },
-                          [
-                            _c("div", { staticClass: "navbar-icon" }, [
-                              _c("img", {
-                                attrs: {
-                                  src: __webpack_require__(/*! ../../images/home/icons/icons8-male-user-90.png */ "./resources/images/home/icons/icons8-male-user-90.png")["default"],
-                                  width: "40em",
-                                },
-                              }),
-                              _vm._v(" "),
-                              _c("p", [_c("b", [_vm._v("Tài khoản")])]),
-                            ]),
-                          ]
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.isLoggedIn
-                      ? _c(
-                          "span",
-                          [
-                            _vm.user_type == 0
-                              ? _c(
-                                  "router-link",
-                                  {
-                                    staticClass: "nav-link",
-                                    attrs: { to: { name: "userboard" } },
-                                  },
-                                  [
-                                    _c("div", { staticClass: "navbar-icon" }, [
-                                      _c("img", {
-                                        attrs: {
-                                          src: __webpack_require__(/*! ../../images/home/icons/icons8-male-user-90.png */ "./resources/images/home/icons/icons8-male-user-90.png")["default"],
-                                          width: "40em",
-                                        },
-                                      }),
-                                      _vm._v(" "),
-                                      _c("p", [
-                                        _c("b", [_vm._v(_vm._s(_vm.name))]),
-                                      ]),
-                                    ]),
-                                  ]
-                                )
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _vm.user_type == 1
-                              ? _c(
-                                  "router-link",
-                                  {
-                                    staticClass: "nav-link",
-                                    attrs: { to: { name: "admin" } },
-                                  },
-                                  [
-                                    _c("div", { staticClass: "navbar-icon" }, [
-                                      _c("img", {
-                                        attrs: {
-                                          src: __webpack_require__(/*! ../../images/home/icons/icons8-male-user-90.png */ "./resources/images/home/icons/icons8-male-user-90.png")["default"],
-                                          width: "40em",
-                                        },
-                                      }),
-                                      _vm._v(" "),
-                                      _c("p", [
-                                        _c("b", [_vm._v(_vm._s(_vm.name))]),
-                                      ]),
-                                    ]),
-                                  ]
-                                )
-                              : _vm._e(),
-                          ],
-                          1
-                        )
-                      : _vm._e(),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "dropdown-menu",
-                    attrs: { "aria-labelledby": "dropdownMenuButton" },
-                  },
-                  [
-                    !_vm.isLoggedIn
-                      ? _c(
-                          "router-link",
-                          {
-                            staticClass: "nav-link",
-                            attrs: { to: { name: "login" } },
-                          },
-                          [_vm._v("Đăng nhập")]
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    !_vm.isLoggedIn
-                      ? _c(
-                          "router-link",
-                          {
-                            staticClass: "nav-link",
-                            attrs: { to: { name: "register" } },
-                          },
-                          [_vm._v("Đăng ký")]
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.isLoggedIn
-                      ? _c(
-                          "span",
-                          [
-                            _vm.user_type == 0
-                              ? _c(
-                                  "router-link",
-                                  {
-                                    staticClass: "nav-link",
-                                    attrs: { to: { name: "userboard" } },
-                                  },
-                                  [_vm._v("Hồ sơ")]
-                                )
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _vm.user_type == 1
-                              ? _c(
-                                  "router-link",
-                                  {
-                                    staticClass: "nav-link",
-                                    attrs: { to: { name: "admin" } },
-                                  },
-                                  [_vm._v("Quản lý")]
-                                )
-                              : _vm._e(),
-                          ],
-                          1
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.isLoggedIn
-                      ? _c(
-                          "li",
-                          {
-                            staticClass: "nav-link",
-                            on: { click: _vm.logout },
-                          },
-                          [_vm._v(" Đăng xuất")]
-                        )
-                      : _vm._e(),
-                  ],
-                  1
-                ),
-              ]),
+                ]
+              ),
             ]),
-          ],
-          1
-        ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "navbar-nav ml-auto" }, [
+            _c("div", { staticClass: "dropdown" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "btn dropdown ",
+                  attrs: { id: "dropdownMenuButton", "aria-expanded": "false" },
+                },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "nav-link",
+                      attrs: { to: { name: "login" } },
+                    },
+                    [
+                      _c("div", { staticClass: "navbar-icon" }, [
+                        _c("img", {
+                          attrs: {
+                            src: __webpack_require__(/*! ../../images/home/icons/icons8-sale-90.png */ "./resources/images/home/icons/icons8-sale-90.png")["default"],
+                            width: "40em",
+                          },
+                        }),
+                        _vm._v(" "),
+                        _c("p", [_c("b", [_vm._v("Khuyến mãi")])]),
+                      ]),
+                    ]
+                  ),
+                ],
+                1
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "dropdown" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "btn dropdown ",
+                  attrs: { id: "dropdownMenuButton", "aria-expanded": "false" },
+                },
+                [
+                  !_vm.isLoggedIn
+                    ? _c(
+                        "router-link",
+                        {
+                          staticClass: "nav-link",
+                          attrs: { to: { name: "login" } },
+                        },
+                        [
+                          _c("div", { staticClass: "navbar-icon" }, [
+                            _c("img", {
+                              attrs: {
+                                src: __webpack_require__(/*! ../../images/home/icons/icons8-heart-90.png */ "./resources/images/home/icons/icons8-heart-90.png")["default"],
+                                width: "40em",
+                              },
+                            }),
+                            _vm._v(" "),
+                            _c("p", [_c("b", [_vm._v("Yêu thích")])]),
+                          ]),
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.isLoggedIn
+                    ? _c(
+                        "router-link",
+                        {
+                          staticClass: "nav-link",
+                          attrs: { to: { name: "login" } },
+                        },
+                        [
+                          _c("div", { staticClass: "navbar-icon" }, [
+                            _c("img", {
+                              attrs: {
+                                src: __webpack_require__(/*! ../../images/home/icons/icons8-heart-90.png */ "./resources/images/home/icons/icons8-heart-90.png")["default"],
+                                width: "40em",
+                              },
+                            }),
+                            _vm._v(" "),
+                            _c("p", [_c("b", [_vm._v("Yêu thích")])]),
+                          ]),
+                        ]
+                      )
+                    : _vm._e(),
+                ],
+                1
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "dropdown" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "btn dropdown ",
+                  attrs: {
+                    id: "dropdownMenuButton",
+                    "aria-expanded": "false",
+                    "data-offset": "100,20",
+                  },
+                },
+                [
+                  !_vm.isLoggedIn
+                    ? _c(
+                        "router-link",
+                        {
+                          staticClass: "nav-link",
+                          attrs: { to: { name: "login" } },
+                        },
+                        [
+                          _c("div", { staticClass: "navbar-icon" }, [
+                            _c("img", {
+                              attrs: {
+                                src: __webpack_require__(/*! ../../images/home/icons/icons8-male-user-90.png */ "./resources/images/home/icons/icons8-male-user-90.png")["default"],
+                                width: "40em",
+                              },
+                            }),
+                            _vm._v(" "),
+                            _c("p", [_c("b", [_vm._v("Tài khoản")])]),
+                          ]),
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.isLoggedIn
+                    ? _c(
+                        "span",
+                        [
+                          _vm.user_type == 0
+                            ? _c(
+                                "router-link",
+                                {
+                                  staticClass: "nav-link",
+                                  attrs: { to: { name: "userboard" } },
+                                },
+                                [
+                                  _c("div", { staticClass: "navbar-icon" }, [
+                                    _c("img", {
+                                      attrs: {
+                                        src: __webpack_require__(/*! ../../images/home/icons/icons8-male-user-90.png */ "./resources/images/home/icons/icons8-male-user-90.png")["default"],
+                                        width: "40em",
+                                      },
+                                    }),
+                                    _vm._v(" "),
+                                    _c("p", [
+                                      _c("b", [_vm._v(_vm._s(_vm.name))]),
+                                    ]),
+                                  ]),
+                                ]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.user_type == 1
+                            ? _c(
+                                "router-link",
+                                {
+                                  staticClass: "nav-link",
+                                  attrs: { to: { name: "admin" } },
+                                },
+                                [
+                                  _c("div", { staticClass: "navbar-icon" }, [
+                                    _c("img", {
+                                      attrs: {
+                                        src: __webpack_require__(/*! ../../images/home/icons/icons8-male-user-90.png */ "./resources/images/home/icons/icons8-male-user-90.png")["default"],
+                                        width: "40em",
+                                      },
+                                    }),
+                                    _vm._v(" "),
+                                    _c("p", [
+                                      _c("b", [_vm._v(_vm._s(_vm.name))]),
+                                    ]),
+                                  ]),
+                                ]
+                              )
+                            : _vm._e(),
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "dropdown-menu",
+                  attrs: { "aria-labelledby": "dropdownMenuButton" },
+                },
+                [
+                  !_vm.isLoggedIn
+                    ? _c(
+                        "router-link",
+                        {
+                          staticClass: "nav-link",
+                          attrs: { to: { name: "login" } },
+                        },
+                        [_vm._v("Đăng nhập")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  !_vm.isLoggedIn
+                    ? _c(
+                        "router-link",
+                        {
+                          staticClass: "nav-link",
+                          attrs: { to: { name: "register" } },
+                        },
+                        [_vm._v("Đăng ký")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.isLoggedIn
+                    ? _c(
+                        "span",
+                        [
+                          _vm.user_type == 0
+                            ? _c(
+                                "router-link",
+                                {
+                                  staticClass: "nav-link",
+                                  attrs: { to: { name: "userboard" } },
+                                },
+                                [_vm._v("Hồ sơ")]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.user_type == 1
+                            ? _c(
+                                "router-link",
+                                {
+                                  staticClass: "nav-link",
+                                  attrs: { to: { name: "admin" } },
+                                },
+                                [_vm._v("Quản lý")]
+                              )
+                            : _vm._e(),
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.isLoggedIn
+                    ? _c(
+                        "li",
+                        { staticClass: "nav-link", on: { click: _vm.logout } },
+                        [_vm._v(" Đăng xuất")]
+                      )
+                    : _vm._e(),
+                ],
+                1
+              ),
+            ]),
+          ]),
+        ]),
       ]
     ),
     _vm._v(" "),
@@ -41876,7 +41954,74 @@ var render = function () {
     ),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "topbar" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-sm-6" }, [
+            _c("div", { staticClass: "contactinfo" }, [
+              _c("ul", { staticClass: "nav nav-pills" }, [
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("i", { staticClass: "fa fa-phone" }),
+                    _vm._v(" +2 95 01 88 821"),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("i", { staticClass: "fa fa-envelope" }),
+                    _vm._v(" info@domain.com"),
+                  ]),
+                ]),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-6" }, [
+            _c("div", { staticClass: "social-icons pull-right" }, [
+              _c("ul", { staticClass: "nav navbar-nav" }, [
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("i", { staticClass: "fa fa-facebook" }),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("i", { staticClass: "fa fa-twitter" }),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("i", { staticClass: "fa fa-linkedin" }),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("i", { staticClass: "fa fa-dribbble" }),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("i", { staticClass: "fa fa-google-plus" }),
+                  ]),
+                ]),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
