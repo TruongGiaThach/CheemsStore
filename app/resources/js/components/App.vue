@@ -4,21 +4,29 @@
             <div class ="topbar">
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-5">
                             <div class="contactinfo">
                                 <ul class="nav nav-pills">
-                                    <li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-                                    <li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+                                    <li class="mr-sm-4">
+                                        <a href="tel:0969694200"><i class="fa fa-phone mr-sm-2 fa-2x"></i>
+                                            <p id="info">0969694200</p>
+                                            <p id="title " class="mr-sm-1">Hotline: </p>
+                                        </a>
+                                    </li>
+                                    <li class="mr-sm-4">
+                                        <a href="mailto:admin@devtest.com"><i class="fa fa-envelope mr-sm-2 fa-2x"></i>
+                                            <p id="info">admin@devtest.com</p>
+                                            <p id="title" class="mr-sm-1">Email: </p>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-2 ml-auto">
                             <div class="social-icons pull-right">
-                                <ul class="nav navbar-nav">
+                                <ul class="nav nav-pills">
                                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
                                     <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                                 </ul>
                             </div>
@@ -27,7 +35,7 @@
                 </div>
             </div>
             <!-- Main bar -->
-            <nav class="navbar navbar-expand-md navbar-light navbar-laravel mainbar">
+            <nav class="navbar navbar-expand-md navbar-light navbar-laravel mainbar sticky-top">
                     <div class="container">
                         <div class ="brand">
                             <router-link :to="{name: 'home'}" class="navbar-brand">
@@ -42,11 +50,11 @@
 
                         <!-- Left Side Of Navbar -->
                         <div class="navbar-nav mr-auto">
-                            <form class="form-inline">
-                                <input class="form-control mr-sm-2 " type="search" placeholder="Tìm kiếm..." aria-label="Search" >
-                                    <button class="btn btn-warning my-2 my-sm-0 cheems-color" type="submit">
-                                        <img :src = "require('../../images/home/icons/icons8-search-90.png').default" width="20em">
-                                    </button>
+                            <form class="form-inline search-box">
+                                <input class="form-control mr-sm-2 " type="search" placeholder="Nhập từ khóa cần tìm" aria-label="Search" size="50">
+                                <button class="btn btn-warning my-2 my-sm-0 cheems-color" type="submit">
+                                    <i class="fas fa-search fa-lg"></i>
+                                </button>
                             </form>
                         </div>
 
@@ -57,7 +65,7 @@
                                 <div class="btn dropdown " id="dropdownMenuButton" aria-expanded="false" >
                                     <router-link :to="{ name: 'login' }" class="nav-link">
                                         <div class = "navbar-icon">
-                                            <img :src = "require('../../images/home/icons/icons8-sale-90.png').default" width="40em">
+                                            <i class="fas fa-tag fa-2x"></i>
                                             <p>
                                                 <b>Khuyến mãi</b>
                                             </p>
@@ -70,7 +78,7 @@
                                 <div class="btn dropdown " id="dropdownMenuButton" aria-expanded="false" >
                                     <router-link :to="{ name: 'login' }" class="nav-link" v-if="!isLoggedIn">
                                         <div class = "navbar-icon">
-                                            <img :src = "require('../../images/home/icons/icons8-heart-90.png').default" width="40em">
+                                            <i class="fas fa-heart fa-2x"></i>
                                             <p>
                                                 <b>Yêu thích</b>
                                             </p>
@@ -78,7 +86,7 @@
                                     </router-link>
                                     <router-link :to="{ name: 'login' }" class="nav-link" v-if="isLoggedIn">
                                         <div class = "navbar-icon">
-                                            <img :src = "require('../../images/home/icons/icons8-heart-90.png').default" width="40em">
+                                            <i class="fas fa-heart fa-2x"></i>
                                             <p>
                                                 <b>Yêu thích</b>
                                             </p>
@@ -87,10 +95,10 @@
                                 </div>
                             </div>
                             <div class="dropdown">
-                                <div class="btn dropdown " id="dropdownMenuButton" aria-expanded="false" data-offset="100,20">
+                                <div class="btn dropdown " id="dropdownMenuButton" aria-expanded="false" >
                                     <router-link :to="{ name: 'login' }" class="nav-link" v-if="!isLoggedIn">
                                         <div class = "navbar-icon">
-                                            <img :src = "require('../../images/home/icons/icons8-male-user-90.png').default" width="40em">
+                                            <i class="far fa-user-circle fa-2x"></i>
                                             <p>
                                                 <b>Tài khoản</b>
                                             </p>
@@ -99,7 +107,7 @@
                                     <span v-if="isLoggedIn">
                                         <router-link :to="{ name: 'userboard' }" class="nav-link" v-if="user_type == 0"> 
                                             <div class = "navbar-icon">
-                                                <img :src = "require('../../images/home/icons/icons8-male-user-90.png').default" width="40em">
+                                                <i class="far fa-user-circle fa-2x"></i>
                                                 <p>
                                                     <b>{{name}}</b>
                                                 </p>
@@ -107,7 +115,7 @@
                                             </router-link>
                                         <router-link :to="{ name: 'admin' }" class="nav-link" v-if="user_type == 1">
                                             <div class = "navbar-icon">
-                                                <img :src = "require('../../images/home/icons/icons8-male-user-90.png').default" width="40em">
+                                                <i class="far fa-user-circle fa-2x"></i>
                                                 <p>
                                                     <b>{{name}}</b>
                                                 </p>
@@ -127,11 +135,57 @@
                             </div>
                         </div>
                     </div>
-                
             </nav>
             <main class="py-4">
                 <router-view @loggedIn="change"></router-view>
             </main>
+            <footer>
+                <div class="divider"></div>
+                <div class="main-footer">
+                    <div class="container">
+                        <div class="row mx-md-n5">
+                            <div class="col px-md-5">
+                                <h5 id ="title">CÔNG TY CỔ PHẦN THƯƠNG MẠI - DỊCH VỤ CHEEMS</h5>
+                                <p>© 1997 - 2021 Công Ty Cổ Phần Thương Mại - Dịch Vụ Cheems
+                                    <br>
+                                    Giấy chứng nhận đăng ký doanh nghiệp: 0304998358 do Sở KH-ĐT TP.HCM cấp lần đầu ngày 30 tháng 05 năm 2007.
+                                    <br>
+                                    <br>
+                                <b>Địa chỉ trụ sở chính:</b>
+                                <br>
+                                - khu phố 6, Thủ Đức, Thành phố Hồ Chí Minh
+                                <br>
+                                <b>Văn phòng điều hành miền Bắc:</b>
+                                <br>
+                                - Tầng 6, Số 1 Phố Thái Hà, Phường Trung Liệt, Quận Đống Đa, Hà Nội
+                                <br>
+                                <b>Văn phòng điều hành miền Nam:</b>
+                                <br>
+                                - Tầng 11 Minh Long Tower, số 17 Bà Huyện Thanh Quan, Phường Võ Thị Sáu, Quận 3, TP. Hồ Chí Minh</p>
+                            </div>
+                            <div class="col px-md-5">
+                                <h5 id ="title">Liên hệ</h5>
+                                <p>
+                                    <a class ="row " href="tel:0969694200"><i class="fa fa-phone mr-sm-2 fa-lg"></i>
+                                        <p id="title" class="mr-sm-1">Tổng đài: </p>
+                                        <p id="info">0969694200</p>
+                                    </a>
+                                    <a class ="row " href="mailto:admin@devtest.com"><i class="fa fa-envelope mr-sm-2 fa-2x"></i>
+                                        <p id="title" class="mr-sm-1">Email: </p>
+                                        <p id="info">admin@devtest.com</p>
+                                    </a>
+                                </p>
+                            </div>
+                            <div class="col">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15672.924961103905!2d106.8030541!3d10.8700089!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xafa66f9c8be3c91!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2jhu4cgVGjDtG5nIHRpbiDEkEhRRyBUUC5IQ00!5e0!3m2!1svi!2sus!4v1636166812657!5m2!1svi!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-footer">
+                    <router-link :to="{name: 'home'}" id="right-reserved">2021 © by Cheemsstore.com All Right Reserved.</router-link>
+                </div>
+            </footer>
         </div>
 </template>
  <script>
@@ -173,36 +227,37 @@
 *******Top header CSS******
 ***************************/
 .topbar{
-    height: 3em;
+    height: 2.55em;
     background-color: #d2691e;
 }
-.header_top {
-  background: none repeat scroll 0 0 #F0F0E9;
-}
-
 .contactinfo ul li:first-child{
     margin-left: -15px;
 }
-
-.contactinfo ul li a{
-  font-size: 12px;
-  color: #696763;
-  font-family: 'Roboto', sans-serif;
+.contactinfo ul li{
+    margin-top:0.3em;
 }
+.contactinfo ul li a{
 
-
+  font-size: 12px;
+  color: #ffff;
+}
+.contactinfo ul li a p{
+   margin-top:0.2em;
+   font-weight: bold;
+   float: right;
+}
+.contactinfo ul li a #info{
+   color: rgb(0, 225, 255);
+}
 .contactinfo ul li a:hover{
 	background:inherit;
 }
 
-
 .social-icons ul li a {
   border: 0 none;
   border-radius: 0;
-  color: #696763;
   padding:0px;
 }
-
 
 .social-icons ul li{
 	display:inline-block;
@@ -217,30 +272,30 @@
 }
 
 .social-icons ul li a i:hover{
-  color: #fff;
+  color: #ffff;
    transition: all 0.9s ease 0s;
   -moz-transition: all 0.9s ease 0s;
   -webkit-transition: all 0.9s ease 0s;
   -o-transition: all 0.9s ease 0s;
 }
 
-
+.fa-facebook{
+   color: #0083C9;
+}
 .fa-facebook:hover {
-  background: #0083C9;
+   background: #0083C9;
 }
 
+.fa-twitter{
+    color: #5BBCEC;
+}
 .fa-twitter:hover  {
 	background:#5BBCEC;
 }
 
-.fa-linkedin:hover  {
-	background:#FF4518;
+.fa-google-plus {
+	color:#CE3C2D;
 }
-
-.fa-dribbble:hover  {
-	background:#90C9DC;
-}
-
 .fa-google-plus:hover  {
 	background:#CE3C2D;
 }
@@ -249,7 +304,7 @@
 *******Main header CSS******
 ****************************/
 .mainbar{
-    height: 5em;
+    background-color:rgba(255, 255, 255, 0.9);
 }
 .mainbar .container{
     margin-top: 1em ;
@@ -269,12 +324,21 @@
     opacity: 0.9;
     filter: alpha(opacity=90);
 }
+.navbar-nav .fa-search{
+    color:#ffff
+}
+.navbar-nav .search-box{
+    max-width: 100%;
+}
+.dropdown #dropdownMenuButton{
+    margin-bottom: -2.5em;
+
+}
 .dropdown .dropdown-menu{
-    min-width: 6.2em;
+    min-width: 7.3em;
+    text-align: center;
 }
-.navbar-nav{
-    margin-bottom: -2em;
-}
+
 .mr-auto{
     margin-left:8em;
     margin-bottom: 0em;
@@ -285,26 +349,50 @@
 .dropdown-menu .nav-link:hover{
     color:#d2691e;
 }
-.navbar-nav .navbar-icon{
-    filter: 
-    invert(47%) 
-    sepia(15%) 
-    saturate(7%) 
-    hue-rotate(59deg) 
-    brightness(103%) 
-    contrast(89%);
-}
-.navbar-nav .navbar-icon:hover{
-    filter: 
-    invert(45%) 
-    sepia(26%) 
-    saturate(2077%)
-    hue-rotate(349deg) 
-    brightness(96%) 
-    contrast(88%);
+.dropdown:hover .navbar-icon{
+    color:#d2691e;
 }
 .cheems-color{
     background-color: #d2691e;
 }
 
+/***************************
+*******Main footer CSS******
+****************************/
+.divider{
+    height: 0.2em;
+    background-color: #d2691e;
+}
+.main-footer{
+    height: fit-content;
+    background-color: #ffff;
+}
+.main-footer .container{
+    padding-top: 2em;
+    max-width: 95%;
+}
+.main-footer .container .col #title{
+    color: #d2691e;
+    font-weight: bold;
+    height: 3em;
+}
+
+.main-footer .container .col p{
+    font-size: 90%;
+}
+.main-footer .container .col p p{
+    display: inline;
+}
+/***************************
+*******Main footer CSS******
+****************************/
+.bottom-footer{
+    height: 2.5em;
+    background-color: #d2691e42;
+    text-align: center;
+}
+.bottom-footer #right-reserved{
+    line-height: 2.5em;
+    text-decoration: none;
+}
 </style>

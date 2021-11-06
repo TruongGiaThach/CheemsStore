@@ -2308,6 +2308,60 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -2502,6 +2556,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
 //
 //
 //
@@ -8249,7 +8304,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/**************************\r\n*******Top header CSS******\r\n***************************/\n.topbar[data-v-332fccf4]{\r\n    height: 3em;\r\n    background-color: #d2691e;\n}\n.header_top[data-v-332fccf4] {\r\n  background: none repeat scroll 0 0 #F0F0E9;\n}\n.contactinfo ul li[data-v-332fccf4]:first-child{\r\n    margin-left: -15px;\n}\n.contactinfo ul li a[data-v-332fccf4]{\r\n  font-size: 12px;\r\n  color: #696763;\r\n  font-family: 'Roboto', sans-serif;\n}\n.contactinfo ul li a[data-v-332fccf4]:hover{\r\n\tbackground:inherit;\n}\n.social-icons ul li a[data-v-332fccf4] {\r\n  border: 0 none;\r\n  border-radius: 0;\r\n  color: #696763;\r\n  padding:0px;\n}\n.social-icons ul li[data-v-332fccf4]{\r\n\tdisplay:inline-block;\n}\n.social-icons ul li a i[data-v-332fccf4] {\r\n  padding: 11px 15px;\r\n   transition: all 0.9s ease 0s;\r\n  -moz-transition: all 0.9s ease 0s;\r\n  -webkit-transition: all 0.9s ease 0s;\r\n  -o-transition: all 0.9s ease 0s;\n}\n.social-icons ul li a i[data-v-332fccf4]:hover{\r\n  color: #fff;\r\n   transition: all 0.9s ease 0s;\r\n  -moz-transition: all 0.9s ease 0s;\r\n  -webkit-transition: all 0.9s ease 0s;\r\n  -o-transition: all 0.9s ease 0s;\n}\n.fa-facebook[data-v-332fccf4]:hover {\r\n  background: #0083C9;\n}\n.fa-twitter[data-v-332fccf4]:hover  {\r\n\tbackground:#5BBCEC;\n}\n.fa-linkedin[data-v-332fccf4]:hover  {\r\n\tbackground:#FF4518;\n}\n.fa-dribbble[data-v-332fccf4]:hover  {\r\n\tbackground:#90C9DC;\n}\n.fa-google-plus[data-v-332fccf4]:hover  {\r\n\tbackground:#CE3C2D;\n}\r\n\r\n/***************************\r\n*******Main header CSS******\r\n****************************/\n.mainbar[data-v-332fccf4]{\r\n    height: 5em;\n}\n.mainbar .container[data-v-332fccf4]{\r\n    margin-top: 1em ;\n}\n.navbar-brand[data-v-332fccf4] {\r\n    margin-left: -4em;\n}\n.navbar-brand #logo[data-v-332fccf4]{\r\n    float: left;\r\n    margin-right: 0.5em;\n}\n.navbar-brand #title[data-v-332fccf4]{\r\n    color: #d2691e;\r\n    padding-top: 0.4em;\n}\n.navbar-brand[data-v-332fccf4] :hover{\r\n    opacity: 0.9;\r\n    filter: alpha(opacity=90);\n}\n.dropdown .dropdown-menu[data-v-332fccf4]{\r\n    min-width: 6.2em;\n}\n.navbar-nav[data-v-332fccf4]{\r\n    margin-bottom: -2em;\n}\n.mr-auto[data-v-332fccf4]{\r\n    margin-left:8em;\r\n    margin-bottom: 0em;\n}\n.dropdown:hover>.dropdown-menu[data-v-332fccf4]{\r\n    display: block;\n}\n.dropdown-menu .nav-link[data-v-332fccf4]:hover{\r\n    color:#d2691e;\n}\n.navbar-nav .navbar-icon[data-v-332fccf4]{\r\n    filter: \r\n    invert(47%) \r\n    sepia(15%) \r\n    saturate(7%) \r\n    hue-rotate(59deg) \r\n    brightness(103%) \r\n    contrast(89%);\n}\n.navbar-nav .navbar-icon[data-v-332fccf4]:hover{\r\n    filter: \r\n    invert(45%) \r\n    sepia(26%) \r\n    saturate(2077%)\r\n    hue-rotate(349deg) \r\n    brightness(96%) \r\n    contrast(88%);\n}\n.cheems-color[data-v-332fccf4]{\r\n    background-color: #d2691e;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/**************************\r\n*******Top header CSS******\r\n***************************/\n.topbar[data-v-332fccf4]{\r\n    height: 2.55em;\r\n    background-color: #d2691e;\n}\n.contactinfo ul li[data-v-332fccf4]:first-child{\r\n    margin-left: -15px;\n}\n.contactinfo ul li[data-v-332fccf4]{\r\n    margin-top:0.3em;\n}\n.contactinfo ul li a[data-v-332fccf4]{\r\n\r\n  font-size: 12px;\r\n  color: #ffff;\n}\n.contactinfo ul li a p[data-v-332fccf4]{\r\n   margin-top:0.2em;\r\n   font-weight: bold;\r\n   float: right;\n}\n.contactinfo ul li a #info[data-v-332fccf4]{\r\n   color: rgb(0, 225, 255);\n}\n.contactinfo ul li a[data-v-332fccf4]:hover{\r\n\tbackground:inherit;\n}\n.social-icons ul li a[data-v-332fccf4] {\r\n  border: 0 none;\r\n  border-radius: 0;\r\n  padding:0px;\n}\n.social-icons ul li[data-v-332fccf4]{\r\n\tdisplay:inline-block;\n}\n.social-icons ul li a i[data-v-332fccf4] {\r\n  padding: 11px 15px;\r\n   transition: all 0.9s ease 0s;\r\n  -moz-transition: all 0.9s ease 0s;\r\n  -webkit-transition: all 0.9s ease 0s;\r\n  -o-transition: all 0.9s ease 0s;\n}\n.social-icons ul li a i[data-v-332fccf4]:hover{\r\n  color: #ffff;\r\n   transition: all 0.9s ease 0s;\r\n  -moz-transition: all 0.9s ease 0s;\r\n  -webkit-transition: all 0.9s ease 0s;\r\n  -o-transition: all 0.9s ease 0s;\n}\n.fa-facebook[data-v-332fccf4]{\r\n   color: #0083C9;\n}\n.fa-facebook[data-v-332fccf4]:hover {\r\n   background: #0083C9;\n}\n.fa-twitter[data-v-332fccf4]{\r\n    color: #5BBCEC;\n}\n.fa-twitter[data-v-332fccf4]:hover  {\r\n\tbackground:#5BBCEC;\n}\n.fa-google-plus[data-v-332fccf4] {\r\n\tcolor:#CE3C2D;\n}\n.fa-google-plus[data-v-332fccf4]:hover  {\r\n\tbackground:#CE3C2D;\n}\r\n\r\n/***************************\r\n*******Main header CSS******\r\n****************************/\n.mainbar[data-v-332fccf4]{\r\n    background-color:rgba(255, 255, 255, 0.9);\n}\n.mainbar .container[data-v-332fccf4]{\r\n    margin-top: 1em ;\n}\n.navbar-brand[data-v-332fccf4] {\r\n    margin-left: -4em;\n}\n.navbar-brand #logo[data-v-332fccf4]{\r\n    float: left;\r\n    margin-right: 0.5em;\n}\n.navbar-brand #title[data-v-332fccf4]{\r\n    color: #d2691e;\r\n    padding-top: 0.4em;\n}\n.navbar-brand[data-v-332fccf4] :hover{\r\n    opacity: 0.9;\r\n    filter: alpha(opacity=90);\n}\n.navbar-nav .fa-search[data-v-332fccf4]{\r\n    color:#ffff\n}\n.navbar-nav .search-box[data-v-332fccf4]{\r\n    max-width: 100%;\n}\n.dropdown #dropdownMenuButton[data-v-332fccf4]{\r\n    margin-bottom: -2.5em;\n}\n.dropdown .dropdown-menu[data-v-332fccf4]{\r\n    min-width: 7.3em;\r\n    text-align: center;\n}\n.mr-auto[data-v-332fccf4]{\r\n    margin-left:8em;\r\n    margin-bottom: 0em;\n}\n.dropdown:hover>.dropdown-menu[data-v-332fccf4]{\r\n    display: block;\n}\n.dropdown-menu .nav-link[data-v-332fccf4]:hover{\r\n    color:#d2691e;\n}\n.dropdown:hover .navbar-icon[data-v-332fccf4]{\r\n    color:#d2691e;\n}\n.cheems-color[data-v-332fccf4]{\r\n    background-color: #d2691e;\n}\r\n\r\n/***************************\r\n*******Main footer CSS******\r\n****************************/\n.divider[data-v-332fccf4]{\r\n    height: 0.2em;\r\n    background-color: #d2691e;\n}\n.main-footer[data-v-332fccf4]{\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    background-color: #ffff;\n}\n.main-footer .container[data-v-332fccf4]{\r\n    padding-top: 2em;\r\n    max-width: 95%;\n}\n.main-footer .container .col #title[data-v-332fccf4]{\r\n    color: #d2691e;\r\n    font-weight: bold;\r\n    height: 3em;\n}\n.main-footer .container .col p[data-v-332fccf4]{\r\n    font-size: 90%;\n}\n.main-footer .container .col p p[data-v-332fccf4]{\r\n    display: inline;\n}\r\n/***************************\r\n*******Main footer CSS******\r\n****************************/\n.bottom-footer[data-v-332fccf4]{\r\n    height: 2.5em;\r\n    background-color: #d2691e42;\r\n    text-align: center;\n}\n.bottom-footer #right-reserved[data-v-332fccf4]{\r\n    line-height: 2.5em;\r\n    text-decoration: none;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8575,21 +8630,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/images/home/icons/icons8-heart-90.png":
-/*!*********************************************************!*\
-  !*** ./resources/images/home/icons/icons8-heart-90.png ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-heart-90.png?2dcb97edcc3d8936cd5a9ae917ceb94b");
-
-/***/ }),
-
 /***/ "./resources/images/home/icons/icons8-laptop-50.png":
 /*!**********************************************************!*\
   !*** ./resources/images/home/icons/icons8-laptop-50.png ***!
@@ -8602,21 +8642,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-laptop-50.png?dc8fb1fb1b4985a196bcb17ce8f5ae0a");
-
-/***/ }),
-
-/***/ "./resources/images/home/icons/icons8-male-user-90.png":
-/*!*************************************************************!*\
-  !*** ./resources/images/home/icons/icons8-male-user-90.png ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-male-user-90.png?9fa4cd45df2bce5cc0d21145784459b3");
 
 /***/ }),
 
@@ -8647,36 +8672,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-print-50.png?c1c160bfb83b9de06b17a64a4a6b768a");
-
-/***/ }),
-
-/***/ "./resources/images/home/icons/icons8-sale-90.png":
-/*!********************************************************!*\
-  !*** ./resources/images/home/icons/icons8-sale-90.png ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-sale-90.png?5523c2b8bcb8a780c069cc5804c10cd2");
-
-/***/ }),
-
-/***/ "./resources/images/home/icons/icons8-search-90.png":
-/*!**********************************************************!*\
-  !*** ./resources/images/home/icons/icons8-search-90.png ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-search-90.png?5219d6d28ce445e7fc5bd6e18980ffff");
 
 /***/ }),
 
@@ -41626,7 +41621,7 @@ var render = function () {
       "nav",
       {
         staticClass:
-          "navbar navbar-expand-md navbar-light navbar-laravel mainbar",
+          "navbar navbar-expand-md navbar-light navbar-laravel mainbar sticky-top",
       },
       [
         _c("div", { staticClass: "container" }, [
@@ -41660,34 +41655,7 @@ var render = function () {
             1
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "navbar-nav mr-auto" }, [
-            _c("form", { staticClass: "form-inline" }, [
-              _c("input", {
-                staticClass: "form-control mr-sm-2 ",
-                attrs: {
-                  type: "search",
-                  placeholder: "Tìm kiếm...",
-                  "aria-label": "Search",
-                },
-              }),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-warning my-2 my-sm-0 cheems-color",
-                  attrs: { type: "submit" },
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      src: __webpack_require__(/*! ../../images/home/icons/icons8-search-90.png */ "./resources/images/home/icons/icons8-search-90.png")["default"],
-                      width: "20em",
-                    },
-                  }),
-                ]
-              ),
-            ]),
-          ]),
+          _vm._m(1),
           _vm._v(" "),
           _c("div", { staticClass: "navbar-nav ml-auto" }, [
             _c("div", { staticClass: "dropdown" }, [
@@ -41706,12 +41674,7 @@ var render = function () {
                     },
                     [
                       _c("div", { staticClass: "navbar-icon" }, [
-                        _c("img", {
-                          attrs: {
-                            src: __webpack_require__(/*! ../../images/home/icons/icons8-sale-90.png */ "./resources/images/home/icons/icons8-sale-90.png")["default"],
-                            width: "40em",
-                          },
-                        }),
+                        _c("i", { staticClass: "fas fa-tag fa-2x" }),
                         _vm._v(" "),
                         _c("p", [_c("b", [_vm._v("Khuyến mãi")])]),
                       ]),
@@ -41739,12 +41702,7 @@ var render = function () {
                         },
                         [
                           _c("div", { staticClass: "navbar-icon" }, [
-                            _c("img", {
-                              attrs: {
-                                src: __webpack_require__(/*! ../../images/home/icons/icons8-heart-90.png */ "./resources/images/home/icons/icons8-heart-90.png")["default"],
-                                width: "40em",
-                              },
-                            }),
+                            _c("i", { staticClass: "fas fa-heart fa-2x" }),
                             _vm._v(" "),
                             _c("p", [_c("b", [_vm._v("Yêu thích")])]),
                           ]),
@@ -41761,12 +41719,7 @@ var render = function () {
                         },
                         [
                           _c("div", { staticClass: "navbar-icon" }, [
-                            _c("img", {
-                              attrs: {
-                                src: __webpack_require__(/*! ../../images/home/icons/icons8-heart-90.png */ "./resources/images/home/icons/icons8-heart-90.png")["default"],
-                                width: "40em",
-                              },
-                            }),
+                            _c("i", { staticClass: "fas fa-heart fa-2x" }),
                             _vm._v(" "),
                             _c("p", [_c("b", [_vm._v("Yêu thích")])]),
                           ]),
@@ -41783,11 +41736,7 @@ var render = function () {
                 "div",
                 {
                   staticClass: "btn dropdown ",
-                  attrs: {
-                    id: "dropdownMenuButton",
-                    "aria-expanded": "false",
-                    "data-offset": "100,20",
-                  },
+                  attrs: { id: "dropdownMenuButton", "aria-expanded": "false" },
                 },
                 [
                   !_vm.isLoggedIn
@@ -41799,11 +41748,8 @@ var render = function () {
                         },
                         [
                           _c("div", { staticClass: "navbar-icon" }, [
-                            _c("img", {
-                              attrs: {
-                                src: __webpack_require__(/*! ../../images/home/icons/icons8-male-user-90.png */ "./resources/images/home/icons/icons8-male-user-90.png")["default"],
-                                width: "40em",
-                              },
+                            _c("i", {
+                              staticClass: "far fa-user-circle fa-2x",
                             }),
                             _vm._v(" "),
                             _c("p", [_c("b", [_vm._v("Tài khoản")])]),
@@ -41825,11 +41771,8 @@ var render = function () {
                                 },
                                 [
                                   _c("div", { staticClass: "navbar-icon" }, [
-                                    _c("img", {
-                                      attrs: {
-                                        src: __webpack_require__(/*! ../../images/home/icons/icons8-male-user-90.png */ "./resources/images/home/icons/icons8-male-user-90.png")["default"],
-                                        width: "40em",
-                                      },
+                                    _c("i", {
+                                      staticClass: "far fa-user-circle fa-2x",
                                     }),
                                     _vm._v(" "),
                                     _c("p", [
@@ -41849,11 +41792,8 @@ var render = function () {
                                 },
                                 [
                                   _c("div", { staticClass: "navbar-icon" }, [
-                                    _c("img", {
-                                      attrs: {
-                                        src: __webpack_require__(/*! ../../images/home/icons/icons8-male-user-90.png */ "./resources/images/home/icons/icons8-male-user-90.png")["default"],
-                                        width: "40em",
-                                      },
+                                    _c("i", {
+                                      staticClass: "far fa-user-circle fa-2x",
                                     }),
                                     _vm._v(" "),
                                     _c("p", [
@@ -41952,6 +41892,25 @@ var render = function () {
       [_c("router-view", { on: { loggedIn: _vm.change } })],
       1
     ),
+    _vm._v(" "),
+    _c("footer", [
+      _c("div", { staticClass: "divider" }),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "bottom-footer" },
+        [
+          _c(
+            "router-link",
+            { attrs: { to: { name: "home" }, id: "right-reserved" } },
+            [_vm._v("2021 © by Cheemsstore.com All Right Reserved.")]
+          ),
+        ],
+        1
+      ),
+    ]),
   ])
 }
 var staticRenderFns = [
@@ -41962,29 +41921,45 @@ var staticRenderFns = [
     return _c("div", { staticClass: "topbar" }, [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-sm-6" }, [
+          _c("div", { staticClass: "col-sm-5" }, [
             _c("div", { staticClass: "contactinfo" }, [
               _c("ul", { staticClass: "nav nav-pills" }, [
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fa fa-phone" }),
-                    _vm._v(" +2 95 01 88 821"),
+                _c("li", { staticClass: "mr-sm-4" }, [
+                  _c("a", { attrs: { href: "tel:0969694200" } }, [
+                    _c("i", { staticClass: "fa fa-phone mr-sm-2 fa-2x" }),
+                    _vm._v(" "),
+                    _c("p", { attrs: { id: "info" } }, [_vm._v("0969694200")]),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      { staticClass: "mr-sm-1", attrs: { id: "title " } },
+                      [_vm._v("Hotline: ")]
+                    ),
                   ]),
                 ]),
                 _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fa fa-envelope" }),
-                    _vm._v(" info@domain.com"),
+                _c("li", { staticClass: "mr-sm-4" }, [
+                  _c("a", { attrs: { href: "mailto:admin@devtest.com" } }, [
+                    _c("i", { staticClass: "fa fa-envelope mr-sm-2 fa-2x" }),
+                    _vm._v(" "),
+                    _c("p", { attrs: { id: "info" } }, [
+                      _vm._v("admin@devtest.com"),
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      { staticClass: "mr-sm-1", attrs: { id: "title" } },
+                      [_vm._v("Email: ")]
+                    ),
                   ]),
                 ]),
               ]),
             ]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-sm-6" }, [
+          _c("div", { staticClass: "col-sm-2 ml-auto" }, [
             _c("div", { staticClass: "social-icons pull-right" }, [
-              _c("ul", { staticClass: "nav navbar-nav" }, [
+              _c("ul", { staticClass: "nav nav-pills" }, [
                 _c("li", [
                   _c("a", { attrs: { href: "#" } }, [
                     _c("i", { staticClass: "fa fa-facebook" }),
@@ -41999,23 +41974,142 @@ var staticRenderFns = [
                 _vm._v(" "),
                 _c("li", [
                   _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fa fa-linkedin" }),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fa fa-dribbble" }),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
                     _c("i", { staticClass: "fa fa-google-plus" }),
                   ]),
                 ]),
               ]),
             ]),
+          ]),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "navbar-nav mr-auto" }, [
+      _c("form", { staticClass: "form-inline search-box" }, [
+        _c("input", {
+          staticClass: "form-control mr-sm-2 ",
+          attrs: {
+            type: "search",
+            placeholder: "Nhập từ khóa cần tìm",
+            "aria-label": "Search",
+            size: "50",
+          },
+        }),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-warning my-2 my-sm-0 cheems-color",
+            attrs: { type: "submit" },
+          },
+          [_c("i", { staticClass: "fas fa-search fa-lg" })]
+        ),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "main-footer" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row mx-md-n5" }, [
+          _c("div", { staticClass: "col px-md-5" }, [
+            _c("h5", { attrs: { id: "title" } }, [
+              _vm._v("CÔNG TY CỔ PHẦN THƯƠNG MẠI - DỊCH VỤ CHEEMS"),
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "© 1997 - 2021 Công Ty Cổ Phần Thương Mại - Dịch Vụ Cheems\n                            "
+              ),
+              _c("br"),
+              _vm._v(
+                "\n                            Giấy chứng nhận đăng ký doanh nghiệp: 0304998358 do Sở KH-ĐT TP.HCM cấp lần đầu ngày 30 tháng 05 năm 2007.\n                            "
+              ),
+              _c("br"),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _c("b", [_vm._v("Địa chỉ trụ sở chính:")]),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(
+                "\n                        - khu phố 6, Thủ Đức, Thành phố Hồ Chí Minh\n                        "
+              ),
+              _c("br"),
+              _vm._v(" "),
+              _c("b", [_vm._v("Văn phòng điều hành miền Bắc:")]),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(
+                "\n                        - Tầng 6, Số 1 Phố Thái Hà, Phường Trung Liệt, Quận Đống Đa, Hà Nội\n                        "
+              ),
+              _c("br"),
+              _vm._v(" "),
+              _c("b", [_vm._v("Văn phòng điều hành miền Nam:")]),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(
+                "\n                        - Tầng 11 Minh Long Tower, số 17 Bà Huyện Thanh Quan, Phường Võ Thị Sáu, Quận 3, TP. Hồ Chí Minh"
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col px-md-5" }, [
+            _c("h5", { attrs: { id: "title" } }, [_vm._v("Liên hệ")]),
+            _vm._v(" "),
+            _c("p", [
+              _c(
+                "a",
+                { staticClass: "row ", attrs: { href: "tel:0969694200" } },
+                [
+                  _c("i", { staticClass: "fa fa-phone mr-sm-2 fa-lg" }),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "mr-sm-1", attrs: { id: "title" } }, [
+                    _vm._v("Tổng đài: "),
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { attrs: { id: "info" } }, [_vm._v("0969694200")]),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "row ",
+                  attrs: { href: "mailto:admin@devtest.com" },
+                },
+                [
+                  _c("i", { staticClass: "fa fa-envelope mr-sm-2 fa-2x" }),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "mr-sm-1", attrs: { id: "title" } }, [
+                    _vm._v("Email: "),
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { attrs: { id: "info" } }, [
+                    _vm._v("admin@devtest.com"),
+                  ]),
+                ]
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("iframe", {
+              staticStyle: { border: "0" },
+              attrs: {
+                src: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15672.924961103905!2d106.8030541!3d10.8700089!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xafa66f9c8be3c91!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2jhu4cgVGjDtG5nIHRpbiDEkEhRRyBUUC5IQ00!5e0!3m2!1svi!2sus!4v1636166812657!5m2!1svi!2sus",
+                width: "100%",
+                height: "450",
+                allowfullscreen: "",
+                loading: "lazy",
+              },
+            }),
           ]),
         ]),
       ]),
@@ -42900,7 +42994,7 @@ var render = function () {
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-md-8" }, [
         _c("div", { staticClass: "card card-default" }, [
-          _c("div", { staticClass: "card-header" }, [_vm._v("Login")]),
+          _c("div", { staticClass: "card-header" }, [_vm._v("Đăng nhập")]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
             _c("form", [
@@ -42911,7 +43005,7 @@ var render = function () {
                     staticClass: "col-sm-4 col-form-label text-md-right",
                     attrs: { for: "email" },
                   },
-                  [_vm._v("E-Mail Address")]
+                  [_vm._v("Địa chỉ email:")]
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-6" }, [
@@ -42951,7 +43045,7 @@ var render = function () {
                     staticClass: "col-md-4 col-form-label text-md-right",
                     attrs: { for: "password" },
                   },
-                  [_vm._v("Password")]
+                  [_vm._v("Mật khẩu:")]
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-6" }, [
@@ -42984,13 +43078,13 @@ var render = function () {
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-primary",
+                      staticClass: "btn btn-primary ",
                       attrs: { type: "submit" },
                       on: { click: _vm.handleSubmit },
                     },
                     [
                       _vm._v(
-                        "\n                                    Login\n                                "
+                        "\n                                    Đăng nhập\n                                "
                       ),
                     ]
                   ),
@@ -43030,7 +43124,7 @@ var render = function () {
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-md-8" }, [
         _c("div", { staticClass: "card card-default" }, [
-          _c("div", { staticClass: "card-header" }, [_vm._v("Register")]),
+          _c("div", { staticClass: "card-header" }, [_vm._v("Đăng ký")]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
             _c("form", [
@@ -43041,7 +43135,7 @@ var render = function () {
                     staticClass: "col-md-4 col-form-label text-md-right",
                     attrs: { for: "name" },
                   },
-                  [_vm._v("Name")]
+                  [_vm._v("Tên tài khoản")]
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-6" }, [
@@ -43081,7 +43175,7 @@ var render = function () {
                     staticClass: "col-md-4 col-form-label text-md-right",
                     attrs: { for: "email" },
                   },
-                  [_vm._v("E-Mail Address")]
+                  [_vm._v("Địa chỉ email:")]
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-6" }, [
@@ -43116,7 +43210,7 @@ var render = function () {
                     staticClass: "col-md-4 col-form-label text-md-right",
                     attrs: { for: "password" },
                   },
-                  [_vm._v("Password")]
+                  [_vm._v("Mật khẩu")]
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-6" }, [
@@ -43151,7 +43245,7 @@ var render = function () {
                     staticClass: "col-md-4 col-form-label text-md-right",
                     attrs: { for: "password-confirm" },
                   },
-                  [_vm._v("Confirm Password")]
+                  [_vm._v("Xác nhận mật khẩu")]
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-6" }, [
@@ -43188,13 +43282,13 @@ var render = function () {
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-primary",
+                      staticClass: "btn btn-primary ",
                       attrs: { type: "submit" },
                       on: { click: _vm.handleSubmit },
                     },
                     [
                       _vm._v(
-                        "\n                                    Register\n                                "
+                        "\n                                    Đăng ký\n                                "
                       ),
                     ]
                   ),
