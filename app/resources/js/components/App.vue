@@ -137,6 +137,7 @@
                     </div>
             </nav>
             <main class="py-4">
+                <ScrollTopArrow></ScrollTopArrow>
                 <router-view @loggedIn="change"></router-view>
             </main>
             <footer>
@@ -189,6 +190,7 @@
         </div>
 </template>
  <script>
+ import ScrollTopArrow from './tool_components/scroll-to-top-button/ScrollTopArrow'
     export default {
         data() {
             return {
@@ -199,6 +201,9 @@
         },
         mounted() {
             this.setDefaults()
+        },
+        components: {
+            ScrollTopArrow
         },
         methods : {
             setDefaults() {

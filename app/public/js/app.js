@@ -2172,6 +2172,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _tool_components_scroll_to_top_button_ScrollTopArrow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tool_components/scroll-to-top-button/ScrollTopArrow */ "./resources/js/components/tool_components/scroll-to-top-button/ScrollTopArrow.vue");
 //
 //
 //
@@ -2362,6 +2363,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -2372,6 +2375,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.setDefaults();
+  },
+  components: {
+    ScrollTopArrow: _tool_components_scroll_to_top_button_ScrollTopArrow__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   methods: {
     setDefaults: function setDefaults() {
@@ -2556,6 +2562,90 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3695,6 +3785,84 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tool_components/scroll-to-top-button/ScrollTopArrow.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tool_components/scroll-to-top-button/ScrollTopArrow.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ScrollTopComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ScrollTopComponent */ "./resources/js/components/tool_components/scroll-to-top-button/ScrollTopComponent.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    ScrollTopComponent: _ScrollTopComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tool_components/scroll-to-top-button/ScrollTopComponent.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tool_components/scroll-to-top-button/ScrollTopComponent.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      visible: false
+    };
+  },
+  methods: {
+    scrollTop: function scrollTop() {
+      var _this = this;
+
+      this.intervalId = setInterval(function () {
+        if (window.pageYOffset === 0) {
+          clearInterval(_this.intervalId);
+        }
+
+        window.scroll(0, window.pageYOffset - 50);
+      }, 20);
+    },
+    scrollListener: function scrollListener(e) {
+      this.visible = window.scrollY > 150;
+    }
+  },
+  mounted: function mounted() {
+    window.addEventListener('scroll', this.scrollListener);
+  },
+  beforeDestroy: function beforeDestroy() {
+    window.removeEventListener('scroll', this.scrollListener);
+  }
+});
 
 /***/ }),
 
@@ -8304,7 +8472,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/**************************\r\n*******Top header CSS******\r\n***************************/\n.topbar[data-v-332fccf4]{\r\n    height: 2.55em;\r\n    background-color: #d2691e;\n}\n.contactinfo ul li[data-v-332fccf4]:first-child{\r\n    margin-left: -15px;\n}\n.contactinfo ul li[data-v-332fccf4]{\r\n    margin-top:0.3em;\n}\n.contactinfo ul li a[data-v-332fccf4]{\r\n\r\n  font-size: 12px;\r\n  color: #ffff;\n}\n.contactinfo ul li a p[data-v-332fccf4]{\r\n   margin-top:0.2em;\r\n   font-weight: bold;\r\n   float: right;\n}\n.contactinfo ul li a #info[data-v-332fccf4]{\r\n   color: rgb(0, 225, 255);\n}\n.contactinfo ul li a[data-v-332fccf4]:hover{\r\n\tbackground:inherit;\n}\n.social-icons ul li a[data-v-332fccf4] {\r\n  border: 0 none;\r\n  border-radius: 0;\r\n  padding:0px;\n}\n.social-icons ul li[data-v-332fccf4]{\r\n\tdisplay:inline-block;\n}\n.social-icons ul li a i[data-v-332fccf4] {\r\n  padding: 11px 15px;\r\n   transition: all 0.9s ease 0s;\r\n  -moz-transition: all 0.9s ease 0s;\r\n  -webkit-transition: all 0.9s ease 0s;\r\n  -o-transition: all 0.9s ease 0s;\n}\n.social-icons ul li a i[data-v-332fccf4]:hover{\r\n  color: #ffff;\r\n   transition: all 0.9s ease 0s;\r\n  -moz-transition: all 0.9s ease 0s;\r\n  -webkit-transition: all 0.9s ease 0s;\r\n  -o-transition: all 0.9s ease 0s;\n}\n.fa-facebook[data-v-332fccf4]{\r\n   color: #0083C9;\n}\n.fa-facebook[data-v-332fccf4]:hover {\r\n   background: #0083C9;\n}\n.fa-twitter[data-v-332fccf4]{\r\n    color: #5BBCEC;\n}\n.fa-twitter[data-v-332fccf4]:hover  {\r\n\tbackground:#5BBCEC;\n}\n.fa-google-plus[data-v-332fccf4] {\r\n\tcolor:#CE3C2D;\n}\n.fa-google-plus[data-v-332fccf4]:hover  {\r\n\tbackground:#CE3C2D;\n}\r\n\r\n/***************************\r\n*******Main header CSS******\r\n****************************/\n.mainbar[data-v-332fccf4]{\r\n    background-color:rgba(255, 255, 255, 0.9);\n}\n.mainbar .container[data-v-332fccf4]{\r\n    margin-top: 1em ;\n}\n.navbar-brand[data-v-332fccf4] {\r\n    margin-left: -4em;\n}\n.navbar-brand #logo[data-v-332fccf4]{\r\n    float: left;\r\n    margin-right: 0.5em;\n}\n.navbar-brand #title[data-v-332fccf4]{\r\n    color: #d2691e;\r\n    padding-top: 0.4em;\n}\n.navbar-brand[data-v-332fccf4] :hover{\r\n    opacity: 0.9;\r\n    filter: alpha(opacity=90);\n}\n.navbar-nav .fa-search[data-v-332fccf4]{\r\n    color:#ffff\n}\n.navbar-nav .search-box[data-v-332fccf4]{\r\n    max-width: 100%;\n}\n.dropdown #dropdownMenuButton[data-v-332fccf4]{\r\n    margin-bottom: -2.5em;\n}\n.dropdown .dropdown-menu[data-v-332fccf4]{\r\n    min-width: 7.3em;\r\n    text-align: center;\n}\n.mr-auto[data-v-332fccf4]{\r\n    margin-left:8em;\r\n    margin-bottom: 0em;\n}\n.dropdown:hover>.dropdown-menu[data-v-332fccf4]{\r\n    display: block;\n}\n.dropdown-menu .nav-link[data-v-332fccf4]:hover{\r\n    color:#d2691e;\n}\n.dropdown:hover .navbar-icon[data-v-332fccf4]{\r\n    color:#d2691e;\n}\n.cheems-color[data-v-332fccf4]{\r\n    background-color: #d2691e;\n}\r\n\r\n/***************************\r\n*******Main footer CSS******\r\n****************************/\n.divider[data-v-332fccf4]{\r\n    height: 0.2em;\r\n    background-color: #d2691e;\n}\n.main-footer[data-v-332fccf4]{\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    background-color: #ffff;\n}\n.main-footer .container[data-v-332fccf4]{\r\n    padding-top: 2em;\r\n    max-width: 95%;\n}\n.main-footer .container .col #title[data-v-332fccf4]{\r\n    color: #d2691e;\r\n    font-weight: bold;\r\n    height: 3em;\n}\n.main-footer .container .col p[data-v-332fccf4]{\r\n    font-size: 90%;\n}\n.main-footer .container .col p p[data-v-332fccf4]{\r\n    display: inline;\n}\r\n/***************************\r\n*******Main footer CSS******\r\n****************************/\n.bottom-footer[data-v-332fccf4]{\r\n    height: 2.5em;\r\n    background-color: #d2691e42;\r\n    text-align: center;\n}\n.bottom-footer #right-reserved[data-v-332fccf4]{\r\n    line-height: 2.5em;\r\n    text-decoration: none;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/**************************\r\n*******Top header CSS******\r\n***************************/\n.topbar[data-v-332fccf4]{\r\n    height: 2.55em;\r\n    background-color: #d2691e;\n}\n.contactinfo ul li[data-v-332fccf4]:first-child{\r\n    margin-left: -15px;\n}\n.contactinfo ul li[data-v-332fccf4]{\r\n    margin-top:0.3em;\n}\n.contactinfo ul li a[data-v-332fccf4]{\r\n\r\n  font-size: 12px;\r\n  color: #ffff;\n}\n.contactinfo ul li a p[data-v-332fccf4]{\r\n   margin-top:0.2em;\r\n   font-weight: bold;\r\n   float: right;\n}\n.contactinfo ul li a #info[data-v-332fccf4]{\r\n   color: rgb(0, 225, 255);\n}\n.contactinfo ul li a[data-v-332fccf4]:hover{\r\n\tbackground:inherit;\n}\n.social-icons ul li a[data-v-332fccf4] {\r\n  border: 0 none;\r\n  border-radius: 0;\r\n  padding:0px;\n}\n.social-icons ul li[data-v-332fccf4]{\r\n\tdisplay:inline-block;\n}\n.social-icons ul li a i[data-v-332fccf4] {\r\n  padding: 11px 15px;\r\n   transition: all 0.9s ease 0s;\r\n  -moz-transition: all 0.9s ease 0s;\r\n  -webkit-transition: all 0.9s ease 0s;\r\n  -o-transition: all 0.9s ease 0s;\n}\n.social-icons ul li a i[data-v-332fccf4]:hover{\r\n  color: #ffff;\r\n   transition: all 0.9s ease 0s;\r\n  -moz-transition: all 0.9s ease 0s;\r\n  -webkit-transition: all 0.9s ease 0s;\r\n  -o-transition: all 0.9s ease 0s;\n}\n.fa-facebook[data-v-332fccf4]{\r\n   color: #0083C9;\n}\n.fa-facebook[data-v-332fccf4]:hover {\r\n   background: #0083C9;\n}\n.fa-twitter[data-v-332fccf4]{\r\n    color: #5BBCEC;\n}\n.fa-twitter[data-v-332fccf4]:hover  {\r\n\tbackground:#5BBCEC;\n}\n.fa-google-plus[data-v-332fccf4] {\r\n\tcolor:#CE3C2D;\n}\n.fa-google-plus[data-v-332fccf4]:hover  {\r\n\tbackground:#CE3C2D;\n}\r\n\r\n/***************************\r\n*******Main header CSS******\r\n****************************/\n.mainbar[data-v-332fccf4]{\r\n    background-color:rgba(255, 255, 255, 0.9);\n}\n.mainbar .container[data-v-332fccf4]{\r\n    margin-top: 1em ;\n}\n.navbar-brand[data-v-332fccf4] {\r\n    margin-left: -4em;\n}\n.navbar-brand #logo[data-v-332fccf4]{\r\n    float: left;\r\n    margin-right: 0.5em;\n}\n.navbar-brand #title[data-v-332fccf4]{\r\n    color: #d2691e;\r\n    padding-top: 0.4em;\n}\n.navbar-brand[data-v-332fccf4] :hover{\r\n    opacity: 0.9;\r\n    filter: alpha(opacity=90);\n}\n.navbar-nav .fa-search[data-v-332fccf4]{\r\n    color:#ffff\n}\n.navbar-nav .search-box[data-v-332fccf4]{\r\n    max-width: 100%;\n}\n.dropdown #dropdownMenuButton[data-v-332fccf4]{\r\n    margin-bottom: -2.5em;\n}\n.dropdown .dropdown-menu[data-v-332fccf4]{\r\n    min-width: 7.3em;\r\n    text-align: center;\n}\n.mr-auto[data-v-332fccf4]{\r\n    margin-left:8em;\r\n    margin-bottom: 0em;\n}\n.dropdown:hover>.dropdown-menu[data-v-332fccf4]{\r\n    display: block;\n}\n.dropdown-menu .nav-link[data-v-332fccf4]:hover{\r\n    color:#d2691e;\n}\n.dropdown:hover .navbar-icon[data-v-332fccf4]{\r\n    color:#d2691e;\n}\n.cheems-color[data-v-332fccf4]{\r\n    background-color: #d2691e;\n}\r\n\r\n/***************************\r\n*******Main footer CSS******\r\n****************************/\n.divider[data-v-332fccf4]{\r\n    height: 0.2em;\r\n    background-color: #d2691e;\n}\n.main-footer[data-v-332fccf4]{\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    background-color: #ffff;\n}\n.main-footer .container[data-v-332fccf4]{\r\n    padding-top: 2em;\r\n    max-width: 95%;\n}\n.main-footer .container .col #title[data-v-332fccf4]{\r\n    color: #d2691e;\r\n    font-weight: bold;\r\n    height: 3em;\n}\n.main-footer .container .col p[data-v-332fccf4]{\r\n    font-size: 90%;\n}\n.main-footer .container .col p p[data-v-332fccf4]{\r\n    display: inline;\n}\r\n/***************************\r\n*******Main footer CSS******\r\n****************************/\n.bottom-footer[data-v-332fccf4]{\r\n    height: 2.5em;\r\n    background-color: #d2691e42;\r\n    text-align: center;\n}\n.bottom-footer #right-reserved[data-v-332fccf4]{\r\n    line-height: 2.5em;\r\n    text-decoration: none;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8473,6 +8641,54 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "\n.modal-mask[data-v-3988972e] {\n    position: fixed;\n    z-index: 9998;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(0, 0, 0, .5);\n    display: table;\n    transition: opacity .3s ease;\n}\n.modal-wrapper[data-v-3988972e] {\n    display: table-cell;\n    vertical-align: middle;\n}\n.modal-container[data-v-3988972e] {\n    width: 300px;\n    margin: 0px auto;\n    padding: 20px 30px;\n    background-color: #fff;\n    border-radius: 2px;\n    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n    transition: all .3s ease;\n    font-family: Helvetica, Arial, sans-serif;\n}\n.modal-header h3[data-v-3988972e] {\n    margin-top: 0;\n    color: #42b983;\n}\n.modal-body[data-v-3988972e] {\n    margin: 20px 0;\n}\n.modal-default-button[data-v-3988972e] {\n    float: right;\n}\n.modal-enter[data-v-3988972e] {\n    opacity: 0;\n}\n.modal-leave-active[data-v-3988972e] {\n    opacity: 0;\n}\n.modal-enter .modal-container[data-v-3988972e],\n.modal-leave-active .modal-container[data-v-3988972e] {\n    transform: scale(1.1);\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tool_components/scroll-to-top-button/ScrollTopArrow.vue?vue&type=style&index=0&id=67c30607&scoped=true&lang=css&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tool_components/scroll-to-top-button/ScrollTopArrow.vue?vue&type=style&index=0&id=67c30607&scoped=true&lang=css& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.btn[data-v-67c30607] {\n  color: #d2691ed5;\n  background-color: transparent;\n  border-width:0;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tool_components/scroll-to-top-button/ScrollTopComponent.vue?vue&type=style&index=0&id=86689c0a&scoped=true&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tool_components/scroll-to-top-button/ScrollTopComponent.vue?vue&type=style&index=0&id=86689c0a&scoped=true&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.bottom-right[data-v-86689c0a] {\n  z-index: 99;\n  position: fixed;\n  bottom: 20px;\n  right: 20px;\n  cursor: pointer;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -40037,6 +40253,66 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tool_components/scroll-to-top-button/ScrollTopArrow.vue?vue&type=style&index=0&id=67c30607&scoped=true&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tool_components/scroll-to-top-button/ScrollTopArrow.vue?vue&type=style&index=0&id=67c30607&scoped=true&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ScrollTopArrow_vue_vue_type_style_index_0_id_67c30607_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ScrollTopArrow.vue?vue&type=style&index=0&id=67c30607&scoped=true&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tool_components/scroll-to-top-button/ScrollTopArrow.vue?vue&type=style&index=0&id=67c30607&scoped=true&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ScrollTopArrow_vue_vue_type_style_index_0_id_67c30607_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ScrollTopArrow_vue_vue_type_style_index_0_id_67c30607_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tool_components/scroll-to-top-button/ScrollTopComponent.vue?vue&type=style&index=0&id=86689c0a&scoped=true&lang=css&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tool_components/scroll-to-top-button/ScrollTopComponent.vue?vue&type=style&index=0&id=86689c0a&scoped=true&lang=css& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ScrollTopComponent_vue_vue_type_style_index_0_id_86689c0a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ScrollTopComponent.vue?vue&type=style&index=0&id=86689c0a&scoped=true&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tool_components/scroll-to-top-button/ScrollTopComponent.vue?vue&type=style&index=0&id=86689c0a&scoped=true&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ScrollTopComponent_vue_vue_type_style_index_0_id_86689c0a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ScrollTopComponent_vue_vue_type_style_index_0_id_86689c0a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
 /*!****************************************************************************!*\
   !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
@@ -40899,6 +41175,88 @@ component.options.__file = "resources/js/components/admin/Users.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/tool_components/scroll-to-top-button/ScrollTopArrow.vue":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/tool_components/scroll-to-top-button/ScrollTopArrow.vue ***!
+  \*****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ScrollTopArrow_vue_vue_type_template_id_67c30607_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ScrollTopArrow.vue?vue&type=template&id=67c30607&scoped=true& */ "./resources/js/components/tool_components/scroll-to-top-button/ScrollTopArrow.vue?vue&type=template&id=67c30607&scoped=true&");
+/* harmony import */ var _ScrollTopArrow_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ScrollTopArrow.vue?vue&type=script&lang=js& */ "./resources/js/components/tool_components/scroll-to-top-button/ScrollTopArrow.vue?vue&type=script&lang=js&");
+/* harmony import */ var _ScrollTopArrow_vue_vue_type_style_index_0_id_67c30607_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ScrollTopArrow.vue?vue&type=style&index=0&id=67c30607&scoped=true&lang=css& */ "./resources/js/components/tool_components/scroll-to-top-button/ScrollTopArrow.vue?vue&type=style&index=0&id=67c30607&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _ScrollTopArrow_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ScrollTopArrow_vue_vue_type_template_id_67c30607_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ScrollTopArrow_vue_vue_type_template_id_67c30607_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "67c30607",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/tool_components/scroll-to-top-button/ScrollTopArrow.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/tool_components/scroll-to-top-button/ScrollTopComponent.vue":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/tool_components/scroll-to-top-button/ScrollTopComponent.vue ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ScrollTopComponent_vue_vue_type_template_id_86689c0a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ScrollTopComponent.vue?vue&type=template&id=86689c0a&scoped=true& */ "./resources/js/components/tool_components/scroll-to-top-button/ScrollTopComponent.vue?vue&type=template&id=86689c0a&scoped=true&");
+/* harmony import */ var _ScrollTopComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ScrollTopComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/tool_components/scroll-to-top-button/ScrollTopComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _ScrollTopComponent_vue_vue_type_style_index_0_id_86689c0a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ScrollTopComponent.vue?vue&type=style&index=0&id=86689c0a&scoped=true&lang=css& */ "./resources/js/components/tool_components/scroll-to-top-button/ScrollTopComponent.vue?vue&type=style&index=0&id=86689c0a&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _ScrollTopComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ScrollTopComponent_vue_vue_type_template_id_86689c0a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ScrollTopComponent_vue_vue_type_template_id_86689c0a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "86689c0a",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/tool_components/scroll-to-top-button/ScrollTopComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/Admin.vue?vue&type=script&lang=js&":
 /*!********************************************************************!*\
   !*** ./resources/js/components/Admin.vue?vue&type=script&lang=js& ***!
@@ -41127,6 +41485,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/tool_components/scroll-to-top-button/ScrollTopArrow.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************!*\
+  !*** ./resources/js/components/tool_components/scroll-to-top-button/ScrollTopArrow.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ScrollTopArrow_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ScrollTopArrow.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tool_components/scroll-to-top-button/ScrollTopArrow.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ScrollTopArrow_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/tool_components/scroll-to-top-button/ScrollTopComponent.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************!*\
+  !*** ./resources/js/components/tool_components/scroll-to-top-button/ScrollTopComponent.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ScrollTopComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ScrollTopComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tool_components/scroll-to-top-button/ScrollTopComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ScrollTopComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/Admin.vue?vue&type=style&index=0&id=58b78718&scoped=true&lang=css&":
 /*!****************************************************************************************************!*\
   !*** ./resources/js/components/Admin.vue?vue&type=style&index=0&id=58b78718&scoped=true&lang=css& ***!
@@ -41240,6 +41630,32 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductModal_vue_vue_type_style_index_0_id_3988972e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ProductModal.vue?vue&type=style&index=0&id=3988972e&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/ProductModal.vue?vue&type=style&index=0&id=3988972e&scoped=true&lang=css&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/tool_components/scroll-to-top-button/ScrollTopArrow.vue?vue&type=style&index=0&id=67c30607&scoped=true&lang=css&":
+/*!**************************************************************************************************************************************************!*\
+  !*** ./resources/js/components/tool_components/scroll-to-top-button/ScrollTopArrow.vue?vue&type=style&index=0&id=67c30607&scoped=true&lang=css& ***!
+  \**************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ScrollTopArrow_vue_vue_type_style_index_0_id_67c30607_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader/dist/cjs.js!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ScrollTopArrow.vue?vue&type=style&index=0&id=67c30607&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tool_components/scroll-to-top-button/ScrollTopArrow.vue?vue&type=style&index=0&id=67c30607&scoped=true&lang=css&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/tool_components/scroll-to-top-button/ScrollTopComponent.vue?vue&type=style&index=0&id=86689c0a&scoped=true&lang=css&":
+/*!******************************************************************************************************************************************************!*\
+  !*** ./resources/js/components/tool_components/scroll-to-top-button/ScrollTopComponent.vue?vue&type=style&index=0&id=86689c0a&scoped=true&lang=css& ***!
+  \******************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ScrollTopComponent_vue_vue_type_style_index_0_id_86689c0a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader/dist/cjs.js!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ScrollTopComponent.vue?vue&type=style&index=0&id=86689c0a&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tool_components/scroll-to-top-button/ScrollTopComponent.vue?vue&type=style&index=0&id=86689c0a&scoped=true&lang=css&");
 
 
 /***/ }),
@@ -41478,6 +41894,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_vue_vue_type_template_id_fa2043a6___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_vue_vue_type_template_id_fa2043a6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Users.vue?vue&type=template&id=fa2043a6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/Users.vue?vue&type=template&id=fa2043a6&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/tool_components/scroll-to-top-button/ScrollTopArrow.vue?vue&type=template&id=67c30607&scoped=true&":
+/*!************************************************************************************************************************************!*\
+  !*** ./resources/js/components/tool_components/scroll-to-top-button/ScrollTopArrow.vue?vue&type=template&id=67c30607&scoped=true& ***!
+  \************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ScrollTopArrow_vue_vue_type_template_id_67c30607_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ScrollTopArrow_vue_vue_type_template_id_67c30607_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ScrollTopArrow_vue_vue_type_template_id_67c30607_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ScrollTopArrow.vue?vue&type=template&id=67c30607&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tool_components/scroll-to-top-button/ScrollTopArrow.vue?vue&type=template&id=67c30607&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/tool_components/scroll-to-top-button/ScrollTopComponent.vue?vue&type=template&id=86689c0a&scoped=true&":
+/*!****************************************************************************************************************************************!*\
+  !*** ./resources/js/components/tool_components/scroll-to-top-button/ScrollTopComponent.vue?vue&type=template&id=86689c0a&scoped=true& ***!
+  \****************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ScrollTopComponent_vue_vue_type_template_id_86689c0a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ScrollTopComponent_vue_vue_type_template_id_86689c0a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ScrollTopComponent_vue_vue_type_template_id_86689c0a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ScrollTopComponent.vue?vue&type=template&id=86689c0a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tool_components/scroll-to-top-button/ScrollTopComponent.vue?vue&type=template&id=86689c0a&scoped=true&");
 
 
 /***/ }),
@@ -41889,7 +42339,11 @@ var render = function () {
     _c(
       "main",
       { staticClass: "py-4" },
-      [_c("router-view", { on: { loggedIn: _vm.change } })],
+      [
+        _c("ScrollTopArrow"),
+        _vm._v(" "),
+        _c("router-view", { on: { loggedIn: _vm.change } }),
+      ],
       1
     ),
     _vm._v(" "),
@@ -42770,6 +43224,90 @@ var render = function () {
       ]),
     ]),
     _vm._v(" "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n                "),
+    _c("br"),
+    _vm._v("\n    dsadad\n    "),
     _c("div", { staticClass: "body" }, [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
@@ -44086,6 +44624,76 @@ var staticRenderFns = [
     ])
   },
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tool_components/scroll-to-top-button/ScrollTopArrow.vue?vue&type=template&id=67c30607&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tool_components/scroll-to-top-button/ScrollTopArrow.vue?vue&type=template&id=67c30607&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("ScrollTopComponent", [
+    _c("a", { staticClass: "btn btn-light" }, [
+      _c("i", { staticClass: "fas fa-chevron-circle-up fa-3x" }),
+    ]),
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tool_components/scroll-to-top-button/ScrollTopComponent.vue?vue&type=template&id=86689c0a&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tool_components/scroll-to-top-button/ScrollTopComponent.vue?vue&type=template&id=86689c0a&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "a",
+    {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.visible,
+          expression: "visible",
+        },
+      ],
+      staticClass: "bottom-right",
+      on: { click: _vm.scrollTop },
+    },
+    [_vm._t("default")],
+    2
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
