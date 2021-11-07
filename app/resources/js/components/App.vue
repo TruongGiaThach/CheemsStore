@@ -63,7 +63,7 @@
                         <div class="navbar-nav ml-auto">
                             <div class="dropdown">
                                 <div class="btn dropdown " id="dropdownMenuButton" aria-expanded="false" >
-                                    <router-link :to="{ name: 'login' }" class="nav-link">
+                                    <router-link :to="{ name: 'category' }" class="nav-link">
                                         <div class = "navbar-icon">
                                             <i class="fas fa-tag fa-2x"></i>
                                             <p>

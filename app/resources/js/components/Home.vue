@@ -1,32 +1,31 @@
 <template>
         <div>
         <!--Carousel Slider -->
-        <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
-            <!--Slider indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselIndicators" data-slide-to="2"></li>
-        </ol>
-        <!--Sliders-->
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-            <img :src="require('../../images/home/sliders/1.webp').default" class="d-block w-120" alt="...">
+        <div id="carouselControls" class="carousel slide" data-ride="carousel">
+                <!--Slider indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carouselControls" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselControls" data-slide-to="1"></li>
+                <li data-target="#carouselControls" data-slide-to="2"></li>
+            </ol>
+            <!--Sliders-->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                <img :src="require('../../images/home/sliders/1.webp').default" class="d-block w-120" alt="...">
+                </div>
+                <div class="carousel-item">
+                <img :src="require('../../images/home/sliders/2.webp').default" class="d-block w-120" alt="...">
+                </div>
+                <div class="carousel-item">
+                <img :src="require('../../images/home/sliders/3.webp').default" class="d-block w-120" alt="...">
+                </div>
             </div>
-            <div class="carousel-item">
-            <img :src="require('../../images/home/sliders/2.webp').default" class="d-block w-120" alt="...">
-            </div>
-            <div class="carousel-item">
-            <img :src="require('../../images/home/sliders/3.webp').default" class="d-block w-120" alt="...">
-            </div>
-        </div>
-        <!--Slider Arrow -->
         </div>
 
 
-            <!--Overlap -->
+            <!--Product category sidebar -->
             <div class = "overlap">
-                <div class = "categorty-menu-area">
+                <div class = "category-menu-area">
                     <div class = "side-menu">
                         <div class="side-menu-section">
                             <table>
@@ -339,92 +338,92 @@
                     </div>
                 </div>
             </div>
-            <!-- End of overlap - Start body -->
-            <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-                        <br>
-            dsadad
-            <div class="body">
+            <!--Home body -->
+            <div class = "body">
+                <!--Brand Sliders -->
+                <div class="brand-slider">
+                    <div class="title-tab">
+                        <h3>Thương hiệu nổi bật</h3>
+                    </div>
+                    <div class ="slider-tab">
+                        <div id="carouseBrands" class="carousel slide" data-ride="carousel" data-interval="false">
+                        <!--Sliders-->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="col-xs-3 col-sm-3 col-md-3">
+                                        <img :src="require('../../images/home/sliders/brand-1.webp').default" class="d-block" alt="...">
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-md-3">
+                                        <img :src="require('../../images/home/sliders/brand-2.webp').default" class="d-block" alt="...">
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-md-3">
+                                        <img :src="require('../../images/home/sliders/brand-3.webp').default" class="d-block" alt="...">
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-md-3">
+                                        <img :src="require('../../images/home/sliders/brand-4.webp').default" class="d-block" alt="...">
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="col-xs-3 col-sm-3 col-md-3">
+                                        <img :src="require('../../images/home/sliders/brand-1.webp').default" class="d-block" alt="...">
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-md-3">
+                                        <img :src="require('../../images/home/sliders/brand-2.webp').default" class="d-block" alt="...">
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-md-3">
+                                        <img :src="require('../../images/home/sliders/brand-3.webp').default" class="d-block" alt="...">
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-md-3">
+                                        <img :src="require('../../images/home/sliders/brand-4.webp').default" class="d-block" alt="...">
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="col-xs-3 col-sm-3 col-md-3">
+                                        <img :src="require('../../images/home/sliders/brand-1.webp').default" class="d-block" alt="...">
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-md-3">
+                                        <img :src="require('../../images/home/sliders/brand-2.webp').default" class="d-block" alt="...">
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-md-3">
+                                        <img :src="require('../../images/home/sliders/brand-3.webp').default" class="d-block" alt="...">
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-md-3">
+                                        <img :src="require('../../images/home/sliders/brand-4.webp').default" class="d-block" alt="...">
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouseBrands" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouseBrands" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                        </div>
+
+                    </div>
+                </div>
+                <!--Products -->
+                <div class="products">
+                    <div class = "container mr-auto">
+                        <div class="row">
+                            <div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "container ml-auto">
+                        
+                    </div>
+                </div>
+                <!--Top Sellers Slider -->
+                <div class = "top-sellers-slider">
+
+                </div>    
+            </div>
+
+<!--        <div class="body">
               <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -445,7 +444,53 @@
                     </div>
                 </div>
               </div>
+            </div>          -->
+
+            <div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
             </div>
+
         </div>
 
 </template>
@@ -463,71 +508,131 @@
     }
 </script>
 <style scoped>
-    .small-text {
-        font-size: 14px;
-    }
-    .product-box {
-        border: 1px solid #3f3f3f;
-        padding: 10px 15px;
-        width: 300;
-        height: 500;
-    }
-
-    .overlap{
-        position: absolute;
-        bottom:0px;
-        z-index: 1;
-        background-color:transparent;
-        width: 100%;
-        height: 566px;
-    }
-    .overlap .categorty-menu-area{
-        position: absolute;
-        width: 1200px;
-        height: 447px;
-        top: 10px;
-        left: 150px;
-        border-radius: 10px;
-    }
-    .overlap .categorty-menu-area .side-menu{
-        position: absolute;
-        background-color: white;
-        width: 230px;
-        height: inherit;
-        border-radius: inherit;
-    }
-    .overlap .categorty-menu-area .mega-dropdown{
-        display: none;
-        position: absolute;
-        height: 447px;
-        background-color: white;
-        width: 960px;
-        left: 240px;
-        border-radius: 10px;
-        top: 0;
-    }
-    .side-menu .side-menu-section table{
-        width: 100%;
-        font-size: 13px;
-        border-radius: 10px;
-    }
-    .side-menu .side-menu-section table td{
-        padding: 0.4em;
-    }
-    .side-menu .side-menu-section table:hover{
-        background-color: #9bc7f328;
-    }
-    .side-menu .side-menu-section a{
-        text-decoration: none;
-        color: rgb(36, 36, 36);
-    }
-    .side-menu .side-menu-section a:hover{
-        color: #005ba6;
-    }
-    .side-menu .side-menu-section table:hover + .mega-dropdown{
-        display:block;
-    }
-    .side-menu .side-menu-section .mega-dropdown:hover{
-        display:block;
-    }
+/***************************
+*******Sliders CSS**********
+****************************/
+.carousel-indicators li{
+    background-color: #d2691e;
+    height: 0.8em;
+    width: 0.8em;
+    border-radius: 100%;
+    margin-bottom: 5.1em;
+}
+.carousel-indicators{
+    z-index: 2;
+}
+.overlap{
+    position: absolute;
+    bottom:0;
+    background-color:transparent;
+    width: 100%;
+    height: 39em;
+}
+.overlap .category-menu-area{
+    position: absolute;
+    top: 0.8em;
+    left: 11em;
+    border-radius: 10px;
+}
+.overlap .category-menu-area .side-menu{
+    z-index: 2;
+    position: absolute;
+    background-color: white;
+    width: 16em;
+    height: inherit;
+    border-radius: inherit;
+}
+.overlap .category-menu-area .mega-dropdown{
+    z-index: 2;
+    display: none;
+    position: absolute;
+    height: 30.75em;
+    background-color: white;
+    width: 66.9em;
+    left: 16.7em;
+    border-radius: 10px;
+    top: 0;
+}
+.side-menu .side-menu-section table{
+    width: 100%;
+    font-size: 13px;
+    border-radius: 10px;
+}
+.side-menu .side-menu-section table td{
+    padding: 0.4em;
+}
+.side-menu .side-menu-section table:hover{
+    background-color: #9bc7f328;
+}
+.side-menu .side-menu-section a{
+    text-decoration: none;
+    color: rgb(36, 36, 36);
+}
+.side-menu .side-menu-section a:hover{
+    color: #005ba6;
+}
+.side-menu .side-menu-section table:hover + .mega-dropdown{
+    display:block;
+}
+.side-menu .side-menu-section .mega-dropdown:hover{
+    display:block;
+}
+/********************************
+*******Home body CSS*************
+*********************************/
+.body{
+    
+}
+/********************************
+*******Brand Sliders CSS*********
+*********************************/
+.brand-slider{
+    z-index: 4;
+    position: absolute;
+    background-color: transparent;
+    margin-top: -5.5em;
+    width: 79.4%;
+    text-align: right;
+    margin-left: 11em;
+}
+.brand-slider .title-tab{
+    background-color: cadetblue;
+    display:inline-block;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 20em;
+    text-align: center;
+    padding-top: 0.6em;
+    font-weight: 900;
+    color:#ffff;
+}
+.brand-slider .slider-tab{
+    background-color: cadetblue;
+    height: 14em;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.brand-slider .col-md-3{
+  display: inline-block;
+  margin-left:-0.3em;
+  padding-top: 2em;
+}
+.brand-slider .col-md-3 img{
+  width:100%;
+  height:9.8em;
+  border-radius: 10px;
+}
+/***************************
+*******Products CSS*********
+****************************/
+.small-text {
+    font-size: 14px;
+}
+.product-box {
+    border: 1px solid #3f3f3f;
+    padding: 10px 15px;
+    width: 300;
+    height: 500;
+}
 </style>

@@ -1,6 +1,6 @@
 <template>
   <ScrollTopComponent>
-      <a class="btn btn-light">
+      <a class="btn">
         <i class="fas fa-chevron-circle-up fa-3x"></i>
       </a>
   </ScrollTopComponent>
@@ -17,8 +17,12 @@ export default {
 
 <style scoped>
 .btn {
-  color: #d2691ed5;
+  color: #d2691eb7;
   background-color: transparent;
   border-width:0;
+}
+.btn:active{
+  color: #d2691e;
+  background-color: transparent;
 }
 </style>
