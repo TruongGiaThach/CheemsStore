@@ -28,20 +28,28 @@
                         <v-list-item active-class="" @click="() => {}">
                             <v-list-item-title>Settings</v-list-item-title>
                         </v-list-item>
-                        <v-list-item active-class="" @click="() => {}">
+                        <v-list-item active-class="" @click="logout()">
                             <v-list-item-title>Log out</v-list-item-title>
                         </v-list-item>
                     </v-list>
                 </v-menu>
             </v-app-bar>
-                <v-navigation-drawer v-model="drawer" app permanent expand-on-hover color="#52b69a">
+                <v-navigation-drawer 
+                    v-model="drawer" 
+                    app 
+                    dark
+                    permanent 
+                    expand-on-hover
+                    src="https://papers.co/wallpaper/papers.co-md49-wallpaper-nature-earth-dark-asleep-mountain-night-34-iphone6-plus-wallpaper.jpg">
                     
-                    <v-list color="#34a0a4">
+                    <v-list>
                         <v-list-item class="px-2">
                             <v-list-item-avatar color="grey darken-1">
                                 <v-img src="" />
                             </v-list-item-avatar>
                         </v-list-item>
+
+                        <v-divider></v-divider>
 
                         <v-list-item link>
                             <v-list-item-content>
@@ -74,7 +82,7 @@
                     id="scrolling-techniques-7"
                     class="overflow-y-auto"
                 >
-                    <v-main>
+                    <v-main class="grey lighten-3">
                             <component :is="activeComponent"></component>
                     </v-main>
                 </v-sheet>
@@ -96,6 +104,7 @@
                 activeComponent: null,
                 drawer: true,
                 Nav_bar_items: [
+                    ['mdi-monitor-dashboard', 'Dashboard', 'dashboard'],
                     ['mdi-paper-roll', 'Orders', 'orders'],
                     ['mdi-store-search', 'Product', 'products'],
                     ['mdi-account-group', 'users', 'users'],
@@ -118,6 +127,10 @@
             },
             setComponent(value) {
                 switch(value) {
+                    case "dashboard":
+                        this.activeComponent = Main
+                        this.$router.push({name: 'admin-pages', params: {page: 'main'}})
+                        break;
                     case "users":
                         this.activeComponent = Users
                         this.$router.push({name: 'admin-pages', params: {page: 'users'}})
@@ -139,6 +152,23 @@
                         this.$router.push({name: 'admin'})
                         break;
                 }
+            },
+            setDefaults() {
+                if (this.isLoggedIn) {
+                    let user = JSON.parse(localStorage.getItem('bigStore.user'))
+                    this.name = user.name
+                    this.user_type = user.role
+                }
+            },
+            change() {
+                this.isLoggedIn = localStorage.getItem('bigStore.jwt') != null
+                this.setDefaults()
+            },
+            logout(){
+                localStorage.removeItem('bigStore.jwt')
+                localStorage.removeItem('bigStore.user')
+                this.change()
+                this.$router.push('/')
             }
         }
     }

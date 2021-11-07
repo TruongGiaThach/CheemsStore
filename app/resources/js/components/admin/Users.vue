@@ -1,5 +1,8 @@
 <template>
-  <v-card>
+  <v-card
+    height="100%"
+    outlined
+    class="pa-md-4 mx-lg-auto grey lighten-3">
     <v-card-title>
       Staffs
       <v-spacer></v-spacer>
@@ -15,6 +18,10 @@
       :headers="headers"
       :items="desserts"
       :search="search"
+      show-expand
+      rounded-xl
+      class="elevation-1"
+      min-height="70vh"
     ></v-data-table>
   </v-card>
 </template>

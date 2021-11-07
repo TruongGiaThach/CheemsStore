@@ -1,9 +1,20 @@
 <template>
+  <v-card
+    height="100%"
+    outlined
+    class="pa-md-4 mx-lg-auto grey lighten-3">
   <v-data-table
     :headers="headers"
     :items="products"
-    sort-by="calories"
+    :search="search"
+    :expanded.sync="expanded"
+    :single-expand="singleExpand"
+    item-key="name"
+    show-expand
+    rounded-xl
     class="elevation-1"
+    min-height="100vh"
+    @click:row="clickRow"
   >
     <template v-slot:top>
       <v-toolbar
@@ -15,6 +26,14 @@
           inset
           vertical
         ></v-divider>
+        <v-spacer></v-spacer>
+        <v-text-field
+          v-model="search"
+          append-icon="mdi-magnify"
+          label="Search"
+          single-line
+          hide-details
+        ></v-text-field>
         <v-spacer></v-spacer>
         <v-dialog
           v-model="dialog"
@@ -69,25 +88,17 @@
                       label="Price"
                     ></v-text-field>
                   </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.image"
-                      label="Image"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
+                  <v-col cols="12">
+                    <v-textarea
                       v-model="editedItem.description"
-                      label="Description"
-                    ></v-text-field>
+                      color="teal"
+                    >
+                      <template v-slot:label>
+                        <div>
+                        Description <small>(optional)</small>
+                        </div>
+                      </template>
+                    </v-textarea>
                   </v-col>
                 </v-row>
               </v-container>
@@ -125,7 +136,26 @@
         </v-dialog>
       </v-toolbar>
     </template>
-    <template v-slot:item.actions="{ item }">
+    <template #expanded-item="{ headers, item }">
+      <td :colspan="headers.length">
+        <v-row>
+          <v-col cols="12" md="4">
+            <v-img
+              :src="item.poster"
+              :lazy-src="lazy">
+
+            </v-img>
+          </v-col>
+          <v-col cols="12" md="8">
+            <h3> {{ item.name }} </h3>
+            <p class="text-justify">
+              {{ item.description }}
+            </p>
+          </v-col>
+        </v-row>
+      </td>
+    </template>
+    <template v-slot:[`item.actions`]="{ item }">
       <v-icon
         small
         class="mr-2"
@@ -141,14 +171,21 @@
       </v-icon>
     </template>
     <template v-slot:no-data>
+      <h6 class="text-center"> 
+          No data found!
+      </h6>
       <v-btn
-        color="primary"
+        small
+        fab
         @click="initialize"
       >
-        Reset
+        <v-icon dark>
+            mdi-restart
+        </v-icon>
       </v-btn>
     </template>
   </v-data-table>
+  </v-card>
 </template>
 
 <script>
@@ -157,21 +194,23 @@
         data(){
             return {
                 products : [],
+                search: '',
                 editingItem : null,
                 addingProduct : null,
                 dialog: false,
                 dialogDelete: false,
+                lazy: `https://goo.gl/jbJWmK`,
+                expanded: [],
+                singleExpand: true,
                 headers: [
                     {
                       text: 'Name',
-                      align: 'start',
+                      align: 'left',
                       sortable: false,
                       value: 'name',
                     },
                     { text: 'Units', value: 'units' },
                     { text: 'Price', value: 'price' },
-                    { text: 'Image', value: 'image' },
-                    { text: 'Description', value: 'description' },
                     { text: 'Actions', value: 'actions', sortable: false },
                 ],
                 editedIndex: -1,
@@ -220,163 +259,22 @@
             })     
         },
         methods : {
+            clickRow(item, event) {
+              if(event.isExpanded) {
+                const index = this.expanded.findIndex(i => i === item);
+                this.expanded.splice(index, 1)
+              } else {
+                this.expanded.push(item);
+              }
+            },
             initialize () {
-                this.products = [
-                    {
-                        name: 'paper',
-                        units: 10,
-                        price: 10000,
-                        image: null,
-                        description: 'NO',
-                    },
-                    {
-                        name: 'paper',
-                        units: 10,
-                        price: 10000,
-                        image: null,
-                        description: 'NO',
-                    },
-                    {
-                        name: 'paper',
-                        units: 10,
-                        price: 10000,
-                        image: null,
-                        description: 'NO',
-                    },
-                    {
-                        name: 'paper',
-                        units: 10,
-                        price: 10000,
-                        image: null,
-                        description: 'NO',
-                    },
-                    {
-                        name: 'paper',
-                        units: 10,
-                        price: 10000,
-                        image: null,
-                        description: 'NO',
-                    },
-                    {
-                        name: 'paper',
-                        units: 10,
-                        price: 10000,
-                        image: null,
-                        description: 'NO',
-                    },
-                    {
-                        name: 'paper',
-                        units: 10,
-                        price: 10000,
-                        image: null,
-                        description: 'NO',
-                    },
-                    {
-                        name: 'paper',
-                        units: 10,
-                        price: 10000,
-                        image: null,
-                        description: 'NO',
-                    },
-                    {
-                        name: 'paper',
-                        units: 10,
-                        price: 10000,
-                        image: null,
-                        description: 'NO',
-                    },
-                    {
-                        name: 'paper',
-                        units: 10,
-                        price: 10000,
-                        image: null,
-                        description: 'NO',
-                    },
-                    {
-                        name: 'paper',
-                        units: 10,
-                        price: 10000,
-                        image: null,
-                        description: 'NO',
-                    },
-                    {
-                        name: 'paper',
-                        units: 10,
-                        price: 10000,
-                        image: null,
-                        description: 'NO',
-                    },
-                    {
-                        name: 'paper',
-                        units: 10,
-                        price: 10000,
-                        image: null,
-                        description: 'NO',
-                    },
-                    {
-                        name: 'paper',
-                        units: 10,
-                        price: 10000,
-                        image: null,
-                        description: 'NO',
-                    },
-                    {
-                        name: 'paper',
-                        units: 10,
-                        price: 10000,
-                        image: null,
-                        description: 'NO',
-                    },
-                    {
-                        name: 'paper',
-                        units: 10,
-                        price: 10000,
-                        image: null,
-                        description: 'NO',
-                    },
-                    {
-                        name: 'paper',
-                        units: 10,
-                        price: 10000,
-                        image: null,
-                        description: 'NO',
-                    },
-                    {
-                        name: 'paper',
-                        units: 10,
-                        price: 10000,
-                        image: null,
-                        description: 'NO',
-                    },
-                    {
-                        name: 'paper',
-                        units: 10,
-                        price: 10000,
-                        image: null,
-                        description: 'NO',
-                    },
-                    {
-                        name: 'paper',
-                        units: 10,
-                        price: 10000,
-                        image: null,
-                        description: 'NO',
-                    },
-                    {
-                        name: 'paper',
-                        units: 10,
-                        price: 10000,
-                        image: null,
-                        description: 'NO',
-                    },
-                    {
-                        name: 'paper',
-                        units: 10,
-                        price: 10000,
-                        image: null,
-                        description: 'NO',
-                    },
-                ]
+                axios.get('/api/products/')
+                .then(response => {
+                    this.products = response.data
+                })
+                .catch(error => {
+                    console.error(error);
+                })  
             },
 
             newProduct(){
