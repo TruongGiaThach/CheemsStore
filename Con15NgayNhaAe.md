@@ -61,6 +61,13 @@
 - connect mongodb, chỗ post là 0.0.0.0 và username = password = root
 - giờ oce cả rồi, run ./vendor/bin/sail npm run watch rồi code
 - chúc ae may mắn
+## fix login
+- ae vào vendor/laravel/passport/src/
+- kiểm tra các file .php
+- các file có 'Illuminate\Database\Eloquent\Model' ở phần khai báo thì ae chỉnh lại thành 'Jenssegers\Mongodb\Eloquent\Model'
+- chạy 
+      `./vendor/bin/sail php artisan passport:client --personal`
+  rồi nhập tên tùy thích
 ## Cho những ai muốn dùng vuetify
 Step-1: Run the below commands into your project terminal.
 -     => $ sudo npm install
