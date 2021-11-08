@@ -105,30 +105,33 @@
                                         </div>
                                     </router-link>
                                     <span v-if="isLoggedIn">
-                                        <router-link :to="{ name: 'userboard' }" class="nav-link" v-if="user_type == 0"> 
+                                        <router-link :to="{ name: 'userboard' }" class="nav-link" v-if="user_type == 'user'"> 
                                             <div class = "navbar-icon">
                                                 <i class="far fa-user-circle fa-2x"></i>
                                                 <p>
                                                     <b>{{name}}</b>
                                                 </p>
                                             </div>
-                                            </router-link>
-                                        <router-link :to="{ name: 'admin' }" class="nav-link" v-if="user_type == 1">
+                                            </router-link>        
+                                        <router-link :to="{ name: 'admin' }" class="nav-link" v-else >
                                             <div class = "navbar-icon">
                                                 <i class="far fa-user-circle fa-2x"></i>
-                                                <p>
+                                                <p v-if="user_type == 'admin'">
                                                     <b>{{name}}</b>
                                                 </p>
+                                                <p v-else>
+                                                    <b>staff</b>
+                                                </p>
                                             </div>
-                                        </router-link>
+                                        </router-link> 
                                     </span>
                                 </div>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <router-link :to="{ name: 'login' }" class="nav-link" v-if="!isLoggedIn">Đăng nhập</router-link>
                                     <router-link :to="{ name: 'register' }" class="nav-link" v-if="!isLoggedIn">Đăng ký</router-link>
                                     <span v-if="isLoggedIn">
-                                        <router-link :to="{ name: 'userboard' }" class="nav-link" v-if="user_type == 0">Hồ sơ</router-link>
-                                        <router-link :to="{ name: 'admin' }" class="nav-link" v-if="user_type == 1">Quản lý</router-link>
+                                        <router-link :to="{ name: 'userboard' }" class="nav-link" v-if="user_type == 'user'">Hồ sơ</router-link>
+                                        <router-link :to="{ name: 'admin' }" class="nav-link" v-else>Quản lý</router-link>
                                     </span>
                                     <li class="nav-link" v-if="isLoggedIn" @click="logout"> Đăng xuất</li>
                                 </div>
@@ -195,7 +198,7 @@
         data() {
             return {
                 name: null,
-                user_type: 0,
+                user_type: 'user',
                 isLoggedIn: localStorage.getItem('bigStore.jwt') != null
             }
         },
@@ -210,7 +213,7 @@
                 if (this.isLoggedIn) {
                     let user = JSON.parse(localStorage.getItem('bigStore.user'))
                     this.name = user.name
-                    this.user_type = user.is_admin
+                    this.user_type = user.role
                 }
             },
             change() {

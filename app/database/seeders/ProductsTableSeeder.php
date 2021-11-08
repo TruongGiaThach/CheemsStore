@@ -16,11 +16,11 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        /*
         DB::table('products')->delete();
         $products = [
         ];
 
-        DB::table('products')->insert($products);
+        DB::table('products')->insert($products);*/
     }
 }

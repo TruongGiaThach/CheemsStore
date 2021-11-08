@@ -2364,12 +2364,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       name: null,
-      user_type: 0,
+      user_type: 'user',
       isLoggedIn: localStorage.getItem('bigStore.jwt') != null
     };
   },
@@ -2384,7 +2387,7 @@ __webpack_require__.r(__webpack_exports__);
       if (this.isLoggedIn) {
         var user = JSON.parse(localStorage.getItem('bigStore.user'));
         this.name = user.name;
-        this.user_type = user.is_admin;
+        this.user_type = user.role;
       }
     },
     change: function change() {
@@ -3383,6 +3386,7 @@ __webpack_require__.r(__webpack_exports__);
         }).then(function (response) {
           var user = response.data.user;
           var role = user.role;
+          console.log(role);
           localStorage.setItem('bigStore.user', JSON.stringify(user));
           localStorage.setItem('bigStore.jwt', response.data.token);
 
@@ -3392,7 +3396,7 @@ __webpack_require__.r(__webpack_exports__);
             if (_this.$route.params.nextUrl != null) {
               _this.$router.push(_this.$route.params.nextUrl);
             } else {
-              _this.$router.push(role == 'admin' ? 'admin' : 'dashboard');
+              _this.$router.push(role == 'user' ? 'dashboard' : 'admin');
             }
           }
         });
@@ -8763,7 +8767,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/**************************\r\n*******Top header CSS******\r\n***************************/\n.topbar[data-v-332fccf4]{\r\n    height: 2.55em;\r\n    background-color: #d2691e;\n}\n.contactinfo ul li[data-v-332fccf4]:first-child{\r\n    margin-left: -15px;\n}\n.contactinfo ul li[data-v-332fccf4]{\r\n    margin-top:0.3em;\n}\n.contactinfo ul li a[data-v-332fccf4]{\r\n\r\n  font-size: 12px;\r\n  color: #ffff;\n}\n.contactinfo ul li a p[data-v-332fccf4]{\r\n   margin-top:0.2em;\r\n   font-weight: bold;\r\n   float: right;\n}\n.contactinfo ul li a #info[data-v-332fccf4]{\r\n   color: rgb(0, 200, 200)\n}\n.contactinfo ul li a[data-v-332fccf4]:hover{\r\n\tbackground:inherit;\n}\n.social-icons ul li a[data-v-332fccf4] {\r\n  border: 0 none;\r\n  border-radius: 0;\r\n  padding:0px;\n}\n.social-icons ul li[data-v-332fccf4]{\r\n\tdisplay:inline-block;\n}\n.social-icons ul li a i[data-v-332fccf4] {\r\n  padding: 11px 15px;\r\n   transition: all 0.9s ease 0s;\r\n  -moz-transition: all 0.9s ease 0s;\r\n  -webkit-transition: all 0.9s ease 0s;\r\n  -o-transition: all 0.9s ease 0s;\n}\n.social-icons ul li a i[data-v-332fccf4]:hover{\r\n  color: #ffff;\r\n   transition: all 0.9s ease 0s;\r\n  -moz-transition: all 0.9s ease 0s;\r\n  -webkit-transition: all 0.9s ease 0s;\r\n  -o-transition: all 0.9s ease 0s;\n}\n.fa-facebook[data-v-332fccf4]{\r\n   color: #0083C9;\n}\n.fa-facebook[data-v-332fccf4]:hover {\r\n   background: #0083C9;\n}\n.fa-twitter[data-v-332fccf4]{\r\n    color: #5BBCEC;\n}\n.fa-twitter[data-v-332fccf4]:hover  {\r\n\tbackground:#5BBCEC;\n}\n.fa-google-plus[data-v-332fccf4] {\r\n\tcolor:#CE3C2D;\n}\n.fa-google-plus[data-v-332fccf4]:hover  {\r\n\tbackground:#CE3C2D;\n}\r\n\r\n/***************************\r\n*******Main header CSS******\r\n****************************/\n.mainbar[data-v-332fccf4]{\r\n    background-color:rgba(255, 255, 255, 0.9);\n}\n.mainbar .container[data-v-332fccf4]{\r\n    margin-top: 1em ;\n}\n.navbar-brand[data-v-332fccf4] {\r\n    margin-left: -4em;\n}\n.navbar-brand #logo[data-v-332fccf4]{\r\n    float: left;\r\n    margin-right: 0.5em;\n}\n.navbar-brand #title[data-v-332fccf4]{\r\n    color: #d2691e;\r\n    padding-top: 0.4em;\n}\n.navbar-brand[data-v-332fccf4] :hover{\r\n    opacity: 0.9;\r\n    filter: alpha(opacity=90);\n}\n.navbar-nav .fa-search[data-v-332fccf4]{\r\n    color:#ffff\n}\n.navbar-nav .search-box[data-v-332fccf4]{\r\n    max-width: 100%;\n}\n.dropdown #dropdownMenuButton[data-v-332fccf4]{\r\n    margin-bottom: -2.5em;\n}\n.dropdown .dropdown-menu[data-v-332fccf4]{\r\n    min-width: 7.3em;\r\n    text-align: center;\n}\n.mr-auto[data-v-332fccf4]{\r\n    margin-left:8em;\r\n    margin-bottom: 0em;\n}\n.dropdown:hover>.dropdown-menu[data-v-332fccf4]{\r\n    display: block;\n}\n.dropdown-menu .nav-link[data-v-332fccf4]:hover{\r\n    color:#d2691e;\n}\n.dropdown:hover .navbar-icon[data-v-332fccf4]{\r\n    color:#d2691e;\n}\n.cheems-color[data-v-332fccf4]{\r\n    background-color: #d2691e;\n}\r\n\r\n/***************************\r\n*******Main footer CSS******\r\n****************************/\n.divider[data-v-332fccf4]{\r\n    height: 0.2em;\r\n    background-color: #d2691e;\n}\n.main-footer[data-v-332fccf4]{\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    background-color: #ffff;\n}\n.main-footer .container[data-v-332fccf4]{\r\n    padding-top: 2em;\r\n    max-width: 95%;\n}\n.main-footer .container .col #title[data-v-332fccf4]{\r\n    color: #d2691e;\r\n    font-weight: bold;\r\n    height: 3em;\n}\n.main-footer .container .col p[data-v-332fccf4]{\r\n    font-size: 90%;\n}\n.main-footer .container .col p p[data-v-332fccf4]{\r\n    display: inline;\n}\r\n/***************************\r\n*******Main footer CSS******\r\n****************************/\n.bottom-footer[data-v-332fccf4]{\r\n    height: 2.5em;\r\n    background-color: #d2691e42;\r\n    text-align: center;\n}\n.bottom-footer #right-reserved[data-v-332fccf4]{\r\n    line-height: 2.5em;\r\n    text-decoration: none;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/**************************\n*******Top header CSS******\n***************************/\n.topbar[data-v-332fccf4]{\n    height: 2.55em;\n    background-color: #d2691e;\n}\n.contactinfo ul li[data-v-332fccf4]:first-child{\n    margin-left: -15px;\n}\n.contactinfo ul li[data-v-332fccf4]{\n    margin-top:0.3em;\n}\n.contactinfo ul li a[data-v-332fccf4]{\n\n  font-size: 12px;\n  color: #ffff;\n}\n.contactinfo ul li a p[data-v-332fccf4]{\n   margin-top:0.2em;\n   font-weight: bold;\n   float: right;\n}\n.contactinfo ul li a #info[data-v-332fccf4]{\n   color: rgb(0, 200, 200)\n}\n.contactinfo ul li a[data-v-332fccf4]:hover{\n\tbackground:inherit;\n}\n.social-icons ul li a[data-v-332fccf4] {\n  border: 0 none;\n  border-radius: 0;\n  padding:0px;\n}\n.social-icons ul li[data-v-332fccf4]{\n\tdisplay:inline-block;\n}\n.social-icons ul li a i[data-v-332fccf4] {\n  padding: 11px 15px;\n   transition: all 0.9s ease 0s;\n  -moz-transition: all 0.9s ease 0s;\n  -webkit-transition: all 0.9s ease 0s;\n  -o-transition: all 0.9s ease 0s;\n}\n.social-icons ul li a i[data-v-332fccf4]:hover{\n  color: #ffff;\n   transition: all 0.9s ease 0s;\n  -moz-transition: all 0.9s ease 0s;\n  -webkit-transition: all 0.9s ease 0s;\n  -o-transition: all 0.9s ease 0s;\n}\n.fa-facebook[data-v-332fccf4]{\n   color: #0083C9;\n}\n.fa-facebook[data-v-332fccf4]:hover {\n   background: #0083C9;\n}\n.fa-twitter[data-v-332fccf4]{\n    color: #5BBCEC;\n}\n.fa-twitter[data-v-332fccf4]:hover  {\n\tbackground:#5BBCEC;\n}\n.fa-google-plus[data-v-332fccf4] {\n\tcolor:#CE3C2D;\n}\n.fa-google-plus[data-v-332fccf4]:hover  {\n\tbackground:#CE3C2D;\n}\n\n/***************************\n*******Main header CSS******\n****************************/\n.mainbar[data-v-332fccf4]{\n    background-color:rgba(255, 255, 255, 0.9);\n}\n.mainbar .container[data-v-332fccf4]{\n    margin-top: 1em ;\n}\n.navbar-brand[data-v-332fccf4] {\n    margin-left: -4em;\n}\n.navbar-brand #logo[data-v-332fccf4]{\n    float: left;\n    margin-right: 0.5em;\n}\n.navbar-brand #title[data-v-332fccf4]{\n    color: #d2691e;\n    padding-top: 0.4em;\n}\n.navbar-brand[data-v-332fccf4] :hover{\n    opacity: 0.9;\n    filter: alpha(opacity=90);\n}\n.navbar-nav .fa-search[data-v-332fccf4]{\n    color:#ffff\n}\n.navbar-nav .search-box[data-v-332fccf4]{\n    max-width: 100%;\n}\n.dropdown #dropdownMenuButton[data-v-332fccf4]{\n    margin-bottom: -2.5em;\n}\n.dropdown .dropdown-menu[data-v-332fccf4]{\n    min-width: 7.3em;\n    text-align: center;\n}\n.mr-auto[data-v-332fccf4]{\n    margin-left:8em;\n    margin-bottom: 0em;\n}\n.dropdown:hover>.dropdown-menu[data-v-332fccf4]{\n    display: block;\n}\n.dropdown-menu .nav-link[data-v-332fccf4]:hover{\n    color:#d2691e;\n}\n.dropdown:hover .navbar-icon[data-v-332fccf4]{\n    color:#d2691e;\n}\n.cheems-color[data-v-332fccf4]{\n    background-color: #d2691e;\n}\n\n/***************************\n*******Main footer CSS******\n****************************/\n.divider[data-v-332fccf4]{\n    height: 0.2em;\n    background-color: #d2691e;\n}\n.main-footer[data-v-332fccf4]{\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    background-color: #ffff;\n}\n.main-footer .container[data-v-332fccf4]{\n    padding-top: 2em;\n    max-width: 95%;\n}\n.main-footer .container .col #title[data-v-332fccf4]{\n    color: #d2691e;\n    font-weight: bold;\n    height: 3em;\n}\n.main-footer .container .col p[data-v-332fccf4]{\n    font-size: 90%;\n}\n.main-footer .container .col p p[data-v-332fccf4]{\n    display: inline;\n}\n/***************************\n*******Main footer CSS******\n****************************/\n.bottom-footer[data-v-332fccf4]{\n    height: 2.5em;\n    background-color: #d2691e42;\n    text-align: center;\n}\n.bottom-footer #right-reserved[data-v-332fccf4]{\n    line-height: 2.5em;\n    text-decoration: none;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8835,7 +8839,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/***************************\r\n*******Sliders CSS**********\r\n****************************/\n.carousel-indicators li[data-v-f2b6376c]{\r\n    background-color: #d2691e;\r\n    height: 0.8em;\r\n    width: 0.8em;\r\n    border-radius: 100%;\r\n    margin-bottom: 5.1em;\n}\n.carousel-indicators[data-v-f2b6376c]{\r\n    z-index: 2;\n}\n.overlap[data-v-f2b6376c]{\r\n    position: absolute;\r\n    bottom:0;\r\n    background-color:transparent;\r\n    width: 100%;\r\n    height: 39em;\n}\n.overlap .category-menu-area[data-v-f2b6376c]{\r\n    position: absolute;\r\n    top: 0.8em;\r\n    left: 11em;\r\n    border-radius: 10px;\n}\n.overlap .category-menu-area .side-menu[data-v-f2b6376c]{\r\n    z-index: 2;\r\n    position: absolute;\r\n    background-color: white;\r\n    width: 16em;\r\n    height: inherit;\r\n    border-radius: inherit;\n}\n.overlap .category-menu-area .mega-dropdown[data-v-f2b6376c]{\r\n    z-index: 2;\r\n    display: none;\r\n    position: absolute;\r\n    height: 30.75em;\r\n    background-color: white;\r\n    width: 66.9em;\r\n    left: 16.7em;\r\n    border-radius: 10px;\r\n    top: 0;\n}\n.side-menu .side-menu-section table[data-v-f2b6376c]{\r\n    width: 100%;\r\n    font-size: 13px;\r\n    border-radius: 10px;\n}\n.side-menu .side-menu-section table td[data-v-f2b6376c]{\r\n    padding: 0.4em;\n}\n.side-menu .side-menu-section table[data-v-f2b6376c]:hover{\r\n    background-color: #9bc7f328;\n}\n.side-menu .side-menu-section a[data-v-f2b6376c]{\r\n    text-decoration: none;\r\n    color: rgb(36, 36, 36);\n}\n.side-menu .side-menu-section a[data-v-f2b6376c]:hover{\r\n    color: #005ba6;\n}\n.side-menu .side-menu-section table:hover + .mega-dropdown[data-v-f2b6376c]{\r\n    display:block;\n}\n.side-menu .side-menu-section .mega-dropdown[data-v-f2b6376c]:hover{\r\n    display:block;\n}\r\n/********************************\r\n*******Home body CSS*************\r\n*********************************/\n.body[data-v-f2b6376c]{\r\n    width: 79.4%;\r\n    margin-left: 11em;\r\n    background-color: #ffff;\n}\n.body .products[data-v-f2b6376c]{\r\n    margin-top: 4em;\n}\n.body .top-sellers-slider[data-v-f2b6376c]{\r\n    margin-top: 4em;\n}\n.body .product-4-you[data-v-f2b6376c]{\r\n    margin-top: 4em;\n}\n.body .title h1[data-v-f2b6376c]{\r\n    font-weight: 950;\r\n    font-size: 135%;\n}\n.body .title h3[data-v-f2b6376c]{\r\n    font-weight: 900;\r\n    color:#ffff;\r\n    padding-top: 0.7em;\n}\n.body img[data-v-f2b6376c]{\r\n    transition: all 1s;\n}\n.body img[data-v-f2b6376c]:hover{ \r\n    transform: scale(1.05);\n}\n.carousel[data-v-f2b6376c]{\r\n    display: flex;\r\n    align-items: center;\n}\n.carousel-control-prev[data-v-f2b6376c]{\r\n    background-color: rgba(0, 0, 0, 0.4);\r\n    width: 4em;\r\n    height: 3em;\r\n    margin: 0;\r\n    position: absolute;\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n    border-top-right-radius: 45%;\r\n    border-bottom-right-radius: 45%;\n}\n.carousel-control-next[data-v-f2b6376c]{\r\n    background-color: rgba(0, 0, 0, 0.4);\r\n    width: 4em;\r\n    height: 3em;\r\n    margin: 0;\r\n    position: absolute;\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n    border-top-left-radius: 45%;\r\n    border-bottom-left-radius: 45%;\n}\r\n/********************************\r\n*******Brand Sliders CSS*********\r\n*********************************/\n.brand-slider[data-v-f2b6376c]{\r\n    z-index: 4;\r\n    position: relative;\r\n    background-color: transparent;\r\n    margin-top: -5.5em;\r\n    max-width: 100%;\r\n    text-align: right;\n}\n.brand-slider .title[data-v-f2b6376c]{\r\n    background-color: #008b8b;\r\n    display:inline-block;\r\n    border-top-left-radius: 20px;\r\n    border-top-right-radius: 20px;\r\n    width: 20em;\r\n    text-align: center;\n}\n.brand-slider .slider-tab[data-v-f2b6376c]{\r\n    background-color:#008b8b;\r\n    height: 14em;\r\n    border-top-left-radius: 20px;\r\n    border-bottom-right-radius: 20px;\r\n    border-bottom-left-radius: 20px;\n}\n.brand-slider .col-md-3[data-v-f2b6376c]{\r\n  display: inline-block;\r\n  margin-left:-0.3em;\r\n  padding-top: 2em;\n}\n.brand-slider .col-md-3 img[data-v-f2b6376c]{\r\n  width:100%;\r\n  height:9.8em;\r\n  border-radius: 10px;\n}\r\n/***************************\r\n*******Products CSS*********\r\n****************************/\n.products .category-row[data-v-f2b6376c]{\r\n    margin-top: 2em;\n}\n.products .banner[data-v-f2b6376c]{\r\n    overflow: hidden;\n}\n.products .product-category .row .col[data-v-f2b6376c] {\r\n    text-align: center;\r\n    padding: 1em;\n}\n.products .product-category .row .col[data-v-f2b6376c] :link{\r\n    color: #000000;\n}\n.products .product-category .row .col[data-v-f2b6376c] :visited{\r\n    color: #000000;\n}\n.products .product-category .row .col[data-v-f2b6376c] :hover{\r\n    text-decoration: none;\r\n    color:#005ba6;\n}\n.products .product-category .row .col h5[data-v-f2b6376c]{\r\n    font-size: 100%;\r\n    font-weight: bold;\n}\n.products .product-category .row .col p[data-v-f2b6376c]{\r\n    font-size: 90%;\n}\n.products .product-category .row .col img[data-v-f2b6376c]{\r\n    width: 7em;\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\n}\r\n/******************************\r\n*******Top Sellers CSS*********\r\n*******************************/\n.top-sellers-slider[data-v-f2b6376c]{\r\n    height: 20em;\r\n    background-color: orangered;\r\n    border-radius: 10px;\n}\n.top-sellers-slider .title[data-v-f2b6376c]{\r\n    padding-left:1em;\n}\r\n/*********************************\r\n*******Products 4 You CSS*********\r\n**********************************/\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/***************************\n*******Sliders CSS**********\n****************************/\n.carousel-indicators li[data-v-f2b6376c]{\n    background-color: #d2691e;\n    height: 0.8em;\n    width: 0.8em;\n    border-radius: 100%;\n    margin-bottom: 5.1em;\n}\n.carousel-indicators[data-v-f2b6376c]{\n    z-index: 2;\n}\n.overlap[data-v-f2b6376c]{\n    position: absolute;\n    bottom:0;\n    background-color:transparent;\n    width: 100%;\n    height: 39em;\n}\n.overlap .category-menu-area[data-v-f2b6376c]{\n    position: absolute;\n    top: 0.8em;\n    left: 11em;\n    border-radius: 10px;\n}\n.overlap .category-menu-area .side-menu[data-v-f2b6376c]{\n    z-index: 2;\n    position: absolute;\n    background-color: white;\n    width: 16em;\n    height: inherit;\n    border-radius: inherit;\n}\n.overlap .category-menu-area .mega-dropdown[data-v-f2b6376c]{\n    z-index: 2;\n    display: none;\n    position: absolute;\n    height: 30.75em;\n    background-color: white;\n    width: 66.9em;\n    left: 16.7em;\n    border-radius: 10px;\n    top: 0;\n}\n.side-menu .side-menu-section table[data-v-f2b6376c]{\n    width: 100%;\n    font-size: 13px;\n    border-radius: 10px;\n}\n.side-menu .side-menu-section table td[data-v-f2b6376c]{\n    padding: 0.4em;\n}\n.side-menu .side-menu-section table[data-v-f2b6376c]:hover{\n    background-color: #9bc7f328;\n}\n.side-menu .side-menu-section a[data-v-f2b6376c]{\n    text-decoration: none;\n    color: rgb(36, 36, 36);\n}\n.side-menu .side-menu-section a[data-v-f2b6376c]:hover{\n    color: #005ba6;\n}\n.side-menu .side-menu-section table:hover + .mega-dropdown[data-v-f2b6376c]{\n    display:block;\n}\n.side-menu .side-menu-section .mega-dropdown[data-v-f2b6376c]:hover{\n    display:block;\n}\n/********************************\n*******Home body CSS*************\n*********************************/\n.body[data-v-f2b6376c]{\n    width: 79.4%;\n    margin-left: 11em;\n    background-color: #ffff;\n}\n.body .products[data-v-f2b6376c]{\n    margin-top: 4em;\n}\n.body .top-sellers-slider[data-v-f2b6376c]{\n    margin-top: 4em;\n}\n.body .product-4-you[data-v-f2b6376c]{\n    margin-top: 4em;\n}\n.body .title h1[data-v-f2b6376c]{\n    font-weight: 950;\n    font-size: 135%;\n}\n.body .title h3[data-v-f2b6376c]{\n    font-weight: 900;\n    color:#ffff;\n    padding-top: 0.7em;\n}\n.body img[data-v-f2b6376c]{\n    transition: all 1s;\n}\n.body img[data-v-f2b6376c]:hover{ \n    transform: scale(1.05);\n}\n.carousel[data-v-f2b6376c]{\n    display: flex;\n    align-items: center;\n}\n.carousel-control-prev[data-v-f2b6376c]{\n    background-color: rgba(0, 0, 0, 0.4);\n    width: 4em;\n    height: 3em;\n    margin: 0;\n    position: absolute;\n    top: 50%;\n    transform: translateY(-50%);\n    border-top-right-radius: 45%;\n    border-bottom-right-radius: 45%;\n}\n.carousel-control-next[data-v-f2b6376c]{\n    background-color: rgba(0, 0, 0, 0.4);\n    width: 4em;\n    height: 3em;\n    margin: 0;\n    position: absolute;\n    top: 50%;\n    transform: translateY(-50%);\n    border-top-left-radius: 45%;\n    border-bottom-left-radius: 45%;\n}\n/********************************\n*******Brand Sliders CSS*********\n*********************************/\n.brand-slider[data-v-f2b6376c]{\n    z-index: 4;\n    position: relative;\n    background-color: transparent;\n    margin-top: -5.5em;\n    max-width: 100%;\n    text-align: right;\n}\n.brand-slider .title[data-v-f2b6376c]{\n    background-color: #008b8b;\n    display:inline-block;\n    border-top-left-radius: 20px;\n    border-top-right-radius: 20px;\n    width: 20em;\n    text-align: center;\n}\n.brand-slider .slider-tab[data-v-f2b6376c]{\n    background-color:#008b8b;\n    height: 14em;\n    border-top-left-radius: 20px;\n    border-bottom-right-radius: 20px;\n    border-bottom-left-radius: 20px;\n}\n.brand-slider .col-md-3[data-v-f2b6376c]{\n  display: inline-block;\n  margin-left:-0.3em;\n  padding-top: 2em;\n}\n.brand-slider .col-md-3 img[data-v-f2b6376c]{\n  width:100%;\n  height:9.8em;\n  border-radius: 10px;\n}\n/***************************\n*******Products CSS*********\n****************************/\n.products .category-row[data-v-f2b6376c]{\n    margin-top: 2em;\n}\n.products .banner[data-v-f2b6376c]{\n    overflow: hidden;\n}\n.products .product-category .row .col[data-v-f2b6376c] {\n    text-align: center;\n    padding: 1em;\n}\n.products .product-category .row .col[data-v-f2b6376c] :link{\n    color: #000000;\n}\n.products .product-category .row .col[data-v-f2b6376c] :visited{\n    color: #000000;\n}\n.products .product-category .row .col[data-v-f2b6376c] :hover{\n    text-decoration: none;\n    color:#005ba6;\n}\n.products .product-category .row .col h5[data-v-f2b6376c]{\n    font-size: 100%;\n    font-weight: bold;\n}\n.products .product-category .row .col p[data-v-f2b6376c]{\n    font-size: 90%;\n}\n.products .product-category .row .col img[data-v-f2b6376c]{\n    width: 7em;\n    display: block;\n    margin-left: auto;\n    margin-right: auto;\n}\n/******************************\n*******Top Sellers CSS*********\n*******************************/\n.top-sellers-slider[data-v-f2b6376c]{\n    height: 20em;\n    background-color: orangered;\n    border-radius: 10px;\n}\n.top-sellers-slider .title[data-v-f2b6376c]{\n    padding-left:1em;\n}\n/*********************************\n*******Products 4 You CSS*********\n**********************************/\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -43085,7 +43089,7 @@ var render = function () {
                     ? _c(
                         "span",
                         [
-                          _vm.user_type == 0
+                          _vm.user_type == "user"
                             ? _c(
                                 "router-link",
                                 {
@@ -43104,10 +43108,7 @@ var render = function () {
                                   ]),
                                 ]
                               )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.user_type == 1
-                            ? _c(
+                            : _c(
                                 "router-link",
                                 {
                                   staticClass: "nav-link",
@@ -43119,13 +43120,14 @@ var render = function () {
                                       staticClass: "far fa-user-circle fa-2x",
                                     }),
                                     _vm._v(" "),
-                                    _c("p", [
-                                      _c("b", [_vm._v(_vm._s(_vm.name))]),
-                                    ]),
+                                    _vm.user_type == "admin"
+                                      ? _c("p", [
+                                          _c("b", [_vm._v(_vm._s(_vm.name))]),
+                                        ])
+                                      : _c("p", [_c("b", [_vm._v("staff")])]),
                                   ]),
                                 ]
-                              )
-                            : _vm._e(),
+                              ),
                         ],
                         1
                       )
@@ -43167,7 +43169,7 @@ var render = function () {
                     ? _c(
                         "span",
                         [
-                          _vm.user_type == 0
+                          _vm.user_type == "user"
                             ? _c(
                                 "router-link",
                                 {
@@ -43176,18 +43178,14 @@ var render = function () {
                                 },
                                 [_vm._v("Hồ sơ")]
                               )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.user_type == 1
-                            ? _c(
+                            : _c(
                                 "router-link",
                                 {
                                   staticClass: "nav-link",
                                   attrs: { to: { name: "admin" } },
                                 },
                                 [_vm._v("Quản lý")]
-                              )
-                            : _vm._e(),
+                              ),
                         ],
                         1
                       )
@@ -45469,7 +45467,7 @@ var render = function () {
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-md-8" }, [
         _c("div", { staticClass: "card card-default" }, [
-          _c("div", { staticClass: "card-header" }, [_vm._v("Đăng nhập")]),
+          _c("div", { staticClass: "card-header" }, [_vm._v("Login")]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
             _c("form", [
@@ -45480,7 +45478,7 @@ var render = function () {
                     staticClass: "col-sm-4 col-form-label text-md-right",
                     attrs: { for: "email" },
                   },
-                  [_vm._v("Địa chỉ email:")]
+                  [_vm._v("E-Mail Address")]
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-6" }, [
@@ -45520,7 +45518,7 @@ var render = function () {
                     staticClass: "col-md-4 col-form-label text-md-right",
                     attrs: { for: "password" },
                   },
-                  [_vm._v("Mật khẩu:")]
+                  [_vm._v("Password")]
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-6" }, [
@@ -45550,19 +45548,11 @@ var render = function () {
               _vm._v(" "),
               _c("div", { staticClass: "form-group row mb-0" }, [
                 _c("div", { staticClass: "col-md-8 offset-md-4" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary ",
-                      attrs: { type: "submit" },
-                      on: { click: _vm.handleSubmit },
-                    },
-                    [
-                      _vm._v(
-                        "\n                                    Đăng nhập\n                                "
-                      ),
-                    ]
-                  ),
+                  _c("button", {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "submit" },
+                    on: { click: _vm.handleSubmit },
+                  }),
                 ]),
               ]),
             ]),
