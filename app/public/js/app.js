@@ -3078,6 +3078,220 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -8542,7 +8756,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/**************************\r\n*******Top header CSS******\r\n***************************/\n.topbar[data-v-332fccf4]{\r\n    height: 2.55em;\r\n    background-color: #d2691e;\n}\n.contactinfo ul li[data-v-332fccf4]:first-child{\r\n    margin-left: -15px;\n}\n.contactinfo ul li[data-v-332fccf4]{\r\n    margin-top:0.3em;\n}\n.contactinfo ul li a[data-v-332fccf4]{\r\n\r\n  font-size: 12px;\r\n  color: #ffff;\n}\n.contactinfo ul li a p[data-v-332fccf4]{\r\n   margin-top:0.2em;\r\n   font-weight: bold;\r\n   float: right;\n}\n.contactinfo ul li a #info[data-v-332fccf4]{\r\n   color: rgb(0, 225, 255);\n}\n.contactinfo ul li a[data-v-332fccf4]:hover{\r\n\tbackground:inherit;\n}\n.social-icons ul li a[data-v-332fccf4] {\r\n  border: 0 none;\r\n  border-radius: 0;\r\n  padding:0px;\n}\n.social-icons ul li[data-v-332fccf4]{\r\n\tdisplay:inline-block;\n}\n.social-icons ul li a i[data-v-332fccf4] {\r\n  padding: 11px 15px;\r\n   transition: all 0.9s ease 0s;\r\n  -moz-transition: all 0.9s ease 0s;\r\n  -webkit-transition: all 0.9s ease 0s;\r\n  -o-transition: all 0.9s ease 0s;\n}\n.social-icons ul li a i[data-v-332fccf4]:hover{\r\n  color: #ffff;\r\n   transition: all 0.9s ease 0s;\r\n  -moz-transition: all 0.9s ease 0s;\r\n  -webkit-transition: all 0.9s ease 0s;\r\n  -o-transition: all 0.9s ease 0s;\n}\n.fa-facebook[data-v-332fccf4]{\r\n   color: #0083C9;\n}\n.fa-facebook[data-v-332fccf4]:hover {\r\n   background: #0083C9;\n}\n.fa-twitter[data-v-332fccf4]{\r\n    color: #5BBCEC;\n}\n.fa-twitter[data-v-332fccf4]:hover  {\r\n\tbackground:#5BBCEC;\n}\n.fa-google-plus[data-v-332fccf4] {\r\n\tcolor:#CE3C2D;\n}\n.fa-google-plus[data-v-332fccf4]:hover  {\r\n\tbackground:#CE3C2D;\n}\r\n\r\n/***************************\r\n*******Main header CSS******\r\n****************************/\n.mainbar[data-v-332fccf4]{\r\n    background-color:rgba(255, 255, 255, 0.9);\n}\n.mainbar .container[data-v-332fccf4]{\r\n    margin-top: 1em ;\n}\n.navbar-brand[data-v-332fccf4] {\r\n    margin-left: -4em;\n}\n.navbar-brand #logo[data-v-332fccf4]{\r\n    float: left;\r\n    margin-right: 0.5em;\n}\n.navbar-brand #title[data-v-332fccf4]{\r\n    color: #d2691e;\r\n    padding-top: 0.4em;\n}\n.navbar-brand[data-v-332fccf4] :hover{\r\n    opacity: 0.9;\r\n    filter: alpha(opacity=90);\n}\n.navbar-nav .fa-search[data-v-332fccf4]{\r\n    color:#ffff\n}\n.navbar-nav .search-box[data-v-332fccf4]{\r\n    max-width: 100%;\n}\n.dropdown #dropdownMenuButton[data-v-332fccf4]{\r\n    margin-bottom: -2.5em;\n}\n.dropdown .dropdown-menu[data-v-332fccf4]{\r\n    min-width: 7.3em;\r\n    text-align: center;\n}\n.mr-auto[data-v-332fccf4]{\r\n    margin-left:8em;\r\n    margin-bottom: 0em;\n}\n.dropdown:hover>.dropdown-menu[data-v-332fccf4]{\r\n    display: block;\n}\n.dropdown-menu .nav-link[data-v-332fccf4]:hover{\r\n    color:#d2691e;\n}\n.dropdown:hover .navbar-icon[data-v-332fccf4]{\r\n    color:#d2691e;\n}\n.cheems-color[data-v-332fccf4]{\r\n    background-color: #d2691e;\n}\r\n\r\n/***************************\r\n*******Main footer CSS******\r\n****************************/\n.divider[data-v-332fccf4]{\r\n    height: 0.2em;\r\n    background-color: #d2691e;\n}\n.main-footer[data-v-332fccf4]{\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    background-color: #ffff;\n}\n.main-footer .container[data-v-332fccf4]{\r\n    padding-top: 2em;\r\n    max-width: 95%;\n}\n.main-footer .container .col #title[data-v-332fccf4]{\r\n    color: #d2691e;\r\n    font-weight: bold;\r\n    height: 3em;\n}\n.main-footer .container .col p[data-v-332fccf4]{\r\n    font-size: 90%;\n}\n.main-footer .container .col p p[data-v-332fccf4]{\r\n    display: inline;\n}\r\n/***************************\r\n*******Main footer CSS******\r\n****************************/\n.bottom-footer[data-v-332fccf4]{\r\n    height: 2.5em;\r\n    background-color: #d2691e42;\r\n    text-align: center;\n}\n.bottom-footer #right-reserved[data-v-332fccf4]{\r\n    line-height: 2.5em;\r\n    text-decoration: none;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/**************************\r\n*******Top header CSS******\r\n***************************/\n.topbar[data-v-332fccf4]{\r\n    height: 2.55em;\r\n    background-color: #d2691e;\n}\n.contactinfo ul li[data-v-332fccf4]:first-child{\r\n    margin-left: -15px;\n}\n.contactinfo ul li[data-v-332fccf4]{\r\n    margin-top:0.3em;\n}\n.contactinfo ul li a[data-v-332fccf4]{\r\n\r\n  font-size: 12px;\r\n  color: #ffff;\n}\n.contactinfo ul li a p[data-v-332fccf4]{\r\n   margin-top:0.2em;\r\n   font-weight: bold;\r\n   float: right;\n}\n.contactinfo ul li a #info[data-v-332fccf4]{\r\n   color: rgb(0, 200, 200)\n}\n.contactinfo ul li a[data-v-332fccf4]:hover{\r\n\tbackground:inherit;\n}\n.social-icons ul li a[data-v-332fccf4] {\r\n  border: 0 none;\r\n  border-radius: 0;\r\n  padding:0px;\n}\n.social-icons ul li[data-v-332fccf4]{\r\n\tdisplay:inline-block;\n}\n.social-icons ul li a i[data-v-332fccf4] {\r\n  padding: 11px 15px;\r\n   transition: all 0.9s ease 0s;\r\n  -moz-transition: all 0.9s ease 0s;\r\n  -webkit-transition: all 0.9s ease 0s;\r\n  -o-transition: all 0.9s ease 0s;\n}\n.social-icons ul li a i[data-v-332fccf4]:hover{\r\n  color: #ffff;\r\n   transition: all 0.9s ease 0s;\r\n  -moz-transition: all 0.9s ease 0s;\r\n  -webkit-transition: all 0.9s ease 0s;\r\n  -o-transition: all 0.9s ease 0s;\n}\n.fa-facebook[data-v-332fccf4]{\r\n   color: #0083C9;\n}\n.fa-facebook[data-v-332fccf4]:hover {\r\n   background: #0083C9;\n}\n.fa-twitter[data-v-332fccf4]{\r\n    color: #5BBCEC;\n}\n.fa-twitter[data-v-332fccf4]:hover  {\r\n\tbackground:#5BBCEC;\n}\n.fa-google-plus[data-v-332fccf4] {\r\n\tcolor:#CE3C2D;\n}\n.fa-google-plus[data-v-332fccf4]:hover  {\r\n\tbackground:#CE3C2D;\n}\r\n\r\n/***************************\r\n*******Main header CSS******\r\n****************************/\n.mainbar[data-v-332fccf4]{\r\n    background-color:rgba(255, 255, 255, 0.9);\n}\n.mainbar .container[data-v-332fccf4]{\r\n    margin-top: 1em ;\n}\n.navbar-brand[data-v-332fccf4] {\r\n    margin-left: -4em;\n}\n.navbar-brand #logo[data-v-332fccf4]{\r\n    float: left;\r\n    margin-right: 0.5em;\n}\n.navbar-brand #title[data-v-332fccf4]{\r\n    color: #d2691e;\r\n    padding-top: 0.4em;\n}\n.navbar-brand[data-v-332fccf4] :hover{\r\n    opacity: 0.9;\r\n    filter: alpha(opacity=90);\n}\n.navbar-nav .fa-search[data-v-332fccf4]{\r\n    color:#ffff\n}\n.navbar-nav .search-box[data-v-332fccf4]{\r\n    max-width: 100%;\n}\n.dropdown #dropdownMenuButton[data-v-332fccf4]{\r\n    margin-bottom: -2.5em;\n}\n.dropdown .dropdown-menu[data-v-332fccf4]{\r\n    min-width: 7.3em;\r\n    text-align: center;\n}\n.mr-auto[data-v-332fccf4]{\r\n    margin-left:8em;\r\n    margin-bottom: 0em;\n}\n.dropdown:hover>.dropdown-menu[data-v-332fccf4]{\r\n    display: block;\n}\n.dropdown-menu .nav-link[data-v-332fccf4]:hover{\r\n    color:#d2691e;\n}\n.dropdown:hover .navbar-icon[data-v-332fccf4]{\r\n    color:#d2691e;\n}\n.cheems-color[data-v-332fccf4]{\r\n    background-color: #d2691e;\n}\r\n\r\n/***************************\r\n*******Main footer CSS******\r\n****************************/\n.divider[data-v-332fccf4]{\r\n    height: 0.2em;\r\n    background-color: #d2691e;\n}\n.main-footer[data-v-332fccf4]{\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    background-color: #ffff;\n}\n.main-footer .container[data-v-332fccf4]{\r\n    padding-top: 2em;\r\n    max-width: 95%;\n}\n.main-footer .container .col #title[data-v-332fccf4]{\r\n    color: #d2691e;\r\n    font-weight: bold;\r\n    height: 3em;\n}\n.main-footer .container .col p[data-v-332fccf4]{\r\n    font-size: 90%;\n}\n.main-footer .container .col p p[data-v-332fccf4]{\r\n    display: inline;\n}\r\n/***************************\r\n*******Main footer CSS******\r\n****************************/\n.bottom-footer[data-v-332fccf4]{\r\n    height: 2.5em;\r\n    background-color: #d2691e42;\r\n    text-align: center;\n}\n.bottom-footer #right-reserved[data-v-332fccf4]{\r\n    line-height: 2.5em;\r\n    text-decoration: none;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8614,7 +8828,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/***************************\r\n*******Sliders CSS**********\r\n****************************/\n.carousel-indicators li[data-v-f2b6376c]{\r\n    background-color: #d2691e;\r\n    height: 0.8em;\r\n    width: 0.8em;\r\n    border-radius: 100%;\r\n    margin-bottom: 5.1em;\n}\n.carousel-indicators[data-v-f2b6376c]{\r\n    z-index: 2;\n}\n.overlap[data-v-f2b6376c]{\r\n    position: absolute;\r\n    bottom:0;\r\n    background-color:transparent;\r\n    width: 100%;\r\n    height: 39em;\n}\n.overlap .category-menu-area[data-v-f2b6376c]{\r\n    position: absolute;\r\n    top: 0.8em;\r\n    left: 11em;\r\n    border-radius: 10px;\n}\n.overlap .category-menu-area .side-menu[data-v-f2b6376c]{\r\n    z-index: 2;\r\n    position: absolute;\r\n    background-color: white;\r\n    width: 16em;\r\n    height: inherit;\r\n    border-radius: inherit;\n}\n.overlap .category-menu-area .mega-dropdown[data-v-f2b6376c]{\r\n    z-index: 2;\r\n    display: none;\r\n    position: absolute;\r\n    height: 30.75em;\r\n    background-color: white;\r\n    width: 66.9em;\r\n    left: 16.7em;\r\n    border-radius: 10px;\r\n    top: 0;\n}\n.side-menu .side-menu-section table[data-v-f2b6376c]{\r\n    width: 100%;\r\n    font-size: 13px;\r\n    border-radius: 10px;\n}\n.side-menu .side-menu-section table td[data-v-f2b6376c]{\r\n    padding: 0.4em;\n}\n.side-menu .side-menu-section table[data-v-f2b6376c]:hover{\r\n    background-color: #9bc7f328;\n}\n.side-menu .side-menu-section a[data-v-f2b6376c]{\r\n    text-decoration: none;\r\n    color: rgb(36, 36, 36);\n}\n.side-menu .side-menu-section a[data-v-f2b6376c]:hover{\r\n    color: #005ba6;\n}\n.side-menu .side-menu-section table:hover + .mega-dropdown[data-v-f2b6376c]{\r\n    display:block;\n}\n.side-menu .side-menu-section .mega-dropdown[data-v-f2b6376c]:hover{\r\n    display:block;\n}\r\n/********************************\r\n*******Home body CSS*************\r\n*********************************/\n.body[data-v-f2b6376c]{\n}\r\n/********************************\r\n*******Brand Sliders CSS*********\r\n*********************************/\n.brand-slider[data-v-f2b6376c]{\r\n    z-index: 4;\r\n    position: absolute;\r\n    background-color: transparent;\r\n    margin-top: -5.5em;\r\n    width: 79.4%;\r\n    text-align: right;\r\n    margin-left: 11em;\n}\n.brand-slider .title-tab[data-v-f2b6376c]{\r\n    background-color: cadetblue;\r\n    display:inline-block;\r\n    border-top-left-radius: 20px;\r\n    border-top-right-radius: 20px;\r\n    width: 20em;\r\n    text-align: center;\r\n    padding-top: 0.6em;\r\n    font-weight: 900;\r\n    color:#ffff;\n}\n.brand-slider .slider-tab[data-v-f2b6376c]{\r\n    background-color: cadetblue;\r\n    height: 14em;\r\n    border-top-left-radius: 20px;\r\n    border-bottom-right-radius: 20px;\r\n    border-bottom-left-radius: 20px;\n}\n.brand-slider .col-md-3[data-v-f2b6376c]{\r\n  display: inline-block;\r\n  margin-left:-0.3em;\r\n  padding-top: 2em;\n}\n.brand-slider .col-md-3 img[data-v-f2b6376c]{\r\n  width:100%;\r\n  height:9.8em;\r\n  border-radius: 10px;\n}\r\n/***************************\r\n*******Products CSS*********\r\n****************************/\n.small-text[data-v-f2b6376c] {\r\n    font-size: 14px;\n}\n.product-box[data-v-f2b6376c] {\r\n    border: 1px solid #3f3f3f;\r\n    padding: 10px 15px;\r\n    width: 300;\r\n    height: 500;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/***************************\r\n*******Sliders CSS**********\r\n****************************/\n.carousel-indicators li[data-v-f2b6376c]{\r\n    background-color: #d2691e;\r\n    height: 0.8em;\r\n    width: 0.8em;\r\n    border-radius: 100%;\r\n    margin-bottom: 5.1em;\n}\n.carousel-indicators[data-v-f2b6376c]{\r\n    z-index: 2;\n}\n.overlap[data-v-f2b6376c]{\r\n    position: absolute;\r\n    bottom:0;\r\n    background-color:transparent;\r\n    width: 100%;\r\n    height: 39em;\n}\n.overlap .category-menu-area[data-v-f2b6376c]{\r\n    position: absolute;\r\n    top: 0.8em;\r\n    left: 11em;\r\n    border-radius: 10px;\n}\n.overlap .category-menu-area .side-menu[data-v-f2b6376c]{\r\n    z-index: 2;\r\n    position: absolute;\r\n    background-color: white;\r\n    width: 16em;\r\n    height: inherit;\r\n    border-radius: inherit;\n}\n.overlap .category-menu-area .mega-dropdown[data-v-f2b6376c]{\r\n    z-index: 2;\r\n    display: none;\r\n    position: absolute;\r\n    height: 30.75em;\r\n    background-color: white;\r\n    width: 66.9em;\r\n    left: 16.7em;\r\n    border-radius: 10px;\r\n    top: 0;\n}\n.side-menu .side-menu-section table[data-v-f2b6376c]{\r\n    width: 100%;\r\n    font-size: 13px;\r\n    border-radius: 10px;\n}\n.side-menu .side-menu-section table td[data-v-f2b6376c]{\r\n    padding: 0.4em;\n}\n.side-menu .side-menu-section table[data-v-f2b6376c]:hover{\r\n    background-color: #9bc7f328;\n}\n.side-menu .side-menu-section a[data-v-f2b6376c]{\r\n    text-decoration: none;\r\n    color: rgb(36, 36, 36);\n}\n.side-menu .side-menu-section a[data-v-f2b6376c]:hover{\r\n    color: #005ba6;\n}\n.side-menu .side-menu-section table:hover + .mega-dropdown[data-v-f2b6376c]{\r\n    display:block;\n}\n.side-menu .side-menu-section .mega-dropdown[data-v-f2b6376c]:hover{\r\n    display:block;\n}\r\n/********************************\r\n*******Home body CSS*************\r\n*********************************/\n.body[data-v-f2b6376c]{\r\n    width: 79.4%;\r\n    margin-left: 11em;\r\n    background-color: #ffff;\n}\n.body img[data-v-f2b6376c]{\r\n    transition: all 1s;\n}\n.body img[data-v-f2b6376c]:hover{ \r\n    transform: scale(1.05);\n}\r\n/********************************\r\n*******Brand Sliders CSS*********\r\n*********************************/\n.brand-slider[data-v-f2b6376c]{\r\n    z-index: 4;\r\n    position: relative;\r\n    background-color: transparent;\r\n    margin-top: -5.5em;\r\n    max-width: 100%;\r\n    text-align: right;\n}\n.brand-slider .title-tab[data-v-f2b6376c]{\r\n    background-color: #008b8b;\r\n    display:inline-block;\r\n    border-top-left-radius: 20px;\r\n    border-top-right-radius: 20px;\r\n    width: 20em;\r\n    text-align: center;\r\n    padding-top: 1em;\r\n    color:#ffff;\n}\n.brand-slider .title-tab h3[data-v-f2b6376c]{\r\n    font-weight: 900;\n}\n.brand-slider .slider-tab[data-v-f2b6376c]{\r\n    background-color:#008b8b;\r\n    height: 14em;\r\n    border-top-left-radius: 20px;\r\n    border-bottom-right-radius: 20px;\r\n    border-bottom-left-radius: 20px;\n}\n.brand-slider .col-md-3[data-v-f2b6376c]{\r\n  display: inline-block;\r\n  margin-left:-0.3em;\r\n  padding-top: 2em;\n}\n.brand-slider .col-md-3 img[data-v-f2b6376c]{\r\n  width:100%;\r\n  height:9.8em;\r\n  border-radius: 10px;\n}\r\n/***************************\r\n*******Products CSS*********\r\n****************************/\n.products[data-v-f2b6376c]{\r\n    margin-top: 4em;\n}\n.products .category-row[data-v-f2b6376c]{\r\n    margin-top: 2em;\n}\n.products .title h4[data-v-f2b6376c]{\r\n    font-weight: 950;\r\n    font-size: 135%;\n}\n.products .banner[data-v-f2b6376c]{\r\n    overflow: hidden;\n}\n.products .product-category .row .col[data-v-f2b6376c] {\r\n    text-align: center;\r\n    padding: 1em;\n}\n.products .product-category .row .col[data-v-f2b6376c] :link{\r\n    color: #000000;\n}\n.products .product-category .row .col[data-v-f2b6376c] :visited{\r\n    color: #000000;\n}\n.products .product-category .row .col[data-v-f2b6376c] :hover{\r\n    text-decoration: none;\r\n    color:#005ba6;\n}\n.products .product-category .row .col h5[data-v-f2b6376c]{\r\n    font-size: 100%;\r\n    font-weight: bold;\n}\n.products .product-category .row .col p[data-v-f2b6376c]{\r\n    font-size: 90%;\n}\n.products .product-category .row .col img[data-v-f2b6376c]{\r\n    width: 7em;\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8841,235 +9055,10 @@ module.exports = function (cssWithMappingToString) {
 
 /***/ }),
 
-/***/ "./resources/images/home/icons/icons8-account-50.png":
-/*!***********************************************************!*\
-  !*** ./resources/images/home/icons/icons8-account-50.png ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-account-50.png?143e62a92f2b2ae7d1581111460ef6d2");
-
-/***/ }),
-
-/***/ "./resources/images/home/icons/icons8-camera-50.png":
-/*!**********************************************************!*\
-  !*** ./resources/images/home/icons/icons8-camera-50.png ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-camera-50.png?9afac6198fb88a92e43849ded4d0ed0a");
-
-/***/ }),
-
-/***/ "./resources/images/home/icons/icons8-computer-mouse-50.png":
-/*!******************************************************************!*\
-  !*** ./resources/images/home/icons/icons8-computer-mouse-50.png ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-computer-mouse-50.png?839cc5528c4fde1d4c24d4188e55ded1");
-
-/***/ }),
-
-/***/ "./resources/images/home/icons/icons8-electronics-50.png":
-/*!***************************************************************!*\
-  !*** ./resources/images/home/icons/icons8-electronics-50.png ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-electronics-50.png?d262f10aca8a2e688e7021a6c4446e6d");
-
-/***/ }),
-
-/***/ "./resources/images/home/icons/icons8-game-controller-50.png":
-/*!*******************************************************************!*\
-  !*** ./resources/images/home/icons/icons8-game-controller-50.png ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-game-controller-50.png?2a7bd01abbf3c0a2f752eb08742f0c8e");
-
-/***/ }),
-
-/***/ "./resources/images/home/icons/icons8-laptop-50.png":
-/*!**********************************************************!*\
-  !*** ./resources/images/home/icons/icons8-laptop-50.png ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-laptop-50.png?dc8fb1fb1b4985a196bcb17ce8f5ae0a");
-
-/***/ }),
-
-/***/ "./resources/images/home/icons/icons8-monitor-50.png":
-/*!***********************************************************!*\
-  !*** ./resources/images/home/icons/icons8-monitor-50.png ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-monitor-50.png?08881fce8a53dca16c403696fa40aaef");
-
-/***/ }),
-
-/***/ "./resources/images/home/icons/icons8-print-50.png":
-/*!*********************************************************!*\
-  !*** ./resources/images/home/icons/icons8-print-50.png ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-print-50.png?c1c160bfb83b9de06b17a64a4a6b768a");
-
-/***/ }),
-
-/***/ "./resources/images/home/icons/icons8-subwoofer-50.png":
-/*!*************************************************************!*\
-  !*** ./resources/images/home/icons/icons8-subwoofer-50.png ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-subwoofer-50.png?d8f295fa66ab5a6ec46207bdde2cedbc");
-
-/***/ }),
-
-/***/ "./resources/images/home/icons/icons8-touchscreen-50.png":
-/*!***************************************************************!*\
-  !*** ./resources/images/home/icons/icons8-touchscreen-50.png ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-touchscreen-50.png?0281783fd8395fe9dc6a8695a4f6396c");
-
-/***/ }),
-
-/***/ "./resources/images/home/icons/icons8-tv-50.png":
-/*!******************************************************!*\
-  !*** ./resources/images/home/icons/icons8-tv-50.png ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-tv-50.png?d8f9d1bf4fb6d3256e3d6122410580be");
-
-/***/ }),
-
-/***/ "./resources/images/home/icons/icons8-washing-machine-50.png":
-/*!*******************************************************************!*\
-  !*** ./resources/images/home/icons/icons8-washing-machine-50.png ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-washing-machine-50.png?c202e3ee2c287f6e6ee53e587b566801");
-
-/***/ }),
-
-/***/ "./resources/images/home/icons/icons8-wi-fi-lock-50.png":
-/*!**************************************************************!*\
-  !*** ./resources/images/home/icons/icons8-wi-fi-lock-50.png ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-wi-fi-lock-50.png?7408cf1a5ad739393dd332d3eee258a7");
-
-/***/ }),
-
-/***/ "./resources/images/home/icons/icons8-workstation-50.png":
-/*!***************************************************************!*\
-  !*** ./resources/images/home/icons/icons8-workstation-50.png ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-workstation-50.png?981564f570a2662dbe2b015fa50ec6ee");
-
-/***/ }),
-
-/***/ "./resources/images/home/logo/CheemsIcons.png":
-/*!****************************************************!*\
-  !*** ./resources/images/home/logo/CheemsIcons.png ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/CheemsIcons.png?94e4f8114a262ee38d3dcf8e9b316e7c");
-
-/***/ }),
-
-/***/ "./resources/images/home/sliders/1.webp":
-/*!**********************************************!*\
-  !*** ./resources/images/home/sliders/1.webp ***!
-  \**********************************************/
+/***/ "./public/images/1.webp":
+/*!******************************!*\
+  !*** ./public/images/1.webp ***!
+  \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -9081,10 +9070,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/images/home/sliders/2.webp":
-/*!**********************************************!*\
-  !*** ./resources/images/home/sliders/2.webp ***!
-  \**********************************************/
+/***/ "./public/images/2.webp":
+/*!******************************!*\
+  !*** ./public/images/2.webp ***!
+  \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -9096,10 +9085,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/images/home/sliders/3.webp":
-/*!**********************************************!*\
-  !*** ./resources/images/home/sliders/3.webp ***!
-  \**********************************************/
+/***/ "./public/images/3.webp":
+/*!******************************!*\
+  !*** ./public/images/3.webp ***!
+  \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -9111,10 +9100,25 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/images/home/sliders/brand-1.webp":
-/*!****************************************************!*\
-  !*** ./resources/images/home/sliders/brand-1.webp ***!
-  \****************************************************/
+/***/ "./public/images/CheemsIcons.png":
+/*!***************************************!*\
+  !*** ./public/images/CheemsIcons.png ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/CheemsIcons.png?94e4f8114a262ee38d3dcf8e9b316e7c");
+
+/***/ }),
+
+/***/ "./public/images/brand-1.webp":
+/*!************************************!*\
+  !*** ./public/images/brand-1.webp ***!
+  \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -9126,10 +9130,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/images/home/sliders/brand-2.webp":
-/*!****************************************************!*\
-  !*** ./resources/images/home/sliders/brand-2.webp ***!
-  \****************************************************/
+/***/ "./public/images/brand-2.webp":
+/*!************************************!*\
+  !*** ./public/images/brand-2.webp ***!
+  \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -9141,10 +9145,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/images/home/sliders/brand-3.webp":
-/*!****************************************************!*\
-  !*** ./resources/images/home/sliders/brand-3.webp ***!
-  \****************************************************/
+/***/ "./public/images/brand-3.webp":
+/*!************************************!*\
+  !*** ./public/images/brand-3.webp ***!
+  \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -9156,10 +9160,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/images/home/sliders/brand-4.webp":
-/*!****************************************************!*\
-  !*** ./resources/images/home/sliders/brand-4.webp ***!
-  \****************************************************/
+/***/ "./public/images/brand-4.webp":
+/*!************************************!*\
+  !*** ./public/images/brand-4.webp ***!
+  \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -9168,6 +9172,366 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/brand-4.webp?2873dbdb0cc3da2d8ee21bcdc53f75ca");
+
+/***/ }),
+
+/***/ "./public/images/category(1).webp":
+/*!****************************************!*\
+  !*** ./public/images/category(1).webp ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/category(1).webp?d864fdf5d2e195ae5ada12de94de933b");
+
+/***/ }),
+
+/***/ "./public/images/category.webp":
+/*!*************************************!*\
+  !*** ./public/images/category.webp ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/category.webp?d62d033f9d1f26e44b86f22f94bbff7b");
+
+/***/ }),
+
+/***/ "./public/images/icons8-account-50.png":
+/*!*********************************************!*\
+  !*** ./public/images/icons8-account-50.png ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-account-50.png?143e62a92f2b2ae7d1581111460ef6d2");
+
+/***/ }),
+
+/***/ "./public/images/icons8-camera-50.png":
+/*!********************************************!*\
+  !*** ./public/images/icons8-camera-50.png ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-camera-50.png?9afac6198fb88a92e43849ded4d0ed0a");
+
+/***/ }),
+
+/***/ "./public/images/icons8-computer-mouse-50.png":
+/*!****************************************************!*\
+  !*** ./public/images/icons8-computer-mouse-50.png ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-computer-mouse-50.png?839cc5528c4fde1d4c24d4188e55ded1");
+
+/***/ }),
+
+/***/ "./public/images/icons8-electronics-50.png":
+/*!*************************************************!*\
+  !*** ./public/images/icons8-electronics-50.png ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-electronics-50.png?d262f10aca8a2e688e7021a6c4446e6d");
+
+/***/ }),
+
+/***/ "./public/images/icons8-game-controller-50.png":
+/*!*****************************************************!*\
+  !*** ./public/images/icons8-game-controller-50.png ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-game-controller-50.png?2a7bd01abbf3c0a2f752eb08742f0c8e");
+
+/***/ }),
+
+/***/ "./public/images/icons8-laptop-50.png":
+/*!********************************************!*\
+  !*** ./public/images/icons8-laptop-50.png ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-laptop-50.png?dc8fb1fb1b4985a196bcb17ce8f5ae0a");
+
+/***/ }),
+
+/***/ "./public/images/icons8-monitor-50.png":
+/*!*********************************************!*\
+  !*** ./public/images/icons8-monitor-50.png ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-monitor-50.png?08881fce8a53dca16c403696fa40aaef");
+
+/***/ }),
+
+/***/ "./public/images/icons8-print-50.png":
+/*!*******************************************!*\
+  !*** ./public/images/icons8-print-50.png ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-print-50.png?c1c160bfb83b9de06b17a64a4a6b768a");
+
+/***/ }),
+
+/***/ "./public/images/icons8-subwoofer-50.png":
+/*!***********************************************!*\
+  !*** ./public/images/icons8-subwoofer-50.png ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-subwoofer-50.png?d8f295fa66ab5a6ec46207bdde2cedbc");
+
+/***/ }),
+
+/***/ "./public/images/icons8-touchscreen-50.png":
+/*!*************************************************!*\
+  !*** ./public/images/icons8-touchscreen-50.png ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-touchscreen-50.png?0281783fd8395fe9dc6a8695a4f6396c");
+
+/***/ }),
+
+/***/ "./public/images/icons8-tv-50.png":
+/*!****************************************!*\
+  !*** ./public/images/icons8-tv-50.png ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-tv-50.png?d8f9d1bf4fb6d3256e3d6122410580be");
+
+/***/ }),
+
+/***/ "./public/images/icons8-washing-machine-50.png":
+/*!*****************************************************!*\
+  !*** ./public/images/icons8-washing-machine-50.png ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-washing-machine-50.png?c202e3ee2c287f6e6ee53e587b566801");
+
+/***/ }),
+
+/***/ "./public/images/icons8-wi-fi-lock-50.png":
+/*!************************************************!*\
+  !*** ./public/images/icons8-wi-fi-lock-50.png ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-wi-fi-lock-50.png?7408cf1a5ad739393dd332d3eee258a7");
+
+/***/ }),
+
+/***/ "./public/images/icons8-workstation-50.png":
+/*!*************************************************!*\
+  !*** ./public/images/icons8-workstation-50.png ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icons8-workstation-50.png?981564f570a2662dbe2b015fa50ec6ee");
+
+/***/ }),
+
+/***/ "./public/images/product(1).webp":
+/*!***************************************!*\
+  !*** ./public/images/product(1).webp ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product(1).webp?6bdffcd0f605ba593a7fa9cafe1dc613");
+
+/***/ }),
+
+/***/ "./public/images/product(2).webp":
+/*!***************************************!*\
+  !*** ./public/images/product(2).webp ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product(2).webp?8d6b5b6d7827318a894b95776f3ef4e5");
+
+/***/ }),
+
+/***/ "./public/images/product(3).webp":
+/*!***************************************!*\
+  !*** ./public/images/product(3).webp ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product(3).webp?8c7cfe8a750df6c052db7d80d60a327b");
+
+/***/ }),
+
+/***/ "./public/images/product(4).webp":
+/*!***************************************!*\
+  !*** ./public/images/product(4).webp ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product(4).webp?8e874458dc5f21d905aaf6ccfd90b044");
+
+/***/ }),
+
+/***/ "./public/images/product(5).webp":
+/*!***************************************!*\
+  !*** ./public/images/product(5).webp ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product(5).webp?2e6937d0e8d72101a152f0ccc13207fd");
+
+/***/ }),
+
+/***/ "./public/images/product(6).webp":
+/*!***************************************!*\
+  !*** ./public/images/product(6).webp ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product(6).webp?bc56dabe047f2e8cbebb424e1e280187");
+
+/***/ }),
+
+/***/ "./public/images/product(7).webp":
+/*!***************************************!*\
+  !*** ./public/images/product(7).webp ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product(7).webp?268212c58fd2cd9bc73b49ad30a6f08d");
+
+/***/ }),
+
+/***/ "./public/images/product.webp":
+/*!************************************!*\
+  !*** ./public/images/product.webp ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product.webp?e748a49dae77ff1eeb2b8c75409a5394");
 
 /***/ }),
 
@@ -42292,7 +42656,7 @@ var render = function () {
                     _c("img", {
                       attrs: {
                         id: "logo",
-                        src: __webpack_require__(/*! ../../images/home/logo/CheemsIcons.png */ "./resources/images/home/logo/CheemsIcons.png")["default"],
+                        src: __webpack_require__(/*! ../../../public/images/CheemsIcons.png */ "./public/images/CheemsIcons.png")["default"],
                         width: "55em",
                       },
                     }),
@@ -43066,7 +43430,7 @@ var render = function () {
             _c("img", {
               staticClass: "d-block w-120",
               attrs: {
-                src: __webpack_require__(/*! ../../images/home/sliders/1.webp */ "./resources/images/home/sliders/1.webp")["default"],
+                src: __webpack_require__(/*! ../../../public/images/1.webp */ "./public/images/1.webp")["default"],
                 alt: "...",
               },
             }),
@@ -43076,7 +43440,7 @@ var render = function () {
             _c("img", {
               staticClass: "d-block w-120",
               attrs: {
-                src: __webpack_require__(/*! ../../images/home/sliders/2.webp */ "./resources/images/home/sliders/2.webp")["default"],
+                src: __webpack_require__(/*! ../../../public/images/2.webp */ "./public/images/2.webp")["default"],
                 alt: "...",
               },
             }),
@@ -43086,7 +43450,7 @@ var render = function () {
             _c("img", {
               staticClass: "d-block w-120",
               attrs: {
-                src: __webpack_require__(/*! ../../images/home/sliders/3.webp */ "./resources/images/home/sliders/3.webp")["default"],
+                src: __webpack_require__(/*! ../../../public/images/3.webp */ "./public/images/3.webp")["default"],
                 alt: "...",
               },
             }),
@@ -43105,7 +43469,7 @@ var render = function () {
                   _c("td", [
                     _c("img", {
                       attrs: {
-                        src: __webpack_require__(/*! ../../images/home/icons/icons8-washing-machine-50.png */ "./resources/images/home/icons/icons8-washing-machine-50.png")["default"],
+                        src: __webpack_require__(/*! ../../../public/images/icons8-washing-machine-50.png */ "./public/images/icons8-washing-machine-50.png")["default"],
                         width: "20px",
                       },
                     }),
@@ -43130,7 +43494,7 @@ var render = function () {
                   _c("td", [
                     _c("img", {
                       attrs: {
-                        src: __webpack_require__(/*! ../../images/home/icons/icons8-laptop-50.png */ "./resources/images/home/icons/icons8-laptop-50.png")["default"],
+                        src: __webpack_require__(/*! ../../../public/images/icons8-laptop-50.png */ "./public/images/icons8-laptop-50.png")["default"],
                         width: "20px",
                       },
                     }),
@@ -43155,7 +43519,7 @@ var render = function () {
                   _c("td", [
                     _c("img", {
                       attrs: {
-                        src: __webpack_require__(/*! ../../images/home/icons/icons8-tv-50.png */ "./resources/images/home/icons/icons8-tv-50.png")["default"],
+                        src: __webpack_require__(/*! ../../../public/images/icons8-tv-50.png */ "./public/images/icons8-tv-50.png")["default"],
                         width: "20px",
                       },
                     }),
@@ -43180,7 +43544,7 @@ var render = function () {
                   _c("td", [
                     _c("img", {
                       attrs: {
-                        src: __webpack_require__(/*! ../../images/home/icons/icons8-touchscreen-50.png */ "./resources/images/home/icons/icons8-touchscreen-50.png")["default"],
+                        src: __webpack_require__(/*! ../../../public/images/icons8-touchscreen-50.png */ "./public/images/icons8-touchscreen-50.png")["default"],
                         width: "20px",
                       },
                     }),
@@ -43205,7 +43569,7 @@ var render = function () {
                   _c("td", [
                     _c("img", {
                       attrs: {
-                        src: __webpack_require__(/*! ../../images/home/icons/icons8-workstation-50.png */ "./resources/images/home/icons/icons8-workstation-50.png")["default"],
+                        src: __webpack_require__(/*! ../../../public/images/icons8-workstation-50.png */ "./public/images/icons8-workstation-50.png")["default"],
                         width: "20px",
                       },
                     }),
@@ -43230,7 +43594,7 @@ var render = function () {
                   _c("td", [
                     _c("img", {
                       attrs: {
-                        src: __webpack_require__(/*! ../../images/home/icons/icons8-monitor-50.png */ "./resources/images/home/icons/icons8-monitor-50.png")["default"],
+                        src: __webpack_require__(/*! ../../../public/images/icons8-monitor-50.png */ "./public/images/icons8-monitor-50.png")["default"],
                         width: "20px",
                       },
                     }),
@@ -43255,7 +43619,7 @@ var render = function () {
                   _c("td", [
                     _c("img", {
                       attrs: {
-                        src: __webpack_require__(/*! ../../images/home/icons/icons8-electronics-50.png */ "./resources/images/home/icons/icons8-electronics-50.png")["default"],
+                        src: __webpack_require__(/*! ../../../public/images/icons8-electronics-50.png */ "./public/images/icons8-electronics-50.png")["default"],
                         width: "20px",
                       },
                     }),
@@ -43280,7 +43644,7 @@ var render = function () {
                   _c("td", [
                     _c("img", {
                       attrs: {
-                        src: __webpack_require__(/*! ../../images/home/icons/icons8-game-controller-50.png */ "./resources/images/home/icons/icons8-game-controller-50.png")["default"],
+                        src: __webpack_require__(/*! ../../../public/images/icons8-game-controller-50.png */ "./public/images/icons8-game-controller-50.png")["default"],
                         width: "20px",
                       },
                     }),
@@ -43305,7 +43669,7 @@ var render = function () {
                   _c("td", [
                     _c("img", {
                       attrs: {
-                        src: __webpack_require__(/*! ../../images/home/icons/icons8-computer-mouse-50.png */ "./resources/images/home/icons/icons8-computer-mouse-50.png")["default"],
+                        src: __webpack_require__(/*! ../../../public/images/icons8-computer-mouse-50.png */ "./public/images/icons8-computer-mouse-50.png")["default"],
                         width: "20px",
                       },
                     }),
@@ -43330,7 +43694,7 @@ var render = function () {
                   _c("td", [
                     _c("img", {
                       attrs: {
-                        src: __webpack_require__(/*! ../../images/home/icons/icons8-subwoofer-50.png */ "./resources/images/home/icons/icons8-subwoofer-50.png")["default"],
+                        src: __webpack_require__(/*! ../../../public/images/icons8-subwoofer-50.png */ "./public/images/icons8-subwoofer-50.png")["default"],
                         width: "20px",
                       },
                     }),
@@ -43355,7 +43719,7 @@ var render = function () {
                   _c("td", [
                     _c("img", {
                       attrs: {
-                        src: __webpack_require__(/*! ../../images/home/icons/icons8-camera-50.png */ "./resources/images/home/icons/icons8-camera-50.png")["default"],
+                        src: __webpack_require__(/*! ../../../public/images/icons8-camera-50.png */ "./public/images/icons8-camera-50.png")["default"],
                         width: "20px",
                       },
                     }),
@@ -43380,7 +43744,7 @@ var render = function () {
                   _c("td", [
                     _c("img", {
                       attrs: {
-                        src: __webpack_require__(/*! ../../images/home/icons/icons8-print-50.png */ "./resources/images/home/icons/icons8-print-50.png")["default"],
+                        src: __webpack_require__(/*! ../../../public/images/icons8-print-50.png */ "./public/images/icons8-print-50.png")["default"],
                         width: "20px",
                       },
                     }),
@@ -43405,7 +43769,7 @@ var render = function () {
                   _c("td", [
                     _c("img", {
                       attrs: {
-                        src: __webpack_require__(/*! ../../images/home/icons/icons8-wi-fi-lock-50.png */ "./resources/images/home/icons/icons8-wi-fi-lock-50.png")["default"],
+                        src: __webpack_require__(/*! ../../../public/images/icons8-wi-fi-lock-50.png */ "./public/images/icons8-wi-fi-lock-50.png")["default"],
                         width: "20px",
                       },
                     }),
@@ -43430,7 +43794,7 @@ var render = function () {
                   _c("td", [
                     _c("img", {
                       attrs: {
-                        src: __webpack_require__(/*! ../../images/home/icons/icons8-account-50.png */ "./resources/images/home/icons/icons8-account-50.png")["default"],
+                        src: __webpack_require__(/*! ../../../public/images/icons8-account-50.png */ "./public/images/icons8-account-50.png")["default"],
                         width: "20px",
                       },
                     }),
@@ -43473,7 +43837,7 @@ var render = function () {
                     _c("img", {
                       staticClass: "d-block",
                       attrs: {
-                        src: __webpack_require__(/*! ../../images/home/sliders/brand-1.webp */ "./resources/images/home/sliders/brand-1.webp")["default"],
+                        src: __webpack_require__(/*! ../../../public/images/brand-1.webp */ "./public/images/brand-1.webp")["default"],
                         alt: "...",
                       },
                     }),
@@ -43483,7 +43847,7 @@ var render = function () {
                     _c("img", {
                       staticClass: "d-block",
                       attrs: {
-                        src: __webpack_require__(/*! ../../images/home/sliders/brand-2.webp */ "./resources/images/home/sliders/brand-2.webp")["default"],
+                        src: __webpack_require__(/*! ../../../public/images/brand-2.webp */ "./public/images/brand-2.webp")["default"],
                         alt: "...",
                       },
                     }),
@@ -43493,7 +43857,7 @@ var render = function () {
                     _c("img", {
                       staticClass: "d-block",
                       attrs: {
-                        src: __webpack_require__(/*! ../../images/home/sliders/brand-3.webp */ "./resources/images/home/sliders/brand-3.webp")["default"],
+                        src: __webpack_require__(/*! ../../../public/images/brand-3.webp */ "./public/images/brand-3.webp")["default"],
                         alt: "...",
                       },
                     }),
@@ -43503,7 +43867,7 @@ var render = function () {
                     _c("img", {
                       staticClass: "d-block",
                       attrs: {
-                        src: __webpack_require__(/*! ../../images/home/sliders/brand-4.webp */ "./resources/images/home/sliders/brand-4.webp")["default"],
+                        src: __webpack_require__(/*! ../../../public/images/brand-4.webp */ "./public/images/brand-4.webp")["default"],
                         alt: "...",
                       },
                     }),
@@ -43515,7 +43879,7 @@ var render = function () {
                     _c("img", {
                       staticClass: "d-block",
                       attrs: {
-                        src: __webpack_require__(/*! ../../images/home/sliders/brand-1.webp */ "./resources/images/home/sliders/brand-1.webp")["default"],
+                        src: __webpack_require__(/*! ../../../public/images/brand-1.webp */ "./public/images/brand-1.webp")["default"],
                         alt: "...",
                       },
                     }),
@@ -43525,7 +43889,7 @@ var render = function () {
                     _c("img", {
                       staticClass: "d-block",
                       attrs: {
-                        src: __webpack_require__(/*! ../../images/home/sliders/brand-2.webp */ "./resources/images/home/sliders/brand-2.webp")["default"],
+                        src: __webpack_require__(/*! ../../../public/images/brand-2.webp */ "./public/images/brand-2.webp")["default"],
                         alt: "...",
                       },
                     }),
@@ -43535,7 +43899,7 @@ var render = function () {
                     _c("img", {
                       staticClass: "d-block",
                       attrs: {
-                        src: __webpack_require__(/*! ../../images/home/sliders/brand-3.webp */ "./resources/images/home/sliders/brand-3.webp")["default"],
+                        src: __webpack_require__(/*! ../../../public/images/brand-3.webp */ "./public/images/brand-3.webp")["default"],
                         alt: "...",
                       },
                     }),
@@ -43545,49 +43909,7 @@ var render = function () {
                     _c("img", {
                       staticClass: "d-block",
                       attrs: {
-                        src: __webpack_require__(/*! ../../images/home/sliders/brand-4.webp */ "./resources/images/home/sliders/brand-4.webp")["default"],
-                        alt: "...",
-                      },
-                    }),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "carousel-item" }, [
-                  _c("div", { staticClass: "col-xs-3 col-sm-3 col-md-3" }, [
-                    _c("img", {
-                      staticClass: "d-block",
-                      attrs: {
-                        src: __webpack_require__(/*! ../../images/home/sliders/brand-1.webp */ "./resources/images/home/sliders/brand-1.webp")["default"],
-                        alt: "...",
-                      },
-                    }),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-xs-3 col-sm-3 col-md-3" }, [
-                    _c("img", {
-                      staticClass: "d-block",
-                      attrs: {
-                        src: __webpack_require__(/*! ../../images/home/sliders/brand-2.webp */ "./resources/images/home/sliders/brand-2.webp")["default"],
-                        alt: "...",
-                      },
-                    }),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-xs-3 col-sm-3 col-md-3" }, [
-                    _c("img", {
-                      staticClass: "d-block",
-                      attrs: {
-                        src: __webpack_require__(/*! ../../images/home/sliders/brand-3.webp */ "./resources/images/home/sliders/brand-3.webp")["default"],
-                        alt: "...",
-                      },
-                    }),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-xs-3 col-sm-3 col-md-3" }, [
-                    _c("img", {
-                      staticClass: "d-block",
-                      attrs: {
-                        src: __webpack_require__(/*! ../../images/home/sliders/brand-4.webp */ "./resources/images/home/sliders/brand-4.webp")["default"],
+                        src: __webpack_require__(/*! ../../../public/images/brand-4.webp */ "./public/images/brand-4.webp")["default"],
                         alt: "...",
                       },
                     }),
@@ -43603,12 +43925,964 @@ var render = function () {
         ]),
       ]),
       _vm._v(" "),
-      _vm._m(18),
+      _c("div", { staticClass: "products" }, [
+        _c("div", { staticClass: "row category-row" }, [
+          _c("div", { staticClass: "col mr-auto" }, [
+            _vm._m(18),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c(
+                "div",
+                { staticClass: "col col-4 banner" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: { name: "product" },
+                        id: "banner-interaction",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        staticClass: "d-block",
+                        attrs: {
+                          src: __webpack_require__(/*! ../../../public/images/category.webp */ "./public/images/category.webp")["default"],
+                          alt: "...",
+                        },
+                      }),
+                    ]
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "col col-8 product-category" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col col-6 border-right border-bottom" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "product" },
+                            id: "banner-interaction",
+                          },
+                        },
+                        [
+                          _c("h5", [_vm._v("MSI Gaming")]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Sức mạnh từ nhà rồng")]),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "d-block",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../public/images/product.webp */ "./public/images/product.webp")["default"],
+                              alt: "...",
+                            },
+                          }),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col col-6 border-left border-bottom" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "product" },
+                            id: "banner-interaction",
+                          },
+                        },
+                        [
+                          _c("h5", [_vm._v("Lễ hội HP")]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Siêu khuyến mãi")]),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "d-block",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../public/images/product(1).webp */ "./public/images/product(1).webp")["default"],
+                              alt: "...",
+                            },
+                          }),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col col-6 border-right border-top" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "product" },
+                            id: "banner-interaction",
+                          },
+                        },
+                        [
+                          _c("h5", [_vm._v("LG Gram")]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Siêu nhẹ siêu tiện lợi")]),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "d-block",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../public/images/product(2).webp */ "./public/images/product(2).webp")["default"],
+                              alt: "...",
+                            },
+                          }),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col col-6 border-left border-top" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "product" },
+                            id: "banner-interaction",
+                          },
+                        },
+                        [
+                          _c("h5", [_vm._v("Lenovo")]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Dành cho doanh nhân")]),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "d-block",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../public/images/product(3).webp */ "./public/images/product(3).webp")["default"],
+                              alt: "...",
+                            },
+                          }),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                ]),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col ml-auto" }, [
+            _vm._m(19),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c(
+                "div",
+                { staticClass: "col col-4 banner" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: { name: "product" },
+                        id: "banner-interaction",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        staticClass: "d-block",
+                        attrs: {
+                          src: __webpack_require__(/*! ../../../public/images/category(1).webp */ "./public/images/category(1).webp")["default"],
+                          alt: "...",
+                        },
+                      }),
+                    ]
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "col col-8 product-category" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col col-6 border-right border-bottom" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "product" },
+                            id: "banner-interaction",
+                          },
+                        },
+                        [
+                          _c("h5", [_vm._v("PC Cheems Store")]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Làm việc chuẩn mực")]),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "d-block",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../public/images/product(4).webp */ "./public/images/product(4).webp")["default"],
+                              alt: "...",
+                            },
+                          }),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col col-6 border-left border-bottom" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "product" },
+                            id: "banner-interaction",
+                          },
+                        },
+                        [
+                          _c("h5", [_vm._v("SSD")]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Load nhanh trong tích tắc")]),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "d-block",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../public/images/product(5).webp */ "./public/images/product(5).webp")["default"],
+                              alt: "...",
+                            },
+                          }),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col col-6 border-right border-top" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "product" },
+                            id: "banner-interaction",
+                          },
+                        },
+                        [
+                          _c("h5", [_vm._v("Màn Hình Gaming")]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Giảm tới 50%")]),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "d-block",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../public/images/product(6).webp */ "./public/images/product(6).webp")["default"],
+                              alt: "...",
+                            },
+                          }),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col col-6 border-left border-top" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "product" },
+                            id: "banner-interaction",
+                          },
+                        },
+                        [
+                          _c("h5", [_vm._v("RTX 30 Series")]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Hiệu năng vượt bậc")]),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "d-block",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../public/images/product(7).webp */ "./public/images/product(7).webp")["default"],
+                              alt: "...",
+                            },
+                          }),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                ]),
+              ]),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row category-row" }, [
+          _c("div", { staticClass: "col mr-auto" }, [
+            _vm._m(20),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c(
+                "div",
+                { staticClass: "col col-4 banner" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: { name: "product" },
+                        id: "banner-interaction",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        staticClass: "d-block",
+                        attrs: {
+                          src: __webpack_require__(/*! ../../../public/images/category.webp */ "./public/images/category.webp")["default"],
+                          alt: "...",
+                        },
+                      }),
+                    ]
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "col col-8 product-category" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col col-6 border-right border-bottom" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "product" },
+                            id: "banner-interaction",
+                          },
+                        },
+                        [
+                          _c("h5", [_vm._v("MSI Gaming")]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Sức mạnh từ nhà rồng")]),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "d-block",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../public/images/product.webp */ "./public/images/product.webp")["default"],
+                              alt: "...",
+                            },
+                          }),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col col-6 border-left border-bottom" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "product" },
+                            id: "banner-interaction",
+                          },
+                        },
+                        [
+                          _c("h5", [_vm._v("Lễ Hội HP")]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Siêu khuyến mãi")]),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "d-block",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../public/images/product(1).webp */ "./public/images/product(1).webp")["default"],
+                              alt: "...",
+                            },
+                          }),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col col-6 border-right border-top" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "product" },
+                            id: "banner-interaction",
+                          },
+                        },
+                        [
+                          _c("h5", [_vm._v("LG Gram")]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Siêu nhẹ siêu tiện lợi")]),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "d-block",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../public/images/product(2).webp */ "./public/images/product(2).webp")["default"],
+                              alt: "...",
+                            },
+                          }),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col col-6 border-left border-top" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "product" },
+                            id: "banner-interaction",
+                          },
+                        },
+                        [
+                          _c("h5", [_vm._v("Lenovo")]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Dành cho doanh nhân")]),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "d-block",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../public/images/product(3).webp */ "./public/images/product(3).webp")["default"],
+                              alt: "...",
+                            },
+                          }),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                ]),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col ml-auto" }, [
+            _vm._m(21),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c(
+                "div",
+                { staticClass: "col col-4 banner" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: { name: "product" },
+                        id: "banner-interaction",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        staticClass: "d-block",
+                        attrs: {
+                          src: __webpack_require__(/*! ../../../public/images/category(1).webp */ "./public/images/category(1).webp")["default"],
+                          alt: "...",
+                        },
+                      }),
+                    ]
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "col col-8 product-category" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col col-6 border-right border-bottom" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "product" },
+                            id: "banner-interaction",
+                          },
+                        },
+                        [
+                          _c("h5", [_vm._v("PC Cheems Store")]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Làm việc chuẩn mực")]),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "d-block",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../public/images/product(4).webp */ "./public/images/product(4).webp")["default"],
+                              alt: "...",
+                            },
+                          }),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col col-6 border-left border-bottom" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "product" },
+                            id: "banner-interaction",
+                          },
+                        },
+                        [
+                          _c("h5", [_vm._v("SSD")]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Load nhanh trong tích tắc")]),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "d-block",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../public/images/product(5).webp */ "./public/images/product(5).webp")["default"],
+                              alt: "...",
+                            },
+                          }),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col col-6 border-right border-top" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "product" },
+                            id: "banner-interaction",
+                          },
+                        },
+                        [
+                          _c("h5", [_vm._v("Màn Hình Gaming")]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Giảm tới 50%")]),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "d-block",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../public/images/product(6).webp */ "./public/images/product(6).webp")["default"],
+                              alt: "...",
+                            },
+                          }),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col col-6 border-left border-top" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "product" },
+                            id: "banner-interaction",
+                          },
+                        },
+                        [
+                          _c("h5", [_vm._v("RTX 30 Series")]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Hiệu năng vượt bậc")]),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "d-block",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../public/images/product(7).webp */ "./public/images/product(7).webp")["default"],
+                              alt: "...",
+                            },
+                          }),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                ]),
+              ]),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row category-row" }, [
+          _c("div", { staticClass: "col mr-auto" }, [
+            _vm._m(22),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c(
+                "div",
+                { staticClass: "col col-4 banner" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: { name: "product" },
+                        id: "banner-interaction",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        staticClass: "d-block",
+                        attrs: {
+                          src: __webpack_require__(/*! ../../../public/images/category.webp */ "./public/images/category.webp")["default"],
+                          alt: "...",
+                        },
+                      }),
+                    ]
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "col col-8 product-category" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col col-6 border-right border-bottom" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "product" },
+                            id: "banner-interaction",
+                          },
+                        },
+                        [
+                          _c("h5", [_vm._v("MSI Gaming")]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Sức mạnh từ nhà rồng")]),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "d-block",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../public/images/product.webp */ "./public/images/product.webp")["default"],
+                              alt: "...",
+                            },
+                          }),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col col-6 border-left border-bottom" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "product" },
+                            id: "banner-interaction",
+                          },
+                        },
+                        [
+                          _c("h5", [_vm._v("Lễ hội HP")]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Siêu khuyến mãi")]),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "d-block",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../public/images/product(1).webp */ "./public/images/product(1).webp")["default"],
+                              alt: "...",
+                            },
+                          }),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col col-6 border-right border-top" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "product" },
+                            id: "banner-interaction",
+                          },
+                        },
+                        [
+                          _c("h5", [_vm._v("LG Gram")]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Siêu nhẹ siêu tiện lợi")]),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "d-block",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../public/images/product(2).webp */ "./public/images/product(2).webp")["default"],
+                              alt: "...",
+                            },
+                          }),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col col-6 border-left border-top" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "product" },
+                            id: "banner-interaction",
+                          },
+                        },
+                        [
+                          _c("h5", [_vm._v("Lenovo")]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Dành cho doanh nhân")]),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "d-block",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../public/images/product(3).webp */ "./public/images/product(3).webp")["default"],
+                              alt: "...",
+                            },
+                          }),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                ]),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col ml-auto" }, [
+            _vm._m(23),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c(
+                "div",
+                { staticClass: "col col-4 banner" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: { name: "product" },
+                        id: "banner-interaction",
+                      },
+                    },
+                    [
+                      _c("img", {
+                        staticClass: "d-block",
+                        attrs: {
+                          src: __webpack_require__(/*! ../../../public/images/category(1).webp */ "./public/images/category(1).webp")["default"],
+                          alt: "...",
+                        },
+                      }),
+                    ]
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "col col-8 product-category" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col col-6 border-right border-bottom" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "product" },
+                            id: "banner-interaction",
+                          },
+                        },
+                        [
+                          _c("h5", [_vm._v("MSI Gaming")]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Sức mạnh từ nhà rồng")]),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "d-block",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../public/images/product.webp */ "./public/images/product.webp")["default"],
+                              alt: "...",
+                            },
+                          }),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col col-6 border-left border-bottom" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "product" },
+                            id: "banner-interaction",
+                          },
+                        },
+                        [
+                          _c("h5", [_vm._v("Lễ hội HP")]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Siêu khuyến mãi")]),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "d-block",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../public/images/product(1).webp */ "./public/images/product(1).webp")["default"],
+                              alt: "...",
+                            },
+                          }),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col col-6 border-right border-top" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "product" },
+                            id: "banner-interaction",
+                          },
+                        },
+                        [
+                          _c("h5", [_vm._v("LG Gram")]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Siêu nhẹ siêu tiện lợi")]),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "d-block",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../public/images/product(2).webp */ "./public/images/product(2).webp")["default"],
+                              alt: "...",
+                            },
+                          }),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col col-6 border-left border-top" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "product" },
+                            id: "banner-interaction",
+                          },
+                        },
+                        [
+                          _c("h5", [_vm._v("Lenovo")]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Dành cho doanh nhân")]),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "d-block",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../public/images/product(3).webp */ "./public/images/product(3).webp")["default"],
+                              alt: "...",
+                            },
+                          }),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                ]),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "top-sellers-slider" }),
     ]),
-    _vm._v(" "),
-    _vm._m(19),
   ])
 }
 var staticRenderFns = [
@@ -43795,102 +45069,48 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "products" }, [
-      _c("div", { staticClass: "container mr-auto" }, [
-        _c("div", { staticClass: "row" }, [_c("div")]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "container ml-auto" }),
+    return _c("div", { staticClass: "title" }, [
+      _c("h4", [_vm._v("|  LAPTOP - MACBOOK")]),
     ])
   },
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
+    return _c("div", { staticClass: "title" }, [
+      _c("h4", [_vm._v("|  PC - MÀN HÌNH - LINH KIỆN MÁY TÍNH")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "title" }, [
+      _c("h4", [_vm._v("|  LAPTOP - MACBOOK")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "title" }, [
+      _c("h4", [_vm._v("|  PC - MÀN HÌNH - LINH KIỆN MÁY TÍNH")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "title" }, [
+      _c("h4", [_vm._v("|  LAPTOP - MACBOOK")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "title" }, [
+      _c("h4", [_vm._v("|  PC - MÀN HÌNH - LINH KIỆN MÁY TÍNH")]),
     ])
   },
 ]

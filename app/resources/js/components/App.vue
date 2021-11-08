@@ -40,7 +40,7 @@
                         <div class ="brand">
                             <router-link :to="{name: 'home'}" class="navbar-brand">
                                 <div>
-                                    <img id="logo" :src = "require('../../images/home/logo/CheemsIcons.png').default" width="55em">
+                                    <img id="logo" :src = "require('../../../public/images/CheemsIcons.png').default" width="55em">
                                     <h2 id="title">
                                         <b>Cheems Store</b>
                                     </h2>
@@ -252,7 +252,7 @@
    float: right;
 }
 .contactinfo ul li a #info{
-   color: rgb(0, 225, 255);
+   color: rgb(0, 200, 200)
 }
 .contactinfo ul li a:hover{
 	background:inherit;

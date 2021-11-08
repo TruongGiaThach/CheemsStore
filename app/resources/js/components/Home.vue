@@ -11,13 +11,13 @@
             <!--Sliders-->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                <img :src="require('../../images/home/sliders/1.webp').default" class="d-block w-120" alt="...">
+                <img :src="require('../../../public/images/1.webp').default" class="d-block w-120" alt="...">
                 </div>
                 <div class="carousel-item">
-                <img :src="require('../../images/home/sliders/2.webp').default" class="d-block w-120" alt="...">
+                <img :src="require('../../../public/images/2.webp').default" class="d-block w-120" alt="...">
                 </div>
                 <div class="carousel-item">
-                <img :src="require('../../images/home/sliders/3.webp').default" class="d-block w-120" alt="...">
+                <img :src="require('../../../public/images/3.webp').default" class="d-block w-120" alt="...">
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
                                 <a href="#Cheems">
                                 <tr>
                                     <td>
-                                        <img :src= "require('../../images/home/icons/icons8-washing-machine-50.png').default" width="20px">
+                                        <img :src= "require('../../../public/images/icons8-washing-machine-50.png').default" width="20px">
                                     </td>
                                     <td>
                                         Điện máy - Điện gia dụng
@@ -54,7 +54,7 @@
                                 <a href="#Cheems">
                                 <tr>
                                     <td>
-                                        <img :src= "require('../../images/home/icons/icons8-laptop-50.png').default" width="20px">
+                                        <img :src= "require('../../../public/images/icons8-laptop-50.png').default" width="20px">
                                     </td>
                                     <td>
                                         Laptop - Macbook
@@ -76,7 +76,7 @@
                                 <a href="#Cheems">
                                 <tr>
                                     <td>
-                                        <img :src= "require('../../images/home/icons/icons8-tv-50.png').default" width="20px">
+                                        <img :src= "require('../../../public/images/icons8-tv-50.png').default" width="20px">
                                     </td>
                                     <td>
                                         Tv - Màn hình Tv
@@ -98,7 +98,7 @@
                                 <a href="#Cheems">
                                 <tr>
                                     <td>
-                                        <img :src= "require('../../images/home/icons/icons8-touchscreen-50.png').default" width="20px">
+                                        <img :src= "require('../../../public/images/icons8-touchscreen-50.png').default" width="20px">
                                     </td>
                                     <td>
                                         Điện thoại & Thiết bị thông minh
@@ -120,7 +120,7 @@
                                 <a href="#Cheems">
                                 <tr>
                                     <td>
-                                        <img :src= "require('../../images/home/icons/icons8-workstation-50.png').default" width="20px">
+                                        <img :src= "require('../../../public/images/icons8-workstation-50.png').default" width="20px">
                                     </td>
                                     <td>
                                         Pc - Máy tính đồng bộ
@@ -142,7 +142,7 @@
                                 <a href="#Cheems">
                                 <tr>
                                     <td>
-                                        <img :src= "require('../../images/home/icons/icons8-monitor-50.png').default" width="20px">
+                                        <img :src= "require('../../../public/images/icons8-monitor-50.png').default" width="20px">
                                     </td>
                                     <td>
                                         Màn hình máy tính
@@ -164,7 +164,7 @@
                                 <a href="#Cheems">
                                 <tr>
                                     <td>
-                                        <img :src= "require('../../images/home/icons/icons8-electronics-50.png').default" width="20px">
+                                        <img :src= "require('../../../public/images/icons8-electronics-50.png').default" width="20px">
                                     </td>
                                     <td>
                                         Linh kiện máy tính
@@ -186,7 +186,7 @@
                                 <a href="#Cheems">
                                 <tr>
                                     <td>
-                                        <img :src= "require('../../images/home/icons/icons8-game-controller-50.png').default" width="20px">
+                                        <img :src= "require('../../../public/images/icons8-game-controller-50.png').default" width="20px">
                                     </td>
                                     <td>
                                         High - End Gaming
@@ -208,7 +208,7 @@
                                 <a href="#Cheems">
                                 <tr>
                                     <td>
-                                        <img :src= "require('../../images/home/icons/icons8-computer-mouse-50.png').default" width="20px">
+                                        <img :src= "require('../../../public/images/icons8-computer-mouse-50.png').default" width="20px">
                                     </td>
                                     <td>
                                         Phụ kiện & Thiết bị ngoại vi
@@ -230,7 +230,7 @@
                                 <a href="#Cheems">
                                 <tr>
                                     <td>
-                                        <img :src= "require('../../images/home/icons/icons8-subwoofer-50.png').default" width="20px">
+                                        <img :src= "require('../../../public/images/icons8-subwoofer-50.png').default" width="20px">
                                     </td>
                                     <td>
                                         Thiết bị âm thanh
@@ -252,7 +252,7 @@
                                 <a href="#Cheems">
                                 <tr>
                                     <td>
-                                        <img :src= "require('../../images/home/icons/icons8-camera-50.png').default" width="20px">
+                                        <img :src= "require('../../../public/images/icons8-camera-50.png').default" width="20px">
                                     </td>
                                     <td>
                                         Máy ảnh - Máy quay phim
@@ -274,7 +274,7 @@
                                 <a href="#Cheems">
                                 <tr>
                                     <td>
-                                        <img :src= "require('../../images/home/icons/icons8-print-50.png').default" width="20px">
+                                        <img :src= "require('../../../public/images/icons8-print-50.png').default" width="20px">
                                     </td>
                                     <td>
                                         Thiết bị văn phòng
@@ -296,7 +296,7 @@
                                 <a href="#Cheems">
                                 <tr>
                                     <td>
-                                        <img :src= "require('../../images/home/icons/icons8-wi-fi-lock-50.png').default" width="20px">
+                                        <img :src= "require('../../../public/images/icons8-wi-fi-lock-50.png').default" width="20px">
                                     </td>
                                     <td>
                                         Thiết bị mạng - An ninh
@@ -318,7 +318,7 @@
                                 <a href="#Cheems">
                                 <tr>
                                     <td>
-                                        <img :src= "require('../../images/home/icons/icons8-account-50.png').default" width="20px">
+                                        <img :src= "require('../../../public/images/icons8-account-50.png').default" width="20px">
                                     </td>
                                     <td>
                                         Giải pháp doanh nghiệp
@@ -351,44 +351,30 @@
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
                                     <div class="col-xs-3 col-sm-3 col-md-3">
-                                        <img :src="require('../../images/home/sliders/brand-1.webp').default" class="d-block" alt="...">
+                                        <img :src="require('../../../public/images/brand-1.webp').default" class="d-block" alt="...">
                                     </div>
                                     <div class="col-xs-3 col-sm-3 col-md-3">
-                                        <img :src="require('../../images/home/sliders/brand-2.webp').default" class="d-block" alt="...">
+                                        <img :src="require('../../../public/images/brand-2.webp').default" class="d-block" alt="...">
                                     </div>
                                     <div class="col-xs-3 col-sm-3 col-md-3">
-                                        <img :src="require('../../images/home/sliders/brand-3.webp').default" class="d-block" alt="...">
+                                        <img :src="require('../../../public/images/brand-3.webp').default" class="d-block" alt="...">
                                     </div>
                                     <div class="col-xs-3 col-sm-3 col-md-3">
-                                        <img :src="require('../../images/home/sliders/brand-4.webp').default" class="d-block" alt="...">
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="col-xs-3 col-sm-3 col-md-3">
-                                        <img :src="require('../../images/home/sliders/brand-1.webp').default" class="d-block" alt="...">
-                                    </div>
-                                    <div class="col-xs-3 col-sm-3 col-md-3">
-                                        <img :src="require('../../images/home/sliders/brand-2.webp').default" class="d-block" alt="...">
-                                    </div>
-                                    <div class="col-xs-3 col-sm-3 col-md-3">
-                                        <img :src="require('../../images/home/sliders/brand-3.webp').default" class="d-block" alt="...">
-                                    </div>
-                                    <div class="col-xs-3 col-sm-3 col-md-3">
-                                        <img :src="require('../../images/home/sliders/brand-4.webp').default" class="d-block" alt="...">
+                                        <img :src="require('../../../public/images/brand-4.webp').default" class="d-block" alt="...">
                                     </div>
                                 </div>
                                 <div class="carousel-item">
                                     <div class="col-xs-3 col-sm-3 col-md-3">
-                                        <img :src="require('../../images/home/sliders/brand-1.webp').default" class="d-block" alt="...">
+                                        <img :src="require('../../../public/images/brand-1.webp').default" class="d-block" alt="...">
                                     </div>
                                     <div class="col-xs-3 col-sm-3 col-md-3">
-                                        <img :src="require('../../images/home/sliders/brand-2.webp').default" class="d-block" alt="...">
+                                        <img :src="require('../../../public/images/brand-2.webp').default" class="d-block" alt="...">
                                     </div>
                                     <div class="col-xs-3 col-sm-3 col-md-3">
-                                        <img :src="require('../../images/home/sliders/brand-3.webp').default" class="d-block" alt="...">
+                                        <img :src="require('../../../public/images/brand-3.webp').default" class="d-block" alt="...">
                                     </div>
                                     <div class="col-xs-3 col-sm-3 col-md-3">
-                                        <img :src="require('../../images/home/sliders/brand-4.webp').default" class="d-block" alt="...">
+                                        <img :src="require('../../../public/images/brand-4.webp').default" class="d-block" alt="...">
                                     </div>
                                 </div>
                             </div>
@@ -406,16 +392,289 @@
                 </div>
                 <!--Products -->
                 <div class="products">
-                    <div class = "container mr-auto">
-                        <div class="row">
-                            <div>
-
+                    <div class="row category-row">
+                        <div class = "col mr-auto">
+                            <div class="title">
+                                <h4>| &nbsp;LAPTOP - MACBOOK</h4>
+                            </div>
+                            <div class="row">
+                                <div class="col col-4 banner">
+                                    <router-link :to="{name: 'product'}" id="banner-interaction">
+                                        <img :src="require('../../../public/images/category.webp').default" class="d-block" alt="...">
+                                    </router-link>
+                                </div>
+                                <div class="col col-8 product-category">
+                                    <div class="row">
+                                        <div class="col col-6 border-right border-bottom">
+                                            <router-link :to="{name: 'product'}" id="banner-interaction">
+                                                <h5>MSI Gaming</h5>
+                                                <p>Sức mạnh từ nhà rồng</p>
+                                                <img :src="require('../../../public/images/product.webp').default" class="d-block" alt="...">
+                                            </router-link>
+                                        </div>
+                                        <div class="col col-6 border-left border-bottom">
+                                            <router-link :to="{name: 'product'}" id="banner-interaction">
+                                                <h5>Lễ hội HP</h5>
+                                                <p>Siêu khuyến mãi</p>
+                                                <img :src="require('../../../public/images/product(1).webp').default" class="d-block" alt="...">
+                                            </router-link>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-6 border-right border-top">
+                                            <router-link :to="{name: 'product'}" id="banner-interaction">
+                                                <h5>LG Gram</h5>
+                                                <p>Siêu nhẹ siêu tiện lợi</p>
+                                                <img :src="require('../../../public/images/product(2).webp').default" class="d-block" alt="...">
+                                            </router-link>
+                                        </div>
+                                        <div class="col col-6 border-left border-top">
+                                            <router-link :to="{name: 'product'}" id="banner-interaction">
+                                                <h5>Lenovo</h5>
+                                                <p>Dành cho doanh nhân</p>
+                                                <img :src="require('../../../public/images/product(3).webp').default" class="d-block" alt="...">
+                                            </router-link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "col ml-auto">
+                            <div class="title">
+                                <h4>| &nbsp;PC - MÀN HÌNH - LINH KIỆN MÁY TÍNH</h4>
+                            </div>
+                            <div class="row">
+                                <div class="col col-4 banner">
+                                    <router-link :to="{name: 'product'}" id="banner-interaction">
+                                        <img :src="require('../../../public/images/category(1).webp').default" class="d-block" alt="...">
+                                    </router-link>
+                                </div>
+                                <div class="col col-8 product-category">
+                                    <div class="row">
+                                        <div class="col col-6 border-right border-bottom">
+                                            <router-link :to="{name: 'product'}" id="banner-interaction">
+                                                <h5>PC Cheems Store</h5>
+                                                <p>Làm việc chuẩn mực</p>
+                                                <img :src="require('../../../public/images/product(4).webp').default" class="d-block" alt="...">
+                                            </router-link>
+                                        </div>
+                                        <div class="col col-6 border-left border-bottom">
+                                            <router-link :to="{name: 'product'}" id="banner-interaction">
+                                                <h5>SSD</h5>
+                                                <p>Load nhanh trong tích tắc</p>
+                                                <img :src="require('../../../public/images/product(5).webp').default" class="d-block" alt="...">
+                                            </router-link>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-6 border-right border-top">
+                                            <router-link :to="{name: 'product'}" id="banner-interaction">
+                                                <h5>Màn Hình Gaming</h5>
+                                                <p>Giảm tới 50%</p>
+                                                <img :src="require('../../../public/images/product(6).webp').default" class="d-block" alt="...">
+                                            </router-link>
+                                        </div>
+                                        <div class="col col-6 border-left border-top">
+                                            <router-link :to="{name: 'product'}" id="banner-interaction">
+                                                <h5>RTX 30 Series</h5>
+                                                <p>Hiệu năng vượt bậc</p>
+                                                <img :src="require('../../../public/images/product(7).webp').default" class="d-block" alt="...">
+                                            </router-link>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class = "container ml-auto">
-                        
+                    <div class="row category-row">
+                        <div class = "col mr-auto">
+                            <div class="title">
+                                <h4>| &nbsp;LAPTOP - MACBOOK</h4>
+                            </div>
+                            <div class="row">
+                                <div class="col col-4 banner">
+                                    <router-link :to="{name: 'product'}" id="banner-interaction">
+                                        <img :src="require('../../../public/images/category.webp').default" class="d-block" alt="...">
+                                    </router-link>
+                                </div>
+                                <div class="col col-8 product-category">
+                                    <div class="row">
+                                        <div class="col col-6 border-right border-bottom">
+                                            <router-link :to="{name: 'product'}" id="banner-interaction">
+                                                <h5>MSI Gaming</h5>
+                                                <p>Sức mạnh từ nhà rồng</p>
+                                                <img :src="require('../../../public/images/product.webp').default" class="d-block" alt="...">
+                                            </router-link>
+                                        </div>
+                                        <div class="col col-6 border-left border-bottom">
+                                            <router-link :to="{name: 'product'}" id="banner-interaction">
+                                                <h5>Lễ Hội HP</h5>
+                                                <p>Siêu khuyến mãi</p>
+                                                <img :src="require('../../../public/images/product(1).webp').default" class="d-block" alt="...">
+                                            </router-link>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-6 border-right border-top">
+                                            <router-link :to="{name: 'product'}" id="banner-interaction">
+                                                <h5>LG Gram</h5>
+                                                <p>Siêu nhẹ siêu tiện lợi</p>
+                                                <img :src="require('../../../public/images/product(2).webp').default" class="d-block" alt="...">
+                                            </router-link>
+                                        </div>
+                                        <div class="col col-6 border-left border-top">
+                                            <router-link :to="{name: 'product'}" id="banner-interaction">
+                                                <h5>Lenovo</h5>
+                                                <p>Dành cho doanh nhân</p>
+                                                <img :src="require('../../../public/images/product(3).webp').default" class="d-block" alt="...">
+                                            </router-link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "col ml-auto">
+                            <div class="title">
+                                <h4>| &nbsp;PC - MÀN HÌNH - LINH KIỆN MÁY TÍNH</h4>
+                            </div>
+                            <div class="row">
+                                <div class="col col-4 banner">
+                                    <router-link :to="{name: 'product'}" id="banner-interaction">
+                                        <img :src="require('../../../public/images/category(1).webp').default" class="d-block" alt="...">
+                                    </router-link>
+                                </div>
+                                <div class="col col-8 product-category">
+                                    <div class="row">
+                                        <div class="col col-6 border-right border-bottom">
+                                            <router-link :to="{name: 'product'}" id="banner-interaction">
+                                                <h5>PC Cheems Store</h5>
+                                                <p>Làm việc chuẩn mực</p>
+                                                <img :src="require('../../../public/images/product(4).webp').default" class="d-block" alt="...">
+                                            </router-link>
+                                        </div>
+                                        <div class="col col-6 border-left border-bottom">
+                                            <router-link :to="{name: 'product'}" id="banner-interaction">
+                                                <h5>SSD</h5>
+                                                <p>Load nhanh trong tích tắc</p>
+                                                <img :src="require('../../../public/images/product(5).webp').default" class="d-block" alt="...">
+                                            </router-link>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-6 border-right border-top">
+                                            <router-link :to="{name: 'product'}" id="banner-interaction">
+                                                <h5>Màn Hình Gaming</h5>
+                                                <p>Giảm tới 50%</p>
+                                                <img :src="require('../../../public/images/product(6).webp').default" class="d-block" alt="...">
+                                            </router-link>
+                                        </div>
+                                        <div class="col col-6 border-left border-top">
+                                            <router-link :to="{name: 'product'}" id="banner-interaction">
+                                                <h5>RTX 30 Series</h5>
+                                                <p>Hiệu năng vượt bậc</p>
+                                                <img :src="require('../../../public/images/product(7).webp').default" class="d-block" alt="...">
+                                            </router-link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <div class="row category-row">
+                        <div class = "col mr-auto">
+                            <div class="title">
+                                <h4>| &nbsp;LAPTOP - MACBOOK</h4>
+                            </div>
+                            <div class="row">
+                                <div class="col col-4 banner">
+                                    <router-link :to="{name: 'product'}" id="banner-interaction">
+                                        <img :src="require('../../../public/images/category.webp').default" class="d-block" alt="...">
+                                    </router-link>
+                                </div>
+                                <div class="col col-8 product-category">
+                                    <div class="row">
+                                        <div class="col col-6 border-right border-bottom">
+                                            <router-link :to="{name: 'product'}" id="banner-interaction">
+                                                <h5>MSI Gaming</h5>
+                                                <p>Sức mạnh từ nhà rồng</p>
+                                                <img :src="require('../../../public/images/product.webp').default" class="d-block" alt="...">
+                                            </router-link>
+                                        </div>
+                                        <div class="col col-6 border-left border-bottom">
+                                            <router-link :to="{name: 'product'}" id="banner-interaction">
+                                                <h5>Lễ hội HP</h5>
+                                                <p>Siêu khuyến mãi</p>
+                                                <img :src="require('../../../public/images/product(1).webp').default" class="d-block" alt="...">
+                                            </router-link>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-6 border-right border-top">
+                                            <router-link :to="{name: 'product'}" id="banner-interaction">
+                                                <h5>LG Gram</h5>
+                                                <p>Siêu nhẹ siêu tiện lợi</p>
+                                                <img :src="require('../../../public/images/product(2).webp').default" class="d-block" alt="...">
+                                            </router-link>
+                                        </div>
+                                        <div class="col col-6 border-left border-top">
+                                            <router-link :to="{name: 'product'}" id="banner-interaction">
+                                                <h5>Lenovo</h5>
+                                                <p>Dành cho doanh nhân</p>
+                                                <img :src="require('../../../public/images/product(3).webp').default" class="d-block" alt="...">
+                                            </router-link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "col ml-auto">
+                            <div class="title">
+                                <h4>| &nbsp;PC - MÀN HÌNH - LINH KIỆN MÁY TÍNH</h4>
+                            </div>
+                            <div class="row">
+                                <div class="col col-4 banner">
+                                    <router-link :to="{name: 'product'}" id="banner-interaction">
+                                        <img :src="require('../../../public/images/category(1).webp').default" class="d-block" alt="...">
+                                    </router-link>
+                                </div>
+                                <div class="col col-8 product-category">
+                                    <div class="row">
+                                        <div class="col col-6 border-right border-bottom">
+                                            <router-link :to="{name: 'product'}" id="banner-interaction">
+                                                <h5>MSI Gaming</h5>
+                                                <p>Sức mạnh từ nhà rồng</p>
+                                                <img :src="require('../../../public/images/product.webp').default" class="d-block" alt="...">
+                                            </router-link>
+                                        </div>
+                                        <div class="col col-6 border-left border-bottom">
+                                            <router-link :to="{name: 'product'}" id="banner-interaction">
+                                                <h5>Lễ hội HP</h5>
+                                                <p>Siêu khuyến mãi</p>
+                                                <img :src="require('../../../public/images/product(1).webp').default" class="d-block" alt="...">
+                                            </router-link>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-6 border-right border-top">
+                                            <router-link :to="{name: 'product'}" id="banner-interaction">
+                                                <h5>LG Gram</h5>
+                                                <p>Siêu nhẹ siêu tiện lợi</p>
+                                                <img :src="require('../../../public/images/product(2).webp').default" class="d-block" alt="...">
+                                            </router-link>
+                                        </div>
+                                        <div class="col col-6 border-left border-top">
+                                            <router-link :to="{name: 'product'}" id="banner-interaction">
+                                                <h5>Lenovo</h5>
+                                                <p>Dành cho doanh nhân</p>
+                                                <img :src="require('../../../public/images/product(3).webp').default" class="d-block" alt="...">
+                                            </router-link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
                 <!--Top Sellers Slider -->
                 <div class = "top-sellers-slider">
@@ -445,51 +704,6 @@
                 </div>
               </div>
             </div>          -->
-
-            <div>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-            </div>
 
         </div>
 
@@ -581,33 +795,43 @@
 *******Home body CSS*************
 *********************************/
 .body{
-    
+    width: 79.4%;
+    margin-left: 11em;
+    background-color: #ffff;
+}
+.body img{
+    transition: all 1s;
+}
+.body img:hover{
+    -webkit-transform: scale(1.05); 
+    transform: scale(1.05);
 }
 /********************************
 *******Brand Sliders CSS*********
 *********************************/
 .brand-slider{
     z-index: 4;
-    position: absolute;
+    position: relative;
     background-color: transparent;
     margin-top: -5.5em;
-    width: 79.4%;
+    max-width: 100%;
     text-align: right;
-    margin-left: 11em;
 }
 .brand-slider .title-tab{
-    background-color: cadetblue;
+    background-color: #008b8b;
     display:inline-block;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     width: 20em;
     text-align: center;
-    padding-top: 0.6em;
-    font-weight: 900;
+    padding-top: 1em;
     color:#ffff;
 }
+.brand-slider .title-tab h3{
+    font-weight: 900;
+}
 .brand-slider .slider-tab{
-    background-color: cadetblue;
+    background-color:#008b8b;
     height: 14em;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -626,13 +850,44 @@
 /***************************
 *******Products CSS*********
 ****************************/
-.small-text {
-    font-size: 14px;
+.products{
+    margin-top: 4em;
 }
-.product-box {
-    border: 1px solid #3f3f3f;
-    padding: 10px 15px;
-    width: 300;
-    height: 500;
+.products .category-row{
+    margin-top: 2em;
+}
+.products .title h4{
+    font-weight: 950;
+    font-size: 135%;
+}
+.products .banner{
+    overflow: hidden;
+}
+.products .product-category .row .col {
+    text-align: center;
+    padding: 1em;
+}
+.products .product-category .row .col :link{
+    color: #000000;
+}
+.products .product-category .row .col :visited{
+    color: #000000;
+}
+.products .product-category .row .col :hover{
+    text-decoration: none;
+    color:#005ba6;
+}
+.products .product-category .row .col h5{
+    font-size: 100%;
+    font-weight: bold;
+}
+.products .product-category .row .col p{
+    font-size: 90%;
+}
+.products .product-category .row .col img{
+    width: 7em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 </style>
