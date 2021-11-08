@@ -10019,3 +10019,45 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.o-change-table {
+  display: inline-block;
+  position: relative;
+  margin: 25px;
+  width: 60em;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+  border-radius: 3px;
+  color: rgba(0, 0, 0, 0.87);
+  background: white;
+}
+
+.o-title {
+  padding-left: 16px;
+  padding-right: 0px;
+  color: #f0e2e2;
+}
+
+.o-background-des {
+  display: block;
+  box-shadow: 0 12px 20px -10px rgba(76, 175, 80, 0.28), 0 4px 20px 0 rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(76, 175, 80, 0.2);
+  margin: -20px 15px 0;
+  padding: 2px;
+  border-radius: 3px;
+  background: linear-gradient(60deg, #69b16c, #43a047);
+}
+
+.o-distance-table {
+  display: inline-block;
+  padding: 30px;
+}
+
+.o-background-order {
+  background: #b9b7b7;
+}
+
+.o-product-table {
+  padding: 0px;
+}
+
+.elevation-1 {
+  border: none;
+}

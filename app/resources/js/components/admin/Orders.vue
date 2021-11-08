@@ -1,47 +1,75 @@
 
   
 <template>
-	<div>
-        <table class="table table-responsive table-striped">
-            <thead>
-                <tr>
-                    <td></td>
-                    <td>Product</td>
-                    <td>Units</td>
-                    <td>Price</td>
-                    <td>Description</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="(product,index) in products" :key="index" @dblclick="editingItem = product">
-                    <td>{{index+1}}</td>
-                    <td v-html="product.name"></td>
-                    <td v-model:="product.units">{{product.units}}</td>
-                    <td v-model:="product.price">{{product.price}}</td>
-                    <td v-model:="product.price">{{product.description}}</td>
-                </tr>
-            </tbody>
-        </table>
-        <modal @close="endEditing" :product="editingItem" v-show="editingItem != null"></modal>
-        <modal @close="addProduct"  :product="addingProduct" v-show="addingProduct != null"></modal>
+	<div class="o-background-order">
+        <div v-for="value of catagories" :key="value">
+            <product-table 
+            :catagory="value.name"
+            :desCatagory="value.description"
+            :products="value.products" 
+            >
+            </product-table>
+        </div>
         <br>
         <button class="btn btn-primary" @click="newProduct">Add New Product</button>
     </div>
 </template>
 <script>
     import Modal from './ProductModal'
+import productTable from './productTable'
 	export default {
         data(){
             return {
-                products : [],
-                editingItem : null,
-                addingProduct : null
+                catagories:[
+                    {
+                        products: [
+                            {
+                                name:"Dell",
+                                units:"6",
+                                description:"Dell là dòng máy ngu vl",
+                                price:"1000.000",
+                                image:null
+                            },
+                            {
+                                name:"Dell",
+                                units:"6",
+                                description:"Dell là dòng máy ngu vl",
+                                price:"1000.000",
+                                image:null
+                            }
+                        ] ,
+                        name:"Máy tính",
+                        description: "Máy tính là một mặt hàng phổ biến nha",
+                    },
+                    {
+                        products: [
+                            {
+                                name:"GalaxyS4",
+                                units:"6",
+                                description:"Galaxy là dòng máy ngu vl",
+                                price:"1000.000",
+                                image:null
+                            },
+                            {
+                                name:"Nokia",
+                                units:"10",
+                                description:"Nokia là một dòng máy của mọi nhà của mọi người, vừa đập được đá vừa chọi được người",
+                                price:"1000.000",
+                                image:null
+                            }
+                        ] ,
+                        name:"Điện thoại",
+                        description: "Điện thoại là một thứ gi đó bây giờ tôi rất cần"
+
+                    }
+
+                ],
             }
         },
         components : {
-            Modal
+            productTable
         },
-        beforeMount(){
+        /*beforeMount(){
             axios.get('/api/products/')
             .then(response => {
                 this.products = response.data
@@ -49,7 +77,7 @@
             .catch(error => {
                 console.error(error);
             })     
-        },
+        },*/
         methods : {
             newProduct(){
                 this.addingProduct = {
