@@ -1,6 +1,6 @@
 - Email verification vue js via api:
-  + https://www.youtube.com/watch?v=Qjs4UqPDbuU
-  + https://laravel.com/docs/8.x/verification
+  + https://codeanddeploy.com/blog/laravel/laravel-8-authentication-login-and-registration-with-username-or-email
+  + https://codeanddeploy.com/blog/laravel/how-to-implement-laravel-8-email-verification
   
  - Sử dụng mailtrap.io để test: https://viblo.asia/p/mailtrap-va-testing-xQMGJmgNvam
   
