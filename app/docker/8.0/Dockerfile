@@ -42,6 +42,9 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
+    RUN curl -O https://pear.php.net/go-pear.phar
+    RUN php go-pear.phar
+    RUN pecl install grpc -q
 RUN pecl install mongodb && echo "extension=mongodb.so" > /etc/php/8.0/cli/php.ini
 
 RUN setcap "cap_net_bind_service=+ep" /usr/bin/php8.0

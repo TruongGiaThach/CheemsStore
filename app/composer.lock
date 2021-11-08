@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "82d1860da3c261c559fd24a6a9ed965c",
+    "content-hash": "044571a7269f2c9cc58889f3be8ac8a0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1396,16 +1396,16 @@
         },
         {
             "name": "laravel/passport",
-            "version": "v10.1.4",
+            "version": "v10.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/passport.git",
-                "reference": "c889d9c464fea409dffe283e9c4e7054ef7aca6f"
+                "reference": "1c69a010930a3ce8db348967d8ad9585be4d7d4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/passport/zipball/c889d9c464fea409dffe283e9c4e7054ef7aca6f",
-                "reference": "c889d9c464fea409dffe283e9c4e7054ef7aca6f",
+                "url": "https://api.github.com/repos/laravel/passport/zipball/1c69a010930a3ce8db348967d8ad9585be4d7d4d",
+                "reference": "1c69a010930a3ce8db348967d8ad9585be4d7d4d",
                 "shasum": ""
             },
             "require": {
@@ -1469,7 +1469,7 @@
                 "issues": "https://github.com/laravel/passport/issues",
                 "source": "https://github.com/laravel/passport"
             },
-            "time": "2021-10-19T15:25:10+00:00"
+            "time": "2021-11-02T16:45:51+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -2341,22 +2341,22 @@
         },
         {
             "name": "mongodb/mongodb",
-            "version": "1.9.0",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mongodb/mongo-php-library.git",
-                "reference": "4afe9254e87252879bfbb625858e78fbe072daa0"
+                "reference": "b0bbd657f84219212487d01a8ffe93a789e1e488"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mongodb/mongo-php-library/zipball/4afe9254e87252879bfbb625858e78fbe072daa0",
-                "reference": "4afe9254e87252879bfbb625858e78fbe072daa0",
+                "url": "https://api.github.com/repos/mongodb/mongo-php-library/zipball/b0bbd657f84219212487d01a8ffe93a789e1e488",
+                "reference": "b0bbd657f84219212487d01a8ffe93a789e1e488",
                 "shasum": ""
             },
             "require": {
                 "ext-hash": "*",
                 "ext-json": "*",
-                "ext-mongodb": "^1.10.0",
+                "ext-mongodb": "^1.11.0",
                 "jean85/pretty-package-versions": "^1.2 || ^2.0.1",
                 "php": "^7.1 || ^8.0",
                 "symfony/polyfill-php80": "^1.19"
@@ -2369,7 +2369,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.9.x-dev"
+                    "dev-master": "1.10.x-dev"
                 }
             },
             "autoload": {
@@ -2404,9 +2404,9 @@
             ],
             "support": {
                 "issues": "https://github.com/mongodb/mongo-php-library/issues",
-                "source": "https://github.com/mongodb/mongo-php-library/tree/1.9.0"
+                "source": "https://github.com/mongodb/mongo-php-library/tree/1.10.0"
             },
-            "time": "2021-07-13T20:03:24+00:00"
+            "time": "2021-10-20T22:22:37+00:00"
         },
         {
             "name": "monolog/monolog",

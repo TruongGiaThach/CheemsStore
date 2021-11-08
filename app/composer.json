@@ -10,15 +10,16 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "jenssegers/mongodb": "^3.8",
         "laravel/framework": "^8.65",
-        "laravel/passport": "^10.1",
+        "laravel/passport": "^10.2",
         "laravel/sanctum": "^2.11",
-        "laravel/tinker": "^2.5",
-        "laravel/ui": "^3.3"
+        "laravel/tinker": "^2.6",
+        "laravel/ui": "^3.3",
+        "mongodb/mongodb": "^1.10"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
-        "laravel/sail": "^1.0.1",
+        "laravel/sail": "^1.12",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^5.10",
         "phpunit/phpunit": "^9.5.10"

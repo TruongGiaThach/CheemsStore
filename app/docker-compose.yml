@@ -57,7 +57,7 @@ services:
             MONGO_INITDB_ROOT_PASSWORD: '${DB_PASSWORD}'
             MONGO_INITDB_DATABASE: '${DB_DATABASE}'
         volumes:
-            - 'sailmongo:/data/db'
+            - 'sailmongo:/data/db/sail'
         networks:
             - sail
     redis:
