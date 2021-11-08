@@ -3292,6 +3292,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -8828,7 +8835,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/***************************\r\n*******Sliders CSS**********\r\n****************************/\n.carousel-indicators li[data-v-f2b6376c]{\r\n    background-color: #d2691e;\r\n    height: 0.8em;\r\n    width: 0.8em;\r\n    border-radius: 100%;\r\n    margin-bottom: 5.1em;\n}\n.carousel-indicators[data-v-f2b6376c]{\r\n    z-index: 2;\n}\n.overlap[data-v-f2b6376c]{\r\n    position: absolute;\r\n    bottom:0;\r\n    background-color:transparent;\r\n    width: 100%;\r\n    height: 39em;\n}\n.overlap .category-menu-area[data-v-f2b6376c]{\r\n    position: absolute;\r\n    top: 0.8em;\r\n    left: 11em;\r\n    border-radius: 10px;\n}\n.overlap .category-menu-area .side-menu[data-v-f2b6376c]{\r\n    z-index: 2;\r\n    position: absolute;\r\n    background-color: white;\r\n    width: 16em;\r\n    height: inherit;\r\n    border-radius: inherit;\n}\n.overlap .category-menu-area .mega-dropdown[data-v-f2b6376c]{\r\n    z-index: 2;\r\n    display: none;\r\n    position: absolute;\r\n    height: 30.75em;\r\n    background-color: white;\r\n    width: 66.9em;\r\n    left: 16.7em;\r\n    border-radius: 10px;\r\n    top: 0;\n}\n.side-menu .side-menu-section table[data-v-f2b6376c]{\r\n    width: 100%;\r\n    font-size: 13px;\r\n    border-radius: 10px;\n}\n.side-menu .side-menu-section table td[data-v-f2b6376c]{\r\n    padding: 0.4em;\n}\n.side-menu .side-menu-section table[data-v-f2b6376c]:hover{\r\n    background-color: #9bc7f328;\n}\n.side-menu .side-menu-section a[data-v-f2b6376c]{\r\n    text-decoration: none;\r\n    color: rgb(36, 36, 36);\n}\n.side-menu .side-menu-section a[data-v-f2b6376c]:hover{\r\n    color: #005ba6;\n}\n.side-menu .side-menu-section table:hover + .mega-dropdown[data-v-f2b6376c]{\r\n    display:block;\n}\n.side-menu .side-menu-section .mega-dropdown[data-v-f2b6376c]:hover{\r\n    display:block;\n}\r\n/********************************\r\n*******Home body CSS*************\r\n*********************************/\n.body[data-v-f2b6376c]{\r\n    width: 79.4%;\r\n    margin-left: 11em;\r\n    background-color: #ffff;\n}\n.body img[data-v-f2b6376c]{\r\n    transition: all 1s;\n}\n.body img[data-v-f2b6376c]:hover{ \r\n    transform: scale(1.05);\n}\r\n/********************************\r\n*******Brand Sliders CSS*********\r\n*********************************/\n.brand-slider[data-v-f2b6376c]{\r\n    z-index: 4;\r\n    position: relative;\r\n    background-color: transparent;\r\n    margin-top: -5.5em;\r\n    max-width: 100%;\r\n    text-align: right;\n}\n.brand-slider .title-tab[data-v-f2b6376c]{\r\n    background-color: #008b8b;\r\n    display:inline-block;\r\n    border-top-left-radius: 20px;\r\n    border-top-right-radius: 20px;\r\n    width: 20em;\r\n    text-align: center;\r\n    padding-top: 1em;\r\n    color:#ffff;\n}\n.brand-slider .title-tab h3[data-v-f2b6376c]{\r\n    font-weight: 900;\n}\n.brand-slider .slider-tab[data-v-f2b6376c]{\r\n    background-color:#008b8b;\r\n    height: 14em;\r\n    border-top-left-radius: 20px;\r\n    border-bottom-right-radius: 20px;\r\n    border-bottom-left-radius: 20px;\n}\n.brand-slider .col-md-3[data-v-f2b6376c]{\r\n  display: inline-block;\r\n  margin-left:-0.3em;\r\n  padding-top: 2em;\n}\n.brand-slider .col-md-3 img[data-v-f2b6376c]{\r\n  width:100%;\r\n  height:9.8em;\r\n  border-radius: 10px;\n}\r\n/***************************\r\n*******Products CSS*********\r\n****************************/\n.products[data-v-f2b6376c]{\r\n    margin-top: 4em;\n}\n.products .category-row[data-v-f2b6376c]{\r\n    margin-top: 2em;\n}\n.products .title h4[data-v-f2b6376c]{\r\n    font-weight: 950;\r\n    font-size: 135%;\n}\n.products .banner[data-v-f2b6376c]{\r\n    overflow: hidden;\n}\n.products .product-category .row .col[data-v-f2b6376c] {\r\n    text-align: center;\r\n    padding: 1em;\n}\n.products .product-category .row .col[data-v-f2b6376c] :link{\r\n    color: #000000;\n}\n.products .product-category .row .col[data-v-f2b6376c] :visited{\r\n    color: #000000;\n}\n.products .product-category .row .col[data-v-f2b6376c] :hover{\r\n    text-decoration: none;\r\n    color:#005ba6;\n}\n.products .product-category .row .col h5[data-v-f2b6376c]{\r\n    font-size: 100%;\r\n    font-weight: bold;\n}\n.products .product-category .row .col p[data-v-f2b6376c]{\r\n    font-size: 90%;\n}\n.products .product-category .row .col img[data-v-f2b6376c]{\r\n    width: 7em;\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/***************************\r\n*******Sliders CSS**********\r\n****************************/\n.carousel-indicators li[data-v-f2b6376c]{\r\n    background-color: #d2691e;\r\n    height: 0.8em;\r\n    width: 0.8em;\r\n    border-radius: 100%;\r\n    margin-bottom: 5.1em;\n}\n.carousel-indicators[data-v-f2b6376c]{\r\n    z-index: 2;\n}\n.overlap[data-v-f2b6376c]{\r\n    position: absolute;\r\n    bottom:0;\r\n    background-color:transparent;\r\n    width: 100%;\r\n    height: 39em;\n}\n.overlap .category-menu-area[data-v-f2b6376c]{\r\n    position: absolute;\r\n    top: 0.8em;\r\n    left: 11em;\r\n    border-radius: 10px;\n}\n.overlap .category-menu-area .side-menu[data-v-f2b6376c]{\r\n    z-index: 2;\r\n    position: absolute;\r\n    background-color: white;\r\n    width: 16em;\r\n    height: inherit;\r\n    border-radius: inherit;\n}\n.overlap .category-menu-area .mega-dropdown[data-v-f2b6376c]{\r\n    z-index: 2;\r\n    display: none;\r\n    position: absolute;\r\n    height: 30.75em;\r\n    background-color: white;\r\n    width: 66.9em;\r\n    left: 16.7em;\r\n    border-radius: 10px;\r\n    top: 0;\n}\n.side-menu .side-menu-section table[data-v-f2b6376c]{\r\n    width: 100%;\r\n    font-size: 13px;\r\n    border-radius: 10px;\n}\n.side-menu .side-menu-section table td[data-v-f2b6376c]{\r\n    padding: 0.4em;\n}\n.side-menu .side-menu-section table[data-v-f2b6376c]:hover{\r\n    background-color: #9bc7f328;\n}\n.side-menu .side-menu-section a[data-v-f2b6376c]{\r\n    text-decoration: none;\r\n    color: rgb(36, 36, 36);\n}\n.side-menu .side-menu-section a[data-v-f2b6376c]:hover{\r\n    color: #005ba6;\n}\n.side-menu .side-menu-section table:hover + .mega-dropdown[data-v-f2b6376c]{\r\n    display:block;\n}\n.side-menu .side-menu-section .mega-dropdown[data-v-f2b6376c]:hover{\r\n    display:block;\n}\r\n/********************************\r\n*******Home body CSS*************\r\n*********************************/\n.body[data-v-f2b6376c]{\r\n    width: 79.4%;\r\n    margin-left: 11em;\r\n    background-color: #ffff;\n}\n.body .products[data-v-f2b6376c]{\r\n    margin-top: 4em;\n}\n.body .top-sellers-slider[data-v-f2b6376c]{\r\n    margin-top: 4em;\n}\n.body .product-4-you[data-v-f2b6376c]{\r\n    margin-top: 4em;\n}\n.body .title h1[data-v-f2b6376c]{\r\n    font-weight: 950;\r\n    font-size: 135%;\n}\n.body .title h3[data-v-f2b6376c]{\r\n    font-weight: 900;\r\n    color:#ffff;\r\n    padding-top: 0.7em;\n}\n.body img[data-v-f2b6376c]{\r\n    transition: all 1s;\n}\n.body img[data-v-f2b6376c]:hover{ \r\n    transform: scale(1.05);\n}\n.carousel[data-v-f2b6376c]{\r\n    display: flex;\r\n    align-items: center;\n}\n.carousel-control-prev[data-v-f2b6376c]{\r\n    background-color: rgba(0, 0, 0, 0.4);\r\n    width: 4em;\r\n    height: 3em;\r\n    margin: 0;\r\n    position: absolute;\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n    border-top-right-radius: 45%;\r\n    border-bottom-right-radius: 45%;\n}\n.carousel-control-next[data-v-f2b6376c]{\r\n    background-color: rgba(0, 0, 0, 0.4);\r\n    width: 4em;\r\n    height: 3em;\r\n    margin: 0;\r\n    position: absolute;\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n    border-top-left-radius: 45%;\r\n    border-bottom-left-radius: 45%;\n}\r\n/********************************\r\n*******Brand Sliders CSS*********\r\n*********************************/\n.brand-slider[data-v-f2b6376c]{\r\n    z-index: 4;\r\n    position: relative;\r\n    background-color: transparent;\r\n    margin-top: -5.5em;\r\n    max-width: 100%;\r\n    text-align: right;\n}\n.brand-slider .title[data-v-f2b6376c]{\r\n    background-color: #008b8b;\r\n    display:inline-block;\r\n    border-top-left-radius: 20px;\r\n    border-top-right-radius: 20px;\r\n    width: 20em;\r\n    text-align: center;\n}\n.brand-slider .slider-tab[data-v-f2b6376c]{\r\n    background-color:#008b8b;\r\n    height: 14em;\r\n    border-top-left-radius: 20px;\r\n    border-bottom-right-radius: 20px;\r\n    border-bottom-left-radius: 20px;\n}\n.brand-slider .col-md-3[data-v-f2b6376c]{\r\n  display: inline-block;\r\n  margin-left:-0.3em;\r\n  padding-top: 2em;\n}\n.brand-slider .col-md-3 img[data-v-f2b6376c]{\r\n  width:100%;\r\n  height:9.8em;\r\n  border-radius: 10px;\n}\r\n/***************************\r\n*******Products CSS*********\r\n****************************/\n.products .category-row[data-v-f2b6376c]{\r\n    margin-top: 2em;\n}\n.products .banner[data-v-f2b6376c]{\r\n    overflow: hidden;\n}\n.products .product-category .row .col[data-v-f2b6376c] {\r\n    text-align: center;\r\n    padding: 1em;\n}\n.products .product-category .row .col[data-v-f2b6376c] :link{\r\n    color: #000000;\n}\n.products .product-category .row .col[data-v-f2b6376c] :visited{\r\n    color: #000000;\n}\n.products .product-category .row .col[data-v-f2b6376c] :hover{\r\n    text-decoration: none;\r\n    color:#005ba6;\n}\n.products .product-category .row .col h5[data-v-f2b6376c]{\r\n    font-size: 100%;\r\n    font-weight: bold;\n}\n.products .product-category .row .col p[data-v-f2b6376c]{\r\n    font-size: 90%;\n}\n.products .product-category .row .col img[data-v-f2b6376c]{\r\n    width: 7em;\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\n}\r\n/******************************\r\n*******Top Sellers CSS*********\r\n*******************************/\n.top-sellers-slider[data-v-f2b6376c]{\r\n    height: 20em;\r\n    background-color: orangered;\r\n    border-radius: 10px;\n}\n.top-sellers-slider .title[data-v-f2b6376c]{\r\n    padding-left:1em;\n}\r\n/*********************************\r\n*******Products 4 You CSS*********\r\n**********************************/\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -9190,6 +9197,66 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./public/images/category(2).webp":
+/*!****************************************!*\
+  !*** ./public/images/category(2).webp ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/category(2).webp?10969aa712b1d00b0c666231127eac24");
+
+/***/ }),
+
+/***/ "./public/images/category(3).webp":
+/*!****************************************!*\
+  !*** ./public/images/category(3).webp ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/category(3).webp?14cebfa992e49f7f07dce1f1227525bc");
+
+/***/ }),
+
+/***/ "./public/images/category(4).webp":
+/*!****************************************!*\
+  !*** ./public/images/category(4).webp ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/category(4).webp?5b5c9c8833b280f519f61d144097556f");
+
+/***/ }),
+
+/***/ "./public/images/category(5).webp":
+/*!****************************************!*\
+  !*** ./public/images/category(5).webp ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/category(5).webp?7db8eef09ec08aedd4737a8c006d3a0c");
+
+/***/ }),
+
 /***/ "./public/images/category.webp":
 /*!*************************************!*\
   !*** ./public/images/category.webp ***!
@@ -9430,6 +9497,156 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./public/images/product(10).webp":
+/*!****************************************!*\
+  !*** ./public/images/product(10).webp ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product(10).webp?779d56e00ca81ef3a9925978f17fc09a");
+
+/***/ }),
+
+/***/ "./public/images/product(11).webp":
+/*!****************************************!*\
+  !*** ./public/images/product(11).webp ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product(11).webp?b2b5a9d5150ab103eb4bd935b2deccbf");
+
+/***/ }),
+
+/***/ "./public/images/product(12).webp":
+/*!****************************************!*\
+  !*** ./public/images/product(12).webp ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product(12).webp?caa297efb91a20a84ea00491fb582a81");
+
+/***/ }),
+
+/***/ "./public/images/product(13).webp":
+/*!****************************************!*\
+  !*** ./public/images/product(13).webp ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product(13).webp?cebb177793ec0054e0083c3c11c2cf31");
+
+/***/ }),
+
+/***/ "./public/images/product(14).webp":
+/*!****************************************!*\
+  !*** ./public/images/product(14).webp ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product(14).webp?7c3079ea5f3c848bade5467378a2d486");
+
+/***/ }),
+
+/***/ "./public/images/product(15).webp":
+/*!****************************************!*\
+  !*** ./public/images/product(15).webp ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product(15).webp?d2036187e76ed14fd25475640e0b33b2");
+
+/***/ }),
+
+/***/ "./public/images/product(16).webp":
+/*!****************************************!*\
+  !*** ./public/images/product(16).webp ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product(16).webp?9b5d828a7d0ac26ea49d92fdfd6c6aef");
+
+/***/ }),
+
+/***/ "./public/images/product(17).webp":
+/*!****************************************!*\
+  !*** ./public/images/product(17).webp ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product(17).webp?94644be4e939c649e5a8fb093395df7b");
+
+/***/ }),
+
+/***/ "./public/images/product(18).webp":
+/*!****************************************!*\
+  !*** ./public/images/product(18).webp ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product(18).webp?b1ea758400520fb5d7db3bd10f864102");
+
+/***/ }),
+
+/***/ "./public/images/product(19).webp":
+/*!****************************************!*\
+  !*** ./public/images/product(19).webp ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product(19).webp?bf1598cb9dfd8e734e54e6bfc8307329");
+
+/***/ }),
+
 /***/ "./public/images/product(2).webp":
 /*!***************************************!*\
   !*** ./public/images/product(2).webp ***!
@@ -9442,6 +9659,66 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product(2).webp?8d6b5b6d7827318a894b95776f3ef4e5");
+
+/***/ }),
+
+/***/ "./public/images/product(20).webp":
+/*!****************************************!*\
+  !*** ./public/images/product(20).webp ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product(20).webp?1efb001bdffd181fb41e88237650a98a");
+
+/***/ }),
+
+/***/ "./public/images/product(21).webp":
+/*!****************************************!*\
+  !*** ./public/images/product(21).webp ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product(21).webp?7e8212f33a666a554864e407d5de4306");
+
+/***/ }),
+
+/***/ "./public/images/product(22).webp":
+/*!****************************************!*\
+  !*** ./public/images/product(22).webp ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product(22).webp?5511cba54119ca643e43dcefa7e3b4db");
+
+/***/ }),
+
+/***/ "./public/images/product(23).webp":
+/*!****************************************!*\
+  !*** ./public/images/product(23).webp ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product(23).webp?c15c9c7c819cc0d4703d5ff26d482d05");
 
 /***/ }),
 
@@ -9517,6 +9794,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product(7).webp?268212c58fd2cd9bc73b49ad30a6f08d");
+
+/***/ }),
+
+/***/ "./public/images/product(8).webp":
+/*!***************************************!*\
+  !*** ./public/images/product(8).webp ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product(8).webp?f0c48d210c655ae6c984946c60bbab07");
+
+/***/ }),
+
+/***/ "./public/images/product(9).webp":
+/*!***************************************!*\
+  !*** ./public/images/product(9).webp ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/product(9).webp?c18cbd485d75d452f214276ccc7706d2");
 
 /***/ }),
 
@@ -44265,7 +44572,7 @@ var render = function () {
                       _c("img", {
                         staticClass: "d-block",
                         attrs: {
-                          src: __webpack_require__(/*! ../../../public/images/category.webp */ "./public/images/category.webp")["default"],
+                          src: __webpack_require__(/*! ../../../public/images/category(2).webp */ "./public/images/category(2).webp")["default"],
                           alt: "...",
                         },
                       }),
@@ -44290,14 +44597,14 @@ var render = function () {
                           },
                         },
                         [
-                          _c("h5", [_vm._v("MSI Gaming")]),
+                          _c("h5", [_vm._v("Smart TV")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v("Sức mạnh từ nhà rồng")]),
+                          _c("p", [_vm._v("Sale khủng lên tới 49%++")]),
                           _vm._v(" "),
                           _c("img", {
                             staticClass: "d-block",
                             attrs: {
-                              src: __webpack_require__(/*! ../../../public/images/product.webp */ "./public/images/product.webp")["default"],
+                              src: __webpack_require__(/*! ../../../public/images/product(8).webp */ "./public/images/product(8).webp")["default"],
                               alt: "...",
                             },
                           }),
@@ -44320,14 +44627,14 @@ var render = function () {
                           },
                         },
                         [
-                          _c("h5", [_vm._v("Lễ Hội HP")]),
+                          _c("h5", [_vm._v("Tủ Lạnh")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v("Siêu khuyến mãi")]),
+                          _c("p", [_vm._v("Cho thực phẩm luôn tươi")]),
                           _vm._v(" "),
                           _c("img", {
                             staticClass: "d-block",
                             attrs: {
-                              src: __webpack_require__(/*! ../../../public/images/product(1).webp */ "./public/images/product(1).webp")["default"],
+                              src: __webpack_require__(/*! ../../../public/images/product(9).webp */ "./public/images/product(9).webp")["default"],
                               alt: "...",
                             },
                           }),
@@ -44352,14 +44659,14 @@ var render = function () {
                           },
                         },
                         [
-                          _c("h5", [_vm._v("LG Gram")]),
+                          _c("h5", [_vm._v("Máy Lọc Khí")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v("Siêu nhẹ siêu tiện lợi")]),
+                          _c("p", [_vm._v("Cho không gian xanh sạch")]),
                           _vm._v(" "),
                           _c("img", {
                             staticClass: "d-block",
                             attrs: {
-                              src: __webpack_require__(/*! ../../../public/images/product(2).webp */ "./public/images/product(2).webp")["default"],
+                              src: __webpack_require__(/*! ../../../public/images/product(10).webp */ "./public/images/product(10).webp")["default"],
                               alt: "...",
                             },
                           }),
@@ -44382,14 +44689,14 @@ var render = function () {
                           },
                         },
                         [
-                          _c("h5", [_vm._v("Lenovo")]),
+                          _c("h5", [_vm._v("Máy Hút Bụi Cầm Tay")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v("Dành cho doanh nhân")]),
+                          _c("p", [_vm._v("Hút bụi như hút cỏ")]),
                           _vm._v(" "),
                           _c("img", {
                             staticClass: "d-block",
                             attrs: {
-                              src: __webpack_require__(/*! ../../../public/images/product(3).webp */ "./public/images/product(3).webp")["default"],
+                              src: __webpack_require__(/*! ../../../public/images/product(11).webp */ "./public/images/product(11).webp")["default"],
                               alt: "...",
                             },
                           }),
@@ -44423,7 +44730,7 @@ var render = function () {
                       _c("img", {
                         staticClass: "d-block",
                         attrs: {
-                          src: __webpack_require__(/*! ../../../public/images/category(1).webp */ "./public/images/category(1).webp")["default"],
+                          src: __webpack_require__(/*! ../../../public/images/category(3).webp */ "./public/images/category(3).webp")["default"],
                           alt: "...",
                         },
                       }),
@@ -44448,14 +44755,14 @@ var render = function () {
                           },
                         },
                         [
-                          _c("h5", [_vm._v("PC Cheems Store")]),
+                          _c("h5", [_vm._v("Xiaomi Redmi Note 10")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v("Làm việc chuẩn mực")]),
+                          _c("p", [_vm._v("Hấp dẫn trên từng đường nét")]),
                           _vm._v(" "),
                           _c("img", {
                             staticClass: "d-block",
                             attrs: {
-                              src: __webpack_require__(/*! ../../../public/images/product(4).webp */ "./public/images/product(4).webp")["default"],
+                              src: __webpack_require__(/*! ../../../public/images/product(12).webp */ "./public/images/product(12).webp")["default"],
                               alt: "...",
                             },
                           }),
@@ -44478,14 +44785,14 @@ var render = function () {
                           },
                         },
                         [
-                          _c("h5", [_vm._v("SSD")]),
+                          _c("h5", [_vm._v("Tablet")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v("Load nhanh trong tích tắc")]),
+                          _c("p", [_vm._v("Tập trung làm việc muôn nơi")]),
                           _vm._v(" "),
                           _c("img", {
                             staticClass: "d-block",
                             attrs: {
-                              src: __webpack_require__(/*! ../../../public/images/product(5).webp */ "./public/images/product(5).webp")["default"],
+                              src: __webpack_require__(/*! ../../../public/images/product(13).webp */ "./public/images/product(13).webp")["default"],
                               alt: "...",
                             },
                           }),
@@ -44510,14 +44817,14 @@ var render = function () {
                           },
                         },
                         [
-                          _c("h5", [_vm._v("Màn Hình Gaming")]),
+                          _c("h5", [_vm._v("Máy Ảnh")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v("Giảm tới 50%")]),
+                          _c("p", [_vm._v("Lưu giữ khoảnh khắc")]),
                           _vm._v(" "),
                           _c("img", {
                             staticClass: "d-block",
                             attrs: {
-                              src: __webpack_require__(/*! ../../../public/images/product(6).webp */ "./public/images/product(6).webp")["default"],
+                              src: __webpack_require__(/*! ../../../public/images/product(14).webp */ "./public/images/product(14).webp")["default"],
                               alt: "...",
                             },
                           }),
@@ -44540,14 +44847,14 @@ var render = function () {
                           },
                         },
                         [
-                          _c("h5", [_vm._v("RTX 30 Series")]),
+                          _c("h5", [_vm._v("Smartwatch")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v("Hiệu năng vượt bậc")]),
+                          _c("p", [_vm._v("năng động và phong cách")]),
                           _vm._v(" "),
                           _c("img", {
                             staticClass: "d-block",
                             attrs: {
-                              src: __webpack_require__(/*! ../../../public/images/product(7).webp */ "./public/images/product(7).webp")["default"],
+                              src: __webpack_require__(/*! ../../../public/images/product(15).webp */ "./public/images/product(15).webp")["default"],
                               alt: "...",
                             },
                           }),
@@ -44583,7 +44890,7 @@ var render = function () {
                       _c("img", {
                         staticClass: "d-block",
                         attrs: {
-                          src: __webpack_require__(/*! ../../../public/images/category.webp */ "./public/images/category.webp")["default"],
+                          src: __webpack_require__(/*! ../../../public/images/category(4).webp */ "./public/images/category(4).webp")["default"],
                           alt: "...",
                         },
                       }),
@@ -44608,14 +44915,14 @@ var render = function () {
                           },
                         },
                         [
-                          _c("h5", [_vm._v("MSI Gaming")]),
+                          _c("h5", [_vm._v("Chuột Gaming")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v("Sức mạnh từ nhà rồng")]),
+                          _c("p", [_vm._v("Tốc độ chuyên nghiệp")]),
                           _vm._v(" "),
                           _c("img", {
                             staticClass: "d-block",
                             attrs: {
-                              src: __webpack_require__(/*! ../../../public/images/product.webp */ "./public/images/product.webp")["default"],
+                              src: __webpack_require__(/*! ../../../public/images/product(16).webp */ "./public/images/product(16).webp")["default"],
                               alt: "...",
                             },
                           }),
@@ -44638,14 +44945,14 @@ var render = function () {
                           },
                         },
                         [
-                          _c("h5", [_vm._v("Lễ hội HP")]),
+                          _c("h5", [_vm._v("Tai Nghe Bluetooth")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v("Siêu khuyến mãi")]),
+                          _c("p", [_vm._v("Âm cuốn hút, giá mê ly")]),
                           _vm._v(" "),
                           _c("img", {
                             staticClass: "d-block",
                             attrs: {
-                              src: __webpack_require__(/*! ../../../public/images/product(1).webp */ "./public/images/product(1).webp")["default"],
+                              src: __webpack_require__(/*! ../../../public/images/product(17).webp */ "./public/images/product(17).webp")["default"],
                               alt: "...",
                             },
                           }),
@@ -44670,14 +44977,14 @@ var render = function () {
                           },
                         },
                         [
-                          _c("h5", [_vm._v("LG Gram")]),
+                          _c("h5", [_vm._v("Ô Cứng Di Động")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v("Siêu nhẹ siêu tiện lợi")]),
+                          _c("p", [_vm._v("Lưu trữ không giới hạn")]),
                           _vm._v(" "),
                           _c("img", {
                             staticClass: "d-block",
                             attrs: {
-                              src: __webpack_require__(/*! ../../../public/images/product(2).webp */ "./public/images/product(2).webp")["default"],
+                              src: __webpack_require__(/*! ../../../public/images/product(18).webp */ "./public/images/product(18).webp")["default"],
                               alt: "...",
                             },
                           }),
@@ -44700,14 +45007,14 @@ var render = function () {
                           },
                         },
                         [
-                          _c("h5", [_vm._v("Lenovo")]),
+                          _c("h5", [_vm._v("Bàn Phím Gaming")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v("Dành cho doanh nhân")]),
+                          _c("p", [_vm._v("Phím cực hay, giá vừa tay")]),
                           _vm._v(" "),
                           _c("img", {
                             staticClass: "d-block",
                             attrs: {
-                              src: __webpack_require__(/*! ../../../public/images/product(3).webp */ "./public/images/product(3).webp")["default"],
+                              src: __webpack_require__(/*! ../../../public/images/product(19).webp */ "./public/images/product(19).webp")["default"],
                               alt: "...",
                             },
                           }),
@@ -44741,7 +45048,7 @@ var render = function () {
                       _c("img", {
                         staticClass: "d-block",
                         attrs: {
-                          src: __webpack_require__(/*! ../../../public/images/category(1).webp */ "./public/images/category(1).webp")["default"],
+                          src: __webpack_require__(/*! ../../../public/images/category(5).webp */ "./public/images/category(5).webp")["default"],
                           alt: "...",
                         },
                       }),
@@ -44766,14 +45073,14 @@ var render = function () {
                           },
                         },
                         [
-                          _c("h5", [_vm._v("MSI Gaming")]),
+                          _c("h5", [_vm._v("PC Văn Phòng")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v("Sức mạnh từ nhà rồng")]),
+                          _c("p", [_vm._v("Lag không biên giới")]),
                           _vm._v(" "),
                           _c("img", {
                             staticClass: "d-block",
                             attrs: {
-                              src: __webpack_require__(/*! ../../../public/images/product.webp */ "./public/images/product.webp")["default"],
+                              src: __webpack_require__(/*! ../../../public/images/product(20).webp */ "./public/images/product(20).webp")["default"],
                               alt: "...",
                             },
                           }),
@@ -44796,14 +45103,14 @@ var render = function () {
                           },
                         },
                         [
-                          _c("h5", [_vm._v("Lễ hội HP")]),
+                          _c("h5", [_vm._v("Combo Máy In")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v("Siêu khuyến mãi")]),
+                          _c("p", [_vm._v("In hình trắng đen sống động")]),
                           _vm._v(" "),
                           _c("img", {
                             staticClass: "d-block",
                             attrs: {
-                              src: __webpack_require__(/*! ../../../public/images/product(1).webp */ "./public/images/product(1).webp")["default"],
+                              src: __webpack_require__(/*! ../../../public/images/product(21).webp */ "./public/images/product(21).webp")["default"],
                               alt: "...",
                             },
                           }),
@@ -44828,14 +45135,14 @@ var render = function () {
                           },
                         },
                         [
-                          _c("h5", [_vm._v("LG Gram")]),
+                          _c("h5", [_vm._v("Phần mềm bản quyền")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v("Siêu nhẹ siêu tiện lợi")]),
+                          _c("p", [_vm._v("Có ai ở Việt Nam mua hả?")]),
                           _vm._v(" "),
                           _c("img", {
                             staticClass: "d-block",
                             attrs: {
-                              src: __webpack_require__(/*! ../../../public/images/product(2).webp */ "./public/images/product(2).webp")["default"],
+                              src: __webpack_require__(/*! ../../../public/images/product(22).webp */ "./public/images/product(22).webp")["default"],
                               alt: "...",
                             },
                           }),
@@ -44858,14 +45165,14 @@ var render = function () {
                           },
                         },
                         [
-                          _c("h5", [_vm._v("Lenovo")]),
+                          _c("h5", [_vm._v("Giải pháp camera")]),
                           _vm._v(" "),
-                          _c("p", [_vm._v("Dành cho doanh nhân")]),
+                          _c("p", [_vm._v("Soi từng lỗ chân lông")]),
                           _vm._v(" "),
                           _c("img", {
                             staticClass: "d-block",
                             attrs: {
-                              src: __webpack_require__(/*! ../../../public/images/product(3).webp */ "./public/images/product(3).webp")["default"],
+                              src: __webpack_require__(/*! ../../../public/images/product(23).webp */ "./public/images/product(23).webp")["default"],
                               alt: "...",
                             },
                           }),
@@ -44881,7 +45188,9 @@ var render = function () {
         ]),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "top-sellers-slider" }),
+      _vm._m(24),
+      _vm._v(" "),
+      _vm._m(25),
     ]),
   ])
 }
@@ -45021,7 +45330,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "title-tab" }, [
+    return _c("div", { staticClass: "title" }, [
       _c("h3", [_vm._v("Thương hiệu nổi bật")]),
     ])
   },
@@ -45041,7 +45350,7 @@ var staticRenderFns = [
           attrs: { "aria-hidden": "true" },
         }),
         _vm._v(" "),
-        _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")]),
+        _c("span", { staticClass: "sr-only" }, [_vm._v("Trước")]),
       ]
     )
   },
@@ -45061,7 +45370,7 @@ var staticRenderFns = [
           attrs: { "aria-hidden": "true" },
         }),
         _vm._v(" "),
-        _c("span", { staticClass: "sr-only" }, [_vm._v("Next")]),
+        _c("span", { staticClass: "sr-only" }, [_vm._v("Sau")]),
       ]
     )
   },
@@ -45070,7 +45379,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "title" }, [
-      _c("h4", [_vm._v("|  LAPTOP - MACBOOK")]),
+      _c("h1", [_vm._v("|  LAPTOP - MACBOOK")]),
     ])
   },
   function () {
@@ -45078,7 +45387,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "title" }, [
-      _c("h4", [_vm._v("|  PC - MÀN HÌNH - LINH KIỆN MÁY TÍNH")]),
+      _c("h1", [_vm._v("|  PC - MÀN HÌNH - LINH KIỆN MÁY TÍNH")]),
     ])
   },
   function () {
@@ -45086,7 +45395,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "title" }, [
-      _c("h4", [_vm._v("|  LAPTOP - MACBOOK")]),
+      _c("h1", [_vm._v("|  TIVI - ĐIỆN MÁY - GIA DỤNG")]),
     ])
   },
   function () {
@@ -45094,7 +45403,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "title" }, [
-      _c("h4", [_vm._v("|  PC - MÀN HÌNH - LINH KIỆN MÁY TÍNH")]),
+      _c("h1", [_vm._v("|  ĐIỆN THOẠI - MÁY ẢNH - THIẾT BỊ THÔNG MINH")]),
     ])
   },
   function () {
@@ -45102,7 +45411,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "title" }, [
-      _c("h4", [_vm._v("|  LAPTOP - MACBOOK")]),
+      _c("h1", [_vm._v("|  LOA - TAI NGHE - THIẾT BỊ NGOẠI VI")]),
     ])
   },
   function () {
@@ -45110,7 +45419,27 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "title" }, [
-      _c("h4", [_vm._v("|  PC - MÀN HÌNH - LINH KIỆN MÁY TÍNH")]),
+      _c("h1", [_vm._v("|  THIẾT BỊ MẠNG - VĂN PHÒNG")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "top-sellers-slider" }, [
+      _c("div", { staticClass: "title" }, [
+        _c("h3", [_vm._v("Thương hiệu nổi bật")]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product-4-you" }, [
+      _c("div", { staticClass: "title" }, [
+        _c("h1", [_vm._v("|  Dành cho bạn")]),
+      ]),
     ])
   },
 ]
