@@ -25,6 +25,7 @@
      composer install — ignore-platform-reqs
   + từ sau, các câu lệnh yêu cần để ./vendor/bin/sail  ở đầu
   + dùng chown add owner -R là user vào thư mục /var/www
+- run ./vendor/bin/sail build
 - run ./vendor/bin/sail up rồi mở tab terminal mới
 - Chạy lệnh ./vendor/bin/sail up mà ai dính lỗi "Array and string offset access syntax with curly braces is no longer supported in code example" ở "RUN pecl install mongodb && echo "extension=mongodb.so" > /etc/php/8.0/cli/php.ini" thì thêm  dòng này vô trước nó trong docker/8.0/Dockerfile:
 
