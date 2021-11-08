@@ -23,7 +23,7 @@ class CreateProductsTable extends Migration
             $table->double('warrantyPeriod');
             $table->string('category_id');
             $table->string('description');
-            $table->string('tag');
+            $table->array('tag');
             $table->timestamps();
             $table->softDeletes();
         });
