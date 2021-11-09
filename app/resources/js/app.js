@@ -13,7 +13,8 @@ import axios from 'axios';
 Vue.use(VueAxios,axios);
 
 import App from './components/App'
-//Vue.component('App', require('./components/App.vue').default);
+Vue.component('Switch_layout', require('./components/Switch_layout').default);
+
 import Home from './components/Home'
 import Login from './components/Login'
 import Register from './components/Register'
@@ -131,6 +132,5 @@ router.beforeEach((to, from, next) => {
 })
 const app = new Vue({
     el: '#app',
-    components: { App },
     router,
 });
