@@ -9,12 +9,14 @@
         label="Search"
         single-line
         hide-details
+        
       ></v-text-field>
     </v-card-title>
     <v-data-table
       :headers="headers"
       :items="desserts"
       :search="search"
+      @click:row="Khmoc"  single-select
     ></v-data-table>
   </v-card>
 </template>
@@ -47,5 +49,10 @@
         ],
       }
     },
+    methods: {
+      Khmoc(item, row){
+        item.role = "Dungkun"    
+      },
+    }
   }
 </script>

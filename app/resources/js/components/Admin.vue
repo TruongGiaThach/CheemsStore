@@ -55,7 +55,7 @@
                 </v-navigation-drawer>
                 <v-sheet
                     id="scrolling-techniques-7"
-                    class="overflow-y-auto"
+                    class="overflow-y-hidden"
                     max-height="600"
                 >
                     <v-main>
