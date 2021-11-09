@@ -2,7 +2,8 @@
 .o-change-table {
     display: inline-block;
     position: relative;
-    margin: 25px;
+    margin: 20px;
+    padding: auto;
     box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
     border-radius: 3px;
     color: rgba(0,0,0,.87);
@@ -25,7 +26,8 @@
 
 .o-distance-table {
     display: inline-block;
-    padding: 30px;
+    padding-top: 30px;
+    padding-right: 0px;
     margin-right: 20px;
 }
 
@@ -35,6 +37,7 @@
     overflow: -moz-scrollbars-none;
     -ms-overflow-style: none;
     height: 100vh;
+    width: 100vw;
 }
 
 .o-background-order::-webkit-scrollbar {
@@ -42,20 +45,25 @@
     display: none;
 }
 .o-product-table {
+    position: relative;
     width: 100%;
-    margin-right:20px;
 }
-.elevation-1 {
-    border: none;
+.o-product-table-size {
+    position: relative;
+    width: 100%;
 }
 .o-divide {
     background:rgb(231, 225, 225);
     display:flex;
     position: relative;
     overflow: hidden;
+    margin-bottom: 20px;
+    flex: 1 1 auto;
+    width: 100vw;
 }
 .o-invoice {
     background:rgb(231, 225, 225);
     overflow: hidden;
-    width: 50%;
+    width: 100vw;
 }
+

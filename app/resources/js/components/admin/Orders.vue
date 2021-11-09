@@ -13,6 +13,7 @@
                         <br>
                         <div class="o-product-table">
                             <v-data-table
+                                v-model="catagories"
                                 :headers="headers"
                                 :items="value.products"
                                 :items-per-page="5"
@@ -21,10 +22,9 @@
                             ></v-data-table>
                         </div>
                     </div>
+                    <br/>
                 </div>
             </div>
-            <br/>
-            <button class="btn btn-primary" @click="newProduct">Add New Product</button>
         </div>
         <div class="o-invoice">
             <div class="o-distance-table">
@@ -33,13 +33,29 @@
                             <h4 class="o-title">{{ invoice }}</h4>
                         </div>
                     <br>
-                    <div class="o-product-table">
+                    <div class="o-product-table-size">
                         <v-data-table
                             v-model="detailInvoice"
                             :headers="invoiceHeader"
                             :items="detailInvoice"
                             hide-default-footer
-                        ></v-data-table>
+                        >
+                        <template v-slot:[`item.actions`]="{ item }">
+                            <v-icon
+                            small
+                            class="mr-2"
+                            @click="editItem(item)"
+                            >
+                            mdi-plus
+                            </v-icon>
+                            <v-icon
+                            small
+                            @click="deleteItem(item)"
+                            >
+                            mdi-minus
+                            </v-icon>
+                        </template>
+                        </v-data-table>
                     </div>
                 </div>
             </div>
@@ -77,14 +93,14 @@ import productTable from './productTable'
                         products: [
                             {
                                 name:"Dell",
-                                units:"6",
+                                units:6,
                                 description:"Dell là dòng máy ngu vl",
                                 price:111,
                                 image:null
                             },
                             {
-                                name:"Dell",
-                                units:"6",
+                                name:"Dell2",
+                                units:6,
                                 description:"Dell là dòng máy ngu vl",
                                 price: 2000,
                                 image:null
@@ -97,14 +113,14 @@ import productTable from './productTable'
                         products: [
                             {
                                 name:"GalaxyS1",
-                                units:"6",
+                                units:16,
                                 description:"Galaxy là dòng máy ngu vl",
                                 price: 10000,
                                 image:null
                             },
                             {
                                 name:"Nokia",
-                                units:"10",
+                                units:10,
                                 description:"Nokia là một dòng máy của mọi nhà của mọi người, vừa đập được đá vừa chọi được người",
                                 price: 100000,
                                 image:null
@@ -122,10 +138,12 @@ import productTable from './productTable'
                         align: 'start',
                         sortable: false,
                         value: 'name',
-                        class:'green--text'
+                        class:'green--text',
+                        width:"1%"
                     },
-                    { text:'Amount', value:'amount', class:'green--text'},
-                    { text:'Price', value:'price', class:'green--text'}
+                    { text:'Amount', value:'amount', class:'green--text', width:"1%"},
+                    { text:'Price', value:'price', class:'green--text', width:"1%"},
+                    { text: 'Actions', value: 'actions', sortable: false, class:'green--text', width:"1%"},
                 ],
                 invoice:"Hóa đơn",
                 detailInvoice: [
@@ -166,59 +184,27 @@ import productTable from './productTable'
                 }
             },
             initialize() {
-                this.catagories = [
-                    {
-                        products: [
-                            {
-                                name:"Dell",
-                                units:"6",
-                                description:"Dell là dòng máy ngu vl",
-                                price:"1000.000",
-                                image:null
-                            },
-                            {
-                                name:"Dell",
-                                units:"6",
-                                description:"Dell là dòng máy ngu vl",
-                                price:"1000.000",
-                                image:null
-                            }
-                        ] ,
-                        name:"Máy tính",
-                        description: "Máy tính là một mặt hàng phổ biến nha",
-                    },
-                    {
-                        products: [
-                            {
-                                name:"GalaxyS4",
-                                units:"6",
-                                description:"Galaxy là dòng máy ngu vl",
-                                price:"1000.000",
-                                image:null
-                            },
-                            {
-                                name:"Nokia",
-                                units:"10",
-                                description:"Nokia là một dòng máy của mọi nhà của mọi người, vừa đập được đá vừa chọi được người",
-                                price:"1000.000",
-                                image:null
-                            }
-                        ] ,
-                        name:"Điện thoại",
-                        description: "Điện thoại là một thứ gi đó bây giờ tôi rất cần"
-
-                    }
-
-                ]
             },
-            newProduct(){
-                this.addingProduct = {
-                    name : null, 
-                    units : null, 
-                    price : null,
-                    description : null,
-                    image : null
+            editItem(item){
+                console.log(item.name)
+                let index= this.catagories.map(function(e){
+                    return e.products.map(function(ep) {
+                        return ep.name
+                    }).indexOf(item.name);
+                });
+                if(this.catagories[index[1]+1].products[index[0]+1].units > 0) {
+                    this.catagories[index[1]+1].products[index[0]+1].units-=1
+                    item.amount+=1
                 }
+            },
+            deleteItem(item)
+            {
+                if(item.amount<=1){
+                    let index= this.detailInvoice.indexOf(item)
+                    this.detailInvoice.splice(index, 1)
+                }
+                else item.amount-=1
+
             },
             endEditing(product){
                 this.editingItem = null
@@ -235,21 +221,6 @@ import productTable from './productTable'
                 .catch(response => {
                 })
             },
-            addProduct(product){
-                this.addingProduct = null
-                axios.post("/api/products/",{
-                    name  : product.name,
-                    units : product.units,
-                    price : product.price,
-                    description : product.description,
-                    image : product.image
-                })
-                .then(response =>{
-                    this.products.push(product)
-                })
-                .catch(response => {
-                })
-            }
         }
     }
 </script>

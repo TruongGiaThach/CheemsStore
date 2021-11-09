@@ -10022,7 +10022,8 @@ h3 {
 .o-change-table {
   display: inline-block;
   position: relative;
-  margin: 25px;
+  margin: 20px;
+  padding: auto;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
   border-radius: 3px;
   color: rgba(0, 0, 0, 0.87);
@@ -10047,7 +10048,8 @@ h3 {
 
 .o-distance-table {
   display: inline-block;
-  padding: 30px;
+  padding-top: 30px;
+  padding-right: 0px;
   margin-right: 20px;
 }
 
@@ -10057,6 +10059,7 @@ h3 {
   overflow: -moz-scrollbars-none;
   -ms-overflow-style: none;
   height: 100vh;
+  width: 100vw;
 }
 
 .o-background-order::-webkit-scrollbar {
@@ -10065,12 +10068,13 @@ h3 {
 }
 
 .o-product-table {
+  position: relative;
   width: 100%;
-  margin-right: 20px;
 }
 
-.elevation-1 {
-  border: none;
+.o-product-table-size {
+  position: relative;
+  width: 100%;
 }
 
 .o-divide {
@@ -10078,10 +10082,13 @@ h3 {
   display: flex;
   position: relative;
   overflow: hidden;
+  margin-bottom: 20px;
+  flex: 1 1 auto;
+  width: 100vw;
 }
 
 .o-invoice {
   background: #e7e1e1;
   overflow: hidden;
-  width: 50%;
+  width: 100vw;
 }
