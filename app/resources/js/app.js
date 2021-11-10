@@ -15,11 +15,12 @@ import VueAxios from 'vue-axios';
 import axios from 'axios';
 Vue.use(VueAxios,axios);
 
-//import router from './router'
-import Login from './components/Login'
-import Register from './components/Register'
-import Admin from './components/Admin'
+import router from './router'
+/*import Login from './components/Login.vue'
+import Register from './components/Register.vue'
+import Admin from './components/Admin.vue'
 const router = new VueRouter({
+    mode: 'history',
     routes: [
         {
             path: '/',
@@ -50,7 +51,7 @@ const router = new VueRouter({
             }
         }
     ],
-    mode: 'history'
+   
 })
 
 
@@ -66,7 +67,7 @@ router.beforeEach((to, from, next) => {
         next()
     }
 })
-
+*/
 const app = new Vue({
     vuetify: Vuetify,
     el: '#app',
