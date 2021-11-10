@@ -60,7 +60,7 @@
                                 if (this.$route.params.nextUrl != null) {
                                     this.$router.push(this.$route.params.nextUrl)
                                 } else {
-                                    this.$router.push((role == 'admin'||role == 'staff' ? 'admin' : 'dashboard'))
+                                    this.$router.push((role == 'user' ? 'dashboard' : 'admin'))
                                 }
                             }
                         });
