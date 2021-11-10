@@ -1,6 +1,6 @@
   <template>
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center" >
                 <div class="col-md-8">
                     <div class="card card-default">
                         <div class="card-header">Login</div>
@@ -59,7 +59,7 @@
                                 if (this.$route.params.nextUrl != null) {
                                     this.$router.push(this.$route.params.nextUrl)
                                 } else {
-                                    this.$router.push((role == 'user' ?'dashboard' : 'admin'))
+                                    this.$router.push('admin')
                                 }
                             }
                         });

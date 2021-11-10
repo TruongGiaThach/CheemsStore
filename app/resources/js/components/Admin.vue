@@ -18,9 +18,8 @@
                             <v-icon>mdi-dots-vertical</v-icon>
                         </v-btn>
                     </template>
-
                     <v-list>
-                         <v-list-item active-class="" @click="() => {}">
+                        <v-list-item active-class="" @click="() => {}">
                             <v-btn @click="toggleTheme" text rounded>
                                 {{ this.$vuetify.theme.dark?'Light mode':'Dark mode'}}
                             </v-btn>

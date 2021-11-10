@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{any}', function(){
+Route::get('/', function(){
     return view('landing');
-})->where('any', '.*');
+});
+
 
 Auth::routes();
 

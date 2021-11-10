@@ -15,34 +15,14 @@ import VueAxios from 'vue-axios';
 import axios from 'axios';
 Vue.use(VueAxios,axios);
 
-import App from './components/App'
-Vue.component('Switch_layout', require('./components/Switch_layout').default);
-
-import Home from './components/Home'
+//import router from './router'
 import Login from './components/Login'
 import Register from './components/Register'
-import Category from './components/Category'
-import SingleProduct from './components/SingleProduct'
-import Checkout from './components/Checkout'
-import Confirmation from './components/Confirmation'
-import UserBoard from './components/UserBoard'
 import Admin from './components/Admin'
-
 const router = new VueRouter({
-    mode: 'history',
     routes: [
         {
-            path: '/home',
-            name: 'home',
-            component: Home
-        },
-        {
             path: '/',
-            name: 'home_or',
-            component: Home
-        },
-        {
-            path: '/login',
             name: 'login',
             component: Login
         },
@@ -52,46 +32,11 @@ const router = new VueRouter({
             component: Register
         },
         {
-            path: '/category/:id',
-            name: 'category',
-            component: Category
-        },
-        {
-            path: '/products/:id',
-            name: 'single-products',
-            component: SingleProduct
-        },
-        {
-            path: '/statistic/:id',
-            name: 'single-products',
-            component: SingleProduct
-        },
-        {
-            path: '/confirmation',
-            name: 'confirmation',
-            component: Confirmation
-        },
-        {
-            path: '/checkout',
-            name: 'checkout',
-            component: Checkout,
-            props: (route) => ({ pid: route.query.pid })
-        },
-        {
-            path: '/dashboard',
-            name: 'userboard',
-            component: UserBoard,
-            meta: {
-                requiresAuth: true,
-                role: 'user'
-            }
-        },
-        {
             path: '/admin/:page',
             name: 'admin-pages',
             component: Admin,
             meta: {
-                //requiresAuth: true,
+                requiresAuth: true,
                 role: 'admin'
             }
         },
@@ -100,44 +45,28 @@ const router = new VueRouter({
             name: 'admin',
             component: Admin,
             meta: {
-                //requiresAuth: true,
+                requiresAuth: true,
                 role: 'admin'
             }
-        },
+        }
     ],
+    mode: 'history'
 })
+
 
 router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.requiresAuth)) {
         if (localStorage.getItem('bigStore.jwt') == null) {
             next({
-                path: '/login',
+                path: '/',
                 params: { nextUrl: to.fullPath }
             })
-        } else {
-            let user = JSON.parse(localStorage.getItem('bigStore.user'))
-            if (to.matched.some(record => record.meta.is_admin)) {
-                if (user.is_admin == 1) {
-                    next()
-                }
-                else {
-                    next({ name: 'userboard' })
-                }
-            }
-            else if (to.matched.some(record => record.meta.is_user)) {
-                if (user.is_admin == 0) {
-                    next()
-                }
-                else {
-                    next({ name: 'admin' })
-                }
-            }
-            next()
-        }
+        } 
     } else {
         next()
     }
 })
+
 const app = new Vue({
     vuetify: Vuetify,
     el: '#app',
