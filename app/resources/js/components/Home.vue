@@ -743,11 +743,12 @@
     z-index: 2;
 }
 .overlap{
-    position: absolute;
+    position: relative;
     bottom:0;
     background-color:transparent;
     width: 100%;
     height: 39em;
+    margin-top: -39em;
 }
 .overlap .category-menu-area{
     position: absolute;
