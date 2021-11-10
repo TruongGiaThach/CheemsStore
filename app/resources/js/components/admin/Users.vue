@@ -1,41 +1,58 @@
 <template>
-	<div>
-        <table class="table table-responsive table-striped">
-            <thead>
-                <tr>
-                    <td></td>
-                    <td>Name</td>
-                    <td>Email</td>
-                    <td>Joined</td>
-                    <td>Total Orders</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="(user,index) in users" :key="index">
-                    <td>{{index+1}}</td>
-                    <td>{{user.name}}</td>
-                    <td>{{user.email}}</td>
-                    <td>{{user.created_at}}</td>
-                    <td>{{user.orders.length}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <v-card
+    height="100%"
+    outlined
+    class="pa-md-4 mx-lg-auto grey lighten-3">
+    <v-card-title>
+      Staffs
+      <v-spacer></v-spacer>
+      <v-text-field
+        v-model="search"
+        append-icon="mdi-magnify"
+        label="Search"
+        single-line
+        hide-details
+      ></v-text-field>
+    </v-card-title>
+    <v-data-table
+      :headers="headers"
+      :items="desserts"
+      :search="search"
+      show-expand
+      rounded-xl
+      class="elevation-1"
+      min-height="70vh"
+    ></v-data-table>
+  </v-card>
 </template>
+
 <script>
-	export default {
-        data(){
-            return {
-                users : []
-            }
-        },
-        beforeMount(){
-            axios.get('/api/users/')
-            .then(response => {
-                this.users = response.data
-            })
-            .catch(error => {
-                console.error(error);
-            })     
-        }
-    }
+  export default {
+    data () {
+      return {
+        search: '',
+        headers: [
+          {
+            text: 'Name',
+            align: 'start',
+            sortable: false,
+            value: 'name',
+          },
+          { text: 'Gmail', value: 'gmail' },
+          { text: 'Role', value: 'role' },
+          { text: 'CMND', value: 'cmnd' },
+          { text: 'Dayoff', value: 'dayoff' },
+        ],
+        desserts: [
+          {
+            name: 'NguyentanTien',
+            gmail: 'Nguyentantien@gmail.com',
+            role: 'admin',
+            cmnd: 312465826,
+            dayoff: 4,
+          },
+        ],
+      }
+    },
+  }
+</script>

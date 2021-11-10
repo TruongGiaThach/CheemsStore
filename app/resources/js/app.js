@@ -6,7 +6,10 @@ window.Vue = require('vue');
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import BootstrapVue from 'bootstrap-vue'
+import Vuetify from "./plugins/vuetify"; //write this new line
 Vue.use(VueRouter);
+Vue.use(BootstrapVue)
 
 import VueAxios from 'vue-axios';
 import axios from 'axios';
@@ -59,6 +62,11 @@ const router = new VueRouter({
             component: SingleProduct
         },
         {
+            path: '/statistic/:id',
+            name: 'single-products',
+            component: SingleProduct
+        },
+        {
             path: '/confirmation',
             name: 'confirmation',
             component: Confirmation
@@ -83,7 +91,7 @@ const router = new VueRouter({
             name: 'admin-pages',
             component: Admin,
             meta: {
-                requiresAuth: true,
+                //requiresAuth: true,
                 role: 'admin'
             }
         },
@@ -92,7 +100,7 @@ const router = new VueRouter({
             name: 'admin',
             component: Admin,
             meta: {
-                requiresAuth: true,
+                //requiresAuth: true,
                 role: 'admin'
             }
         },
@@ -131,6 +139,7 @@ router.beforeEach((to, from, next) => {
     }
 })
 const app = new Vue({
+    vuetify: Vuetify,
     el: '#app',
     router,
 });
