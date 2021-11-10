@@ -1,7 +1,7 @@
 <template>
     <!--Top Sellers Slider -->
     <div class = "top-sellers-slider">
-            <div class="title">
+        <div class="title">
             <h3>Thương hiệu nổi bật</h3>
         </div>
     </div>  

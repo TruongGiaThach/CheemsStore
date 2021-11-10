@@ -63,7 +63,7 @@ import ProductForYou from './homepage_components/section/ProductForYou.vue'
         }
     }
 </script>
-<style scoped>
+<style>
 
 /********************************
 *******Home body CSS*************
