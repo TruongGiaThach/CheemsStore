@@ -121,6 +121,7 @@ Step-5 : Run the command => $ sudo npm run watch
 - https://www.youtube.com/watch?v=CjA79XhHVQI
 - https://viblo.asia/p/tim-hieu-eloquent-trong-laravel-phan-1-eloquent-model-database-QpmleBAo5rd
 - Về auth: https://viblo.asia/p/tim-hieu-ve-authentication-trong-laravel-Ljy5VoG3Kra
+- Về mail: https://youtube.com/playlist?list=PLFWDoeAHRLTaAj88mnqONzzQ5Y5qMxgmz
 ## Hướng dẫn giao diện và code
 - https://www.youtube.com/watch?v=gvnxd1xne7Q (giao diện, code admin page)
 - https://www.youtube.com/watch?v=BEogCy3Ux2I
