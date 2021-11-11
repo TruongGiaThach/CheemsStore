@@ -15,7 +15,7 @@ class Staff extends Eloquent
     protected $connection = 'mongodb';
     protected $colection = 'staff';
     protected $fillable = [
-        'email', 'name', 'cmnd', 'numOfDayOff'
+        'email', 'name', 'cmnd', 'numOfDayOff','salary','dateBegin'
     ];
 
     public function user()

@@ -20,6 +20,8 @@ class CreateStaffTable extends Migration
             $table->string('role'); // no need
             $table->string('cmnd');
             $table->string('NumOfDayOff');
+            $table->double('salary');
+            $table->date('dateBegin');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
