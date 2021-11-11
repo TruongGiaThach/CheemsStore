@@ -77,10 +77,7 @@
                             </v-list-item>
                         </v-list>
                 </v-navigation-drawer>
-                <v-sheet
-                    id="scrolling-techniques-7"
-                    class="overflow-y-auto"
-                >
+                <v-sheet  id="scrolling-techniques-7"  class="overflow-y-auto" >
                     <v-main class="grey lighten-3">
                             <component :is="activeComponent"></component>
                     </v-main>
@@ -128,27 +125,35 @@
                 switch(value) {
                     case "dashboard":
                         this.activeComponent = Main
-                        this.$router.push({name: 'admin-pages', params: {page: 'main'}})
+                        if (this.$route.path != "/admin/main")
+                            this.$router.push({name: 'admin-pages', params: {page: 'main'}})
+                        
                         break;
                     case "users":
                         this.activeComponent = Users
-                        this.$router.push({name: 'admin-pages', params: {page: 'users'}})
+                        if (this.$route.path != "/admin/users")
+                            this.$router.push({name: 'admin-pages', params: {page: 'users'}})
                         break;
                     case "orders":
                         this.activeComponent = Orders
-                        this.$router.push({name: 'admin-pages', params: {page: 'orders'}})
+                        if (this.$route.path != "/admin/orders")
+                            this.$router.push({name: 'admin-pages', params: {page: 'orders'}})
                         break;
                     case "products":
                         this.activeComponent = Products
-                        this.$router.push({name: 'admin-pages', params: {page: 'products'}})
+                        if (this.$route.path != "/admin/products")
+                            this.$router.push({name: 'admin-pages', params: {page: 'products'}})
                         break;
                     case "statistic":
                         this.activeComponent = Statistic
-                        this.$router.push({name: 'admin-pages', params: {page: 'statistic'}})
+                        if (this.$route.path != "/admin/statistic")
+                            this.$router.push({name: 'admin-pages', params: {page: 'statistic'}})
                         break;
                     default:
                         this.activeComponent = Main
-                        this.$router.push({name: 'admin'})
+                        if (this.$route.path != "/admin") {
+                            this.$router.push("/admin");
+                        }
                         break;
                 }
             },

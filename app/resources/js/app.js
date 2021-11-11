@@ -54,20 +54,9 @@ const router = new VueRouter({
    
 })
 
-
-router.beforeEach((to, from, next) => {
-    if (to.matched.some(record => record.meta.requiresAuth)) {
-        if (localStorage.getItem('bigStore.jwt') == null) {
-            next({
-                path: '/',
-                params: { nextUrl: to.fullPath }
-            })
-        } 
-    } else {
-        next()
-    }
-})
 */
+
+
 const app = new Vue({
     vuetify: Vuetify,
     el: '#app',
