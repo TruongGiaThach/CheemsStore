@@ -1,226 +1,328 @@
-
-  
 <template>
-    <div class="o-divide">
-        <div class="o-background-order">
-            <div v-for="value of catagories" :key="value.name" class="com">
-                <div class="o-distance-table">
-                    <div class="o-change-table">
-                            <div class="o-background-des">
-                                <h4 class="o-title">{{ value.name }}</h4>
-                                <p>{{ value.description }}</p>
-                            </div>
-                        <br>
-                        <div class="o-product-table">
-                            <v-data-table
-                                v-model="catagories"
-                                :headers="headers"
-                                :items="value.products"
-                                :items-per-page="5"
-                                class="elevation-1"
-                                @click:row="Khmoc"  single-select
-                            ></v-data-table>
-                        </div>
-                    </div>
-                    <br/>
-                </div>
-            </div>
-        </div>
-        <div class="o-invoice">
-            <div class="o-distance-table">
-                <div class="o-change-table">
-                        <div class="o-background-des">
-                            <h4 class="o-title">{{ invoice }}</h4>
-                        </div>
-                    <br>
-                    <div class="o-product-table-size">
-                        <v-data-table
-                            v-model="detailInvoice"
-                            :headers="invoiceHeader"
-                            :items="detailInvoice"
-                            hide-default-footer
-                        >
-                        <template v-slot:[`item.actions`]="{ item }">
-                            <v-icon
-                            small
-                            class="mr-2"
-                            @click="editItem(item)"
-                            >
-                            mdi-plus
-                            </v-icon>
-                            <v-icon
-                            small
-                            @click="deleteItem(item)"
-                            >
-                            mdi-minus
-                            </v-icon>
-                        </template>
-                        </v-data-table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <v-data-table
+      :headers="headers"
+      :items="desserts"
+      sort-by="calories"
+      class="elevation-1"
+    >
+      <template v-slot:top>
+        <v-toolbar
+          flat
+        >
+          <v-toolbar-title>My CRUD</v-toolbar-title>
+          <v-divider
+            class="mx-4"
+            inset
+            vertical
+          ></v-divider>
+          <v-spacer></v-spacer>
+          <v-dialog
+            v-model="dialog"
+            max-width="500px"
+          >
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                color="primary"
+                dark
+                class="mb-2"
+                v-bind="attrs"
+                v-on="on"
+              >
+                New Item
+              </v-btn>
+            </template>
+            <v-card>
+              <v-card-title>
+                <span class="text-h5">{{ formTitle }}</span>
+              </v-card-title>
+  
+              <v-card-text>
+                <v-container>
+                  <v-row>
+                    <v-col
+                      cols="12"
+                      sm="6"
+                      md="4"
+                    >
+                      <v-text-field
+                        v-model="editedItem.name"
+                        label="Dessert name"
+                      ></v-text-field>
+                    </v-col>
+                    <v-col
+                      cols="12"
+                      sm="6"
+                      md="4"
+                    >
+                      <v-text-field
+                        v-model="editedItem.calories"
+                        label="Calories"
+                      ></v-text-field>
+                    </v-col>
+                    <v-col
+                      cols="12"
+                      sm="6"
+                      md="4"
+                    >
+                      <v-text-field
+                        v-model="editedItem.fat"
+                        label="Fat (g)"
+                      ></v-text-field>
+                    </v-col>
+                    <v-col
+                      cols="12"
+                      sm="6"
+                      md="4"
+                    >
+                      <v-text-field
+                        v-model="editedItem.carbs"
+                        label="Carbs (g)"
+                      ></v-text-field>
+                    </v-col>
+                    <v-col
+                      cols="12"
+                      sm="6"
+                      md="4"
+                    >
+                      <v-text-field
+                        v-model="editedItem.protein"
+                        label="Protein (g)"
+                      ></v-text-field>
+                    </v-col>
+                  </v-row>
+                </v-container>
+              </v-card-text>
+  
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn
+                  color="blue darken-1"
+                  text
+                  @click="close"
+                >
+                  Cancel
+                </v-btn>
+                <v-btn
+                  color="blue darken-1"
+                  text
+                  @click="save"
+                >
+                  Save
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+          <v-dialog v-model="dialogDelete" max-width="500px">
+            <v-card>
+              <v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
+                <v-btn color="blue darken-1" text @click="deleteItemConfirm">OK</v-btn>
+                <v-spacer></v-spacer>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+        </v-toolbar>
+      </template>
+      <template v-slot:[`item.actions`]="{ item }">
+        <v-icon
+          small
+          class="mr-2"
+          @click="editItem(item)"
+        >
+          mdi-pencil
+        </v-icon>
+        <v-icon
+          small
+          @click="deleteItem(item)"
+        >
+          mdi-delete
+        </v-icon>
+      </template>
+      <template v-slot:no-data>
+        <v-btn
+          color="primary"
+          @click="initialize"
+        >
+          Reset
+        </v-btn>
+      </template>
+    </v-data-table>
 </template>
-<style scoped>
-    p {
-        font-size: 14px;
-        padding-left: 14px;
-        color: rgb(218, 218, 211);
-        margin: 5px; 
-    }
-</style>
 <script>
-import productTable from './productTable'
-	export default {
-        data(){
-            return {
-                headers: [
-                    {
-                        text: 'Name',
-                        align: 'start',
-                        sortable: false,
-                        value: 'name',
-                        class:'green--text'
-                    },
-                    { text: 'Units', value: 'units', class:'green--text' },
-                    { text: 'Description', value: 'description', class:'green--text'},
-                    { text: 'Price', value: 'price', class:'green--text' },
-                    { text: 'Image', value: 'image', class:'green--text' },
-                ],
-                catagories: [
-                    {
-                        products: [
-                            {
-                                name:"Dell",
-                                units:6,
-                                description:"Dell là dòng máy ngu vl",
-                                price:111,
-                                image:null
-                            },
-                            {
-                                name:"Dell2",
-                                units:6,
-                                description:"Dell là dòng máy ngu vl",
-                                price: 2000,
-                                image:null
-                            }
-                        ] ,
-                        name:"Máy tính",
-                        description: "Máy tính là một mặt hàng phổ biến nha",
-                    },
-                    {
-                        products: [
-                            {
-                                name:"GalaxyS1",
-                                units:16,
-                                description:"Galaxy là dòng máy ngu vl",
-                                price: 10000,
-                                image:null
-                            },
-                            {
-                                name:"Nokia",
-                                units:10,
-                                description:"Nokia là một dòng máy của mọi nhà của mọi người, vừa đập được đá vừa chọi được người",
-                                price: 100000,
-                                image:null
-                            }
-                        ] ,
-                        name:"Điện thoại",
-                        description: "Điện thoại là một thứ gi đó bây giờ tôi rất cần"
-
-                    }
-
-                ],
-                invoiceHeader:[
-                    {
-                        text: 'Name',
-                        align: 'start',
-                        sortable: false,
-                        value: 'name',
-                        class:'green--text',
-                        width:"1%"
-                    },
-                    { text:'Amount', value:'amount', class:'green--text', width:"1%"},
-                    { text:'Price', value:'price', class:'green--text', width:"1%"},
-                    { text: 'Actions', value: 'actions', sortable: false, class:'green--text', width:"1%"},
-                ],
-                invoice:"Hóa đơn",
-                detailInvoice: [
-                    {
-                        name: "dungkun",
-                        amount: 6,
-                        price: 100000,
-                    }
-                ],
-            }
-        },
-        components : {
-            productTable
-        },
-        /*beforeMount(){
-            axios.get('/api/products/')
-            .then(response => {
-                this.products = response.data
-            })
-            .catch(error => {
-                console.error(error);
-            })     
-        },*/
-        create (){
-            this.initialize()
-        },
-
-        methods: {
-            Khmoc(item, row){
-                let a= this.detailInvoice.map(function(e){
-                    return e.name;
-                }).indexOf(item.name);
-                if(a===-1)
-                    this.detailInvoice.push({name:item.name, amount: 1, price: item.price })
-                else {
-                    this.detailInvoice[a].amount+=1;
-                    this.detailInvoice[a].price+=item.price;
-                }
-            },
-            initialize() {
-            },
-            editItem(item){
-                console.log(item.name)
-                let index= this.catagories.map(function(e){
-                    return e.products.map(function(ep) {
-                        return ep.name
-                    }).indexOf(item.name);
-                });
-                if(this.catagories[index[1]+1].products[index[0]+1].units > 0) {
-                    this.catagories[index[1]+1].products[index[0]+1].units-=1
-                    item.amount+=1
-                }
-            },
-            deleteItem(item)
+export default {
+    data (){
+        return {
+            dialog: false,
+            dialogDelete: false,
+            headers: [
             {
-                if(item.amount<=1){
-                    let index= this.detailInvoice.indexOf(item)
-                    this.detailInvoice.splice(index, 1)
-                }
-                else item.amount-=1
-
+                text: 'Dessert (100g serving)',
+                align: 'start',
+                sortable: false,
+                value: 'name',
             },
-            endEditing(product){
-                this.editingItem = null
-                let index = this.products.indexOf(product)
-                axios.put(`/api/products/${product.id}`,{
-                    name  : product.name,
-                    units : product.units,
-                    price : product.price,
-                    description : product.description,
-                })
-                .then(response =>{
-                    this.products[index] = product
-                })
-                .catch(response => {
-                })
+            { text: 'Calories', value: 'calories' },
+            { text: 'Fat (g)', value: 'fat' },
+            { text: 'Carbs (g)', value: 'carbs' },
+            { text: 'Protein (g)', value: 'protein' },
+            { text: 'Actions', value: 'actions', sortable: false },
+            ],
+            desserts: [],
+            editedIndex: -1,
+            editedItem: {
+            name: '',
+            calories: 0,
+            fat: 0,
+            carbs: 0,
+            protein: 0,
+            },
+            defaultItem: {
+            name: '',
+            calories: 0,
+            fat: 0,
+            carbs: 0,
+            protein: 0,
             },
         }
-    }
+    },
+  computed: {
+    formTitle () {
+      return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+    },
+  },
+
+  watch: {
+    dialog (val) {
+      val || this.close()
+    },
+    dialogDelete (val) {
+      val || this.closeDelete()
+    },
+  },
+
+  created () {
+    this.initialize()
+  },
+
+  methods: {
+    initialize () {
+      this.desserts = [
+        {
+          name: 'Frozen Yogurt',
+          calories: 159,
+          fat: 6.0,
+          carbs: 24,
+          protein: 4.0,
+        },
+        {
+          name: 'Ice cream sandwich',
+          calories: 237,
+          fat: 9.0,
+          carbs: 37,
+          protein: 4.3,
+        },
+        {
+          name: 'Eclair',
+          calories: 262,
+          fat: 16.0,
+          carbs: 23,
+          protein: 6.0,
+        },
+        {
+          name: 'Cupcake',
+          calories: 305,
+          fat: 3.7,
+          carbs: 67,
+          protein: 4.3,
+        },
+        {
+          name: 'Gingerbread',
+          calories: 356,
+          fat: 16.0,
+          carbs: 49,
+          protein: 3.9,
+        },
+        {
+          name: 'Jelly bean',
+          calories: 375,
+          fat: 0.0,
+          carbs: 94,
+          protein: 0.0,
+        },
+        {
+          name: 'Lollipop',
+          calories: 392,
+          fat: 0.2,
+          carbs: 98,
+          protein: 0,
+        },
+        {
+          name: 'Honeycomb',
+          calories: 408,
+          fat: 3.2,
+          carbs: 87,
+          protein: 6.5,
+        },
+        {
+          name: 'Donut',
+          calories: 452,
+          fat: 25.0,
+          carbs: 51,
+          protein: 4.9,
+        },
+        {
+          name: 'KitKat',
+          calories: 518,
+          fat: 26.0,
+          carbs: 65,
+          protein: 7,
+        },
+      ]
+    },
+
+    editItem (item) {
+      this.editedIndex = this.desserts.indexOf(item)
+      this.editedItem = Object.assign({}, item)
+      this.dialog = true
+    },
+
+    deleteItem (item) {
+      this.editedIndex = this.desserts.indexOf(item)
+      this.editedItem = Object.assign({}, item)
+      this.dialogDelete = true
+    },
+
+    deleteItemConfirm () {
+      this.desserts.splice(this.editedIndex, 1)
+      this.closeDelete()
+    },
+
+    close () {
+      this.dialog = false
+      this.$nextTick(() => {
+        this.editedItem = Object.assign({}, this.defaultItem)
+        this.editedIndex = -1
+      })
+    },
+
+    closeDelete () {
+      this.dialogDelete = false
+      this.$nextTick(() => {
+        this.editedItem = Object.assign({}, this.defaultItem)
+        this.editedIndex = -1
+      })
+    },
+
+    save () {
+      if (this.editedIndex > -1) {
+        Object.assign(this.desserts[this.editedIndex], this.editedItem)
+      } else {
+        this.desserts.push(this.editedItem)
+      }
+      this.close()
+    },
+  },
+}
 </script>
