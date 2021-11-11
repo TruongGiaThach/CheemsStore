@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Staff;
 
 class StaffController extends Controller
 {
     //
     public function index()
     {
-        return Staff::all();
+        return response()->json(Staff::all());
     }
 
     
