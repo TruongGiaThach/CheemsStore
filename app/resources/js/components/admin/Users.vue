@@ -1,7 +1,6 @@
 <template>
   <v-card height="100%" outlined class="pa-md-4 mx-lg-auto grey lighten-3">
     <v-card-title>
-      Staffs
       <v-spacer></v-spacer>
       <v-text-field
         v-model="search"
@@ -15,16 +14,37 @@
       :headers="headers"
       :items="users"
       :search="search"
+      :expanded.sync="expanded"
+      :single-expand="singleExpand"
+       item-key="email"
       show-expand
       rounded-xl
       class="elevation-1"
       min-height="70vh"
-    ></v-data-table>
+    >
+      <template v-slot:top>
+          <v-toolbar flat>
+            <v-toolbar-title>Tài khoản</v-toolbar-title>
+            <v-spacer></v-spacer>
+          </v-toolbar>
+      </template>
+      <template v-slot:expanded-item="{ headers, item }">
+        <td :colspan="headers.length">
+          <v-row>
+            <v-col cols="12" md="8">
+              <h3>{{ item.name }}</h3>
+              <p class="text-justify">
+                Nhuw com cat
+              </p>
+            </v-col>
+          </v-row>
+        </td>
+      </template>
+    </v-data-table>
   </v-card>
 </template>
 
 <script>
-
 export default {
   data() {
     return {
@@ -36,11 +56,16 @@ export default {
           sortable: false,
           value: "name",
         },
-        { text: "Gmail", value: "gmail" },
+        { text: "Email", value: "email" },
         { text: "Role", value: "role" },
-        { text: "CMND", value: "cmnd" },
       ],
       users: [],
+      editingItem: null,
+      addingUser: null,
+      dialog: false,
+      dialogDelete: false,
+      expanded: [],
+      singleExpand: true,
     };
   },
   beforeMount() {
@@ -48,10 +73,21 @@ export default {
       .get("/api/users")
       .then((response) => {
         this.users = response.data;
+        console.log(this.users[1].email);
       })
       .catch((error) => {
         console.error(error);
       });
+  },
+  methods: {
+    clickRow(item, event) {
+      if (event.isExpanded) {
+        const index = this.expanded.findIndex((i) => i === item);
+        this.expanded.splice(index, 1);
+      } else {
+        this.expanded.push(item);
+      }
+    },
   },
 };
 </script>
