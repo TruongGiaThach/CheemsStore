@@ -128,5 +128,6 @@ Step-5 : Run the command => $ sudo npm run watch
 - https://www.youtube.com/watch?v=BEogCy3Ux2I
 - https://www.youtube.com/watch?v=4ZC6OisRPfE
 - https://themeselection.com/10-best-laravel-vue-admin-template-free/
+- docs vuetify https://vuetifyjs.com/en/components/data-tables/#custom-filter
 ## Link drive nhóm
 - https://drive.google.com/drive/folders/17ogNxapNdUGL8U3ep89noszYrcBSfh71?usp=sharing
