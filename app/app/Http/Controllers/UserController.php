@@ -13,7 +13,7 @@ class UserController extends Controller
 
     public function index()
     {
-        return response()->json(User::with(['receipt'])->get());
+        return User::all();
     }
 
     public function login(Request $request)

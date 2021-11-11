@@ -1,8 +1,5 @@
 <template>
-  <v-card
-    height="100%"
-    outlined
-    class="pa-md-4 mx-lg-auto grey lighten-3">
+  <v-card height="100%" outlined class="pa-md-4 mx-lg-auto grey lighten-3">
     <v-card-title>
       Staffs
       <v-spacer></v-spacer>
@@ -16,7 +13,7 @@
     </v-card-title>
     <v-data-table
       :headers="headers"
-      :items="desserts"
+      :items="users"
       :search="search"
       show-expand
       rounded-xl
@@ -27,32 +24,34 @@
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        search: '',
-        headers: [
-          {
-            text: 'Name',
-            align: 'start',
-            sortable: false,
-            value: 'name',
-          },
-          { text: 'Gmail', value: 'gmail' },
-          { text: 'Role', value: 'role' },
-          { text: 'CMND', value: 'cmnd' },
-          { text: 'Dayoff', value: 'dayoff' },
-        ],
-        desserts: [
-          {
-            name: 'NguyentanTien',
-            gmail: 'Nguyentantien@gmail.com',
-            role: 'admin',
-            cmnd: 312465826,
-            dayoff: 4,
-          },
-        ],
-      }
-    },
-  }
+
+export default {
+  data() {
+    return {
+      search: "",
+      headers: [
+        {
+          text: "Name",
+          align: "start",
+          sortable: false,
+          value: "name",
+        },
+        { text: "Gmail", value: "gmail" },
+        { text: "Role", value: "role" },
+        { text: "CMND", value: "cmnd" },
+      ],
+      users: [],
+    };
+  },
+  beforeMount() {
+    axios
+      .get("/api/users")
+      .then((response) => {
+        this.users = response.data;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  },
+};
 </script>

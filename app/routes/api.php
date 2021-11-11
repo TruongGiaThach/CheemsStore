@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 Route::post('login', 'UserController@login');
 Route::post('register', 'UserController@register');
 Route::get('/products', 'ProductController@index');
+Route::post('/products', 'ProductController@store');
 Route::post('/upload-file', 'ProductController@uploadFile');
 Route::get('/products/{product}', 'ProductController@show');
 
