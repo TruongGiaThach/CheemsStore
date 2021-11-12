@@ -131,6 +131,7 @@ export default {
   data() {
     return {
       products: [],
+      id: null,
       search: "",
       editingItem: null,
       addingProduct: null,
@@ -160,7 +161,7 @@ export default {
         warrantyPeriod: 3,
         category_id: "Con Cac",
         description: "Con cac la gi em noi anh xem",
-        tag: ['Dungkun', 'Dungdeptrai'],
+        tag: ["Dungkun", "Dungdeptrai"],
       },
       defaultItem: {
         name: "",
@@ -171,7 +172,7 @@ export default {
         warrantyPeriod: 2,
         category_id: "Con Cac",
         description: "Con cac la gi em noi anh xem",
-        tag:  ['Dungkun', 'Dungdeptrai'],
+        tag: ["Dungkun", "Dungdeptrai"],
       },
     };
   },
@@ -228,16 +229,16 @@ export default {
       this.editingItem = null;
       let index = this.products.indexOf(product);
       axios
-        .put(`/api/products/${product.id}`, {
-          name: this.products.name,
-          amount: this.product.amount,
-          importPrice: this.product.importPrice,
-          outportPrice: this.product.outportPrice,
-          manufacture: this.product.manufacture,
-          warrantyPeriod: this.product.warrantyPeriod,
-          category_id: this.product.category_id,
-          description: this.product.description,
-          tag: this.product.tag,
+        .put(`/api/products/${product._id}`, {
+          name: product.name,
+          amount: product.amount,
+          importPrice: product.importPrice,
+          outportPrice: product.outportPrice,
+          manufacture: product.manufacture,
+          warrantyPeriod: product.warrantyPeriod,
+          category_id: product.category_id,
+          description: product.description,
+          tag: product.tag,
         })
         .catch((error) => {
           console.log(error);
@@ -246,15 +247,15 @@ export default {
     addProduct(product) {
       axios
         .post("/api/products", {
-          name: this.products.name,
-          amount: this.product.amount,
-          importPrice: this.product.importPrice,
-          outportPrice: this.product.outportPrice,
-          manufacture: this.product.manufacture,
-          warrantyPeriod: this.product.warrantyPeriod,
-          category_id: this.product.category_id,
-          description: this.product.description,
-          tag: this.product.tag,
+          name: product.name,
+          amount: product.amount,
+          importPrice: product.importPrice,
+          outportPrice: product.outportPrice,
+          manufacture: product.manufacture,
+          warrantyPeriod: product.warrantyPeriod,
+          category_id: product.category_id,
+          description: product.description,
+          tag: product.tag,
         })
         .catch((error) => {
           console.log(error);
@@ -273,6 +274,15 @@ export default {
     },
 
     deleteItemConfirm() {
+      Object.assign(this.products[this.editedIndex], this.editedItem);
+      axios
+        .delete(`/api/products/${this.editedItem._id}`)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((error) => {
+          console.log(error.response);
+        });
       this.products.splice(this.editedIndex, 1);
       this.closeDelete();
     },
