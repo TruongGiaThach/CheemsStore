@@ -1,5 +1,6 @@
 <template>
 	<div class="create-order">
+        <!--Product Search-->
         <div class="product-search-menu">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -16,15 +17,13 @@
                         </li>
                     </ul>
                         <form class="form-inline search-box">
-                            <input class="form-control mr-sm-2 " type="search" placeholder="Nhập từ khóa cần tìm" aria-label="Search" size="50">
-                            <button class="btn btn-outline-success my-2 my-sm-0 cheems-color" type="submit">
-                                <i class="fas fa-search fa-lg"></i>
-                            </button>
+                            <input class="form-control mr-sm-2 " v-model="search" type="search" placeholder="Nhập từ khóa cần tìm" aria-label="Search" size="70">
                         </form>
                     </div>
             </nav>
+            <!--Product List-->
             <div class="products-showcase">
-                <span class ="box-container" v-for="(product,index) in products" :key="index" @click="addItemToBill = product">
+                <span class ="box-container" v-for="(product,index) in filteredProducts" :key="index" v-on:click="addItemToBill(product)">
                     <div class = "product-box">
                         <div v-model:="product.outportPrice">
                             <div class="price">{{product.outportPrice}}</div>
@@ -39,7 +38,89 @@
                 </span>
             </div>
         </div><div class="sell-menu">
-
+            <div class ="customer-info">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-8">
+                            <input type="text" v-model="c_name" class="form-control" id="NameInput" placeholder="Tên khách hàng">
+                        </div>
+                        <div class="form-group form-group col-md-4">
+                            <input type="text" v-model="c_number" class="form-control" id="NumberInput" maxlength="10" placeholder="Số điện thoại">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" v-model="c_email" class="form-control" id="EmailInput" placeholder="Địa chỉ email">
+                    </div>
+                </form>
+            </div>
+            <!--Bill Product List-->
+            <div class="product-list">
+                <table class="table table-responsive table-striped">
+                    <thead>
+                        <tr>
+                            <td id ="stt">STT</td>
+                            <td id ="name">Tên sản phẩm</td>
+                            <td id ="amount">Số lượng</td>
+                            <td id ="price">Đơn giá</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(item,index) in items" :key="index" >
+                            <td id ="stt">{{index+1}}</td>
+                            <td id ="name" v-html="item.name"></td>
+                            <td id ="amount" v-model:="item.amount">
+                                <form>
+                                    <input type="number" v-model="item.amount" size="4" min="1">
+                                </form>
+                                </td>
+                            <td id ="price" v-model:="item.price">{{item.price}}</td>
+                            <td id ="delete">
+                                <button class="btn" v-on:click="deleteItem(index)">X</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--Bill Conclusion-->
+            <div class="conclusion">
+                <div class="conclusion-info">
+                    <span>
+                    <h5>Tổng tiền: <p>{{totalPrice}} VNĐ</p></h5>
+                    <h5>Thuế VAT: <p>{{totalPrice*0.1}} VNĐ</p></h5>
+                    <h5>Phải trả: <p>{{totalPrice + totalPrice*0.1}} VNĐ</p></h5>
+                    </span>
+                </div>
+                <div class="conclusion-buttons">
+                    <button type="button" class="btn btn-danger btn-block btn-cancel">Hủy</button>
+                    <button type="button" class="btn btn-success btn-block btn-finish py-5" data-toggle="modal" data-target="#ConfirmModal">Thanh toán</button>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="ConfirmModal" tabindex="-1" role="dialog" aria-labelledby="ConfirmModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="ConfirmModalLabel">Xác nhận đơn hàng</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h5>Tên khách hàng: <p>{{this.c_name}}</p></h5>
+                            <h5>Số điện thoại: <p>{{this.c_number}}</p></h5>
+                            <h5>Địa chỉ email: <p>{{this.c_email}}</p></h5>
+                            <h5>Tổng tiền: <p>{{totalPrice}} VNĐ</p></h5>
+                            <h5>Thuế VAT: <p>{{vat}} VNĐ</p></h5>
+                            <h5>Phải trả: <p>{{endPrice}} VNĐ</p></h5>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                            <button type="button" class="btn btn-primary">Xác nhận</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -50,9 +131,12 @@
             return {
                 products : [],
                 category : [],
+                items : [],
+                search: '',
+                c_name: '',
+                c_number: '',
+                c_email: '',
             }
-        },
-        components : {
         },
         beforeMount(){
             axios.get('/api/products/')
@@ -66,62 +150,115 @@
             axios.get('/api/category/')
             .then(response => {
                 this.category = response.data
+                console.log("Dũng Weeboo")
             })
             .catch(error => {
                 console.error(error);
             })          
         },
-        methods : {
-            addItemToBill(){
-
+        computed: {
+            filteredProducts() {
+                return this.products.filter(product => {
+                    return product.name.toLowerCase().indexOf(this.search.toLowerCase()) > -1
+                })
             },
+            totalPrice() {
+                var total = 0;
+                if(this.items.length > 0){
+                    for(var i = 0; i < this.items.length; i++){
+                        total += parseInt(this.items[i].amount * this.items[i].price);
+                    }
+                }
+                return total;
+            },
+            vat() {
+                return (totalPrice() * 0.1);
+            },
+            endPrice() {
+                return (totalPrice() + vat());
+            }    
+        },
+        methods : {
+            addItemToBill(product){
+                if(this.items.length > 0)
+                {
+                    for(var i = 0; i < this.items.length; i++){
+                        if(this.items[i].id == product._id){
+                            this.items[i].amount++;
+                            return;
+                        }
+                    }
+                    this.items.push({
+                        id: product._id,
+                        name: product.name,
+                        amount: 1,
+                        price: product.outportPrice
+                    })
+                }else{
+                    this.items.push({
+                        id: product._id,
+                        name: product.name,
+                        amount: 1,
+                        price: product.outportPrice
+                    })
+                }
+            },
+            deleteItem(index){
+                if(this.items.length > 0)
+                {
+                    this.items.splice(index, 1);
+                }
+            }
         }
     }
 </script>
 
 <style scoped>
+/***********************
+*******Body CSS*********
+************************/
 .create-order{
     position: relative;
     height: 100vh
 }
 .product-search-menu{
     position: relative;
-    background-color: white;
     height: 100%;
     width: 60%;
     display: inline-block;
 }
 .sell-menu{
     position: absolute;
-    background-color: blue;
     height: 100%;
     width: 40%;
     display: inline-block;
 }
-.navbar{
+/*******************************
+*******Product menu CSS*********
+********************************/
+.product-search-menu .navbar{
     height: 7%;
 }
-.products-showcase{
+.product-search-menu .products-showcase{
     height: 93%;
     overflow: auto;
 }
-.box-container{
-
+.product-search-menu .box-container{
     position: relative;
     width: 20%;
     display: inline-block;
     
 }
-.product-box{
+.product-search-menu .product-box{
     margin: 0.15em;
     border: solid 0.04em rgba(128, 128, 128, 0.4);
-    
+    background-color: white;
 }
-.product-box:active{
+.product-search-menu .product-box:active{
    transform:scale(0.95);
    box-shadow: 0.4em 0.4em 0.2em grey;
 }
-.product-box .price{
+.product-search-menu .product-box .price{
     position: absolute;
     right: 0;
     background-color: darkcyan;
@@ -131,14 +268,84 @@
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
-.product-box img{
+.product-search-menu .product-box img{
     height: 9em;
     width: 9em;
 }
-.product-box p{
+.product-search-menu .product-box p{
     height: 2.87em;
     overflow: hidden;
-    color:#d2691e;
     font-weight: bold;
+}
+/****************************
+*******Sell menu CSS*********
+*****************************/
+.sell-menu{
+    Border-left: solid 0.2em darkcyan;
+}
+.sell-menu .customer-info{
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.5em;
+    height:15%;
+}
+.sell-menu .product-list{
+    height: 60%;
+    overflow: scroll;
+}
+.sell-menu .conclusion{
+    height: 25%;
+    background: rgba(0, 139, 139, 0.3);
+}
+.sell-menu table #stt{
+    width: 2%;
+}
+.sell-menu table #name{
+    width: 45%;
+}
+.sell-menu table #amount{
+    width: 15%;
+}
+.sell-menu table #amount input{
+    width: 100%;
+}
+.sell-menu table #price{
+    width: 35%;
+}
+.sell-menu table #delete{
+    width: 3%;
+}
+.sell-menu table #delete .btn{
+    color:red;
+    font-weight: 900;
+}
+/*****************************
+*******Conclusion CSS*********
+******************************/
+.conclusion{
+    position: relative;
+    padding: 1em;
+}
+.conclusion .conclusion-info{
+    position: relative;
+    width: 80%;
+    display: inline-block;
+}
+.conclusion .conclusion-buttons{
+    position: absolute;
+    width: 20%;
+    display: inline-block;
+}
+.conclusion .conclusion-buttons .btn{
+    font-weight: bold;
+}
+.conclusion .conclusion-info h5{
+    font-weight: bold;
+    font-size: 120%;
+    display: inline;
+}
+.conclusion .conclusion-info p{
+    padding-left: 3em;
+    color:darkgreen
 }
 </style>

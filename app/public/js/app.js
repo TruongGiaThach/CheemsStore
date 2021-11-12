@@ -3478,14 +3478,99 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       products: [],
-      category: []
+      category: [],
+      items: [],
+      search: '',
+      c_name: '',
+      c_number: '',
+      c_email: ''
     };
   },
-  components: {},
   beforeMount: function beforeMount() {
     var _this = this;
 
@@ -3496,12 +3581,67 @@ __webpack_require__.r(__webpack_exports__);
     });
     axios.get('/api/category/').then(function (response) {
       _this.category = response.data;
+      console.log("Dũng Weeboo");
     })["catch"](function (error) {
       console.error(error);
     });
   },
+  computed: {
+    filteredProducts: function filteredProducts() {
+      var _this2 = this;
+
+      return this.products.filter(function (product) {
+        return product.name.toLowerCase().indexOf(_this2.search.toLowerCase()) > -1;
+      });
+    },
+    totalPrice: function totalPrice() {
+      var total = 0;
+
+      if (this.items.length > 0) {
+        for (var i = 0; i < this.items.length; i++) {
+          total += parseInt(this.items[i].amount * this.items[i].price);
+        }
+      }
+
+      return total;
+    },
+    vat: function vat() {
+      return totalPrice() * 0.1;
+    },
+    endPrice: function endPrice() {
+      return totalPrice() + vat();
+    }
+  },
   methods: {
-    addItemToBill: function addItemToBill() {}
+    addItemToBill: function addItemToBill(product) {
+      if (this.items.length > 0) {
+        for (var i = 0; i < this.items.length; i++) {
+          if (this.items[i].id == product._id) {
+            this.items[i].amount++;
+            return;
+          }
+        }
+
+        this.items.push({
+          id: product._id,
+          name: product.name,
+          amount: 1,
+          price: product.outportPrice
+        });
+      } else {
+        this.items.push({
+          id: product._id,
+          name: product.name,
+          amount: 1,
+          price: product.outportPrice
+        });
+      }
+    },
+    deleteItem: function deleteItem(index) {
+      if (this.items.length > 0) {
+        this.items.splice(index, 1);
+      }
+    }
   }
 });
 
@@ -8494,7 +8634,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.create-order[data-v-70305cfb]{\n    position: relative;\n    height: 100vh\n}\n.product-search-menu[data-v-70305cfb]{\n    position: relative;\n    background-color: white;\n    height: 100%;\n    width: 60%;\n    display: inline-block;\n}\n.sell-menu[data-v-70305cfb]{\n    position: absolute;\n    background-color: blue;\n    height: 100%;\n    width: 40%;\n    display: inline-block;\n}\n.navbar[data-v-70305cfb]{\n    height: 7%;\n}\n.products-showcase[data-v-70305cfb]{\n    height: 93%;\n    overflow: auto;\n}\n.box-container[data-v-70305cfb]{\n\n    position: relative;\n    width: 20%;\n    display: inline-block;\n}\n.product-box[data-v-70305cfb]{\n    margin: 0.15em;\n    border: solid 0.04em rgba(128, 128, 128, 0.4);\n}\n.product-box[data-v-70305cfb]:active{\n   transform:scale(0.95);\n   box-shadow: 0.4em 0.4em 0.2em grey;\n}\n.product-box .price[data-v-70305cfb]{\n    position: absolute;\n    right: 0;\n    background-color: darkcyan;\n    color: white;\n    padding-right: 0.2em;\n    padding-left: 0.4em;\n    border-top-left-radius: 10px;\n    border-bottom-left-radius: 10px;\n}\n.product-box img[data-v-70305cfb]{\n    height: 9em;\n    width: 9em;\n}\n.product-box p[data-v-70305cfb]{\n    height: 2.87em;\n    overflow: hidden;\n    color:#d2691e;\n    font-weight: bold;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/***********************\n*******Body CSS*********\n************************/\n.create-order[data-v-70305cfb]{\n    position: relative;\n    height: 100vh\n}\n.product-search-menu[data-v-70305cfb]{\n    position: relative;\n    height: 100%;\n    width: 60%;\n    display: inline-block;\n}\n.sell-menu[data-v-70305cfb]{\n    position: absolute;\n    height: 100%;\n    width: 40%;\n    display: inline-block;\n}\n/*******************************\n*******Product menu CSS*********\n********************************/\n.product-search-menu .navbar[data-v-70305cfb]{\n    height: 7%;\n}\n.product-search-menu .products-showcase[data-v-70305cfb]{\n    height: 93%;\n    overflow: auto;\n}\n.product-search-menu .box-container[data-v-70305cfb]{\n    position: relative;\n    width: 20%;\n    display: inline-block;\n}\n.product-search-menu .product-box[data-v-70305cfb]{\n    margin: 0.15em;\n    border: solid 0.04em rgba(128, 128, 128, 0.4);\n    background-color: white;\n}\n.product-search-menu .product-box[data-v-70305cfb]:active{\n   transform:scale(0.95);\n   box-shadow: 0.4em 0.4em 0.2em grey;\n}\n.product-search-menu .product-box .price[data-v-70305cfb]{\n    position: absolute;\n    right: 0;\n    background-color: darkcyan;\n    color: white;\n    padding-right: 0.2em;\n    padding-left: 0.4em;\n    border-top-left-radius: 10px;\n    border-bottom-left-radius: 10px;\n}\n.product-search-menu .product-box img[data-v-70305cfb]{\n    height: 9em;\n    width: 9em;\n}\n.product-search-menu .product-box p[data-v-70305cfb]{\n    height: 2.87em;\n    overflow: hidden;\n    font-weight: bold;\n}\n/****************************\n*******Sell menu CSS*********\n*****************************/\n.sell-menu[data-v-70305cfb]{\n    Border-left: solid 0.2em darkcyan;\n}\n.sell-menu .customer-info[data-v-70305cfb]{\n    padding-left: 1em;\n    padding-right: 1em;\n    padding-top: 0.5em;\n    height:15%;\n}\n.sell-menu .product-list[data-v-70305cfb]{\n    height: 60%;\n    overflow: scroll;\n}\n.sell-menu .conclusion[data-v-70305cfb]{\n    height: 25%;\n    background: rgba(0, 139, 139, 0.3);\n}\n.sell-menu table #stt[data-v-70305cfb]{\n    width: 2%;\n}\n.sell-menu table #name[data-v-70305cfb]{\n    width: 45%;\n}\n.sell-menu table #amount[data-v-70305cfb]{\n    width: 15%;\n}\n.sell-menu table #amount input[data-v-70305cfb]{\n    width: 100%;\n}\n.sell-menu table #price[data-v-70305cfb]{\n    width: 35%;\n}\n.sell-menu table #delete[data-v-70305cfb]{\n    width: 3%;\n}\n.sell-menu table #delete .btn[data-v-70305cfb]{\n    color:red;\n    font-weight: 900;\n}\n/*****************************\n*******Conclusion CSS*********\n******************************/\n.conclusion[data-v-70305cfb]{\n    position: relative;\n    padding: 1em;\n}\n.conclusion .conclusion-info[data-v-70305cfb]{\n    position: relative;\n    width: 80%;\n    display: inline-block;\n}\n.conclusion .conclusion-buttons[data-v-70305cfb]{\n    position: absolute;\n    width: 20%;\n    display: inline-block;\n}\n.conclusion .conclusion-buttons .btn[data-v-70305cfb]{\n    font-weight: bold;\n}\n.conclusion .conclusion-info h5[data-v-70305cfb]{\n    font-weight: bold;\n    font-size: 120%;\n    display: inline;\n}\n.conclusion .conclusion-info p[data-v-70305cfb]{\n    padding-left: 3em;\n    color:darkgreen\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -45057,7 +45197,34 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
-              _vm._m(1),
+              _c("form", { staticClass: "form-inline search-box" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.search,
+                      expression: "search",
+                    },
+                  ],
+                  staticClass: "form-control mr-sm-2 ",
+                  attrs: {
+                    type: "search",
+                    placeholder: "Nhập từ khóa cần tìm",
+                    "aria-label": "Search",
+                    size: "70",
+                  },
+                  domProps: { value: _vm.search },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.search = $event.target.value
+                    },
+                  },
+                }),
+              ]),
             ]
           ),
         ]
@@ -45066,7 +45233,7 @@ var render = function () {
       _c(
         "div",
         { staticClass: "products-showcase" },
-        _vm._l(_vm.products, function (product, index) {
+        _vm._l(_vm.filteredProducts, function (product, index) {
           return _c(
             "span",
             {
@@ -45074,7 +45241,7 @@ var render = function () {
               staticClass: "box-container",
               on: {
                 click: function ($event) {
-                  _vm.addItemToBill = product
+                  return _vm.addItemToBill(product)
                 },
               },
             },
@@ -45142,7 +45309,273 @@ var render = function () {
         0
       ),
     ]),
-    _c("div", { staticClass: "sell-menu" }),
+    _c("div", { staticClass: "sell-menu" }, [
+      _c("div", { staticClass: "customer-info" }, [
+        _c("form", [
+          _c("div", { staticClass: "form-row" }, [
+            _c("div", { staticClass: "form-group col-md-8" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.c_name,
+                    expression: "c_name",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  id: "NameInput",
+                  placeholder: "Tên khách hàng",
+                },
+                domProps: { value: _vm.c_name },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.c_name = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group form-group col-md-4" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.c_number,
+                    expression: "c_number",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  id: "NumberInput",
+                  maxlength: "10",
+                  placeholder: "Số điện thoại",
+                },
+                domProps: { value: _vm.c_number },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.c_number = $event.target.value
+                  },
+                },
+              }),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.c_email,
+                  expression: "c_email",
+                },
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "email",
+                id: "EmailInput",
+                placeholder: "Địa chỉ email",
+              },
+              domProps: { value: _vm.c_email },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.c_email = $event.target.value
+                },
+              },
+            }),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "product-list" }, [
+        _c("table", { staticClass: "table table-responsive table-striped" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.items, function (item, index) {
+              return _c("tr", { key: index }, [
+                _c("td", { attrs: { id: "stt" } }, [_vm._v(_vm._s(index + 1))]),
+                _vm._v(" "),
+                _c("td", {
+                  attrs: { id: "name" },
+                  domProps: { innerHTML: _vm._s(item.name) },
+                }),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  {
+                    directives: [
+                      {
+                        name: "model:",
+                        rawName: "v-model:",
+                        value: item.amount,
+                        expression: "item.amount",
+                      },
+                    ],
+                    attrs: { id: "amount" },
+                  },
+                  [
+                    _c("form", [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: item.amount,
+                            expression: "item.amount",
+                          },
+                        ],
+                        attrs: { type: "number", size: "4", min: "1" },
+                        domProps: { value: item.amount },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(item, "amount", $event.target.value)
+                          },
+                        },
+                      }),
+                    ]),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  {
+                    directives: [
+                      {
+                        name: "model:",
+                        rawName: "v-model:",
+                        value: item.price,
+                        expression: "item.price",
+                      },
+                    ],
+                    attrs: { id: "price" },
+                  },
+                  [_vm._v(_vm._s(item.price))]
+                ),
+                _vm._v(" "),
+                _c("td", { attrs: { id: "delete" } }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn",
+                      on: {
+                        click: function ($event) {
+                          return _vm.deleteItem(index)
+                        },
+                      },
+                    },
+                    [_vm._v("X")]
+                  ),
+                ]),
+              ])
+            }),
+            0
+          ),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "conclusion" }, [
+        _c("div", { staticClass: "conclusion-info" }, [
+          _c("span", [
+            _c("h5", [
+              _vm._v("Tổng tiền: "),
+              _c("p", [_vm._v(_vm._s(_vm.totalPrice) + " VNĐ")]),
+            ]),
+            _vm._v(" "),
+            _c("h5", [
+              _vm._v("Thuế VAT: "),
+              _c("p", [_vm._v(_vm._s(_vm.totalPrice * 0.1) + " VNĐ")]),
+            ]),
+            _vm._v(" "),
+            _c("h5", [
+              _vm._v("Phải trả: "),
+              _c("p", [
+                _vm._v(_vm._s(_vm.totalPrice + _vm.totalPrice * 0.1) + " VNĐ"),
+              ]),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "modal fade",
+            attrs: {
+              id: "ConfirmModal",
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "ConfirmModalLabel",
+              "aria-hidden": "true",
+            },
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "modal-dialog", attrs: { role: "document" } },
+              [
+                _c("div", { staticClass: "modal-content" }, [
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c("h5", [
+                      _vm._v("Tên khách hàng: "),
+                      _c("p", [_vm._v(_vm._s(this.c_name))]),
+                    ]),
+                    _vm._v(" "),
+                    _c("h5", [
+                      _vm._v("Số điện thoại: "),
+                      _c("p", [_vm._v(_vm._s(this.c_number))]),
+                    ]),
+                    _vm._v(" "),
+                    _c("h5", [
+                      _vm._v("Địa chỉ email: "),
+                      _c("p", [_vm._v(_vm._s(this.c_email))]),
+                    ]),
+                    _vm._v(" "),
+                    _c("h5", [
+                      _vm._v("Tổng tiền: "),
+                      _c("p", [_vm._v(_vm._s(_vm.totalPrice) + " VNĐ")]),
+                    ]),
+                    _vm._v(" "),
+                    _c("h5", [
+                      _vm._v("Thuế VAT: "),
+                      _c("p", [_vm._v(_vm._s(_vm.vat) + " VNĐ")]),
+                    ]),
+                    _vm._v(" "),
+                    _c("h5", [
+                      _vm._v("Phải trả: "),
+                      _c("p", [_vm._v(_vm._s(_vm.endPrice) + " VNĐ")]),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(4),
+                ]),
+              ]
+            ),
+          ]
+        ),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = [
@@ -45169,24 +45602,89 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("form", { staticClass: "form-inline search-box" }, [
-      _c("input", {
-        staticClass: "form-control mr-sm-2 ",
-        attrs: {
-          type: "search",
-          placeholder: "Nhập từ khóa cần tìm",
-          "aria-label": "Search",
-          size: "50",
+    return _c("thead", [
+      _c("tr", [
+        _c("td", { attrs: { id: "stt" } }, [_vm._v("STT")]),
+        _vm._v(" "),
+        _c("td", { attrs: { id: "name" } }, [_vm._v("Tên sản phẩm")]),
+        _vm._v(" "),
+        _c("td", { attrs: { id: "amount" } }, [_vm._v("Số lượng")]),
+        _vm._v(" "),
+        _c("td", { attrs: { id: "price" } }, [_vm._v("Đơn giá")]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "conclusion-buttons" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-danger btn-block btn-cancel",
+          attrs: { type: "button" },
         },
-      }),
+        [_vm._v("Hủy")]
+      ),
       _vm._v(" "),
       _c(
         "button",
         {
-          staticClass: "btn btn-outline-success my-2 my-sm-0 cheems-color",
-          attrs: { type: "submit" },
+          staticClass: "btn btn-success btn-block btn-finish py-5",
+          attrs: {
+            type: "button",
+            "data-toggle": "modal",
+            "data-target": "#ConfirmModal",
+          },
         },
-        [_c("i", { staticClass: "fas fa-search fa-lg" })]
+        [_vm._v("Thanh toán")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "ConfirmModalLabel" } },
+        [_vm._v("Xác nhận đơn hàng")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close",
+          },
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-dismiss": "modal" },
+        },
+        [_vm._v("Hủy")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "button" } },
+        [_vm._v("Xác nhận")]
       ),
     ])
   },

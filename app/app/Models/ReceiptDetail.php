@@ -15,7 +15,7 @@ class ReceiptDetail extends Eloquent
     protected $connection = 'mongodb';
     protected $colection = 'receipt_detail';
     protected $fillable = [
-        'receipt_id','product_id','unitPrice','total',
+        'receipt_id','product_id','unitPrice','amount', //đổi từ total sang amount
     ];
 
     public function product()
