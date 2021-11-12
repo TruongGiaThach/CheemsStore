@@ -127,7 +127,6 @@
 </template>
 
 <script>
-import Modal from "./ProductModal";
 export default {
   data() {
     return {
@@ -288,7 +287,7 @@ export default {
         Object.assign(this.products[this.editedIndex], this.editedItem);
         this.endEditing(this.editedItem);
       } else {
-        this.addProduct(this.editedItem);
+        initialize();
         this.products.push(this.editedItem);
       }
       this.close();

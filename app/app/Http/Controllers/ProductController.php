@@ -39,17 +39,17 @@ class ProductController extends Controller
         //
         $product = Product::create([
             'name' => $request->name,
+            'amount' => $request->amount,
+            'importPrice' => $request->importPrice,
+            'outportPrice' => $request->outportPrice,
+            'manufacture' => $request->manufacture,
+            'warrantyPeriod' => $request->warrantyPeriod,
+            'category_id' => $request->category_id,
             'description' => $request->description,
-            'units' => $request->units,
-            'price' => $request->price,
-            'image' => $request->image
+            'tag' => $request->tag,
         ]);
 
-        return response()->json([
-            'status' => (bool) $product,
-            'data'   => $product,
-            'message' => $product ? 'Product Created!' : 'Error Creating Product'
-        ]);
+        return response()->json($product);
     }
 
     /**
@@ -94,7 +94,10 @@ class ProductController extends Controller
     {
         //
         $status = $product->update(
-            $request->only(['name', 'description', 'units', 'price', 'image'])
+            $request->only([
+        'name','amount','importPrice','outportPrice','manufacture','warrantyPeriod',
+        'category_id','description','tag'
+            ])
         );
 
         return response()->json([

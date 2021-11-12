@@ -43,7 +43,9 @@
                     type="submit"
                     class="btn btn-primary"
                     @click="handleSubmit"
-                  ></button>
+                  >
+                    Dung kun
+                  </button>
                 </div>
               </div>
             </form>
@@ -68,20 +70,27 @@ export default {
         let email = this.email;
         let password = this.password;
 
-        axios.post("api/login", { email, password }).then((response) => {
-          let user = response.data.user;
-          let role = user.role;
-          console.log(role);
-          localStorage.setItem("bigStore.user", JSON.stringify(user));
-          localStorage.setItem("bigStore.jwt", response.data.token);
+        axios
+          .post("api/login", { email, password })
+          .then((response) => {
+            let user = response.data.user;
+            let role = user.role;
+            console.log(role);
+            localStorage.setItem("bigStore.user", JSON.stringify(user));
+            localStorage.setItem("bigStore.jwt", response.data.token);
+            console.log("DUng kun");
+            if (localStorage.getItem("bigStore.jwt") != null) {
+              this.$emit("loggedIn");
 
-          if (localStorage.getItem("bigStore.jwt") != null) {
-            this.$emit("loggedIn");
-           
-            this.$router.push({name: 'admin-pages', params: {page: 'main'}})
-            
-          }
-        });
+              this.$router.push({
+                name: "admin-pages",
+                params: { page: "main" },
+              });
+            }
+          })
+          .catch((error) => {
+            console.log(error.response);
+          });
       }
     },
   },
