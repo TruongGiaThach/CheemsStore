@@ -66,6 +66,7 @@
 - kiểm tra các file .php
 - các file có 'Illuminate\Database\Eloquent\Model' ở phần khai báo thì ae chỉnh lại thành 'Jenssegers\Mongodb\Eloquent\Model'
 - chạy 
+	Nhớ migrate rồi ms lm cái ở dưới.
       `./vendor/bin/sail php artisan passport:client --personal`
   rồi nhập tên tùy thích
 ## Cho những ai muốn dùng vuetify
