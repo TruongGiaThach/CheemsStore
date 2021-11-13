@@ -23,8 +23,7 @@ Route::get('users/{user}','UserController@show');
 Route::patch('users/{user}','UserController@update');
 Route::patch('products/{product}/units/add','ProductController@updateUnits');
 Route::resource('/products', 'ProductController')->except(['index','show']);
-Route::get('/category', 'CategoryController@index');
-Route::get('/dungkuns', 'DungkunController@index');
+Route::resource('category', 'CategoryController');
 
 /*
 |--------------------------------------------------------------------------

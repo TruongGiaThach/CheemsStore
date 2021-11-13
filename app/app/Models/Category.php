@@ -17,5 +17,4 @@ class Category extends Eloquent
     protected $fillable = [
         'name','description'
     ];
-    protected $table = 'category';
 }
