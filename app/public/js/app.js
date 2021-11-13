@@ -3581,7 +3581,6 @@ __webpack_require__.r(__webpack_exports__);
     });
     axios.get('/api/category/').then(function (response) {
       _this.category = response.data;
-      console.log("Dũng Weeboo");
     })["catch"](function (error) {
       console.error(error);
     });
@@ -3606,10 +3605,15 @@ __webpack_require__.r(__webpack_exports__);
       return total;
     },
     vat: function vat() {
-      return totalPrice() * 0.1;
+      return this.totalPrice * 0.1;
     },
     endPrice: function endPrice() {
-      return totalPrice() + vat();
+      return this.totalPrice + this.vat;
+    },
+    okToGo: function okToGo() {
+      if (this.c_name != '' && this.c_number != '' && this.c_email != '' && this.items.length > 0) {
+        return true;
+      } else return false;
     }
   },
   methods: {
@@ -8634,7 +8638,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/***********************\n*******Body CSS*********\n************************/\n.create-order[data-v-70305cfb]{\n    position: relative;\n    height: 100vh\n}\n.product-search-menu[data-v-70305cfb]{\n    position: relative;\n    height: 100%;\n    width: 60%;\n    display: inline-block;\n}\n.sell-menu[data-v-70305cfb]{\n    position: absolute;\n    height: 100%;\n    width: 40%;\n    display: inline-block;\n}\n/*******************************\n*******Product menu CSS*********\n********************************/\n.product-search-menu .navbar[data-v-70305cfb]{\n    height: 7%;\n}\n.product-search-menu .products-showcase[data-v-70305cfb]{\n    height: 93%;\n    overflow: auto;\n}\n.product-search-menu .box-container[data-v-70305cfb]{\n    position: relative;\n    width: 20%;\n    display: inline-block;\n}\n.product-search-menu .product-box[data-v-70305cfb]{\n    margin: 0.15em;\n    border: solid 0.04em rgba(128, 128, 128, 0.4);\n    background-color: white;\n}\n.product-search-menu .product-box[data-v-70305cfb]:active{\n   transform:scale(0.95);\n   box-shadow: 0.4em 0.4em 0.2em grey;\n}\n.product-search-menu .product-box .price[data-v-70305cfb]{\n    position: absolute;\n    right: 0;\n    background-color: darkcyan;\n    color: white;\n    padding-right: 0.2em;\n    padding-left: 0.4em;\n    border-top-left-radius: 10px;\n    border-bottom-left-radius: 10px;\n}\n.product-search-menu .product-box img[data-v-70305cfb]{\n    height: 9em;\n    width: 9em;\n}\n.product-search-menu .product-box p[data-v-70305cfb]{\n    height: 2.87em;\n    overflow: hidden;\n    font-weight: bold;\n}\n/****************************\n*******Sell menu CSS*********\n*****************************/\n.sell-menu[data-v-70305cfb]{\n    Border-left: solid 0.2em darkcyan;\n}\n.sell-menu .customer-info[data-v-70305cfb]{\n    padding-left: 1em;\n    padding-right: 1em;\n    padding-top: 0.5em;\n    height:15%;\n}\n.sell-menu .product-list[data-v-70305cfb]{\n    height: 60%;\n    overflow: scroll;\n}\n.sell-menu .conclusion[data-v-70305cfb]{\n    height: 25%;\n    background: rgba(0, 139, 139, 0.3);\n}\n.sell-menu table #stt[data-v-70305cfb]{\n    width: 2%;\n}\n.sell-menu table #name[data-v-70305cfb]{\n    width: 45%;\n}\n.sell-menu table #amount[data-v-70305cfb]{\n    width: 15%;\n}\n.sell-menu table #amount input[data-v-70305cfb]{\n    width: 100%;\n}\n.sell-menu table #price[data-v-70305cfb]{\n    width: 35%;\n}\n.sell-menu table #delete[data-v-70305cfb]{\n    width: 3%;\n}\n.sell-menu table #delete .btn[data-v-70305cfb]{\n    color:red;\n    font-weight: 900;\n}\n/*****************************\n*******Conclusion CSS*********\n******************************/\n.conclusion[data-v-70305cfb]{\n    position: relative;\n    padding: 1em;\n}\n.conclusion .conclusion-info[data-v-70305cfb]{\n    position: relative;\n    width: 80%;\n    display: inline-block;\n}\n.conclusion .conclusion-buttons[data-v-70305cfb]{\n    position: absolute;\n    width: 20%;\n    display: inline-block;\n}\n.conclusion .conclusion-buttons .btn[data-v-70305cfb]{\n    font-weight: bold;\n}\n.conclusion .conclusion-info h5[data-v-70305cfb]{\n    font-weight: bold;\n    font-size: 120%;\n    display: inline;\n}\n.conclusion .conclusion-info p[data-v-70305cfb]{\n    padding-left: 3em;\n    color:darkgreen\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/***********************\n*******Body CSS*********\n************************/\n.create-order[data-v-70305cfb]{\n    position: relative;\n    height: 100vh\n}\n.product-search-menu[data-v-70305cfb]{\n    position: relative;\n    height: 100%;\n    width: 60%;\n    display: inline-block;\n}\n.sell-menu[data-v-70305cfb]{\n    position: absolute;\n    height: 100%;\n    width: 40%;\n    display: inline-block;\n}\n/*******************************\n*******Product menu CSS*********\n********************************/\n.product-search-menu .navbar[data-v-70305cfb]{\n    height: 7%;\n}\n.product-search-menu .products-showcase[data-v-70305cfb]{\n    height: 93%;\n    overflow: auto;\n}\n.product-search-menu .box-container[data-v-70305cfb]{\n    position: relative;\n    width: 20%;\n    display: inline-block;\n}\n.product-search-menu .product-box[data-v-70305cfb]{\n    margin: 0.15em;\n    border: solid 0.04em rgba(128, 128, 128, 0.4);\n    background-color: white;\n}\n.product-search-menu .product-box[data-v-70305cfb]:active{\n   transform:scale(0.95);\n   box-shadow: 0.4em 0.4em 0.2em grey;\n}\n.product-search-menu .product-box .price[data-v-70305cfb]{\n    position: absolute;\n    right: 0;\n    background-color: darkcyan;\n    color: white;\n    padding-right: 0.2em;\n    padding-left: 0.4em;\n    border-top-left-radius: 10px;\n    border-bottom-left-radius: 10px;\n}\n.product-search-menu .product-box img[data-v-70305cfb]{\n    height: 9em;\n    width: 9em;\n}\n.product-search-menu .product-box p[data-v-70305cfb]{\n    height: 2.87em;\n    overflow: hidden;\n    font-weight: bold;\n}\n/****************************\n*******Sell menu CSS*********\n*****************************/\n.sell-menu[data-v-70305cfb]{\n    Border-left: solid 0.2em darkcyan;\n}\n.sell-menu .customer-info[data-v-70305cfb]{\n    padding-left: 1em;\n    padding-right: 1em;\n    padding-top: 0.5em;\n    height:15%;\n}\n.sell-menu .product-list[data-v-70305cfb]{\n    height: 60%;\n    overflow: scroll;\n}\n.sell-menu .conclusion[data-v-70305cfb]{\n    height: 25%;\n    background: rgba(0, 139, 139, 0.3);\n}\n.sell-menu table #stt[data-v-70305cfb]{\n    width: 2%;\n}\n.sell-menu table #name[data-v-70305cfb]{\n    width: 45%;\n}\n.sell-menu table #amount[data-v-70305cfb]{\n    width: 15%;\n}\n.sell-menu table #amount input[data-v-70305cfb]{\n    width: 100%;\n}\n.sell-menu table #price[data-v-70305cfb]{\n    width: 35%;\n}\n.sell-menu table #delete[data-v-70305cfb]{\n    width: 3%;\n}\n.sell-menu table #delete .btn[data-v-70305cfb]{\n    color:red;\n    font-weight: 900;\n}\n/*****************************\n*******Conclusion CSS*********\n******************************/\n.conclusion[data-v-70305cfb]{\n    position: relative;\n    padding: 1em;\n}\n.conclusion .conclusion-info[data-v-70305cfb]{\n    position: relative;\n    width: 80%;\n    display: inline-block;\n}\n.conclusion .conclusion-buttons[data-v-70305cfb]{\n    position: absolute;\n    width: 20%;\n    display: inline-block;\n}\n.conclusion .conclusion-buttons .btn[data-v-70305cfb]{\n    font-weight: bold;\n}\n.conclusion .conclusion-info h5[data-v-70305cfb]{\n    font-weight: bold;\n    font-size: 120%;\n    display: inline;\n}\n.conclusion .conclusion-info p[data-v-70305cfb]{\n    padding-left: 3em;\n    color:darkgreen\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -45357,6 +45361,7 @@ var render = function () {
                   id: "NumberInput",
                   maxlength: "10",
                   placeholder: "Số điện thoại",
+                  pattern: "[0-9]",
                 },
                 domProps: { value: _vm.c_number },
                 on: {
@@ -45514,7 +45519,30 @@ var render = function () {
           ]),
         ]),
         _vm._v(" "),
-        _vm._m(2),
+        _c("div", { staticClass: "conclusion-buttons" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-danger btn-block btn-cancel",
+              attrs: { type: "button" },
+            },
+            [_vm._v("Hủy")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success btn-block btn-finish py-5",
+              attrs: {
+                type: "button",
+                "data-toggle": "modal",
+                "data-target": "#ConfirmModal",
+                disabled: _vm.okToGo,
+              },
+            },
+            [_vm._v("Thanh toán ")]
+          ),
+        ]),
         _vm._v(" "),
         _c(
           "div",
@@ -45534,7 +45562,7 @@ var render = function () {
               { staticClass: "modal-dialog", attrs: { role: "document" } },
               [
                 _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(3),
+                  _vm._m(2),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
                     _c("h5", [
@@ -45568,7 +45596,7 @@ var render = function () {
                     ]),
                   ]),
                   _vm._v(" "),
-                  _vm._m(4),
+                  _vm._m(3),
                 ]),
               ]
             ),
@@ -45612,34 +45640,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("td", { attrs: { id: "price" } }, [_vm._v("Đơn giá")]),
       ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "conclusion-buttons" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-danger btn-block btn-cancel",
-          attrs: { type: "button" },
-        },
-        [_vm._v("Hủy")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-success btn-block btn-finish py-5",
-          attrs: {
-            type: "button",
-            "data-toggle": "modal",
-            "data-target": "#ConfirmModal",
-          },
-        },
-        [_vm._v("Thanh toán")]
-      ),
     ])
   },
   function () {

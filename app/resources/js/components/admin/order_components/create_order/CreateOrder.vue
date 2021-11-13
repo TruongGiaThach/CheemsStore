@@ -45,7 +45,7 @@
                             <input type="text" v-model="c_name" class="form-control" id="NameInput" placeholder="Tên khách hàng">
                         </div>
                         <div class="form-group form-group col-md-4">
-                            <input type="text" v-model="c_number" class="form-control" id="NumberInput" maxlength="10" placeholder="Số điện thoại">
+                            <input type="text" v-model="c_number" class="form-control" id="NumberInput" maxlength="10" placeholder="Số điện thoại" pattern="[0-9]">
                         </div>
                     </div>
                     
@@ -93,7 +93,7 @@
                 </div>
                 <div class="conclusion-buttons">
                     <button type="button" class="btn btn-danger btn-block btn-cancel">Hủy</button>
-                    <button type="button" class="btn btn-success btn-block btn-finish py-5" data-toggle="modal" data-target="#ConfirmModal">Thanh toán</button>
+                    <button type="button" class="btn btn-success btn-block btn-finish py-5" data-toggle="modal" data-target="#ConfirmModal" v-bind:disabled="okToGo">Thanh toán </button>
                 </div>
                 <!-- Modal -->
                 <div class="modal fade" id="ConfirmModal" tabindex="-1" role="dialog" aria-labelledby="ConfirmModalLabel" aria-hidden="true">
@@ -101,7 +101,7 @@
                         <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="ConfirmModalLabel">Xác nhận đơn hàng</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -150,7 +150,6 @@
             axios.get('/api/category/')
             .then(response => {
                 this.category = response.data
-                console.log("Dũng Weeboo")
             })
             .catch(error => {
                 console.error(error);
@@ -172,10 +171,15 @@
                 return total;
             },
             vat() {
-                return (totalPrice() * 0.1);
+                return (this.totalPrice * 0.1);
             },
             endPrice() {
-                return (totalPrice() + vat());
+                return (this.totalPrice + this.vat);
+            },
+            okToGo() {
+                if(this.c_name != '' && this.c_number != '' && this.c_email != '' && this.items.length > 0){
+                    return true;
+                }else return false;
             }    
         },
         methods : {

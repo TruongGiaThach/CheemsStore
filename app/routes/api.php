@@ -9,7 +9,7 @@ Route::post('register', 'UserController@register');
 Route::get('/products', 'ProductController@index');
 Route::post('/upload-file', 'ProductController@uploadFile');
 Route::get('/products/{product}', 'ProductController@show');
-Route::get('/category', 'CategoryController@index');
+Route::resource('category', 'CategoryController');
 
 Route::group(['middleware' => 'auth:api'], function(){
     Route::get('/users','UserController@index');

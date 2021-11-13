@@ -91,6 +91,7 @@ class CategoryController extends Controller
             'message' => $status ? 'Category Updated!' : 'Error Updating Category'
         ]);
     }
+
     /**
      * Remove the specified resource from storage.
      *
