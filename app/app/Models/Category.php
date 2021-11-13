@@ -15,6 +15,6 @@ class Category extends Eloquent
     protected $connection = 'mongodb';
     protected $colection = 'category';
     protected $fillable = [
-        'name','discription'
+        'name','description'
     ];
 }

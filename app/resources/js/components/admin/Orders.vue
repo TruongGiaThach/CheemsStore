@@ -131,6 +131,7 @@ export default {
   data() {
     return {
       products: [],
+      category: [],
       id: null,
       search: "",
       editingItem: null,
@@ -200,6 +201,16 @@ export default {
       .get("/api/products")
       .then((response) => {
         this.products = response.data;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+      axios
+      .get("/api/category")
+      .then((response) => {
+        this.category = response.data;
+        console.log(this.category.length)
       })
       .catch((error) => {
         console.error(error);

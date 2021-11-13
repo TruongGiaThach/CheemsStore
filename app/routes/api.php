@@ -18,15 +18,12 @@ Route::get('/staffs/{staff}', 'StaffController@show');
 Route::post('/staffs', 'StaffController@store');
 Route::patch('staffs/{staff}','StaffController@update');
 
-
 Route::get('/users','UserController@index');
 Route::get('users/{user}','UserController@show');
 Route::patch('users/{user}','UserController@update');
-Route::get('users/{user}/orders','UserController@showOrders');
 Route::patch('products/{product}/units/add','ProductController@updateUnits');
-Route::patch('orders/{order}/deliver','OrderController@deliverOrder');
-Route::resource('/orders', 'OrderController');
 Route::resource('/products', 'ProductController')->except(['index','show']);
+Route::resource('category', 'CategoryController');
 
 /*
 |--------------------------------------------------------------------------
