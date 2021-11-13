@@ -207,7 +207,7 @@ export default {
       });
 
       axios
-      .get("/category")
+      .get("/api/category")
       .then((response) => {
         this.category = response.data;
         console.log(this.category.length)

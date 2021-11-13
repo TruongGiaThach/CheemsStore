@@ -14,8 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/{any}', function(){
-    return view('landing');
+    return view('home');
 })->where('any', '.*');;
-Route::resource('category', CategoryController::class);
 Auth::routes();
 
