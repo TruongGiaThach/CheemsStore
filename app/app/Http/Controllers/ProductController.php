@@ -123,14 +123,14 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($product_id)
     {
         //
-        $status = $product->delete();
+        $product = Product::where('_id', $product_id)->forceDelete();
 
             return response()->json([
-                'status' => $status,
-                'message' => $status ? 'Product Deleted!' : 'Error Deleting Product'
+                'status' => $product,
+                'message' => $product ? 'Product Deleted!' : 'Error Deleting Product'
             ]);
     }
 }
