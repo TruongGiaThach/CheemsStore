@@ -38,7 +38,10 @@ class ReceiptController extends Controller
     {
         //
         $receipt = Receipt::create([
-            
+            'user_id' => $request -> user_id,
+            'createDay' => $request -> createDay,
+            'total' => $request -> total,
+            'VAT'  => $request -> VAT,
         ]);
 
         return response()->json([
