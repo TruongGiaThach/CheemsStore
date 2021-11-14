@@ -291,19 +291,7 @@ export default {
       ],
       editedIndex: -1,
       editedItem: {
-        name: '',
-        image: '',
-        amount: 0,
-        importPrice: 0,
-        outportPrice: 0,
-        manufacture: '',
-        warrantyPeriod: 0,
-        category_id: '',
-        description: '',
-        image: '',
-        tag: '',
-      },
-      defaultItem: {
+        id: '',
         name: '',
         image: '',
         amount: 0,
@@ -409,7 +397,7 @@ export default {
       this.editingItem = null;
       let index = this.products.indexOf(product);
       axios
-        .put(`/api/products/${product.id}`, {
+        .put(`/api/products/${product._id}`, {
           name: product.name,
           image: product.image,
           amount: product.amount,
@@ -442,6 +430,25 @@ export default {
         })
         .catch((response) => {});
     },
+
+    endDelete(product) {
+      axios
+        .delete(`/api/products/${product._id}`, {
+          name: product.name,
+          image: product.image,
+          amount: product.amount,
+          importPrice: product.importPrice,
+          outportPrice: product.outportPrice,
+          manufacture: product.manufacture,
+          warrantyPeriod: product.warrantyPeriod,
+          category_id: product.category_id,
+          description: product.description,
+          image: product.image,
+          tag: product.tag,
+        })
+        .catch((response) => {});
+    },
+
     editItem(item) {
       this.editedIndex = this.products.indexOf(item);
       this.editedItem = Object.assign({}, item);
@@ -455,6 +462,7 @@ export default {
     },
 
     deleteItemConfirm() {
+      this.endDelete(this.editedItem);
       this.products.splice(this.editedIndex, 1);
       this.closeDelete();
     },
