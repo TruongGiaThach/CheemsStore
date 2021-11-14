@@ -1,4 +1,5 @@
 <template>
+  <div class="">
   <v-data-table
     :headers="headers"
     :items="receipts"
@@ -74,6 +75,7 @@
       </v-btn>
     </template>
   </v-data-table>
+  </div>
 </template>
 
 <style scoped>
@@ -221,6 +223,9 @@
         }
         this.close()
       },
+
+
+
     },
   }
 </script>

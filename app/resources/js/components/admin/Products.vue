@@ -113,7 +113,7 @@
         </td>
       </template>
       <template v-slot:[`item.actions`]="{ item }">
-        <v-icon small class="mr-2" @click="editItem(item)"> mdi-pencil </v-icon>
+        <v-icon small class="mr-2" @click="postReceipt(item)"> mdi-pencil </v-icon>
         <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
       </template>
       <template v-slot:no-data>
@@ -293,6 +293,35 @@ export default {
       }
       this.close();
     },
+
+
+
+          //test 
+      postReceipt(item)
+    {
+        let day = new Date();
+        axios.post('/api/receipt',{
+          user_id: item._id.toString(),
+          createDay: day.toISOString().substring(0, 10),
+          total: '2',
+          VAT: '2',
+        }).then((response) => {
+          this.postDetailReceipt(response.data);
+        }).catch(error => {
+          console.log(error);
+        });
+    },
+      postDetailReceipt(item)
+      {
+          axios.post('/api/receipt_detail',{
+          receipt_id: item._id.toString(),
+          product_id: item.user_id.toString(),
+          unitPrice: '2',
+          total: '2000',
+        }).catch(error => {
+          console.log(error.response);
+        })
+      },
   },
 };
 </script>
