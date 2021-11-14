@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Receipt;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
-class ReceiptController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class ReceiptController extends Controller
     public function index()
     {
         //
-        return response()->json(Receipt::with(['receipt'])->get(),200);
+        return response()->json(Customer::all(),200);
     }
 
     /**
@@ -37,40 +37,38 @@ class ReceiptController extends Controller
     public function store(Request $request)
     {
         //
-        $receipt = Receipt::create([
-            'user_id' => $request->user_id,
-            'createDay' => $request->createDay,
-            'total' => $request->total,
-            'VAT' => $request->VAT,
+        $customer = Customer::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'number' => $request->number,
         ]);
 
         return response()->json([
-            'status' => (bool) $receipt,
-            'data'   => $receipt,
-            'message' => $receipt ? 'Receipt Created!' : 'Error Creating Receipt'
+            'status' => (bool) $customer,
+            'data'   => $customer,
+            'message' => $customer ? 'Customer Created!' : 'Error Creating Customer'
         ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Receipt $receipt
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function show(Receipt $receipt)
+    public function show(Customer $customer)
     {
         //
-        return response()->json($receipt,200);
-
+        return response()->json($customer,200); 
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Receipt $receipt
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Receipt $receipt)
+    public function edit(Customer $customer)
     {
         //
     }
@@ -79,36 +77,36 @@ class ReceiptController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Receipt $receipt
+     * @param  \App\Models\Customer $customer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Receipt $receipt)
+    public function update(Request $request, Customer $customer)
     {
         //
-        $status = $receipt->update(
-            $request->only(['user_id', 'createDay', 'total', 'VAT'])
+        $status = $customer->update(
+            $request->only(['name', 'email', 'number'])
         );
 
         return response()->json([
             'status' => $status,
-            'message' => $status ? 'Receipt Updated!' : 'Error Updating Receipt'
+            'message' => $status ? 'Customer Updated!' : 'Error Updating Customer'
         ]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Receipt $receipt
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Receipt $receipt)
+    public function destroy(Customer $customer)
     {
         //
-        $status = $receipt->delete();
+        $status = $customer->delete();
 
-        return response()->json([
-            'status' => $status,
-            'message' => $status ? 'Receipt Deleted!' : 'Error Deleting Receipt'
-        ]);
+            return response()->json([
+                'status' => $status,
+                'message' => $status ? 'Customer Deleted!' : 'Error Deleting Customer'
+            ]);
     }
 }

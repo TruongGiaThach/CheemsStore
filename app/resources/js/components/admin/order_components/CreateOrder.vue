@@ -6,12 +6,15 @@
                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-bars"></i>
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                                <a>{{category_sort.name}}</a>
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown" v-for="(cate,index) in category" :key="index">
-                                <div v-model:="cate.name">
-                                    <a class="dropdown-item" href="#">{{cate.name}}</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+                                <div>
+                                    <a class="dropdown-item" v-on:click="allCategorySort()">Tất cả</a>
+                                </div>
+                                <div v-for="(cate,index) in category" :key="index">
+                                    <a v-model:="cate.name" class="dropdown-item" v-on:click="changeCategorySort(cate)">{{cate.name}}</a>
                                 </div>
                             </div>
                         </li>
@@ -29,7 +32,7 @@
                             <div class="price">{{product.outportPrice}}</div>
                         </div>
                         <div v-model:="product.image">
-                            <img :src = "require('../../../../../../public/images/' + product.image).default">
+                            <img :src = "require('../../../../../public/images/' + product.image).default">
                         </div>
                         <div v-model:="product.name">
                             <p>{{product.name}}</p>
@@ -45,7 +48,8 @@
                             <input type="text" v-model="c_name" class="form-control" id="NameInput" placeholder="Tên khách hàng">
                         </div>
                         <div class="form-group form-group col-md-4">
-                            <input type="text" v-model="c_number" class="form-control" id="NumberInput" maxlength="10" placeholder="Số điện thoại" pattern="[0-9]">
+                            <input type="text" v-model="c_number" class="form-control" id="NumberInput" maxlength="10" placeholder="Số điện thoại" 
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
                         </div>
                     </div>
                     
@@ -87,13 +91,13 @@
                 <div class="conclusion-info">
                     <span>
                     <h5>Tổng tiền: <p>{{totalPrice}} VNĐ</p></h5>
-                    <h5>Thuế VAT: <p>{{totalPrice*0.1}} VNĐ</p></h5>
-                    <h5>Phải trả: <p>{{totalPrice + totalPrice*0.1}} VNĐ</p></h5>
+                    <h5>Thuế VAT: <p>{{vat}} VNĐ</p></h5>
+                    <h5>Phải trả: <p>{{endPrice}} VNĐ</p></h5>
                     </span>
                 </div>
                 <div class="conclusion-buttons">
                     <button type="button" class="btn btn-danger btn-block btn-cancel">Hủy</button>
-                    <button type="button" class="btn btn-success btn-block btn-finish py-5" data-toggle="modal" data-target="#ConfirmModal" v-bind:disabled="okToGo">Thanh toán </button>
+                    <button type="button" class="btn btn-success btn-block btn-finish py-5" data-toggle="modal" data-target="#ConfirmModal" v-bind:disabled="!okToGo">Thanh toán </button>
                 </div>
                 <!-- Modal -->
                 <div class="modal fade" id="ConfirmModal" tabindex="-1" role="dialog" aria-labelledby="ConfirmModalLabel" aria-hidden="true">
@@ -115,7 +119,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-                            <button type="button" class="btn btn-primary">Xác nhận</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" v-on:click="addRecepit()">Xác nhận</button>
                         </div>
                         </div>
                     </div>
@@ -131,8 +135,14 @@
             return {
                 products : [],
                 category : [],
+                customers: [],
                 items : [],
+                category_sort: {
+                    name: "Tất cả",
+                    id: "0"
+                },
                 search: '',
+                c_id: '',
                 c_name: '',
                 c_number: '',
                 c_email: '',
@@ -153,11 +163,12 @@
             })
             .catch(error => {
                 console.error(error);
-            })          
+            })         
         },
         computed: {
             filteredProducts() {
                 return this.products.filter(product => {
+                    if(this.sameCategory(product))
                     return product.name.toLowerCase().indexOf(this.search.toLowerCase()) > -1
                 })
             },
@@ -212,7 +223,72 @@
                 {
                     this.items.splice(index, 1);
                 }
-            }
+            },
+            sameCategory(product) {
+                if(this.category_sort.name == 'Tất cả') {
+                    return true;
+                }
+                else if(this.category_sort.id == product.category_id) {
+                    return true;
+                }
+                else return false;
+            },
+            allCategorySort() {
+                this.category_sort.name = 'Tất cả';
+            },
+            changeCategorySort(cate) {
+                this.category_sort.name = cate.name;
+                this.category_sort.id = cate._id;
+            },
+            //Create new user for each new receipt with new email
+            checkExistingCustomer() {
+                axios.get('/api/customer/')
+                .then(response => {
+                    this.customers = response.data
+                })
+                .catch(error => {
+                    console.error(error);
+                })  
+                for(var i = 0; i < this.customers.length; i++){
+                    if(this.customers[i].email == this.c_email){
+                        this.c_id = this.customers[i]._id;
+                        return true;
+                    }
+                }
+                return false;
+            },
+            newCustomer() {
+                let name = this.c_name;
+                let email = this.c_email;
+                let number = this.c_number;
+                axios.post("/api/customer/", {name, email, number})
+            },
+            reloadCustomer() {
+                axios.get('/api/customer/')
+                .then(response => {
+                    this.customers = response.data
+                })
+                .catch(error => {
+                    console.error(error);
+                })
+            },
+            currentDate() {
+                const current = new Date();
+                const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+                return date;
+            },
+            addRecepit() {
+
+                this.newCustomer();
+                this.reloadCustomer();
+
+                let user_id = this.customers[this.customers.length - 1]._id;
+                let createDay = this.currentDate();
+                let total = this.endPrice;
+                let VAT = this.vat;
+                axios.post("/api/receipt/", {user_id, createDay, total, VAT})
+
+            },
         }
     }
 </script>

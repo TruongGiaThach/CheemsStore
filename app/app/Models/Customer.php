@@ -7,15 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
-
-class Category extends Eloquent
+class Customer extends Eloquent
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'category';
+    protected $table = 'customers';
     protected $connection = 'mongodb';
-    protected $colection = 'category';
+    protected $colection = 'customers';
     protected $fillable = [
-        'name','description'
+        'name', 'email', 'number'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'email');
+    }
 }
