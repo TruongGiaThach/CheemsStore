@@ -39,6 +39,7 @@ class ProductController extends Controller
         //
         $product = Product::create([
             'name' => $request->name,
+            'image' => $request->image,
             'amount' => $request->amount,
             'importPrice' => $request->importPrice,
             'outportPrice' => $request->outportPrice,
