@@ -98,6 +98,23 @@
               </v-card-actions>
             </v-card>
           </v-dialog>
+          <v-dialog v-model="dialogDelete" max-width="500px">
+            <v-card>
+              <v-card-title class="text-h5"
+                >Are you sure you want to delete this item?</v-card-title
+              >
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="blue darken-1" text @click="closeDelete"
+                  >Cancel</v-btn
+                >
+                <v-btn color="blue darken-1" text @click="deleteItemConfirm"
+                  >OK</v-btn
+                >
+                <v-spacer></v-spacer>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
         </v-toolbar>
       </template>
       <template v-slot:expanded-item="{ headers, item }">
@@ -143,8 +160,7 @@
           </div>
         </td>
       </template>
-        <template v-slot:[`item.actions`]="{ item }">
-        
+      <template v-slot:[`item.actions`]="{ item }">
         <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
       </template>
       <template v-slot:no-data>
@@ -170,7 +186,7 @@ export default {
         { text: "Role", value: "role" },
         { text: "Actions", value: "actions", sortable: false },
       ],
-
+      state: true,
       users: [],
       staffs: [],
       editingItem: null,
@@ -204,7 +220,7 @@ export default {
   },
   computed: {
     formTitle() {
-      return "Thêm nhân viên"
+      return "Thêm nhân viên";
     },
   },
 
@@ -225,7 +241,7 @@ export default {
       .get("/api/users")
       .then((response) => {
         this.users = response.data;
-        console.log(this.users[1].email);
+        console.log(this.users[1].id);
       })
       .catch((error) => {
         console.error(error);
@@ -245,7 +261,7 @@ export default {
         .get("/api/users")
         .then((response) => {
           this.users = response.data;
-          console.log(this.users[1].email);
+          console.log(this.users[1].id);
         })
         .catch((error) => {
           console.error(error);
@@ -259,33 +275,32 @@ export default {
           console.error(error);
         });
     },
-    editItem(item) {
-      this.editedIndex = this.users.indexOf(item);
-      this.editedItem = Object.assign({}, item);
-      this.dialog = true;
-    },
 
     deleteItem(item) {
-      this.editedIndex = this.desserts.indexOf(item);
       this.editedItem = Object.assign({}, item);
       this.dialogDelete = true;
+      console.log("deleteItem");
     },
 
     deleteItemConfirm() {
-      this.desserts.splice(this.editedIndex, 1);
+      this.deleteUser();
+      this.deleteStaff();
+      console.log("deleteItemConfirm");
       this.closeDelete();
     },
-
+    //close save user
     close() {
       this.dialog = false;
+      this.initialize();
       this.$nextTick(() => {
         this.editedItem = Object.assign({}, this.defaultItem);
         this.editedIndex = -1;
       });
     },
-
+    //close delete user
     closeDelete() {
       this.dialogDelete = false;
+      this.initialize();
       this.$nextTick(() => {
         this.editedItem = Object.assign({}, this.defaultItem);
         this.editedIndex = -1;
@@ -293,12 +308,64 @@ export default {
     },
 
     save() {
-      if (this.editedIndex > -1) {
-        Object.assign(this.desserts[this.editedIndex], this.editedItem);
-      } else {
-        this.desserts.push(this.editedItem);
+      //add staff
+      this.state = true;
+      axios
+        .post("/api/staffs/", {
+          name: this.editedItem.name,
+          email: this.editedItem.email,
+          cmnd: this.editedItem.cmnd,
+          numOfDayOff: this.editedItem.numOfDayOff,
+          salary: this.editedItem.salary,
+          dateBegin: this.editedItem.dateBegin,
+        })
+        .catch((response) => {
+          if (response.status == false) {
+            alert("Lỗi bất ngờ khi thêm nhân viên");
+            this.state = false;
+          }
+        });
+      //add user
+      if (this.state == true) {
+        axios
+          .post("/api/register", {
+            name: this.editedItem.name,
+            email: this.editedItem.email,
+            password: this.editedItem.password,
+            c_password: this.editedItem.c_password,
+            role: "staff",
+          })
+          .catch((response) => {
+            if (response.user == null) {
+              alert("Lỗi bất ngờ khi thêm tài khoản");
+              this.state = false;
+            }
+          });
+      }
+      // delete staff
+      if (this.state == false) {
+        this.deleteStaff();
       }
       this.close();
+    },
+    deleteStaff() {
+      axios
+        .delete(`/api/staffs/${this.editedItem.email}`)
+        .then((response) => {
+          if (response.status == true) {
+            alert("Đã xóa nhân viên");
+          }
+        });
+    },
+    deleteUser() {
+      console.log(this.editedItem.email),
+      
+        axios
+          .delete(`/api/users/${this.editedItem.email}`)
+          .then((response) => {
+            console.log(response.message);
+          });
+          
     },
     clickRow(item, event) {
       if (event.isExpanded) {

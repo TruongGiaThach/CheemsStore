@@ -15,11 +15,13 @@ Route::get('/staffs', 'StaffController@index');
 Route::get('/staffs/{staff}', 'StaffController@show');
 Route::post('/staffs', 'StaffController@store');
 Route::patch('staffs/{staff}','StaffController@update');
+Route::delete('staffs/{email}','StaffController@destroy');
 
 
 Route::get('/users','UserController@index');
 Route::get('users/{user}','UserController@show');
 Route::patch('users/{user}','UserController@update');
+Route::delete('users/{email}','UserController@destroy');
 Route::get('users/{user}/orders','UserController@showOrders');
 Route::patch('products/{product}/units/add','ProductController@updateUnits');
 Route::patch('orders/{order}/deliver','OrderController@deliverOrder');

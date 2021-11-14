@@ -45,12 +45,12 @@ class UserController extends Controller
             return response()->json(['error' => $validator->errors()], 401);
         }
 
-        $data = $request->only(['name', 'email', 'password']);
+        $data = $request->only(['name', 'email', 'password','role']);
         $data['password'] = bcrypt($data['password']);
-
+        
+        
         $user = User::create($data);
-        $user->role = "staff";
-
+        
         return response()->json([
             'user' => $user,
             'token' => $user->createToken('bigStore')->accessToken,
@@ -72,7 +72,16 @@ class UserController extends Controller
             $this->successStatus
         );
     }
-
+    public function destroy($email)
+    {
+        $user = User::where('email',$email);
+        $status = $user->forceDelete();
+        return response()->json([
+            'status' => $status,
+            'message' => $status ? 'User Deleted!' : 'Error Deleting User'
+        ]);
+       
+    }
     public function showOrders(User $user)
     {
         return response()->json($user->orders()->with(['product'])->get());

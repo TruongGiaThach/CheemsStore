@@ -51,7 +51,7 @@ class StaffController extends Controller
      * @param  \App\Models\Staff  $staff
      * @return \Illuminate\Http\Response
      */
-    public function show(Staff $staff)
+    public function show(Request $request)
     {
         //
         return response()->json($staff,200); 
@@ -96,14 +96,15 @@ class StaffController extends Controller
      * @param  \App\Models\Staff  $staff
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Staff $staff)
+    public function destroy($email)
     {
         //
-        $status = $staff->delete();
-
-            return response()->json([
-                'status' => $status,
-                'message' => $status ? 'Staff Deleted!' : 'Error Deleting Staff'
-            ]);
+        
+        $staff = Staff::where('email',$email)->forceDelete();
+        
+        return response()->json([
+            'status' => $staff,
+            'message' => $staff ? 'Staff Deleted!' : 'Error Deleting Staff'
+        ]);
     }
 }
