@@ -116,6 +116,7 @@ Step-5 : Run the command => $ sudo npm run watch
 ## Một số lưu ý khi thao tác database với mongo, ae bết thêm chỗ nào update hoặc thêm vào cho mn đỡ mò:
 - https://github.com/jenssegers/laravel-mongodb
 - https://tech.osteel.me/posts/you-dont-need-laravel-sail#extending-laravel-sail
+- thêm xóa sửa : https://www.javatpoint.com/mongodb-crud-in-laravel
 - save hình ảnh https://www.codewall.co.uk/upload-image-to-database-using-laravel-tutorial-with-example/
 ## Tips (thêm link vào đây, chú ý nội dung học thuật hoặc chia sẻ kiến thức:
 - https://chungnguyen.xyz/posts/code-laravel-lam-sao-cho-chuan
