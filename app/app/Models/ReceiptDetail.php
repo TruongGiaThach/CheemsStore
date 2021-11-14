@@ -17,7 +17,7 @@ class ReceiptDetail extends Eloquent
     protected $fillable = [
         'receipt_id','product_id','unitPrice','total',
     ];
-
+    protected $table = 'receipt_detail';
     public function product()
     {
         return $this->belongsTo(Product::class, 'product_id');

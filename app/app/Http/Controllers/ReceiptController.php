@@ -15,7 +15,7 @@ class ReceiptController extends Controller
     public function index()
     {
         //
-        return response()->json(Receipt::with(['receipt'])->get(),200);
+        return response()->json(Receipt::all(),200);
     }
 
     /**
@@ -44,8 +44,7 @@ class ReceiptController extends Controller
             'VAT'  => $request -> VAT,
         ]);
 
-        return response()->json([
-        ]);
+        return response()->json($receipt);
     }
 
     /**

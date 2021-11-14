@@ -1,7 +1,7 @@
 <template>
   <v-data-table
     :headers="headers"
-    :items="products"
+    :items="receipts"
     sort-by="calories"
     class="elevation-1"
   >
@@ -9,7 +9,7 @@
       <v-toolbar
         flat
       >
-        <v-toolbar-title>My CRUD</v-toolbar-title>
+        <v-toolbar-title class="info--text" >ORDERS LIST</v-toolbar-title>
         <v-divider
           class="mx-4"
           inset
@@ -20,95 +20,29 @@
           v-model="dialog"
           max-width="500px"
         >
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn
-              color="primary"
-              dark
-              class="mb-2"
-              v-bind="attrs"
-              v-on="on"
-            >
-              New Item
-            </v-btn>
-          </template>
           <v-card>
-            <v-card-title>
-              <span class="text-h5">{{ formTitle }}</span>
+            <v-card-title class="bg-info"> 
+              <span class="text-h5 mx-auto white--text" >RECEIPT DETAILS</span>
             </v-card-title>
 
             <v-card-text>
               <v-container>
-                <v-row>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.name"
-                      label="Dessert name"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.calories"
-                      label="Calories"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.fat"
-                      label="Fat (g)"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.carbs"
-                      label="Carbs (g)"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.protein"
-                      label="Protein (g)"
-                    ></v-text-field>
-                  </v-col>
-                </v-row>
+                <div class="">
+                  <span>Tên:</span>
+                  <span class="text-h7">  Dũng kun </span>
+                </div>
+                <v-data-table
+                  v-model="tableDetail"
+                  :headers="headDetail"
+                  :items="tableDetail"
+                  hide-default-footer
+                  class="elevation-1"
+                ></v-data-table>
               </v-container>
             </v-card-text>
-
             <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn
-                color="blue darken-1"
-                text
-                @click="close"
-              >
-                Cancel
-              </v-btn>
-              <v-btn
-                color="blue darken-1"
-                text
-                @click="save"
-              >
-                Save
-              </v-btn>
+                <v-spacer></v-spacer>
+                <b-button  pill variant="info" @click ="close">Cancel</b-button>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -126,19 +60,11 @@
       </v-toolbar>
     </template>
     <template v-slot:[`item.actions`]="{ item }">
-      <v-icon
-        small
-        class="mr-2"
-        @click="postReceipt(item)"
-      >
-        mdi-pencil
-      </v-icon>
-      <v-icon
-        small
-        @click="deleteItem(item)"
-      >
-        mdi-delete
-      </v-icon>
+      <b-button 
+      variant="outline-info" 
+      class="hovertext" 
+      @click="editItem(item)"
+      >Detail</b-button>
     </template>
     <template v-slot:no-data>
       <v-btn
@@ -149,28 +75,69 @@
     </template>
   </v-data-table>
 </template>
+
+<style scoped>
+  .hovertext:hover {
+    color: white;
+  }
+</style>
+
 <script>
   export default {
     data: () => ({
       dialog: false,
       dialogDelete: false,
-      products: [],
+      receipts: [],
+      receiptdetails: [],
+      products:[],
+      tableDetail:[
+        {
+          name: "Máy rung",
+          units: 10,
+          total: 2000,
+        },
+        {
+          name: "Máy rung",
+          units: 10,
+          total: 2000,
+        },
+        {
+          name: "Máy rung",
+          units: 10,
+          total: 2000,
+        },
+      ],
       search: "",
       editingItem: null,
       addingProduct: null,
       lazy: `https://goo.gl/jbJWmK`,
-      headers: [
+      headDetail: [
         {
-          text: "Name",
+          text: "Product",
           align: "left",
           sortable: false,
           value: "name",
+          class: "info--text",
         },
-        { text: "Units", value: "units" },
-        { text: "Price", value: "price" },
-        { text: "Actions", value: "actions", sortable: false },
+        { text: "Units", value: "units", class: "info--text" },
+        { text: "Total", value: "total", class: "info--text" },
+      ],
+      headers: [
+        {
+          text: "ID orders",
+          align: "left",
+          sortable: false,
+          value: "_id",
+          class: "info--text",
+        },
+        { text: "Total", value: "total", class: "info--text" },
+        { text: "VAT", value: "VAT", class: "info--text" },
+        { text: "Creation date", value: "createDay", class: "info--text" },
+        { text: "Detail", value: "actions", sortable: false, class: "info--text" },
       ],
       editedIndex: -1,
+      detailIndex: -1, 
+      detailItem:[],
       editedItem: {
         name: "",
         units: 0,
@@ -187,12 +154,6 @@
       },
     }),
 
-    computed: {
-      formTitle () {
-        return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
-      },
-    },
-
     watch: {
       dialog (val) {
         val || this.close()
@@ -202,45 +163,50 @@
       },
     },
     beforeMount() {
-        axios
-          .get("/api/products")
+      axios
+          .get("/api/receipt")
           .then((response) => {
-            this.products = response.data;
+            this.receipts = response.data;
           })
           .catch((error) => {
             console.error(error);
           });
+      axios
+        .get("/api/products")
+        .then((response) => {
+          this.products = response.data;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+      axios
+        .get("/api/receipt_detail")
+        .then((response) => {
+          this.receiptdetails = response.data;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     },
 
     methods: {
 
       editItem (item) {
-        this.editedIndex = this.products.indexOf(item)
-        this.editedItem = Object.assign({}, item)
+        // lay index cua receipt detail 
+        this.detailIndex = this.receiptdetails.map(function(e){
+          return e.receipt_id;
+        }).indexOf(item._id);
+        this.detailItem = Object.assign({}, this.receiptdetails[this.detailIndex]);
+
+        // lay index cua product
+        this.editedIndex = this.products.map(function(e){
+          return e._id;
+        }).indexOf(this.detailItem.product_id);
+        this.editedItem = Object.assign({}, this.products[this.editedIndex]);
         this.dialog = true
       },
-
-      deleteItem (item) {
-        this.editedIndex = this.products.indexOf(item)
-        this.editedItem = Object.assign({}, item)
-        this.dialogDelete = true
-      },
-
-      deleteItemConfirm () {
-        this.products.splice(this.editedIndex, 1)
-        this.closeDelete()
-      },
-
       close () {
         this.dialog = false
-        this.$nextTick(() => {
-          this.editedItem = Object.assign({}, this.defaultItem)
-          this.editedIndex = -1
-        })
-      },
-
-      closeDelete () {
-        this.dialogDelete = false
         this.$nextTick(() => {
           this.editedItem = Object.assign({}, this.defaultItem)
           this.editedIndex = -1
@@ -255,31 +221,6 @@
         }
         this.close()
       },
-
-      // receipt
-    postReceipt(item)
-    {
-        let day = new Date();
-        let index;
-        axios.post('/api/receipt',{
-          user_id: item._id.toString(),
-          createDay: day.toISOString().substring(0, 10),
-          total: '2',
-          VAT: '2',
-        }).then((response) => {
-          index = response.data.total;
-        }).catch(error => {
-          console.log(error);
-        });
-        axios.post('/api/receipt_detail',{
-          'receipt_id': "dungkun",
-          'product_id': item._id.toString(),
-          'unitPrice': '2',
-          'total': '2000',
-        }).catch(error => {
-          console.log(error.response);
-        })
-    }
     },
   }
 </script>
