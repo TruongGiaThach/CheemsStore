@@ -327,11 +327,11 @@
     margin: 0.15em;
     border: solid 0.04em rgba(128, 128, 128, 0.4);
     background-color: white;
+    overflow: hidden;
 }
 .product-search-menu .product-box:active{
    transform:scale(0.95);
    box-shadow: 0.4em 0.4em 0.2em grey;
-   overflow: hidden;
 }
 .product-search-menu .product-box .price{
     position: absolute;
