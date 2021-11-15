@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import CreateOrder from '../order-components/createOrder.vue'
+import CreateOrder from './order_components/createOrder.vue'
   export default {
     data () {
       return {

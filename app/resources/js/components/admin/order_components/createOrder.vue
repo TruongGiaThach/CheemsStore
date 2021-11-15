@@ -20,7 +20,7 @@
                         </li>
                     </ul>
                         <form class="form-inline search-box">
-                            <input class="form-control mr-sm-2 " v-model="search" type="search" placeholder="Nhập từ khóa cần tìm" aria-label="Search" size="70">
+                            <input class="form-control mr-sm-2 " v-model="search" type="search" placeholder="Nhập từ khóa cần tìm" aria-label="Search" size="40">
                         </form>
                     </div>
             </nav>
@@ -32,7 +32,7 @@
                             <div class="price">{{product.outportPrice}}</div>
                         </div>
                         <div v-model:="product.image">
-                            <img :src = "require('../../../../public/images/' + product.image).default">
+                            <img :src = "require('../../../../../public/images/' + product.image).default">
                         </div>
                         <div v-model:="product.name">
                             <p>{{product.name}}</p>
@@ -295,7 +295,6 @@
 ************************/
 .create-order{
     position: relative;
-    height: 100vh
 }
 .product-search-menu{
     position: relative;
@@ -362,8 +361,6 @@
 .sell-menu .customer-info{
     padding-left: 1em;
     padding-right: 1em;
-    padding-top: 0.5em;
-    height:15%;
 }
 .sell-menu .product-list{
     height: 60%;
