@@ -17,10 +17,14 @@ Route::get('/staffs', 'StaffController@index');
 Route::get('/staffs/{staff}', 'StaffController@show');
 Route::post('/staffs', 'StaffController@store');
 Route::patch('staffs/{staff}','StaffController@update');
+//receipt
 Route::get('/receipt', 'ReceiptController@index');
 Route::get('/receipt_detail', 'ReceiptDetailController@index');
 Route::post('/receipt', 'ReceiptController@store');
 Route::post('/receipt_detail', 'ReceiptDetailController@store');
+//customer
+Route::get('/customer', 'CustomerController@index');
+Route::post('/customer', 'CustomerController@store');
 
 Route::get('/users','UserController@index');
 Route::get('users/{user}','UserController@show');

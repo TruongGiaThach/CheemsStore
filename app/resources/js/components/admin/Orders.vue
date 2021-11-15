@@ -44,6 +44,7 @@
             <v-card-actions>
                 <v-spacer></v-spacer>
                 <b-button  pill variant="info" @click ="close">Cancel</b-button>
+                <b-button  pill variant="info" @click ="printDetail">Print</b-button>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -192,7 +193,9 @@
     },
 
     methods: {
-
+      printDetail(){
+        window.print();
+      },
       editItem (item) {
         // lay index cua receipt detail 
         this.detailIndex = this.receiptdetails.map(function(e){
