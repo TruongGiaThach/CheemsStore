@@ -12,6 +12,7 @@ class ReceiptDetail extends Eloquent
 {
     use HasFactory, SoftDeletes;
 
+    protected $table = 'receipt_detail';
     protected $connection = 'mongodb';
     protected $colection = 'receipt_detail';
     protected $fillable = [

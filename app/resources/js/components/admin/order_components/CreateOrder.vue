@@ -119,7 +119,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal" v-on:click="addRecepit()">Xác nhận</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" v-on:click="checkExistingCustomer()">Xác nhận</button>
                         </div>
                         </div>
                     </div>
@@ -136,7 +136,6 @@
             return {
                 products : [],
                 category : [],
-                customers: [],
                 items : [],
                 category_sort: {
                     name: "Tất cả",
@@ -245,49 +244,47 @@
             checkExistingCustomer() {
                 axios.get('/api/customer/')
                 .then(response => {
-                    this.customers = response.data
+                    for(var i = 0; i < response.data.length; i++){
+                        if(response.data[i].email == this.c_email){
+                            return this.addRecepit(response.data[i]);
+                        }
+                    }return this.newCustomer();
                 })
                 .catch(error => {
                     console.error(error);
                 })  
-                for(var i = 0; i < this.customers.length; i++){
-                    if(this.customers[i].email == this.c_email){
-                        this.c_id = this.customers[i]._id;
-                        return true;
-                    }
-                }
-                return false;
             },
             newCustomer() {
-                let name = this.c_name;
-                let email = this.c_email;
-                let number = this.c_number;
-                axios.post("/api/customer/", {name, email, number})
-                    .then(response => {this.addRecepit(response._id)
+                axios.post("/api/customer/", {
+                    name: this.c_name, 
+                    email: this.c_email, 
+                    number: this.c_number,
+                    })
+                    .then(response => {this.addRecepit(response.data.data)
                 })
             },
-            reloadCustomer() {
-                axios.get('/api/customer/')
-                .then(response => {
-                    this.customers = response.data
+            addRecepit(item) {
+                let day = new Date();
+                axios.post('/api/receipt/',{
+                user_id: item._id.toString(),
+                createDay: day.toISOString().substring(0, 10),
+                total: this.endPrice,
+                VAT: this.vat,
                 })
-                .catch(error => {
-                    console.error(error);
+                .then(response => {this.addRecepitDetail(response.data.data)
                 })
             },
-            currentDate() {
-                const current = new Date();
-                const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
-                return date;
-            },
-            addRecepit(id) {
-                let user_id = id;
-                let createDay = this.currentDate();
-                let total = this.endPrice;
-                let VAT = this.vat;
-                axios.post("/api/receipt/", {user_id, createDay, total, VAT})
-
-            },
+            addRecepitDetail(rec) {
+                console.log(rec);
+                for(var i = 0; i < this.items.length; i++){
+                    axios.post('/api/receipt_detail/',{
+                        receipt_id: rec._id.toString(),
+                        product_id: this.items[i].id.toString(),
+                        unitPrice: this.items[i].price.toString(),
+                        amount: this.items[i].amount.toString(),
+                    }).then(response => {console.log(response.data.data)})
+                }
+            }
         }
     }
 </script>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ReceiptDetail;
 use Illuminate\Http\Request;
 
 class ReceiptDetailController extends Controller
