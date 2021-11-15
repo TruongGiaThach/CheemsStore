@@ -20,7 +20,7 @@
                         </li>
                     </ul>
                         <form class="form-inline search-box">
-                            <input class="form-control mr-sm-2 " v-model="search" type="search" placeholder="Nhập từ khóa cần tìm" aria-label="Search" size="40">
+                            <input class="form-control mr-sm-2 " v-model="search" type="search" placeholder="Nhập từ khóa cần tìm" aria-label="Search" size="50">
                         </form>
                     </div>
             </nav>
@@ -345,6 +345,8 @@
 .product-search-menu .product-box img{
     height: 9em;
     width: 9em;
+    max-height: 100%;
+    max-width: 100%;
 }
 .product-search-menu .product-box p{
     height: 2.87em;
