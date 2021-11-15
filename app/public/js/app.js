@@ -3564,6 +3564,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "create-order",
   data: function data() {
     return {
       products: [],
@@ -3690,6 +3691,8 @@ __webpack_require__.r(__webpack_exports__);
       return false;
     },
     newCustomer: function newCustomer() {
+      var _this4 = this;
+
       var name = this.c_name;
       var email = this.c_email;
       var number = this.c_number;
@@ -3697,13 +3700,15 @@ __webpack_require__.r(__webpack_exports__);
         name: name,
         email: email,
         number: number
+      }).then(function (response) {
+        _this4.addRecepit(response._id);
       });
     },
     reloadCustomer: function reloadCustomer() {
-      var _this4 = this;
+      var _this5 = this;
 
       axios.get('/api/customer/').then(function (response) {
-        _this4.customers = response.data;
+        _this5.customers = response.data;
       })["catch"](function (error) {
         console.error(error);
       });
@@ -3713,10 +3718,8 @@ __webpack_require__.r(__webpack_exports__);
       var date = "".concat(current.getDate(), "/").concat(current.getMonth() + 1, "/").concat(current.getFullYear());
       return date;
     },
-    addRecepit: function addRecepit() {
-      this.newCustomer();
-      this.reloadCustomer();
-      var user_id = this.customers[this.customers.length - 1]._id;
+    addRecepit: function addRecepit(id) {
+      var user_id = id;
       var createDay = this.currentDate();
       var total = this.endPrice;
       var VAT = this.vat;
@@ -8719,7 +8722,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/***********************\n*******Body CSS*********\n************************/\n.create-order[data-v-c8c9f916]{\n    position: relative;\n    height: 100vh\n}\n.product-search-menu[data-v-c8c9f916]{\n    position: relative;\n    height: 100%;\n    width: 60%;\n    display: inline-block;\n}\n.sell-menu[data-v-c8c9f916]{\n    position: absolute;\n    height: 100%;\n    width: 40%;\n    display: inline-block;\n}\n/*******************************\n*******Product menu CSS*********\n********************************/\n.product-search-menu .navbar[data-v-c8c9f916]{\n    height: 7%;\n}\n.product-search-menu .products-showcase[data-v-c8c9f916]{\n    height: 93%;\n    overflow: auto;\n}\n.product-search-menu .box-container[data-v-c8c9f916]{\n    position: relative;\n    width: 20%;\n    display: inline-block;\n}\n.product-search-menu .product-box[data-v-c8c9f916]{\n    margin: 0.15em;\n    border: solid 0.04em rgba(128, 128, 128, 0.4);\n    background-color: white;\n}\n.product-search-menu .product-box[data-v-c8c9f916]:active{\n   transform:scale(0.95);\n   box-shadow: 0.4em 0.4em 0.2em grey;\n}\n.product-search-menu .product-box .price[data-v-c8c9f916]{\n    position: absolute;\n    right: 0;\n    background-color: darkcyan;\n    color: white;\n    padding-right: 0.2em;\n    padding-left: 0.4em;\n    border-top-left-radius: 10px;\n    border-bottom-left-radius: 10px;\n}\n.product-search-menu .product-box img[data-v-c8c9f916]{\n    height: 9em;\n    width: 9em;\n}\n.product-search-menu .product-box p[data-v-c8c9f916]{\n    height: 2.87em;\n    overflow: hidden;\n    font-weight: bold;\n}\n/****************************\n*******Sell menu CSS*********\n*****************************/\n.sell-menu[data-v-c8c9f916]{\n    Border-left: solid 0.2em darkcyan;\n}\n.sell-menu .customer-info[data-v-c8c9f916]{\n    padding-left: 1em;\n    padding-right: 1em;\n    padding-top: 0.5em;\n    height:15%;\n}\n.sell-menu .product-list[data-v-c8c9f916]{\n    height: 60%;\n    overflow: scroll;\n}\n.sell-menu .conclusion[data-v-c8c9f916]{\n    height: 25%;\n    background: rgba(0, 139, 139, 0.3);\n}\n.sell-menu table #stt[data-v-c8c9f916]{\n    width: 2%;\n}\n.sell-menu table #name[data-v-c8c9f916]{\n    width: 45%;\n}\n.sell-menu table #amount[data-v-c8c9f916]{\n    width: 15%;\n}\n.sell-menu table #amount input[data-v-c8c9f916]{\n    width: 100%;\n}\n.sell-menu table #price[data-v-c8c9f916]{\n    width: 35%;\n}\n.sell-menu table #delete[data-v-c8c9f916]{\n    width: 3%;\n}\n.sell-menu table #delete .btn[data-v-c8c9f916]{\n    color:red;\n    font-weight: 900;\n}\n/*****************************\n*******Conclusion CSS*********\n******************************/\n.conclusion[data-v-c8c9f916]{\n    position: relative;\n    padding: 1em;\n}\n.conclusion .conclusion-info[data-v-c8c9f916]{\n    position: relative;\n    width: 80%;\n    display: inline-block;\n}\n.conclusion .conclusion-buttons[data-v-c8c9f916]{\n    position: absolute;\n    width: 20%;\n    display: inline-block;\n}\n.conclusion .conclusion-buttons .btn[data-v-c8c9f916]{\n    font-weight: bold;\n}\n.conclusion .conclusion-info h5[data-v-c8c9f916]{\n    font-weight: bold;\n    font-size: 120%;\n    display: inline;\n}\n.conclusion .conclusion-info p[data-v-c8c9f916]{\n    padding-left: 3em;\n    color:darkgreen\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/***********************\n*******Body CSS*********\n************************/\n.create-order[data-v-c8c9f916]{\n    position: relative;\n    height: 100vh\n}\n.product-search-menu[data-v-c8c9f916]{\n    position: relative;\n    height: 100%;\n    width: 60%;\n    display: inline-block;\n}\n.sell-menu[data-v-c8c9f916]{\n    position: absolute;\n    height: 100%;\n    width: 40%;\n    display: inline-block;\n}\n/*******************************\n*******Product menu CSS*********\n********************************/\n.product-search-menu .navbar[data-v-c8c9f916]{\n    height: 7%;\n}\n.product-search-menu .products-showcase[data-v-c8c9f916]{\n    height: 93%;\n    overflow: auto;\n}\n.product-search-menu .box-container[data-v-c8c9f916]{\n    position: relative;\n    width: 20%;\n    display: inline-block;\n}\n.product-search-menu .product-box[data-v-c8c9f916]{\n    margin: 0.15em;\n    border: solid 0.04em rgba(128, 128, 128, 0.4);\n    background-color: white;\n}\n.product-search-menu .product-box[data-v-c8c9f916]:active{\n   transform:scale(0.95);\n   box-shadow: 0.4em 0.4em 0.2em grey;\n}\n.product-search-menu .product-box .price[data-v-c8c9f916]{\n    position: absolute;\n    right: 0;\n    background-color: darkcyan;\n    color: white;\n    padding-right: 0.2em;\n    padding-left: 0.4em;\n    border-top-left-radius: 10px;\n    border-bottom-left-radius: 10px;\n}\n.product-search-menu .product-box img[data-v-c8c9f916]{\n    height: 9em;\n    width: 9em;\n}\n.product-search-menu .product-box p[data-v-c8c9f916]{\n    height: 2.87em;\n    overflow: hidden;\n    font-weight: bold;\n}\n/****************************\n*******Sell menu CSS*********\n*****************************/\n.sell-menu[data-v-c8c9f916]{\n    Border-left: solid 0.2em darkcyan;\n}\n.sell-menu .customer-info[data-v-c8c9f916]{\n    padding-left: 1em;\n    padding-right: 1em;\n    padding-top: 0.5em;\n    height:15%;\n}\n.sell-menu .product-list[data-v-c8c9f916]{\n    height: 60%;\n    overflow: scroll;\n}\n.sell-menu .conclusion[data-v-c8c9f916]{\n    height: 25%;\n    background: rgba(0, 139, 139, 0.3);\n}\n.sell-menu table #stt[data-v-c8c9f916]{\n    width: 2%;\n}\n.sell-menu table #name[data-v-c8c9f916]{\n    width: 45%;\n}\n.sell-menu table #amount[data-v-c8c9f916]{\n    width: 15%;\n}\n.sell-menu table #amount input[data-v-c8c9f916]{\n    width: 100%;\n}\n.sell-menu table #price[data-v-c8c9f916]{\n    width: 35%;\n}\n.sell-menu table #delete[data-v-c8c9f916]{\n    width: 3%;\n}\n.sell-menu table #delete .btn[data-v-c8c9f916]{\n    color:red;\n    font-weight: 900;\n}\n/*****************************\n*******Conclusion CSS*********\n******************************/\n.conclusion[data-v-c8c9f916]{\n    position: relative;\n    padding: 1em;\n}\n.conclusion .conclusion-info[data-v-c8c9f916]{\n    position: relative;\n    width: 80%;\n    display: inline-block;\n}\n.conclusion .conclusion-buttons[data-v-c8c9f916]{\n    position: absolute;\n    width: 20%;\n    display: inline-block;\n}\n.conclusion .conclusion-buttons .btn[data-v-c8c9f916]{\n    font-weight: bold;\n}\n.conclusion .conclusion-info h5[data-v-c8c9f916]{\n    font-weight: bold;\n    font-size: 120%;\n    display: inline;\n}\n.conclusion .conclusion-info p[data-v-c8c9f916]{\n    padding-left: 3em;\n    color:darkgreen\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -131,6 +131,7 @@
 </template>
 <script>
 	export default {
+        name: "create-order",
         data(){
             return {
                 products : [],
@@ -262,6 +263,8 @@
                 let email = this.c_email;
                 let number = this.c_number;
                 axios.post("/api/customer/", {name, email, number})
+                    .then(response => {this.addRecepit(response._id)
+                })
             },
             reloadCustomer() {
                 axios.get('/api/customer/')
@@ -277,12 +280,8 @@
                 const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
                 return date;
             },
-            addRecepit() {
-
-                this.newCustomer();
-                this.reloadCustomer();
-
-                let user_id = this.customers[this.customers.length - 1]._id;
+            addRecepit(id) {
+                let user_id = id;
                 let createDay = this.currentDate();
                 let total = this.endPrice;
                 let VAT = this.vat;
