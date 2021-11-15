@@ -12,6 +12,7 @@ class Category extends Eloquent
 {
     use HasFactory, SoftDeletes;
 
+    protected $table = 'category';
     protected $connection = 'mongodb';
     protected $colection = 'category';
     protected $fillable = [

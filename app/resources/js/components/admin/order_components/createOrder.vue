@@ -188,7 +188,7 @@
                 return (this.totalPrice + this.vat);
             },
             okToGo() {
-                if(this.c_name != '' && this.c_number != '' && this.c_email != '' && this.items.length > 0){
+                if(this.c_name != '' && this.c_number.length == 10 && this.c_email != '' && this.items.length > 0){
                     return true;
                 }else return false;
             }    
@@ -285,7 +285,7 @@
                         product_id: this.items[i].id.toString(),
                         unitPrice: this.items[i].price.toString(),
                         amount: this.items[i].amount.toString(),
-                    }).then(response => {console.log(response.data)})
+                    })
                 }
             }
         }
@@ -298,6 +298,8 @@
 ************************/
 .create-order{
     position: relative;
+    height:91vh;
+    overflow: hidden;
 }
 .product-search-menu{
     position: relative;
@@ -364,10 +366,10 @@
 .sell-menu .customer-info{
     padding-left: 1em;
     padding-right: 1em;
-    height: 15%;
+    
 }
 .sell-menu .product-list{
-    height: 60%;
+    height: 55%;
     overflow: scroll;
 }
 .sell-menu .conclusion{
@@ -402,6 +404,7 @@
 .conclusion{
     position: relative;
     padding: 1em;
+    overflow: auto;
 }
 .conclusion .conclusion-info{
     position: relative;
@@ -416,13 +419,16 @@
 .conclusion .conclusion-buttons .btn{
     font-weight: bold;
 }
+.conclusion .conclusion-buttons .btn-finish{
+    height: 6em;
+}
 .conclusion .conclusion-info h5{
+    padding-bottom: 1em;
     font-weight: bold;
     font-size: 120%;
-    display: inline;
 }
 .conclusion .conclusion-info p{
-    padding-left: 3em;
-    color:darkgreen
+    color:darkgreen;
+    display: inline;
 }
 </style>
