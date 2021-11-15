@@ -157,6 +157,12 @@
                   </v-row>
 
                   <v-row>
+                    <div class="col-md-6">
+                        <input type="file" class="form-control-file" id="image">
+                    </div>
+                  </v-row>
+
+                  <v-row>
                     <v-col cols="12">
                       <v-textarea v-model="editedItem.description" color="teal">
                         <template v-slot:label>
@@ -332,6 +338,7 @@ export default {
   },
 
   created() {
+    
     //this.initialize();
   },
 
@@ -365,7 +372,7 @@ export default {
       }
     },
     initialize() {
-      this.tableData = this.products
+      this.tableData = this.products;
     },
     getCategory() {
       axios
@@ -412,24 +419,41 @@ export default {
         })
         .catch((response) => {});
     },
-    addProduct(product) {
+    addProduct() {
+      
       this.addingProduct = null;
+      
+      let formData = new FormData();
+      formData.append('name', this.editedItem.name);
+      formData.append('amount', this.editedItem.amount);
+      formData.append('importPrice', this.editedItem.importPrice);
+      formData.append('outportPrice', this.editedItem.outportPrice);
+      formData.append('manufacture', this.editedItem.manufacture);
+      formData.append('warrantyPeriod', this.editedItem.warrantyPeriod);
+      formData.append('category_id', this.editedItem.category_id);
+      formData.append('description', this.editedItem.description);
+      formData.append('tag', this.editedItem.tag);
+      formData.append('name', this.editedItem.name);
+      
+      if (document.getElementById('image').files[0])
+      {
+        formData.append('image', document.getElementById("image").files[0]);;
+      };
+
       axios
-        .post("/api/products/", {
-          name: product.name,
-          image: product.image,
-          amount: product.amount,
-          importPrice: product.importPrice,
-          outportPrice: product.outportPrice,
-          manufacture: product.manufacture,
-          warrantyPeriod: product.warrantyPeriod,
-          category_id: product.category_id,
-          description: product.description,
-          image: product.image,
-          tag: product.tag,
+        .post("/api/products/", formData, {
+          header:{
+            'Content-Type':"multipart/form-data"
+          }
         })
+        .then(
+          res => {
+            console.log("worked");
+          }
+        )
         .catch((response) => {});
-    },
+
+},
 
     endDelete(product) {
       axios
@@ -488,11 +512,11 @@ export default {
         Object.assign(this.products[this.editedIndex], this.editedItem);
         this.endEditing(this.editedItem);
       } else {
+        this.addProduct();
         this.products.push(this.editedItem);
-        this.addProduct(this.editedItem);
       }
       this.close();
-    },
+    }
   },
 };
 </script>

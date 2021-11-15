@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Storage;
+use File;
+
 
 class ProductController extends Controller
 {
@@ -39,7 +42,6 @@ class ProductController extends Controller
         //
         $product = Product::create([
             'name' => $request->name,
-            'image' => $request->image,
             'amount' => $request->amount,
             'importPrice' => $request->importPrice,
             'outportPrice' => $request->outportPrice,
@@ -49,6 +51,19 @@ class ProductController extends Controller
             'description' => $request->description,
             'tag' => $request->tag,
         ]);
+
+        if ($request->image){
+            $image = $request->image;
+            $extension = $image->getClientOriginalExtension();
+            $name = $image->getClientOriginalName();
+            Storage::disk('public')-> put($name, File::get($image));
+            $product->image = $name;
+        }
+        else{
+            $product->image = 'default.png';
+        }
+
+        $product -> save();
 
         return response()->json($product);
     }
@@ -65,14 +80,6 @@ class ProductController extends Controller
         return response()->json($product,200); 
     }
 
-    public function uploadFile(Request $request)
-        {
-            if($request->hasFile('image')){
-                $name = time()."_".$request->file('image')->getClientOriginalName();
-                $request->file('image')->move(public_path('images'), $name);
-            }
-            return response()->json(asset("images/$name"),201);
-        }
     /**
      * Show the form for editing the specified resource.
      *

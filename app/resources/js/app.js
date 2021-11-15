@@ -8,6 +8,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import BootstrapVue from 'bootstrap-vue'
 import Vuetify from "./plugins/vuetify"; //write this new line
+
 Vue.use(VueRouter);
 Vue.use(BootstrapVue)
 
