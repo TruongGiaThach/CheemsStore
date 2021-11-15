@@ -14,7 +14,7 @@
                                     <a class="dropdown-item" v-on:click="allCategorySort()">Tất cả</a>
                                 </div>
                                 <div v-for="(cate,index) in category" :key="index">
-                                    <a v-model:="cate.name" class="dropdown-item" v-on:click="changeCategorySort(cate)">{{cate.name}}</a>
+                                    <v-a v-model="cate.name" class="dropdown-item" v-on:click="changeCategorySort(cate)">{{cate.name}}</v-a>
                                 </div>
                             </div>
                         </li>
@@ -28,13 +28,13 @@
             <div class="products-showcase">
                 <span class ="box-container" v-for="(product,index) in filteredProducts" :key="index" v-on:click="addItemToBill(product)">
                     <div class = "product-box">
-                        <div v-model:="product.outportPrice">
+                        <div>
                             <div class="price">{{product.outportPrice}}</div>
                         </div>
-                        <div v-model:="product.image">
+                        <div>
                             <img :src = "require('../../../../../public/images/' + product.image).default">
                         </div>
-                        <div v-model:="product.name">
+                        <div>
                             <p>{{product.name}}</p>
                         </div>
                     </div>
@@ -73,12 +73,12 @@
                         <tr v-for="(item,index) in items" :key="index" >
                             <td id ="stt">{{index+1}}</td>
                             <td id ="name" v-html="item.name"></td>
-                            <td id ="amount" v-model:="item.amount">
+                            <td id ="amount">
                                 <form>
                                     <input type="number" v-model="item.amount" size="4" min="1">
                                 </form>
                                 </td>
-                            <td id ="price" v-model:="item.price">{{item.price}}</td>
+                            <td id ="price" >{{item.price}}</td>
                             <td id ="delete">
                                 <button class="btn" v-on:click="deleteItem(index)">X</button>
                             </td>
@@ -260,7 +260,10 @@
                     email: this.c_email, 
                     number: this.c_number,
                     })
-                    .then(response => {this.addRecepit(response.data.data)
+                    .then(response => {
+                    console.log(response.data);
+                    this.addRecepit(response.data);
+                    
                 })
             },
             addRecepit(item) {
@@ -271,7 +274,7 @@
                 total: this.endPrice,
                 VAT: this.vat,
                 })
-                .then(response => {this.addRecepitDetail(response.data.data)
+                .then(response => {this.addRecepitDetail(response.data)
                 })
             },
             addRecepitDetail(rec) {
@@ -282,7 +285,7 @@
                         product_id: this.items[i].id.toString(),
                         unitPrice: this.items[i].price.toString(),
                         amount: this.items[i].amount.toString(),
-                    }).then(response => {console.log(response.data.data)})
+                    }).then(response => {console.log(response.data)})
                 }
             }
         }

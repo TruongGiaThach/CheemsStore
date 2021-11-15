@@ -43,11 +43,7 @@ class CustomerController extends Controller
             'number' => $request->number,
         ]);
 
-        return response()->json([
-            'status' => (bool) $customer,
-            'data'   => $customer,
-            'message' => $customer ? 'Customer Created!' : 'Error Creating Customer'
-        ]);
+        return response()->json($customer);
     }
 
     /**
