@@ -331,6 +331,7 @@
 .product-search-menu .product-box:active{
    transform:scale(0.95);
    box-shadow: 0.4em 0.4em 0.2em grey;
+   overflow: hidden;
 }
 .product-search-menu .product-box .price{
     position: absolute;
@@ -345,8 +346,6 @@
 .product-search-menu .product-box img{
     height: 9em;
     width: 9em;
-    max-height: 100%;
-    max-width: 100%;
 }
 .product-search-menu .product-box p{
     height: 2.87em;
