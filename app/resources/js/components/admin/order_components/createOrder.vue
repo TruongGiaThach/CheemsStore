@@ -118,8 +118,8 @@
                             <h5>Phải trả: <p>{{endPrice}} VNĐ</p></h5>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal" v-on:click="checkExistingCustomer()">Xác nhận</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Hủy</button>
+                            <button type="button" class="btn btn-success" data-dismiss="modal" v-on:click="checkExistingCustomer()">Xác nhận</button>
                         </div>
                         </div>
                     </div>
