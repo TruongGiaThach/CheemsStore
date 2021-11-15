@@ -322,7 +322,6 @@
     position: relative;
     width: 20%;
     display: inline-block;
-    
 }
 .product-search-menu .product-box{
     margin: 0.15em;
@@ -361,6 +360,7 @@
 .sell-menu .customer-info{
     padding-left: 1em;
     padding-right: 1em;
+    height: 15%;
 }
 .sell-menu .product-list{
     height: 60%;
