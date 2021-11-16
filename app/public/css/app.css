@@ -20,6 +20,7 @@
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
+  --chocolate: #d2691e;
   --primary: #3490dc;
   --secondary: #6c757d;
   --success: #38c172;
@@ -10093,12 +10094,6 @@ h3 {
   width: 100vw;
 }
 
-@page {
-  size: A6;
-  width: 210mm;
-  height: 147mm;
-  margin: 0;
-}
 .sheet {
   margin: 0;
   overflow: hidden;

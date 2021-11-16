@@ -8,58 +8,60 @@
     >
       <template v-slot:top>
         <v-toolbar flat>
-          <v-toolbar-title class="info--text">ORDERS LIST</v-toolbar-title>
+          <v-toolbar-title class="info--text">HÓA ĐƠN</v-toolbar-title>
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
-          <v-dialog v-model="dialog" max-width="500px">
-            <v-card id="page" class="p-3 m-2 overflow-x-hidden" max-width="500px">
-              <v-card-title class="bg-info mx-auto" max-width="500px">
-                <span class="text-h5 mx-auto white--text">RECEIPT DETAILS</span>
-              </v-card-title>
+          <v-dialog v-model="dialog" max-height="100vh" max-width="100vh">
+            <v-card class="p-3 m-2 overflow-x-hidden" max-height="inherit" max-width="inherit">
+                <div id="page">
+                    <v-card-title class="bg-info mx-auto" max-width="inherit">
+                        <span class="text-h5 mx-auto white--text">RECEIPT DETAILS</span>
+                    </v-card-title>
 
-              <v-card-text max-width="500px">
-                <v-container>
-                  <div class="clear">
-                    <div class="column2">
-                      <h3>Cheems #ID bill</h3>
-                      <p><b>Ngày thanh toán :</b> {{ createDay }}</p>
-                    </div>
-                    <div>
-                      <div class="column2 align-right">
-                        <p style="left: 0px; margin-top: 5px">
-                          <b>Trạng thái:</b>Đã thanh toán
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="clear">
-                    <div class="column2" style="margin-bottom: 5px">
-                      <span><b>customer:</b></span>
-                      <span>{{ customerItem.name }}</span>
-                    </div>
-                    <div class="column2">
-                      <span><b>email:</b></span>
-                      <span>{{ customerItem.email }}</span>
-                    </div>
-                  </div>
-                  <v-data-table max-width="500px"
-                    v-model="tableDetail"
-                    :headers="headDetail"
-                    :items="tableDetail"
-                    hide-default-footer
-                    class="elevation-1 "
-                  ></v-data-table>
-                  <br />
-                  <div class="column2">
-                    <span><h5>Tổng:</h5></span>
-                    <span>{{ total }}</span>
-                  </div>
-                </v-container>
-              </v-card-text>
-              <v-card-actions max-width="500px">
+                    <v-card-text style="right:0px" max-width="inherit">
+                        <v-container>
+                        <div class="clear">
+                            <div class="column2">
+                            <h3>Cheems #ID bill</h3>
+                            <p style="display:inline"><b>Ngày thanh toán :</b> {{ createDay }}</p>
+                            </div>
+                            <div>
+                            <div class="column2 align-left">
+                                <p style=" margin-top: 5px ;display:inline">
+                                <b>Trạng thái:</b>Đã thanh toán
+                                </p>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="clear">
+                            <div class="column2" style="margin-bottom: 5px">
+                            <span><b style="display:inline">Khách hàng:</b></span>
+                            <span>{{ customerItem.name }}</span>
+                            </div>
+                            <div class="column2">
+                            <span><b style="display:inline">email:</b></span>
+                            <span>{{ customerItem.email }}</span>
+                            </div>
+                        </div>
+                        <v-data-table max-width="inherit"
+                            v-model="tableDetail"
+                            :headers="headDetail"
+                            :items="tableDetail"
+                            hide-default-footer
+                            class="elevation-1 "
+                        ></v-data-table>
+                        <br />
+                        <div class="column2">
+                            <span><h5 style="display:inline">Tổng:</h5></span>
+                            <span ><b style="color: green; font-size: 110%">{{ total }} VNĐ</b></span>
+                        </div>
+                        </v-container>
+                    </v-card-text>
+                </div>
+              <v-card-actions max-width="inherit">
                 <v-spacer></v-spacer>
-                <b-button pill variant="info" @click="close">Cancel</b-button>
-                <b-button pill variant="info" @click="printDetail">Print</b-button>
+                <b-button pill variant="info" @click="close">Hủy</b-button>
+                <b-button pill variant="info" @click="printDetail">In hóa đơn</b-button>
               </v-card-actions>
             </v-card>
           </v-dialog>
@@ -102,11 +104,11 @@ export default {
     lazy: `https://goo.gl/jbJWmK`,
     headDetail: [
       {
-        text: "Product",
-        align: "left",sortable: false, value: "name", class: "info--text",
+        text: "Tên Sản Phẩm",
+        align: "left",sortable: false, value: "name", class: "info--text", width:"50vh"
       },
-      { text: "Amount", value: "amount", class: "info--text" },
-      { text: "Total", value: "total", class: "info--text" },
+      { text: "Số lượng", value: "amount", class: "info--text",width:"20vh"},
+      { text: "Đơn giá", value: "total", class: "info--text" },
     ],
     headers: [
       {
