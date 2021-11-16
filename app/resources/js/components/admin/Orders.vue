@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div id="non">
   <v-data-table
     :headers="headers"
     :items="receipts"
@@ -17,21 +17,27 @@
           vertical
         ></v-divider>
         <v-spacer></v-spacer>
-        <v-dialog
+        <v-dialog 
           v-model="dialog"
           max-width="500px"
         >
-          <v-card>
-            <v-card-title class="bg-info"> 
+          <v-card  id="page"> 
+            <v-card-title class="bg-info mx-auto"> 
               <span class="text-h5 mx-auto white--text" >RECEIPT DETAILS</span>
             </v-card-title>
 
             <v-card-text>
               <v-container>
-                <div class="">
-                  <span>Tên:</span>
-                  <span class="text-h7">  Dũng kun </span>
-                </div>
+                <div class="clear">
+                    <div class="column2" style="margin-bottom: 5px;">
+                        <span><b>customer:</b></span>
+                        <span>Dung Kun</span>
+                    </div>   
+                    <div class="column2">
+                        <span><b>email:</b></span>
+                        <span>vandungkitty@gmail.com</span>
+                    </div>  
+                </div>      
                 <v-data-table
                   v-model="tableDetail"
                   :headers="headDetail"
@@ -45,17 +51,6 @@
                 <v-spacer></v-spacer>
                 <b-button  pill variant="info" @click ="close">Cancel</b-button>
                 <b-button  pill variant="info" @click ="printDetail">Print</b-button>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-        <v-dialog v-model="dialogDelete" max-width="500px">
-          <v-card>
-            <v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
-              <v-btn color="blue darken-1" text @click="deleteItemConfirm">OK</v-btn>
-              <v-spacer></v-spacer>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -93,6 +88,7 @@
       receipts: [],
       receiptdetails: [],
       products:[],
+      customers:[],
       tableDetail:[
         {
           name: "Máy rung",
@@ -140,6 +136,7 @@
       ],
       editedIndex: -1,
       detailIndex: -1, 
+      customerIndex: -1,
       detailItem:[],
       editedItem: {
         name: "",
@@ -190,11 +187,25 @@
         .catch((error) => {
           console.error(error);
         });
+        axios
+        .get("/api/customer")
+        .then((response) => {
+          this.customers = response.data;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     },
 
     methods: {
       printDetail(){
-        window.print();
+        this.dialog=true;
+        var newstr = document.getElementById('non').innerHTML;
+        var data = document.getElementById('page').innerHTML;
+        document.body.innerHTML = data;
+        window.print()
+        // Reload the page to refresh the data
+        window.location.reload()
       },
       editItem (item) {
         // lay index cua receipt detail 
@@ -208,6 +219,11 @@
           return e._id;
         }).indexOf(this.detailItem.product_id);
         this.editedItem = Object.assign({}, this.products[this.editedIndex]);
+
+        // lay index cua customer 
+        this.customerIndex = this.customers.map(function(e){
+          return e._id;
+        }).indexOf(item.user_id);
         this.dialog = true
       },
       close () {
@@ -226,9 +242,6 @@
         }
         this.close()
       },
-
-
-
     },
   }
 </script>
