@@ -141,6 +141,7 @@
                     name: "Tất cả",
                     id: "0"
                 },
+                havetoprice: 0,
                 search: '',
                 c_id: '',
                 c_name: '',
