@@ -437,7 +437,8 @@ export default {
       
       if (document.getElementById('image').files[0])
       {
-        formData.append('image', document.getElementById("image").files[0]);;
+        formData.append('image', document.getElementById("image").files[0]);
+        this.editedItem.image =  this.editedItem.name + '.' + document.getElementById("image").files[0].name.split('.')[1];
       };
 
       axios
@@ -516,7 +517,7 @@ export default {
         this.products.push(this.editedItem);
       }
       this.close();
-    }
+    },
   },
 };
 </script>

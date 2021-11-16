@@ -55,7 +55,7 @@ class ProductController extends Controller
         if ($request->image){
             $image = $request->image;
             $extension = $image->getClientOriginalExtension();
-            $name = $image->getClientOriginalName();
+            $name = $product->name.'.'.$extension;
             Storage::disk('public')-> put($name, File::get($image));
             $product->image = $name;
         }
