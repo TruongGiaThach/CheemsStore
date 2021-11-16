@@ -201,7 +201,7 @@
                 return (this.totalPrice * 0.1).toFixed(1);
             },
             endPrice() {
-                return (this.totalPrice + this.vat);
+                return (parseInt(this.totalPrice) + parseFloat(this.vat));
             },
             okToGo() {
                 if(this.c_name != '' && this.c_number.length == 10 && this.c_email != '' && this.items.length > 0){
