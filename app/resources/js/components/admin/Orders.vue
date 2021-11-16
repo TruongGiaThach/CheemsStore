@@ -8,14 +8,14 @@
     >
       <template v-slot:top>
         <v-toolbar flat>
-          <v-toolbar-title class="info--text">HÓA ĐƠN</v-toolbar-title>
+          <v-toolbar-title class="info--text">DANH SÁCH HÓA ĐƠN</v-toolbar-title>
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
           <v-dialog v-model="dialog" max-height="100vh" max-width="100vh">
             <v-card class="p-3 m-2 overflow-x-hidden" max-height="inherit" max-width="inherit">
                 <div id="page">
                     <v-card-title class="bg-info mx-auto" max-width="inherit">
-                        <span class="text-h5 mx-auto white--text">RECEIPT DETAILS</span>
+                        <span class="text-h5 mx-auto white--text"> THÔNG TIN HÓA ĐƠN</span>
                     </v-card-title>
 
                     <v-card-text style="right:0px" max-width="inherit">
