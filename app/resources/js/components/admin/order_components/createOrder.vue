@@ -48,11 +48,11 @@
                             <input type="text" v-model="c_name" class="form-control" id="NameInput" placeholder="Tên khách hàng">
                         </div>
                         <div class="form-group form-group col-md-4">
-                            <input type="text" v-model="c_number" class="form-control" id="NumberInput" maxlength="10" placeholder="Số điện thoại" 
+                            <input type="text" v-model="c_number" class="form-control" id="NumberInput" maxlength="10" placeholder="Số điện thoại"
                             oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <input type="email" v-model="c_email" class="form-control" id="EmailInput" placeholder="Địa chỉ email">
                     </div>
@@ -146,6 +146,21 @@
                 c_name: '',
                 c_number: '',
                 c_email: '',
+                // receipt detail
+                dialog: false,
+                tableDetail: [],
+                total: 0,
+                VAT: 0,
+                createDay: '',
+                billId:'',
+                headDetail: [
+                    {
+                        text: "Product",
+                        align: "left",sortable: false, value: "name", class: "info--text",
+                    },
+                    { text: "Amount", value: "amount", class: "info--text" },
+                    { text: "Total", value: "total", class: "info--text" },
+                ],
             }
         },
         beforeMount(){
@@ -163,7 +178,7 @@
             })
             .catch(error => {
                 console.error(error);
-            })         
+            })
         },
         computed: {
             filteredProducts() {
@@ -182,7 +197,7 @@
                 return total;
             },
             vat() {
-                return (this.totalPrice * 0.1);
+                return (this.totalPrice * 0.1).toFixed(1);
             },
             endPrice() {
                 return (this.totalPrice + this.vat);
@@ -191,7 +206,7 @@
                 if(this.c_name != '' && this.c_number.length == 10 && this.c_email != '' && this.items.length > 0){
                     return true;
                 }else return false;
-            }    
+            }
         },
         methods : {
             addItemToBill(product){
@@ -252,18 +267,19 @@
                 })
                 .catch(error => {
                     console.error(error);
-                })  
+                })
+                this.dialog=true;
             },
             newCustomer() {
                 axios.post("/api/customer/", {
-                    name: this.c_name, 
-                    email: this.c_email, 
+                    name: this.c_name,
+                    email: this.c_email,
                     number: this.c_number,
                     })
                     .then(response => {
                     console.log(response.data);
                     this.addRecepit(response.data);
-                    
+
                 })
             },
             addRecepit(item) {
@@ -283,15 +299,17 @@
                     axios.post('/api/receipt_detail/',{
                         receipt_id: rec._id.toString(),
                         product_id: this.items[i].id.toString(),
-                        unitPrice: this.items[i].price.toString(),
-                        amount: this.items[i].amount.toString(),
+                        unitPrice: this.items[i].price,
+                        amount: this.items[i].amount,
                     })
                 }
-            }
+            },
+            close() {
+                this.dialog = false;
+            },
         }
     }
 </script>
-
 <style scoped>
 /***********************
 *******Body CSS*********
@@ -366,7 +384,7 @@
 .sell-menu .customer-info{
     padding-left: 1em;
     padding-right: 1em;
-    
+
 }
 .sell-menu .product-list{
     height: 55%;

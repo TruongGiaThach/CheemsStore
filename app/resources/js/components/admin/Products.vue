@@ -303,8 +303,8 @@ export default {
         axios.post('/api/receipt',{
           user_id: item._id.toString(),
           createDay: day.toISOString().substring(0, 10),
-          total: '2',
-          VAT: '2',
+          total: 2,
+          VAT: 2,
         }).then((response) => {
           this.postDetailReceipt(response.data);
         }).catch(error => {
@@ -316,8 +316,8 @@ export default {
           axios.post('/api/receipt_detail',{
           receipt_id: item._id.toString(),
           product_id: item.user_id.toString(),
-          unitPrice: '2',
-          total: '2000',
+          unitPrice: 2,
+          amount: 2000,
         }).catch(error => {
           console.log(error.response);
         })

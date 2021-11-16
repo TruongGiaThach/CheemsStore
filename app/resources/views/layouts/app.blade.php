@@ -9,6 +9,9 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+        <script src="print.js"></script>
+        <link rel="stylesheet" type="text/css" href="print.css">
+        
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 

@@ -20,7 +20,6 @@
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
-  --chocolate: #d2691e;
   --primary: #3490dc;
   --secondary: #6c757d;
   --success: #38c172;
@@ -10019,4 +10018,285 @@ h3 {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+.o-change-table {
+  display: inline-block;
+  position: relative;
+  margin: 20px;
+  padding: auto;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+  border-radius: 3px;
+  color: rgba(0, 0, 0, 0.87);
+  background: white;
+}
+
+.o-title {
+  padding-left: 16px;
+  padding-right: 0px;
+  padding-top: 5px;
+  color: #f0e2e2;
+}
+
+.o-background-des {
+  display: block;
+  box-shadow: 0 12px 20px -10px rgba(76, 175, 80, 0.28), 0 4px 20px 0 rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(76, 175, 80, 0.2);
+  margin: -20px 15px 0;
+  padding: 2px;
+  border-radius: 3px;
+  background: linear-gradient(60deg, #69b16c, #43a047);
+}
+
+.o-distance-table {
+  display: inline-block;
+  padding-top: 30px;
+  padding-right: 0px;
+  margin-right: 20px;
+}
+
+.o-background-order {
+  background: #e7e1e1;
+  overflow: auto;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  height: 100vh;
+  width: 100vw;
+}
+
+.o-background-order::-webkit-scrollbar {
+  width: 0 !important;
+  display: none;
+}
+
+.o-product-table {
+  position: relative;
+  width: 100%;
+}
+
+.o-product-table-size {
+  position: relative;
+  width: 100%;
+}
+
+.o-divide {
+  background: #e7e1e1;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+  flex: 1 1 auto;
+  width: 100vw;
+}
+
+.o-invoice {
+  background: #e7e1e1;
+  overflow: hidden;
+  width: 100vw;
+}
+
+@page {
+  size: A6;
+  width: 210mm;
+  height: 147mm;
+  margin: 0;
+}
+.sheet {
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  page-break-after: always;
+}
+
+.A3 .sheet {
+  width: 297mm;
+  height: 419mm;
+}
+
+.A3.landscape .sheet {
+  width: 420mm;
+  height: 296mm;
+}
+
+.A4 .sheet {
+  width: 210mm;
+  height: 296mm;
+}
+
+.A4.landscape .sheet {
+  width: 297mm;
+  height: 209mm;
+}
+
+.A5 .sheet {
+  width: 148mm;
+  height: 209mm;
+}
+
+.A5.landscape .sheet {
+  width: 210mm;
+  height: 147mm;
+}
+
+/** Padding area **/
+.sheet.padding-10mm {
+  padding: 10mm;
+}
+
+.sheet.padding-15mm {
+  padding: 15mm;
+}
+
+.sheet.padding-20mm {
+  padding: 20mm;
+}
+
+.sheet.padding-25mm {
+  padding: 25mm;
+}
+
+/** For screen preview **/
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #page * {
+    visibility: visible;
+    width: 596;
+  }
+
+  @page {
+    size: A5;
+    width: 210mm;
+    height: 147mm;
+    margin: 0;
+  }
+}
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+.header-block {
+  padding: 15px;
+  border-bottom: 1px dashed #ccc;
+  height: 50mm;
+}
+
+.body-block {
+  padding: 15px;
+  height: 208mm;
+}
+
+.footer-block {
+  height: 20mm;
+  padding: 15px;
+  border-bottom: 1px dashed #ccc;
+}
+
+.headertable {
+  width: inherit;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.headertr {
+  height: 35px;
+}
+
+.headertdleft {
+  width: 300px;
+}
+
+.headertdright {
+  width: 50%;
+}
+
+.clear:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.column2 {
+  width: 50%;
+  float: left;
+}
+
+.column3 {
+  width: 33.33%;
+  float: left;
+}
+
+.floatleft {
+  float: left;
+}
+
+.floatright {
+  float: left;
+}
+
+.block-address .column-title {
+  float: left;
+  font-weight: bold;
+}
+
+.block-address .column-text {
+  float: left;
+  padding-left: 10px;
+}
+
+.block-tborder table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.block-tborder table thead tr {
+  background-color: #3a3a3a;
+}
+
+.block-tborder table thead tr th {
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.block-tborder table tbody td {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+}
+
+.block-tborder table tfoot tr td {
+  padding: 6px 10px;
+}
+
+.block-tborder table tfoot .border-bottom td {
+  border-bottom: 1px solid #3a3a3a;
+}
+
+.block-tborder table tfoot .border-top td {
+  border-top: 2px solid #3a3a3a;
+}
+
+.block-note {
+  padding: 15px 0;
+  border-top: 1px dashed #ccc;
+  margin-top: 50px;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-center {
+  text-align: center;
 }

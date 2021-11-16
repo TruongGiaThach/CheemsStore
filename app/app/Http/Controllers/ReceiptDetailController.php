@@ -21,8 +21,8 @@ class ReceiptDetailController extends Controller
         $receiptDetail = ReceiptDetail::create([
             'receipt_id'=> $request -> receipt_id,
             'product_id' => $request -> product_id,
+            'amount' => $request ->amount,
             'unitPrice' => $request -> unitPrice,
-            'total' => $request ->total,
         ]);
 
         return response()->json($receiptDetail);
