@@ -32,6 +32,7 @@
         "bootstrap-vue": "^2.21.2",
         "chart.js": "^3.6.0",
         "form-data": "^4.0.0",
+        "vee-validate": "^3.4.14",
         "vue-axios": "^3.3.7",
         "vue-chartjs": "^3.5.1",
         "vue-router": "^3.5.3",
