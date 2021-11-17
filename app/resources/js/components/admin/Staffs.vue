@@ -10,110 +10,124 @@
         hide-details
       ></v-text-field>
     </v-card-title>
-    <v-data-table
-      :headers="headers"
-      :items="staffs"
-      :search="search"
-      item-key="email"
-      rounded-xl
-      class="elevation-1"
-      min-height="70vh"
+    <div
+      style="width: 80%; align: center; margin-left: auto; margin-right: auto"
     >
-    <!-- dialog thêm thông tin nhân viên -->
-      <template v-slot:top>
-        <v-toolbar flat>
-          <v-toolbar-title>Nhân viên</v-toolbar-title>
-          <v-divider class="mx-4" inset vertical></v-divider>
-          <v-spacer></v-spacer>
-          <v-dialog v-model="dialog" max-width="500px">
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">
-                Thêm nhân viên mới
-              </v-btn>
-            </template>
-            <v-card>
-              <v-card-title>
-                <span class="text-h5">{{ formTitle }}</span>
-              </v-card-title>
-
-              <v-card-text>
-                <v-container>
-                  <v-row>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field
-                        v-model="editedItem.name"
-                        label="Tên nhân viên"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="4"></v-col>
-                    <v-col cols="12" sm="6" md="4"></v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field
-                        v-model="editedItem.email"
-                        label="Email"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field
-                        v-model="editedItem.cmnd"
-                        label="CMND"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field
-                        v-model="editedItem.salary"
-                        label="Mức lương"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field
-                        v-model="editedItem.numOfDayOff"
-                        label="Số ngày nghỉ"
-                      ></v-text-field>
-                    </v-col>
-                  </v-row>
-                </v-container>
-              </v-card-text>
-
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="blue darken-1" text @click="close">
-                  Cancel
+      <v-data-table
+        :headers="headers"
+        :items="staffs"
+        :search="search"
+        item-key="email"
+        rounded-xl
+        class="elevation-1"
+        min-height="70vh"
+      >
+        <!-- dialog thêm thông tin nhân viên -->
+        <template v-slot:top>
+          <v-toolbar flat>
+            <v-toolbar-title>Nhân viên</v-toolbar-title>
+            <v-divider class="mx-4" inset vertical></v-divider>
+            <v-spacer></v-spacer>
+            <v-dialog v-model="dialog" max-width="500px">
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  color="primary"
+                  dark
+                  class="mb-2"
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                  Thêm nhân viên mới
                 </v-btn>
-                <v-btn color="blue darken-1" text @click="save"> Save </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-dialog>
-          <!-- dialog khi xóa 1 row -->
-          <v-dialog v-model="dialogDelete" max-width="500px">
-            <v-card>
-              <v-card-title class="text-h5"
-                >Are you sure you want to delete this item?</v-card-title
-              >
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="blue darken-1" text @click="closeDelete"
-                  >Cancel</v-btn
+              </template>
+              <v-card>
+                <v-card-title>
+                  <span class="text-h5">{{ formTitle }}</span>
+                </v-card-title>
+
+                <v-card-text>
+                  <v-container>
+                    <v-row>
+                      <v-col cols="12" sm="6" md="4">
+                        <v-text-field
+                          v-model="editedItem.name"
+                          label="Tên nhân viên"
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12" sm="6" md="4"></v-col>
+                      <v-col cols="12" sm="6" md="4"></v-col>
+                      <v-col cols="12" sm="6" md="4">
+                        <v-text-field
+                          v-model="editedItem.email"
+                          label="Email"
+                          type="text" :disabled="editedIndex != -1" 
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12" sm="6" md="4">
+                        <v-text-field
+                          v-model="editedItem.cmnd"
+                          label="CMND"
+                          type="text" :disabled="editedIndex != -1" 
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12" sm="6" md="4">
+                        <v-text-field
+                          v-model="editedItem.salary"
+                          label="Mức lương"
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12" sm="6" md="4">
+                        <v-text-field
+                          v-model="editedItem.numOfDayOff"
+                          label="Số ngày nghỉ"
+                        ></v-text-field>
+                      </v-col>
+                    </v-row>
+                  </v-container>
+                </v-card-text>
+
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn color="blue darken-1" text @click="close">
+                    Cancel
+                  </v-btn>
+                  <v-btn color="blue darken-1" text @click="save"> Save </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+            <!-- dialog khi xóa 1 row -->
+            <v-dialog v-model="dialogDelete" max-width="500px">
+              <v-card>
+                <v-card-title class="text-h5"
+                  >Are you sure you want to delete this item?</v-card-title
                 >
-                <v-btn color="blue darken-1" text @click="deleteItemConfirm"
-                  >OK</v-btn
-                >
-                <v-spacer></v-spacer>
-              </v-card-actions>
-            </v-card>
-          </v-dialog>
-        </v-toolbar>
-      </template>
-      <!-- delete edit button -->
-      <template v-slot:[`item.actions`]="{ item }">
-        <v-icon small class="mr-2" @click="editItem(item)"> mdi-pencil </v-icon>
-        <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
-      </template>
-      <!-- reload -->
-      <template v-slot:no-data>
-        <v-btn color="primary" @click="initialize"> Reset </v-btn>
-      </template>
-    </v-data-table>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn color="blue darken-1" text @click="closeDelete"
+                    >Cancel</v-btn
+                  >
+                  <v-btn color="blue darken-1" text @click="deleteItemConfirm"
+                    >OK</v-btn
+                  >
+                  <v-spacer></v-spacer>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+          </v-toolbar>
+        </template>
+        <!-- delete edit button -->
+        <template v-slot:[`item.actions`]="{ item }">
+          <v-icon small class="mr-2" @click="editItem(item)">
+            mdi-pencil
+          </v-icon>
+          <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
+        </template>
+        <!-- reload -->
+        <template v-slot:no-data>
+          <v-btn color="primary" @click="initialize"> Reset </v-btn>
+        </template>
+      </v-data-table>
+    </div>
   </v-card>
 </template>
 
@@ -153,7 +167,7 @@ export default {
         dateBegin: new Date(Date.now()).toLocaleString().split(",")[0],
       },
       defaultItem: {
-        _id:"",
+        _id: "",
         name: "",
         email: "",
         cmnd: "",
@@ -165,7 +179,9 @@ export default {
   },
   computed: {
     formTitle() {
-      return this.editedIndex === -1 ? "Thêm nhân viên" : "Sửa thông tin nhân viên";
+      return this.editedIndex === -1
+        ? "Thêm nhân viên"
+        : "Sửa thông tin nhân viên";
     },
   },
 
@@ -182,7 +198,6 @@ export default {
     this.initialize();
   },
   beforeMount() {
-   
     axios
       .get("/api/staffs")
       .then((response) => {
@@ -194,7 +209,6 @@ export default {
   },
   methods: {
     initialize() {
-     
       axios
         .get("/api/staffs")
         .then((response) => {
@@ -247,59 +261,56 @@ export default {
           name: staff.name,
           numOfDayOff: staff.numOfDayOff,
           salary: staff.salary,
-        
         })
         .catch((response) => {});
     },
-    addStaff(){
-        //add staff
-      this.state = true;
-      axios
-        .post("/api/staffs/", {
-          name: this.editedItem.name,
-          email: this.editedItem.email,
-          cmnd: this.editedItem.cmnd,
-          numOfDayOff: this.editedItem.numOfDayOff,
-          salary: this.editedItem.salary,
-          dateBegin: this.editedItem.dateBegin,
-        })
-        .then((response) => {
-          if (response.data.status == false) {
-            alert("Lỗi bất ngờ khi thêm nhân viên");
-            this.state = false;
-          }
-        });
+    addStaff() {
+      //add staff
+
+      let index = -1;
+      index = this.staffs.findIndex(
+        (staff) => staff.email == this.editedItem.email
+      );
+      if (index != -1) {
+        alert("Email đã được sử dụng. Vui lòng dùng email khác");
+      } else
+        axios
+          .post("/api/staffs/", {
+            name: this.editedItem.name,
+            email: this.editedItem.email,
+            cmnd: this.editedItem.cmnd,
+            numOfDayOff: this.editedItem.numOfDayOff,
+            salary: this.editedItem.salary,
+            dateBegin: this.editedItem.dateBegin,
+          })
+          .then((response) => {
+            if (response.data.status == false) {
+              alert("Lỗi bất ngờ khi thêm nhân viên");
+            }
+          });
     },
     save() {
       if (this.editedIndex > -1) {
         this.endEditing(this.editedItem);
       } else {
         this.addStaff(this.editedItem);
-        
       }
       this.initialize();
       this.close();
     },
     deleteStaff() {
-      axios
-        .delete(`/api/staffs/${this.editedItem.email}`)
-        .then((response) => {
-          if (response.status == true) {
-            alert("Đã xóa nhân viên");
-          }
-        });
+      axios.delete(`/api/staffs/${this.editedItem.email}`).then((response) => {
+        if (response.status == true) {
+          alert("Đã xóa nhân viên");
+        }
+      });
     },
     deleteUser() {
       console.log(this.editedItem.email),
-      
-        axios
-          .delete(`/api/users/${this.editedItem.email}`)
-          .then((response) => {
-            console.log(response.message);
-          });
-          
+        axios.delete(`/api/users/${this.editedItem.email}`).then((response) => {
+          console.log(response.message);
+        });
     },
-    
   },
 };
 </script>

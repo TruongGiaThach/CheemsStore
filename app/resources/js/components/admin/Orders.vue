@@ -79,12 +79,12 @@
                         align: 'start',
                         sortable: false,
                         value: 'name',
-                        class:'green--text'
+                        class:'info--text'
                     },
-                    { text: 'Units', value: 'units', class:'green--text' },
-                    { text: 'Description', value: 'description', class:'green--text'},
-                    { text: 'Price', value: 'price', class:'green--text' },
-                    { text: 'Image', value: 'image', class:'green--text' },
+                    { text: 'Units', value: 'units', class:'info--text' },
+                    { text: 'Description', value: 'description', class:'info--text'},
+                    { text: 'Price', value: 'price', class:'info--text' },
+                    { text: 'Image', value: 'image', class:'info--text' },
                 ],
                 catagories: [
                     {
