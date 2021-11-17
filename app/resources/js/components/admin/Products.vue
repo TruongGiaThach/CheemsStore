@@ -190,7 +190,12 @@
 
                     <v-row>
                       <div class="col-md-6">
-                          <input type="file" class="form-control-file" id="image">
+                          <input 
+                          type="file" 
+                          class="form-control-file" 
+                          id="image" 
+                          accept="image/*"
+                          >
                       </div>
                     </v-row>
 
@@ -252,8 +257,8 @@
         <td :colspan="headers.length">
           <v-row no-gutters>
             <v-col cols="12" md="4">
-              <v-img v-if="item.image != null" max-height="300" contain :src="require('../../../../public/images/' + item.image).default"> </v-img>
-              <v-img v-else max-height="300" contain :src="require('../../../../public/images/default.png').default"> </v-img>
+              <v-img v-if="item.image != null" max-height="300" max-width="300" contain :src="require('../../../../public/images/' + item.image).default"> </v-img>
+              <v-img v-else max-height="300" max-width="300" contain :src="require('../../../../public/images/default.png').default"> </v-img>
             </v-col>
             <v-col cols="12" md="8">
               <h3 class="text-justify">{{ item.name }}</h3>
@@ -515,6 +520,7 @@ export default {
       if (document.getElementById('image').files[0])
       {
         formData.append('image', document.getElementById("image").files[0]);
+        this.editedItem.image =  this.editedItem.name + '.' + document.getElementById("image").files[0].name.split('.')[1];
       };
 
       axios
@@ -591,11 +597,11 @@ export default {
         Object.assign(this.products[this.editedIndex], this.editedItem);
         this.endEditing(this.editedItem);
       } else {
-        this.addProduct();
+        await this.addProduct();
         this.products.push(this.editedItem);
       }
       this.close();
-    }
+    },
   },
 };
 </script>
