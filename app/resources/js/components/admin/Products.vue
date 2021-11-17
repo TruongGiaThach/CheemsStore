@@ -218,8 +218,7 @@
         <td :colspan="headers.length">
           <v-row no-gutters>
             <v-col cols="12" md="4">
-              <v-img v-if="item.image != null" max-height="300" contain :src="require('../../../../public/images/' + item.image).default"> </v-img>
-              <v-img v-else max-height="300" contain :src="require('../../../../public/images/missing.webp').default"> </v-img>
+              <img width="100px" height="100px" :src="item.image"> 
             </v-col>
             <v-col cols="12" md="8">
               <h3 class="text-justify">{{ item.name }}</h3>
@@ -299,7 +298,6 @@ export default {
       editedItem: {
         id: '',
         name: '',
-        image: '',
         amount: 0,
         importPrice: 0,
         outportPrice: 0,
@@ -313,19 +311,24 @@ export default {
     };
   },
   computed: {
+    
     formTitle() {
       return this.editedIndex === -1 ? "New Item" : "Edit Item";
     },
+
     tableData() {
+      for(const item of this.products){
+        item.image = require(`../../../../public/images/${item.image}`).default;
+      };
       if (this.selected != undefined) {
-        console.log(this.selected)
         return this.products.filter((e) => {
           return (e.category_id == this.selected);
         });
       } else if (this.selected == undefined) {
         return this.products
       }
-    },
+    }
+
   },
 
   watch: {
@@ -334,34 +337,13 @@ export default {
     },
     dialogDelete(val) {
       val || this.closeDelete();
-    },
+    }
   },
 
   created() {
-    
-    //this.initialize();
+    this.initialize();
   },
 
-  beforeMount() {
-    axios
-      .get("/api/products")
-      .then((response) => {
-        this.products = response.data;
-        this.initialize();
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-    axios
-      .get("/api/category")
-      .then((response) => {
-        this.category = response.data;
-        console.log(this.category.length)
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  },
   methods: {
     clickRow(item, event) {
       if (event.isExpanded) {
@@ -371,9 +353,37 @@ export default {
         this.expanded.push(item);
       }
     },
-    initialize() {
-      this.tableData = this.products;
+
+    initialize(){
+      this.initialize_product();
+      
+      this.initialize_category();
     },
+
+    initialize_product() {
+      axios
+      .get("/api/products")
+      .then((response) => {
+        this.products = response.data;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    },
+
+
+    initialize_category() {
+      axios
+        .get("/api/category")
+        .then((response) => {
+          this.category = response.data;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
+
+    /*
     getCategory() {
       axios
         .get("/api/products/")
@@ -384,6 +394,7 @@ export default {
           console.error(error);
         });
     },
+    */
 
     newProduct() {
       this.addingProduct = {
@@ -396,29 +407,40 @@ export default {
         warrantyPeriod: null,
         category_id: null,
         description: null,
-        image: null,
         tag: null,
       };
     },
     endEditing(product) {
-      this.editingItem = null;
-      let index = this.products.indexOf(product);
+      let formData = new FormData();
+      formData.append('_id', this.editedItem._id);
+      formData.append('name', this.editedItem.name);
+      formData.append('amount', this.editedItem.amount);
+      formData.append('importPrice', this.editedItem.importPrice);
+      formData.append('outportPrice', this.editedItem.outportPrice);
+      formData.append('manufacture', this.editedItem.manufacture);
+      formData.append('warrantyPeriod', this.editedItem.warrantyPeriod);
+      formData.append('category_id', this.editedItem.category_id);
+      formData.append('description', this.editedItem.description);
+      formData.append('tag', this.editedItem.tag);
+      formData.append('name', this.editedItem.name);
+
+      if (document.getElementById('image').files[0])
+      {
+        formData.append('image', document.getElementById("image").files[0]);
+        this.editedItem.image =  this.editedItem.name + '.' + document.getElementById("image").files[0].name.split('.')[1];
+        console.log(document.getElementById('image').files[0]);
+        console.log(this.editedItem.image);
+      };
+
       axios
-        .put(`/api/products/${product._id}`, {
-          name: product.name,
-          image: product.image,
-          amount: product.amount,
-          importPrice: product.importPrice,
-          outportPrice: product.outportPrice,
-          manufacture: product.manufacture,
-          warrantyPeriod: product.warrantyPeriod,
-          category_id: product.category_id,
-          description: product.description,
-          image: product.image,
-          tag: product.tag,
+        .put(`/api/products/${product._id}`, formData, {
+          header:{
+            'Content-Type':"multipart/form-data"
+          }
         })
         .catch((response) => {});
     },
+
     addProduct() {
       
       this.addingProduct = null;
@@ -449,7 +471,7 @@ export default {
         })
         .then(
           res => {
-            console.log("worked");
+            this.initialize();
           }
         )
         .catch((response) => {});
@@ -457,20 +479,18 @@ export default {
 },
 
     endDelete(product) {
+     
       axios
-        .delete(`/api/products/${product._id}`, {
-          name: product.name,
-          image: product.image,
-          amount: product.amount,
-          importPrice: product.importPrice,
-          outportPrice: product.outportPrice,
-          manufacture: product.manufacture,
-          warrantyPeriod: product.warrantyPeriod,
-          category_id: product.category_id,
-          description: product.description,
-          image: product.image,
-          tag: product.tag,
+        .delete(`/api/products/${product._id}`, formData, {
+          header:{
+            'Content-Type':"multipart/form-data"
+          }
         })
+        .then(
+          res => {
+            console.log("updated.")
+          }
+        )
         .catch((response) => {});
     },
 
@@ -510,11 +530,13 @@ export default {
 
     save() {
       if (this.editedIndex > -1) {
-        Object.assign(this.products[this.editedIndex], this.editedItem);
         this.endEditing(this.editedItem);
+        Object.assign(this.products[this.editedIndex], this.editedItem);
       } else {
         this.addProduct();
         this.products.push(this.editedItem);
+        //this.initialize();
+
       }
       this.close();
     },

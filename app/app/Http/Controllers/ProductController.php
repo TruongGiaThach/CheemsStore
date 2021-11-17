@@ -60,7 +60,7 @@ class ProductController extends Controller
             $product->image = $name;
         }
         else{
-            $product->image = 'default.png';
+            $product->image = 'missing.webp';
         }
 
         $product -> save();
@@ -101,13 +101,25 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         //
+        if ($request->image){
+            $image = $request->image;
+            $extension = $image->getClientOriginalExtension();
+            $name = $product->name.'.'.$extension;
+            Storage::disk('public')-> put($name, File::get($image));
+            $product->image = $name;
+        }
+        else{
+            $product->image = 'missing.webp';
+        }
+
+
         $status = $product->update(
             $request->only([
         'name','amount','importPrice','outportPrice','manufacture','warrantyPeriod',
         'category_id','description','tag'
             ])
         );
-
+        
         return response()->json([
             'status' => $status,
             'message' => $status ? 'Product Updated!' : 'Error Updating Product'
