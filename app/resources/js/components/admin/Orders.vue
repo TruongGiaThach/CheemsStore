@@ -3,10 +3,11 @@
     <v-data-table
       :headers="headers"
       :items="receipts"
+      :search="search"
       sort-by="calories"
       class="elevation-1"
     >
-      <template v-slot:top>
+    <template v-slot:top>
         <v-toolbar flat>
           <v-toolbar-title class="info--text">DANH SÁCH HÓA ĐƠN</v-toolbar-title>
           <v-divider class="mx-4" inset vertical></v-divider>
