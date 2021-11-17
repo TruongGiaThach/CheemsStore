@@ -23,7 +23,7 @@
                         <v-container>
                         <div class="clear">
                             <div class="column2">
-                            <h3>Cheems #ID bill</h3>
+                            <h5>Cheems #ID {{billId}}</h5>
                             <p style="display:inline"><b>Ngày thanh toán :</b> {{ createDay }}</p>
                             </div>
                             <div>
@@ -40,8 +40,12 @@
                             <span>{{ customerItem.name }}</span>
                             </div>
                             <div class="column2">
-                            <span><b style="display:inline">email:</b></span>
+                            <span><b style="display:inline">Email:</b></span>
                             <span>{{ customerItem.email }}</span>
+                            </div>
+                            <div class="column2">
+                            <span><b style="display:inline">Sđt:</b></span>
+                            <span>{{ customerItem.number }}</span>
                             </div>
                         </div>
                         <v-data-table max-width="inherit"
@@ -55,6 +59,10 @@
                         <div class="column2">
                             <span><h5 style="display:inline">Tổng:</h5></span>
                             <span ><b style="color: green; font-size: 110%">{{ total }} VNĐ</b></span>
+                        </div>
+                        <div class="column2">
+                            <span><h5 style="display:inline">VAT:</h5></span>
+                            <span ><b style="color: green; font-size: 110%">{{VAT}} VNĐ</b></span>
                         </div>
                         </v-container>
                     </v-card-text>
@@ -189,6 +197,7 @@ export default {
       this.total = item.total;
       this.createDay =item.createDay;
       this.billId = item._id.toString();
+      this.VAT = item.VAT.toString();
       // lay  receipt detail
       this.detailItem = this.receiptdetails.filter((e) => {
         return e.receipt_id === item._id;
