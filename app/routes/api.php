@@ -16,6 +16,7 @@ Route::get('/staffs/{staff}', 'StaffController@show');
 Route::post('/staffs', 'StaffController@store');
 Route::patch('staffs/{staff}','StaffController@update');
 Route::delete('staffs/{email}','StaffController@destroy');
+Route::put('staffs/{id}','StaffController@update');
 
 
 Route::get('/users','UserController@index');

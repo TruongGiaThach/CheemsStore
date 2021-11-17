@@ -92,7 +92,7 @@
     import Products from './admin/Products'
     import Orders from './admin/Orders'
     import Statistic from './admin/Statistic'
-
+    import Staffs from './admin/Staffs'
     export default {
         data() {
             return {
@@ -103,13 +103,14 @@
                     ['mdi-monitor-dashboard', 'Dashboard', 'dashboard'],
                     ['mdi-paper-roll', 'Orders', 'orders'],
                     ['mdi-store-search', 'Product', 'products'],
-                    ['mdi-account-group', 'users', 'users'],
+                    ['mdi-account-detail', 'Users', 'users'],
+                    ['mdi-account-group','Staffs','staffs'],
                     ['mdi-chart-line','Statistic','statistic'],
                 ],
             }
         },
         components: {
-            Main, Users, Products, Orders
+            Main, Users, Products, Orders, Staffs
         },
         beforeMount() {
             this.setComponent(this.$route.params.page)
@@ -148,6 +149,11 @@
                         this.activeComponent = Statistic
                         if (this.$route.path != "/admin/statistic")
                             this.$router.push({name: 'admin-pages', params: {page: 'statistic'}})
+                        break;
+                    case "staffs":
+                        this.activeComponent = Staffs
+                        if (this.$route.path != "/admin/staffs")
+                            this.$router.push({name: 'admin-pages', params: {page: 'staffs'}})
                         break;
                     default:
                         this.activeComponent = Main

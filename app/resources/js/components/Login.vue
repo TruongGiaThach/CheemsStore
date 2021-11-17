@@ -38,12 +38,18 @@
                 </div>
               </div>
               <div class="form-group row mb-0">
-                <div class="col-md-8 offset-md-4">
+                <div class="col-md-8 offset-md-4 containerflex">
                   <button
+                    title="Đăng nhập"
                     type="submit"
                     class="btn btn-primary"
                     @click="handleSubmit"
-                  ></button>
+                  >
+                    Đăng nhập
+                  </button>
+                  <a class="btn btn-link" href="void()" >
+                    Forgot Your Password?
+                  </a>
                 </div>
               </div>
             </form>
@@ -77,9 +83,11 @@ export default {
 
           if (localStorage.getItem("bigStore.jwt") != null) {
             this.$emit("loggedIn");
-           
-            this.$router.push({name: 'admin-pages', params: {page: 'main'}})
-            
+
+            this.$router.push({
+              name: "admin-pages",
+              params: { page: "main" },
+            });
           }
         });
       }
@@ -87,3 +95,13 @@ export default {
   },
 };
 </script>
+<style scoped>
+.containerflex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: stretch;
+}
+</style>

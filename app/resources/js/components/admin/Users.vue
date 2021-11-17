@@ -22,7 +22,7 @@
       class="elevation-1"
       min-height="70vh"
     >
-    <!-- dialog thêm tài khoản và thông tin nhân viên -->
+      <!-- dialog thêm tài khoản và thông tin nhân viên -->
       <template v-slot:top>
         <v-toolbar flat>
           <v-toolbar-title>Tài khoản</v-toolbar-title>
@@ -311,27 +311,8 @@ export default {
         this.editedIndex = -1;
       });
     },
-
-    save() {
-      //add staff
-      this.state = true;
-      axios
-        .post("/api/staffs/", {
-          name: this.editedItem.name,
-          email: this.editedItem.email,
-          cmnd: this.editedItem.cmnd,
-          numOfDayOff: this.editedItem.numOfDayOff,
-          salary: this.editedItem.salary,
-          dateBegin: this.editedItem.dateBegin,
-        })
-        .catch((response) => {
-          if (response.status == false) {
-            alert("Lỗi bất ngờ khi thêm nhân viên");
-            this.state = false;
-          }
-        });
-      //add user
-      if (this.state == true) {
+    addUser(){
+       //add user
         axios
           .post("/api/register", {
             name: this.editedItem.name,
@@ -342,35 +323,47 @@ export default {
           })
           .catch((response) => {
             if (response.user == null) {
+              // delete staff
+
+              this.deleteStaff();
               alert("Lỗi bất ngờ khi thêm tài khoản");
-              this.state = false;
             }
           });
-      }
-      // delete staff
-      if (this.state == false) {
-        this.deleteStaff();
-      }
+    },
+    async addStaffAndUserAccount(){
+        //add staff
+      await axios
+        .post("/api/staffs/", {
+          name: this.editedItem.name,
+          email: this.editedItem.email,
+          cmnd: this.editedItem.cmnd,
+          numOfDayOff: this.editedItem.numOfDayOff,
+          salary: this.editedItem.salary,
+          dateBegin: this.editedItem.dateBegin,
+        })
+        .then((response) => {
+          if (response.data.status == false) {
+            alert("Lỗi bất ngờ khi thêm nhân viên");
+            this.state = false;
+          } else this.addUser();
+        });
+    },
+    save() {
+      this.addStaffAndUserAccount();
       this.close();
     },
     deleteStaff() {
-      axios
-        .delete(`/api/staffs/${this.editedItem.email}`)
-        .then((response) => {
-          if (response.status == true) {
-            alert("Đã xóa nhân viên");
-          }
-        });
+      axios.delete(`/api/staffs/${this.editedItem.email}`).then((response) => {
+        if (response.status == true) {
+          alert("Đã xóa nhân viên");
+        }
+      });
     },
     deleteUser() {
       console.log(this.editedItem.email),
-      
-        axios
-          .delete(`/api/users/${this.editedItem.email}`)
-          .then((response) => {
-            console.log(response.message);
-          });
-          
+        axios.delete(`/api/users/${this.editedItem.email}`).then((response) => {
+          console.log(response.message);
+        });
     },
     clickRow(item, event) {
       if (event.isExpanded) {

@@ -29,7 +29,14 @@ class StaffController extends Controller
     public function store(Request $request)
     {
         //'email', 'name', 'cmnd', 'numOfDayOff','salary','dateBegin'
-        $staff = Staff::create([
+        $staff = Staff::where('email',$request->email);
+        if ($staff != null)
+            return response()->json([
+                'status' => false,
+                'data'   => $staff,
+                'message' => 'Email existed',
+            ]);
+        $staff = Staff::create([    
             'name' => $request->name,
             'email' => $request->email,
             'cmnd' => $request->cmnd,
@@ -76,11 +83,12 @@ class StaffController extends Controller
      * @param  \App\Models\Staff  $Staff
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Staff $staff)
+    public function update($_id,Request $request)
     {
         //
+        $staff = Staff::find($_id);
         $status = $staff->update(
-            $request->only(['email', 'name', 'cmnd', 'numOfDayOff','salary','dateBegin'])
+            $request->only(['name', 'numOfDayOff','salary'])
         );
 
         return response()->json([

@@ -5,33 +5,30 @@
       <v-text-field
         v-model="search"
         append-icon="mdi-magnify"
-        label="Search"
+        label="Tìm kiếm nhân viên"
         single-line
         hide-details
       ></v-text-field>
     </v-card-title>
     <v-data-table
       :headers="headers"
-      :items="users"
+      :items="staffs"
       :search="search"
-      :expanded.sync="expanded"
-      :single-expand="singleExpand"
       item-key="email"
-      show-expand
       rounded-xl
       class="elevation-1"
       min-height="70vh"
     >
-    <!-- dialog thêm tài khoản và thông tin nhân viên -->
+    <!-- dialog thêm thông tin nhân viên -->
       <template v-slot:top>
         <v-toolbar flat>
-          <v-toolbar-title>Tài khoản</v-toolbar-title>
+          <v-toolbar-title>Nhân viên</v-toolbar-title>
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
           <v-dialog v-model="dialog" max-width="500px">
             <template v-slot:activator="{ on, attrs }">
               <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">
-                Tạo tài khoản mới
+                Thêm nhân viên mới
               </v-btn>
             </template>
             <v-card>
@@ -54,18 +51,6 @@
                       <v-text-field
                         v-model="editedItem.email"
                         label="Email"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field
-                        v-model="editedItem.password"
-                        label="Mật khẩu"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field
-                        v-model="editedItem.c_password"
-                        label="Xác nhân mật khẩ"
                       ></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
@@ -119,52 +104,9 @@
           </v-dialog>
         </v-toolbar>
       </template>
-      <!-- expand 1 row -->
-      <template v-slot:expanded-item="{ headers, item }">
-        <td :colspan="headers.length">
-          <tr>
-            <h3>Thông tin nhân viên {{ item.name }}</h3>
-          </tr>
-
-          <div v-for="staff in staffs" :key="staff.id">
-            <v-list class="text-justify" v-if="staff.email == item.email">
-              <v-list-item>
-                <v-list-item-content>Email:</v-list-item-content>
-                <v-list-item-content class="align-end">
-                  {{ staff.email }}
-                </v-list-item-content>
-              </v-list-item>
-
-              <v-list-item>
-                <v-list-item-content>CMND:</v-list-item-content>
-                <v-list-item-content class="align-end">
-                  {{ staff.cmnd }}
-                </v-list-item-content>
-              </v-list-item>
-              <v-list-item>
-                <v-list-item-content>Số ngày nghỉ:</v-list-item-content>
-                <v-list-item-content class="align-end">
-                  {{ staff.numOfDayOff }}
-                </v-list-item-content>
-              </v-list-item>
-              <v-list-item>
-                <v-list-item-content>Mức lương:</v-list-item-content>
-                <v-list-item-content class="align-end">
-                  {{ staff.salary }}
-                </v-list-item-content>
-              </v-list-item>
-              <v-list-item>
-                <v-list-item-content>Ngày vào làm:</v-list-item-content>
-                <v-list-item-content class="align-end">
-                  {{ staff.dateBegin }}
-                </v-list-item-content>
-              </v-list-item>
-            </v-list>
-          </div>
-        </td>
-      </template>
-      <!-- delete button -->
+      <!-- delete edit button -->
       <template v-slot:[`item.actions`]="{ item }">
+        <v-icon small class="mr-2" @click="editItem(item)"> mdi-pencil </v-icon>
         <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
       </template>
       <!-- reload -->
@@ -188,34 +130,32 @@ export default {
           value: "name",
         },
         { text: "Email", value: "email" },
-        { text: "Role", value: "role" },
+        { text: "CMND", value: "cmnd" },
+        { text: "Số ngày nghỉ", value: "numOfDayOff" },
+        { text: "Lương", value: "salary" },
+        { text: "Ngày vào làm", value: "dateBegin" },
         { text: "Actions", value: "actions", sortable: false },
       ],
       state: true,
-      users: [],
       staffs: [],
       editingItem: null,
       addingUser: null,
       dialog: false,
       dialogDelete: false,
-      expanded: [],
-      singleExpand: true,
       editedIndex: -1,
       editedItem: {
+        _id: "",
         name: "",
         email: "",
-        password: "",
-        c_password: "",
         cmnd: "",
         numOfDayOff: 0,
         salary: 0,
         dateBegin: new Date(Date.now()).toLocaleString().split(",")[0],
       },
       defaultItem: {
+        _id:"",
         name: "",
         email: "",
-        password: "",
-        c_password: "",
         cmnd: "",
         numOfDayOff: 0,
         salary: 0,
@@ -225,7 +165,7 @@ export default {
   },
   computed: {
     formTitle() {
-      return "Thêm nhân viên";
+      return this.editedIndex === -1 ? "Thêm nhân viên" : "Sửa thông tin nhân viên";
     },
   },
 
@@ -242,15 +182,7 @@ export default {
     this.initialize();
   },
   beforeMount() {
-    axios
-      .get("/api/users")
-      .then((response) => {
-        this.users = response.data;
-        console.log(this.users[0]._id);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+   
     axios
       .get("/api/staffs")
       .then((response) => {
@@ -262,15 +194,7 @@ export default {
   },
   methods: {
     initialize() {
-      axios
-        .get("/api/users")
-        .then((response) => {
-          this.users = response.data;
-          console.log(this.users[1].id);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+     
       axios
         .get("/api/staffs")
         .then((response) => {
@@ -311,9 +235,24 @@ export default {
         this.editedIndex = -1;
       });
     },
-
-    save() {
-      //add staff
+    editItem(item) {
+      this.editedIndex = this.staffs.indexOf(item);
+      this.editedItem = Object.assign({}, item);
+      this.dialog = true;
+    },
+    endEditing(staff) {
+      this.editingItem = null;
+      axios
+        .put(`/api/staffs/${staff._id}`, {
+          name: staff.name,
+          numOfDayOff: staff.numOfDayOff,
+          salary: staff.salary,
+        
+        })
+        .catch((response) => {});
+    },
+    addStaff(){
+        //add staff
       this.state = true;
       axios
         .post("/api/staffs/", {
@@ -324,33 +263,21 @@ export default {
           salary: this.editedItem.salary,
           dateBegin: this.editedItem.dateBegin,
         })
-        .catch((response) => {
-          if (response.status == false) {
+        .then((response) => {
+          if (response.data.status == false) {
             alert("Lỗi bất ngờ khi thêm nhân viên");
             this.state = false;
           }
         });
-      //add user
-      if (this.state == true) {
-        axios
-          .post("/api/register", {
-            name: this.editedItem.name,
-            email: this.editedItem.email,
-            password: this.editedItem.password,
-            c_password: this.editedItem.c_password,
-            role: "staff",
-          })
-          .catch((response) => {
-            if (response.user == null) {
-              alert("Lỗi bất ngờ khi thêm tài khoản");
-              this.state = false;
-            }
-          });
+    },
+    save() {
+      if (this.editedIndex > -1) {
+        this.endEditing(this.editedItem);
+      } else {
+        this.addStaff(this.editedItem);
+        
       }
-      // delete staff
-      if (this.state == false) {
-        this.deleteStaff();
-      }
+      this.initialize();
       this.close();
     },
     deleteStaff() {
@@ -372,14 +299,7 @@ export default {
           });
           
     },
-    clickRow(item, event) {
-      if (event.isExpanded) {
-        const index = this.expanded.findIndex((i) => i === item);
-        this.expanded.splice(index, 1);
-      } else {
-        this.expanded.push(item);
-      }
-    },
+    
   },
 };
 </script>
