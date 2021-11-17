@@ -1,7 +1,7 @@
 <template>
-	<div class="create-order">
+	<v-app class="create-order">
         <!--Product Search-->
-        <div class="product-search-menu">
+        <v-card class="product-search-menu">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
@@ -25,9 +25,9 @@
                     </div>
             </nav>
             <!--Product List-->
-            <div class="products-showcase">
+            <v-container class="products-showcase">
                 <span class ="box-container" v-for="(product,index) in filteredProducts" :key="index" v-on:click="addItemToBill(product)">
-                    <div class = "product-box">
+                    <v-card class = "product-box">
                         <div>
                             <div class="price">{{product.outportPrice}}</div>
                         </div>
@@ -37,10 +37,10 @@
                         <div>
                             <p>{{product.name}}</p>
                         </div>
-                    </div>
+                    </v-card>
                 </span>
-            </div>
-        </div><div class="sell-menu">
+            </v-container>
+        </v-card><v-card class="sell-menu">
             <div class ="customer-info">
                 <form>
                     <div class="form-row">
@@ -60,32 +60,27 @@
             </div>
             <!--Bill Product List-->
             <div class="product-list">
-                <table class="table table-responsive table-striped">
-                    <thead>
+                <v-data-table class="table table-responsive" :headers="headDetail" :items="items" hide-default-footer>
+                    <template v-slot:item="row">
                         <tr>
-                            <td id ="stt">STT</td>
-                            <td id ="name">Tên sản phẩm</td>
-                            <td id ="amount">Số lượng</td>
-                            <td id ="price">Đơn giá</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="(item,index) in items" :key="index" >
-                            <td id ="stt">{{index+1}}</td>
-                            <td id ="name" v-html="item.name"></td>
-                            <td id ="amount">
-                                <form>
-                                    <input type="number" v-model="item.amount" size="4" min="1">
-                                </form>
-                                </td>
-                            <td id ="price" >{{item.price}}</td>
-                            <td id ="delete">
-                                <button class="btn" v-on:click="deleteItem(index)">X</button>
+                            <td>{{row.item.name}}</td>
+                            <td>
+                                <v-form >
+                                    <input type="number" v-model="row.item.amount" min="1" onkeydown="return false" >
+                                </v-form>
+                            </td>
+                            <td>{{row.item.price}}</td>
+                            <td>
+                                <v-btn class="mx-2" fab dark x-small color="red" v-on:click="deleteItem(index)">
+                                    <v-icon dark>x</v-icon>
+                                </v-btn>
                             </td>
                         </tr>
-                    </tbody>
-                </table>
+                    </template>
+                </v-data-table>
             </div>
+            
+            
             <!--Bill Conclusion-->
             <div class="conclusion">
                 <div class="conclusion-info">
@@ -97,37 +92,75 @@
                 </div>
                 <div class="conclusion-buttons">
                     <button type="button" class="btn btn-danger btn-block btn-cancel">Hủy</button>
-                    <button type="button" class="btn btn-success btn-block btn-finish py-5" data-toggle="modal" data-target="#ConfirmModal" v-bind:disabled="!okToGo">Thanh toán </button>
+                    <button type="button" class="btn btn-success btn-block btn-finish py-5" data-target="#ConfirmModal" v-bind:disabled="!okToGo" v-on:click="checkExistingCustomer()">Thanh toán </button>
                 </div>
                 <!-- Modal -->
-                <div class="modal fade" id="ConfirmModal" tabindex="-1" role="dialog" aria-labelledby="ConfirmModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="ConfirmModalLabel">Xác nhận đơn hàng</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <h5>Tên khách hàng: <p>{{this.c_name}}</p></h5>
-                            <h5>Số điện thoại: <p>{{this.c_number}}</p></h5>
-                            <h5>Địa chỉ email: <p>{{this.c_email}}</p></h5>
-                            <h5>Tổng tiền: <p>{{totalPrice}} VNĐ</p></h5>
-                            <h5>Thuế VAT: <p>{{vat}} VNĐ</p></h5>
-                            <h5>Phải trả: <p>{{endPrice}} VNĐ</p></h5>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Hủy</button>
-                            <button type="button" class="btn btn-success" data-dismiss="modal" v-on:click="checkExistingCustomer()">Xác nhận</button>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                <v-dialog v-model="dialog" max-height="100vh" max-width="100vh">
+                    <v-card class="p-3 m-2 overflow-x-hidden" max-height="inherit" max-width="inherit">
+                        <div id="page">
+                            <v-card-title class="bg-info mx-auto" max-width="inherit">
+                                <span class="text-h5 mx-auto white--text"> THÔNG TIN HÓA ĐƠN</span>
+                            </v-card-title>
 
-    </div>
+                            <v-card-text style="right:0px" max-width="inherit">
+                                <v-container>
+                                <div class="clear">
+                                    <div class="column2">
+                                    <h5>Cheems #ID: {{billId}}</h5>
+                                    <p style="display:inline"><b>Ngày thanh toán :</b> {{ createDay }}</p>
+                                    </div>
+                                    <div>
+                                    <div class="column2 align-left">
+                                        <p style=" margin-top: 5px ;display:inline">
+                                        <b>Trạng thái:</b>Đã thanh toán
+                                        </p>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="clear">
+                                    <div class="column2" style="margin-bottom: 5px">
+                                    <span><b style="display:inline">Khách hàng:</b></span>
+                                    <span>{{ c_name }}</span>
+                                    </div>
+                                    <div class="column2">
+                                    <span><b style="display:inline">email:</b></span>
+                                    <span>{{ c_email }}</span>
+                                    </div>
+                                    <div class="column2">
+                                    <span><b style="display:inline">Sđt:</b></span>
+                                    <span>{{ c_number }}</span>
+                                    </div>
+                                </div>
+                                <v-data-table max-width="inherit"
+                                    v-model="items"
+                                    :headers="receiptDetail"
+                                    :items="items"
+                                    hide-default-footer
+                                    class="elevation-1 "
+                                ></v-data-table>
+                                <br />
+                                <div class="column2">
+                                    <span><h5 style="display:inline">Tổng:</h5></span>
+                                    <span ><b style="color: green; font-size: 110%">{{endPrice}} VNĐ</b></span>
+                                </div>
+                                <div class="column2">
+                                    <span><h5 style="display:inline">VAT:</h5></span>
+                                    <span ><b style="color: green; font-size: 110%">{{vat}} VNĐ</b></span>
+                                </div>
+                                </v-container>
+                            </v-card-text>
+                        </div>
+                    <v-card-actions max-width="inherit">
+                        <v-spacer></v-spacer>
+                        <b-button pill variant="info" @click="close">Hủy</b-button>
+                        <b-button pill variant="info" @click="printDetail">In hóa đơn</b-button>
+                    </v-card-actions>
+                    </v-card>
+                </v-dialog>
+            </div>
+        </v-card>
+
+    </v-app>
 </template>
 <script>
 	export default {
@@ -148,20 +181,32 @@
                 c_email: '',
                 // receipt detail
                 dialog: false,
-                tableDetail: [],
                 total: 0,
                 VAT: 0,
                 createDay: '',
                 billId:'',
                 headDetail: [
                     {
-                        text: "Product",
+                        text: "Tên Sản Phẩm",
                         align: "left",sortable: false, value: "name", class: "info--text",
                     },
-                    { text: "Amount", value: "amount", class: "info--text" },
-                    { text: "Total", value: "total", class: "info--text" },
+                    { text: "Số lượng", value: "amount", class: "info--text",},
+                    { text: "Đơn giá", value: "price", class: "info--text" },
+                ],
+                receiptDetail: [
+                    {
+                        text: "Tên Sản Phẩm",
+                        align: "left",sortable: false, value: "name", class: "info--text",width:"50vh"
+                    },
+                    { text: "Số lượng", value: "amount", class: "info--text", width:"20vh"},
+                    { text: "Đơn giá", value: "price", class: "info--text" },
                 ],
             }
+        },
+        watch: {
+            dialog(val) {
+            val || this.close();
+            },
         },
         beforeMount(){
             axios.get('/api/products/')
@@ -279,7 +324,6 @@
                     .then(response => {
                     console.log(response.data);
                     this.addRecepit(response.data);
-
                 })
             },
             addRecepit(item) {
@@ -294,6 +338,8 @@
                 })
             },
             addRecepitDetail(rec) {
+                this.billId = rec._id;
+                this.createDay = rec.createDay;
                 console.log(rec);
                 for(var i = 0; i < this.items.length; i++){
                     axios.post('/api/receipt_detail/',{
@@ -303,6 +349,11 @@
                         amount: this.items[i].amount,
                     })
                 }
+                this.dialog = true;
+            },
+            printDetail(){
+                this.dialog=true;
+                window.print('page');
             },
             close() {
                 this.dialog = false;
@@ -327,6 +378,7 @@
 }
 .sell-menu{
     position: absolute;
+    right:0;
     height: 100%;
     width: 40%;
     display: inline-block;
@@ -371,6 +423,7 @@
     width: 9em;
 }
 .product-search-menu .product-box p{
+    color:rgb(100, 100, 100);
     height: 2.87em;
     overflow: hidden;
     font-weight: bold;
@@ -394,28 +447,14 @@
     height: 25%;
     background: rgba(0, 139, 139, 0.3);
 }
-.sell-menu table #stt{
-    width: 2%;
+.sell-menu .product-list input{
+    background-color: white;
+    width: 3em;
 }
-.sell-menu table #name{
-    width: 45%;
+.sell-menu .product-list tr:hover input{
+    background-color: #EEEEEE;
 }
-.sell-menu table #amount{
-    width: 15%;
-}
-.sell-menu table #amount input{
-    width: 100%;
-}
-.sell-menu table #price{
-    width: 35%;
-}
-.sell-menu table #delete{
-    width: 3%;
-}
-.sell-menu table #delete .btn{
-    color:red;
-    font-weight: 900;
-}
+
 /*****************************
 *******Conclusion CSS*********
 ******************************/
