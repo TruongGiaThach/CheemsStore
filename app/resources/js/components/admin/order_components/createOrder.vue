@@ -40,7 +40,8 @@
                     </v-card>
                 </span>
             </v-container>
-        </v-card><v-card class="sell-menu">
+        </v-card>
+        <v-card class="sell-menu">
             <div class ="customer-info">
                 <form>
                     <div class="form-row">
@@ -71,7 +72,7 @@
                             </td>
                             <td>{{row.item.price}}</td>
                             <td>
-                                <v-btn class="mx-2" fab dark x-small color="red" v-on:click="deleteItem(index)">
+                                <v-btn class="mx-2" fab dark x-small color="red" v-on:click="deleteItem(row.index)">
                                     <v-icon dark>x</v-icon>
                                 </v-btn>
                             </td>
@@ -123,7 +124,7 @@
                                     <span>{{ c_name }}</span>
                                     </div>
                                     <div class="column2">
-                                    <span><b style="display:inline">email:</b></span>
+                                    <span><b style="display:inline">Email:</b></span>
                                     <span>{{ c_email }}</span>
                                     </div>
                                     <div class="column2">
@@ -368,8 +369,7 @@
 ************************/
 .create-order{
     position: relative;
-    height:91vh;
-    overflow: hidden;
+    height:100vh;
 }
 .product-search-menu{
     position: relative;
@@ -380,9 +380,10 @@
 .sell-menu{
     position: absolute;
     right:0;
+    max-height: 100%;
     height: 100%;
     width: 40%;
-    display: inline-block;
+    overflow: hidden;
 }
 /*******************************
 *******Product menu CSS*********
@@ -434,18 +435,30 @@
 *****************************/
 .sell-menu{
     Border-left: solid 0.2em darkcyan;
+    display: table;
+}
+.customer-info, .product-list, .conclusion{
+    min-height: 10%;
+    
+    
 }
 .sell-menu .customer-info{
+    position: relative;
     padding-left: 1em;
     padding-right: 1em;
-
+    top:0;
 }
 .sell-menu .product-list{
-    height: 55%;
+    position: relative;
+    height: 60%;
     overflow: scroll;
 }
 .sell-menu .conclusion{
-    height: 25%;
+    width: 100%;
+    position: absolute;
+    bottom: 0; 
+    height: 22%;
+    overflow: auto;
     background: rgba(0, 139, 139, 0.3);
 }
 .sell-menu .product-list input{
@@ -460,9 +473,7 @@
 *******Conclusion CSS*********
 ******************************/
 .conclusion{
-    position: relative;
     padding: 1em;
-    overflow: auto;
 }
 .conclusion .conclusion-info{
     position: relative;
