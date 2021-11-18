@@ -149,8 +149,8 @@ export default {
         ["mdi-chart-line", "Thống kê", "statistic"],
       ],
       Nav_bar_order: [
-        ["mdi-account-group", "Bán hàng", "createOrder"],
-        ["mdi-paper-roll", "Hóa đơn", "orders"],
+        ["mdi-cart-plus", "Bán hàng", "createOrder"],
+        ["mdi-clipboard-check-multiple-outline", "Hóa đơn", "orders"],
       ],
     };
   },
