@@ -15,7 +15,7 @@ class ReceiptController extends Controller
     public function index()
     {
         //
-        return response()->json(Receipt::with(['receipt'])->get(),200);
+        return response()->json(Receipt::all(),200);
     }
 
     /**
@@ -38,11 +38,13 @@ class ReceiptController extends Controller
     {
         //
         $receipt = Receipt::create([
-            
+            'user_id' => $request -> user_id,
+            'createDay' => $request -> createDay,
+            'total' => $request -> total,
+            'VAT'  => $request -> VAT,
         ]);
 
-        return response()->json([
-        ]);
+        return response()->json($receipt);
     }
 
     /**

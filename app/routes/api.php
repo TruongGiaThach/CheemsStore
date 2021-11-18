@@ -17,7 +17,14 @@ Route::post('/staffs', 'StaffController@store');
 Route::patch('staffs/{staff}','StaffController@update');
 Route::delete('staffs/{email}','StaffController@destroy');
 Route::put('staffs/{id}','StaffController@update');
-
+//receipt
+Route::get('/receipt', 'ReceiptController@index');
+Route::get('/receipt_detail', 'ReceiptDetailController@index');
+Route::post('/receipt', 'ReceiptController@store');
+Route::post('/receipt_detail', 'ReceiptDetailController@store');
+//customer
+Route::get('/customer', 'CustomerController@index');
+Route::post('/customer', 'CustomerController@store');
 
 Route::get('/users','UserController@index');
 Route::get('users/{user}','UserController@show');
@@ -26,9 +33,8 @@ Route::delete('users/{email}','UserController@destroy');
 Route::get('users/{user}/orders','UserController@showOrders');
 Route::patch('products/{product}/units/add','ProductController@updateUnits');
 Route::patch('orders/{order}/deliver','OrderController@deliverOrder');
-Route::resource('/orders', 'OrderController');
 Route::resource('/products', 'ProductController')->except(['index','show']);
-
+Route::resource('category', 'CategoryController');
 /*
 |--------------------------------------------------------------------------
 | API Routes
