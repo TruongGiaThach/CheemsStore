@@ -1,0 +1,167 @@
+
+        .sheet {
+          margin: 0;
+          overflow: hidden;
+          position: relative;
+          box-sizing: border-box;
+          page-break-after: always;
+        }
+        .A3 .sheet { width: 297mm; height: 419mm }
+        .A3.landscape .sheet { width: 420mm; height: 296mm }
+        .A4 .sheet { width: 210mm; height: 296mm }
+        .A4.landscape .sheet { width: 297mm; height: 209mm }
+        .A5 .sheet { width: 148mm; height: 209mm }
+        .A5.landscape .sheet { width: 210mm; height: 147mm }
+
+        /** Padding area **/
+        .sheet.padding-10mm { padding: 10mm }
+        .sheet.padding-15mm { padding: 15mm }
+        .sheet.padding-20mm { padding: 20mm }
+        .sheet.padding-25mm { padding: 25mm }
+
+        /** For screen preview **/
+
+@media print {
+  body * {
+  visibility: hidden;
+  }
+   #page * {
+  visibility: visible;
+  width: 596;
+  }
+    @page {
+        size: A5;
+        width: 210mm;
+        height: 147mm;
+        margin: 0;
+    }
+}
+
+
+
+    h2,
+    h3,
+    h4,
+    p {
+        margin: 0;
+    }
+
+    .header-block {
+        padding: 15px;
+        border-bottom: 1px dashed #ccc;
+        height:50mm;
+    }
+
+    .footer-block {
+    	height: 20mm;
+    	padding: 15px;
+    	 border-bottom: 1px dashed #ccc;
+    }
+
+	.headertable {
+		width:inherit;
+		width:100%;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	.headertr {
+		height:35px;
+	}
+
+	.headertdleft {
+		width:300px;
+	}
+	.headertdright {
+		width:50%;
+	}
+
+
+
+    .clear:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .column2 {
+        width: 50%;
+        float: left;
+    }
+
+    .column3 {
+        width: 33.33%;
+        float: left;
+    }
+
+    .floatleft {
+        float: left;
+    }
+
+    .floatright {
+        float: left;
+    }
+
+    .block-address .column-title {
+        float: left;
+        font-weight: bold;
+    }
+
+    .block-address .column-text {
+        float: left;
+        padding-left: 10px;
+    }
+
+    .block-tborder table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+    }
+
+    .block-tborder table thead tr {
+        background-color: #3a3a3a;
+    }
+
+    .block-tborder table thead tr th {
+        color: #fff;
+        font-weight: bold;
+        padding: 10px;
+        border: 1px solid #ccc;
+    }
+
+    .block-tborder table tbody td {
+        padding: 6px 10px;
+        border: 1px solid #ccc;
+    }
+
+    .block-tborder table tfoot tr td {
+        padding: 6px 10px;
+    }
+
+    .block-tborder table tfoot .border-bottom td {
+        border-bottom: 1px solid #3a3a3a;
+    }
+
+    .block-tborder table tfoot .border-top td {
+        border-top: 2px solid #3a3a3a;
+    }
+
+    .block-note {
+        padding: 15px 0;
+        border-top: 1px dashed #ccc;
+        margin-top: 50px;
+    }
+
+    .align-left {
+        text-align: left;
+    }
+
+    .align-right {
+        text-align: right;
+    }
+
+    .align-center {
+        text-align: center;
+    }
+
+

@@ -80,8 +80,8 @@
                     </template>
                 </v-data-table>
             </div>
-            
-            
+
+
             <!--Bill Conclusion-->
             <div class="conclusion">
                 <div class="conclusion-info">
@@ -368,9 +368,11 @@
             printDetail(){
                 this.dialog=true;
                 window.print('page');
+                window.location.reload()
             },
             close() {
                 this.dialog = false;
+                window.location.reload()
             },
         }
     }
