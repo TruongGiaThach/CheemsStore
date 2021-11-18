@@ -1,64 +1,94 @@
   <template>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card card-default">
-          <div class="card-header">Login</div>
-          <div class="card-body">
-            <form>
-              <div class="form-group row">
-                <label for="email" class="col-sm-4 col-form-label text-md-right"
-                  >E-Mail Address</label
-                >
-                <div class="col-md-6">
-                  <input
-                    id="email"
-                    type="email"
-                    class="form-control"
-                    v-model="email"
-                    required
-                    autofocus
-                  />
-                </div>
-              </div>
-              <div class="form-group row">
-                <label
-                  for="password"
-                  class="col-md-4 col-form-label text-md-right"
-                  >Password</label
-                >
-                <div class="col-md-6">
-                  <input
-                    id="password"
-                    type="password"
-                    class="form-control"
-                    v-model="password"
-                    required
-                  />
-                </div>
-              </div>
-              <div class="form-group row mb-0">
-                <div class="col-md-8 offset-md-4 containerflex">
+  <div class="container-fluid">
+    <div class="row no-gutter">
+      <!-- The image half -->
+      <div class="col-md-7 d-none d-md-flex bg-image"></div>
+      <!-- The content half -->
+      <div class="col-md-5 bg-light">
+        <div class="login d-flex align-items-center py-5">
+          <!--  content-->
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-10 col-xl-7 mx-auto">
+                <h3 class="display-4">Cheems Store</h3>
+                <p class="text-muted mb-4">
+                  Ứng dụng quản lí đáng tin cậy đến từ Cheems family
+                </p>
+                <form>
+                  <div class="form-group mb-3">
+                    <input
+                      id="email"
+                      type="email"
+                      v-model="email"
+                      placeholder="Địa chỉ email"
+                      required
+                      autofocus
+                      class="form-control rounded-pill border-0 shadow-sm px-4"
+                    />
+                  </div>
+                  <div class="form-group mb-3">
+                    <input
+                      id="password"
+                      type="password"
+                      placeholder="Mật khẩu"
+                      v-model="password"
+                      title="Đăng nhập"
+                      required
+                      class="
+                        form-control
+                        rounded-pill
+                        border-0
+                        shadow-sm
+                        px-4
+                        text-primary
+                      "
+                    />
+                  </div>
+                  <div class="custom-control custom-checkbox mb-3">
+                    <input
+                      id="customCheck1"
+                      type="checkbox"
+                      checked
+                      class="custom-control-input"
+                    />
+                    <label for="customCheck1" class="custom-control-label"
+                      >Nhớ mật khẩu</label
+                    >
+                  </div>
                   <button
-                    title="Đăng nhập"
                     type="submit"
-                    class="btn btn-primary"
+                    class="
+                      btn btn-primary btn-block
+                      text-uppercase
+                      mb-2
+                      rounded-pill
+                      shadow-sm
+                      btn-lg
+                    "
                     @click="handleSubmit"
                   >
                     Đăng nhập
                   </button>
-                  <a class="btn btn-link" href="void()" >
-                    Forgot Your Password?
-                  </a>
-                </div>
+                  <div class="text-center d-flex justify-content-between mt-4">
+                    <p>
+                      Tạo bởi
+                      <a href="#" class="font-italic text-muted">
+                        <u>Cheems family</u></a
+                      >
+                    </p>
+                  </div>
+                </form>
               </div>
-            </form>
+            </div>
           </div>
+          <!-- End -->
         </div>
       </div>
+      <!-- End -->
     </div>
   </div>
 </template>
+  
 <script>
 export default {
   data() {
@@ -83,7 +113,6 @@ export default {
 
           if (localStorage.getItem("bigStore.jwt") != null) {
             this.$emit("loggedIn");
-
             this.$router.push({
               name: "admin-pages",
               params: { page: "main" },
@@ -92,16 +121,43 @@ export default {
         });
       }
     },
+    clear() {
+      // you can use this method to clear login form
+      this.email = "";
+      this.password = null;
+      this.$refs.observer.reset();
+    },
+    validate: function () {
+      this.emailBlured = true;
+      this.passwordBlured = true;
+      if (this.validEmail(this.email) && this.validPassword(this.password)) {
+        this.valid = true;
+      }
+    },
+
+    validEmail: function (email) {
+      var re = /(.+)@(.+){2,}\.(.+){2,}/;
+      if (re.test(email.toLowerCase())) {
+        return true;
+      }
+    },
+
+    validPassword: function (password) {
+      if (password.length > 5) {
+        return true;
+      }
+    },
   },
 };
 </script>
 <style scoped>
-.containerflex {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: stretch;
-    align-content: stretch;
+.login,
+.image {
+  min-height: 100vh;
+}
+.bg-image {
+  background-image: url("https://therichpost.com/wp-content/uploads/2021/02/login-split.jpg");
+  background-size: cover;
+  background-position: center center;
 }
 </style>

@@ -4,6 +4,7 @@ window.Vue = require('vue');
 
 
 
+
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import BootstrapVue from 'bootstrap-vue'
