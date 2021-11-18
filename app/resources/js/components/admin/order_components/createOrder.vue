@@ -14,7 +14,7 @@
                                     <a class="dropdown-item" v-on:click="allCategorySort()">Tất cả</a>
                                 </div>
                                 <div v-for="(cate,index) in category" :key="index">
-                                    <v-a v-model="cate.name" class="dropdown-item" v-on:click="changeCategorySort(cate)">{{cate.name}}</v-a>
+                                    <a class="dropdown-item" v-on:click="changeCategorySort(cate)">{{cate.name}}</a>
                                 </div>
                             </div>
                         </li>
@@ -468,7 +468,7 @@
 .sell-menu .conclusion{
     width: 100%;
     position: absolute;
-    bottom: 0; 
+    bottom: 0;
     height: 22%;
     overflow: auto;
     background: rgba(0, 139, 139, 0.3);

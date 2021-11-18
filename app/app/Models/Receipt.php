@@ -17,7 +17,7 @@ class Receipt extends Eloquent
     protected $fillable = [
         'user_id','createDay','total','VAT',
     ];
-
+    protected $table = 'receipt';
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');

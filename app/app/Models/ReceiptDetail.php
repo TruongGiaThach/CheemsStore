@@ -15,9 +15,9 @@ class ReceiptDetail extends Eloquent
     protected $connection = 'mongodb';
     protected $colection = 'receipt_detail';
     protected $fillable = [
-        'receipt_id','product_id','unitPrice','total',
+        'receipt_id','product_id','amount','unitPrice',
     ];
-
+    protected $table = 'receipt_detail';
     public function product()
     {
         return $this->belongsTo(Product::class, 'product_id');

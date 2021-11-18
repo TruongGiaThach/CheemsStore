@@ -146,7 +146,7 @@ export default {
       Nav_bar_items: [
         ["mdi-store-search", "Sản phẩm", "products"],
         ["mdi-account-group", "Người dùng", "users"],
-        ['mdi-account-group','Nhân viên','staffs'],
+        ['mdi-account-cog-outline','Nhân viên','staffs'],
         ["mdi-chart-line", "Thống kê", "statistic"],
       ],
       Nav_bar_order: [
