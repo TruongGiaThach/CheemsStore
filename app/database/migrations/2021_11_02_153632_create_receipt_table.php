@@ -17,8 +17,8 @@ class CreateReceiptTable extends Migration
             $table->increments('id');
             $table->string('user_id');
             $table->string('createDay');
-            $table->string('total'); // no need
-            $table->string('VAT');
+            $table->double('total'); // no need
+            $table->double('VAT');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

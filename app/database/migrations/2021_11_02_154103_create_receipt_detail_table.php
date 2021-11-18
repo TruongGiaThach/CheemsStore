@@ -17,8 +17,8 @@ class CreateReceiptDetailTable extends Migration
             $table->increments('id');
             $table->string('receipt_id');
             $table->string('product_id');
-            $table->string('unitPrice'); 
-            $table->string('total');
+            $table->integer('amount');
+            $table->double('unitPrice'); 
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

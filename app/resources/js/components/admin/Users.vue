@@ -404,7 +404,6 @@ export default {
 <style scoped>
 .table_style {
   width: 80%;
-  align: center;
   margin-left: auto;
   margin-right: auto;
 }
