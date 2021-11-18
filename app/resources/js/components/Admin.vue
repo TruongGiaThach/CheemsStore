@@ -149,8 +149,23 @@ export default {
         ["mdi-chart-line", "Statistic", "statistic"],
       ],
       Nav_bar_order: [
+<<<<<<< Updated upstream
         ["mdi-account-group", "Bán hàng", "createOrder"],
         ["mdi-paper-roll", "Hóa đơn", "orders"],
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+        ["mdi-cart-plus", "Create Order", "createOrder"],
+        ["mdi-clipboard-check-multiple-outline", "Orders", "orders"],
+=======
+        ["mdi-account-group", "Bán hàng", "createOrder"],
+        ["mdi-paper-roll", "Hóa đơn", "orders"],
+>>>>>>> 12009da105c1f9b78738c3176e9a84737b5114af
+=======
+        ["mdi-account-group", "Bán hàng", "createOrder"],
+        ["mdi-paper-roll", "Hóa đơn", "orders"],
+>>>>>>> 12009da105c1f9b78738c3176e9a84737b5114af
+>>>>>>> Stashed changes
       ],
     };
   },
