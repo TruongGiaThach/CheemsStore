@@ -7,6 +7,7 @@
       align: center; 
       margin-left: auto; 
       margin-right: auto;"
+      
       :headers="headers"
       :items="receipts"
       :search="search"
@@ -87,8 +88,8 @@
           variant="outline-info"
           class="hovertext"
           @click="getDataToTable(item)"
-          >Chi tiết</b-button
-        >
+          >Chi tiết
+        </b-button>
       </template>
       <template v-slot:no-data>
         <v-btn color="primary"> Reset </v-btn>
@@ -134,7 +135,7 @@ export default {
       { text: "VAT", value: "VAT", class: "info--text" },
       { text: "Ngày tạo", value: "createDay", class: "info--text" },
       {
-        text: "Detail",
+        text: "Chi tiết",
         value: "actions",
         sortable: false,
         class: "info--text",

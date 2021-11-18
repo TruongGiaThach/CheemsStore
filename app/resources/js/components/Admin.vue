@@ -83,7 +83,7 @@
               </v-list-item-icon>
 
               <v-list-item-content>
-                <v-list-item-title>Bán Hàng</v-list-item-title>
+                <v-list-item-title>{{ textOrder }}</v-list-item-title>
               </v-list-item-content>
             </template>
 
@@ -137,7 +137,8 @@ export default {
     return {
       checkComponent: "dashboard",
       iconDashBoard: "mdi-monitor-dashboard",
-      textDashBoard: "Dashboard",
+      textDashBoard: "Bảng điều khiển",
+      textOrder: "Kinh doanh",
       colors:"white",
       user: null,
       activeComponent: null,
@@ -148,8 +149,8 @@ export default {
         ["mdi-chart-line", "Statistic", "statistic"],
       ],
       Nav_bar_order: [
-        ["mdi-account-group", "Create Order", "createOrder"],
-        ["mdi-paper-roll", "Orders", "orders"],
+        ["mdi-account-group", "Bán hàng", "createOrder"],
+        ["mdi-paper-roll", "Hóa đơn", "orders"],
       ],
     };
   },
