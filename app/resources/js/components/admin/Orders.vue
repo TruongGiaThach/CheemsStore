@@ -1,6 +1,12 @@
 <template>
   <div>
-    <v-data-table
+    <v-data-table style="
+      height:91vh;
+      overflow: auto;
+      width: 80%; 
+      align: center; 
+      margin-left: auto; 
+      margin-right: auto;"
       :headers="headers"
       :items="receipts"
       :search="search"
@@ -58,11 +64,11 @@
                         <br />
                         <div class="column2">
                             <span><h5 style="display:inline">Tổng:</h5></span>
-                            <span ><b style="color: green; font-size: 110%">{{ total }} VNĐ</b></span>
+                            <span ><b style="color: #2196f3; font-size: 110%">{{total}}</b></span>
                         </div>
                         <div class="column2">
                             <span><h5 style="display:inline">VAT:</h5></span>
-                            <span ><b style="color: green; font-size: 110%">{{VAT}} VNĐ</b></span>
+                            <span ><b style="color: #2196f3; font-size: 110%">{{VAT}}</b></span>
                         </div>
                         </v-container>
                     </v-card-text>
@@ -81,7 +87,7 @@
           variant="outline-info"
           class="hovertext"
           @click="getDataToTable(item)"
-          >Detail</b-button
+          >Chi tiết</b-button
         >
       </template>
       <template v-slot:no-data>
@@ -116,17 +122,17 @@ export default {
         text: "Tên Sản Phẩm",
         align: "left",sortable: false, value: "name", class: "info--text", width:"50vh"
       },
-      { text: "Số lượng", value: "amount", class: "info--text",width:"20vh"},
-      { text: "Đơn giá", value: "total", class: "info--text" },
+      { text: "Số Lượng", value: "amount", class: "info--text",width:"15vh"},
+      { text: "Đơn Giá", value: "total", class: "info--text" },
     ],
     headers: [
       {
-        text: "ID orders",
+        text: "ID Sản Phẩm",
         align: "left",sortable: false,value: "_id",class: "info--text",
       },
-      { text: "Total", value: "total", class: "info--text" },
+      { text: "Tổng", value: "total", class: "info--text" },
       { text: "VAT", value: "VAT", class: "info--text" },
-      { text: "Creation date", value: "createDay", class: "info--text" },
+      { text: "Ngày tạo", value: "createDay", class: "info--text" },
       {
         text: "Detail",
         value: "actions",
@@ -157,6 +163,10 @@ export default {
       .get("/api/receipt")
       .then((response) => {
         this.receipts = response.data;
+        for(var i = 0; i < this.receipts.length ; i++){
+          this.receipts[i].total = Number(this.receipts[i].total).toLocaleString() + " VNĐ";
+          this.receipts[i].VAT = Number(this.receipts[i].VAT).toLocaleString() + " VNĐ";
+        }
       })
       .catch((error) => {
         console.error(error);
@@ -197,7 +207,7 @@ export default {
       this.total = item.total;
       this.createDay =item.createDay;
       this.billId = item._id.toString();
-      this.VAT = item.VAT.toString();
+      this.VAT = item.VAT;
       // lay  receipt detail
       this.detailItem = this.receiptdetails.filter((e) => {
         return e.receipt_id === item._id;
@@ -212,7 +222,7 @@ export default {
         this.tableDetail.push({
           name: this.defaultItem.name,
           amount: element.amount,
-          total: element.unitPrice,
+          total: Number(element.unitPrice).toLocaleString() + " VNĐ",
         });
       });
       console.log(this.tableDetail);

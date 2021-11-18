@@ -29,7 +29,7 @@
                 <span class ="box-container" v-for="(product,index) in filteredProducts" :key="index" v-on:click="addItemToBill(product)">
                     <v-card class = "product-box">
                         <div>
-                            <div class="price">{{product.outportPrice}}</div>
+                            <div class="price">{{Number(product.outportPrice).toLocaleString()}} VNĐ</div>
                         </div>
                         <div>
                             <img :src = "require('../../../../../public/images/' + product.image).default">
@@ -70,7 +70,7 @@
                                     <input type="number" v-model="row.item.amount" min="1" onkeydown="return false" >
                                 </v-form>
                             </td>
-                            <td>{{row.item.price}}</td>
+                            <td>{{Number(row.item.price).toLocaleString()}} VNĐ</td>
                             <td>
                                 <v-btn class="mx-2" fab dark x-small color="red" v-on:click="deleteItem(row.index)">
                                     <v-icon dark>x</v-icon>
@@ -86,9 +86,9 @@
             <div class="conclusion">
                 <div class="conclusion-info">
                     <span>
-                    <h5>Tổng tiền: <p>{{totalPrice}} VNĐ</p></h5>
-                    <h5>Thuế VAT: <p>{{vat}} VNĐ</p></h5>
-                    <h5>Phải trả: <p>{{endPrice}} VNĐ</p></h5>
+                    <h5>Tổng tiền: <p>{{Number(totalPrice).toLocaleString()}} VNĐ</p></h5>
+                    <h5>Thuế VAT: <p>{{Number(vat).toLocaleString()}} VNĐ</p></h5>
+                    <h5>Phải trả: <p>{{Number(endPrice).toLocaleString()}} VNĐ</p></h5>
                     </span>
                 </div>
                 <div class="conclusion-buttons">
@@ -133,20 +133,20 @@
                                     </div>
                                 </div>
                                 <v-data-table max-width="inherit"
-                                    v-model="items"
+                                    v-model="items_print"
                                     :headers="receiptDetail"
-                                    :items="items"
+                                    :items="items_print"
                                     hide-default-footer
                                     class="elevation-1 "
                                 ></v-data-table>
                                 <br />
                                 <div class="column2">
                                     <span><h5 style="display:inline">Tổng:</h5></span>
-                                    <span ><b style="color: green; font-size: 110%">{{endPrice}} VNĐ</b></span>
+                                    <span ><b style="color: #2196f3; font-size: 110%">{{Number(endPrice).toLocaleString()}} VNĐ</b></span>
                                 </div>
                                 <div class="column2">
                                     <span><h5 style="display:inline">VAT:</h5></span>
-                                    <span ><b style="color: green; font-size: 110%">{{vat}} VNĐ</b></span>
+                                    <span ><b style="color: #2196f3; font-size: 110%">{{Number(vat).toLocaleString()}} VNĐ</b></span>
                                 </div>
                                 </v-container>
                             </v-card-text>
@@ -171,6 +171,7 @@
                 products : [],
                 category : [],
                 items : [],
+                items_print : [],
                 category_sort: {
                     name: "Tất cả",
                     id: "0"
@@ -200,7 +201,7 @@
                         text: "Tên Sản Phẩm",
                         align: "left",sortable: false, value: "name", class: "info--text",width:"50vh"
                     },
-                    { text: "Số lượng", value: "amount", class: "info--text", width:"20vh"},
+                    { text: "Số lượng", value: "amount", class: "info--text", width:"15vh"},
                     { text: "Đơn giá", value: "price", class: "info--text" },
                 ],
             }
@@ -315,6 +316,7 @@
                 .catch(error => {
                     console.error(error);
                 })
+                this.addItemToPrint();
                 this.dialog=true;
             },
             newCustomer() {
@@ -352,6 +354,16 @@
                     })
                 }
                 this.dialog = true;
+            },
+            addItemToPrint(){
+                for(var i = 0; i < this.items.length; i++){
+                    this.items_print.push({
+                        id: this.items[i].id,
+                        name: this.items[i].name,
+                        amount: this.items[i].amount,
+                        price: Number(this.items[i].price).toLocaleString() + " VNĐ"
+                    })
+                }
             },
             printDetail(){
                 this.dialog=true;
@@ -413,7 +425,7 @@
 .product-search-menu .product-box .price{
     position: absolute;
     right: 0;
-    background-color: darkcyan;
+    background-color: #2196f3;
     color: white;
     padding-right: 0.2em;
     padding-left: 0.4em;
@@ -434,13 +446,11 @@
 *******Sell menu CSS*********
 *****************************/
 .sell-menu{
-    Border-left: solid 0.2em darkcyan;
+    Border-left: solid 0.2em #2196f3;
     display: table;
 }
 .customer-info, .product-list, .conclusion{
     min-height: 10%;
-    
-    
 }
 .sell-menu .customer-info{
     position: relative;
@@ -497,7 +507,7 @@
     font-size: 120%;
 }
 .conclusion .conclusion-info p{
-    color:darkgreen;
+    color:#2196f3;
     display: inline;
 }
 </style>
