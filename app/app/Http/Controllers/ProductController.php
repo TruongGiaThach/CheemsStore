@@ -60,7 +60,7 @@ class ProductController extends Controller
             $product->image = $name;
         }
         else{
-            $product->image = 'missing.webp';
+            $product->image = 'default.png';
         }
 
         $product -> save();
@@ -100,7 +100,6 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
         if ($request->image){
             $image = $request->image;
             $extension = $image->getClientOriginalExtension();
@@ -111,15 +110,14 @@ class ProductController extends Controller
         else{
             $product->image = 'missing.webp';
         }
-
-
+        //
         $status = $product->update(
             $request->only([
         'name','amount','importPrice','outportPrice','manufacture','warrantyPeriod',
         'category_id','description','tag'
             ])
         );
-        
+
         return response()->json([
             'status' => $status,
             'message' => $status ? 'Product Updated!' : 'Error Updating Product'
@@ -145,11 +143,37 @@ class ProductController extends Controller
     public function destroy($product_id)
     {
         //
+        $product = Product::findOrFail($product_id);
+        
+        $name = $product->image;
+        Storage::disk('public')->delete($product->image);
+        
+        $product->forceDelete();
+
+        /*
         $product = Product::where('_id', $product_id)->forceDelete();
 
+        Storage::disk('public')->delete($product->image);
+
+        $product->forceDelete();
+        return response()->json([
+            'status' => $product,
+            'message' => $product ? 'Product Deleted!' : 'Error Deleting Product'
+        ]);
+        */
+    }
+    /*
+    public function deleteImage($product_image)
+    {
+        //
+        if(Storage::disk('public')->exists('images/' + $product_image))
+        {
+            Storage::disk('public')->delete('images/' + $product_image);
             return response()->json([
                 'status' => $product,
                 'message' => $product ? 'Product Deleted!' : 'Error Deleting Product'
             ]);
-    }
+        }
+            return 'File does not exists';
+    }*/
 }
