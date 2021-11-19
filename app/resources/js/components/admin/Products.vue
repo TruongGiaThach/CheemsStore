@@ -257,7 +257,7 @@
         <td :colspan="headers.length">
           <v-row no-gutters>
             <v-col cols="12" md="4">
-              <img width="100px" height="100px" :src="item.image"> 
+              <img width="100px" height="100px" :src= "`http://localhost/images/${item.image}`"> 
             </v-col>
             <v-col cols="12" md="8">
               <h3 class="text-justify">{{ item.name }}</h3>
@@ -385,9 +385,9 @@ export default {
       return this.editedIndex === -1 ? "New Item" : "Edit Item";
     },
     tableData() {
-      for(const item of this.products){
-        item.image = require(`../../../../public/images/${item.image}`).default;
-      };
+      //for(const item of this.products){
+      //  item.image = `http://localhost/images/${item.image}`;
+      //};
       if (this.selected != undefined) {
         console.log(this.selected)
         return this.products.filter((e) => {
@@ -557,17 +557,23 @@ export default {
 
     endDelete(product) {
       axios
-        .delete(`/api/products/${product._id}`, formData, {
-          header:{
-            'Content-Type':"multipart/form-data"
-          }
-        })
+        .delete(`/api/products/${product._id}`)
         .then(
           res => {
             console.log("updated.")
           }
         )
         .catch((response) => {});
+      axios
+        .get(`/api/image/${product.image}`)
+        .then(
+          res => {
+            console.log("image delete")
+          }
+        )
+        .catch((response) => {
+          console.log(response.message)
+        });
     },
 
     editItem(item) {
