@@ -557,23 +557,13 @@ export default {
 
     endDelete(product) {
       axios
-        .delete(`/api/products/${product._id}`)
+        .delete('/api/products/'+product._id)
         .then(
           res => {
-            console.log("updated.")
+            console.log("delete.")
           }
         )
         .catch((response) => {});
-      axios
-        .get(`/api/image/${product.image}`)
-        .then(
-          res => {
-            console.log("image delete")
-          }
-        )
-        .catch((response) => {
-          console.log(response.message)
-        });
     },
 
     editItem(item) {

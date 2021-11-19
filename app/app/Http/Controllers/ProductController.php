@@ -143,11 +143,23 @@ class ProductController extends Controller
     public function destroy($product_id)
     {
         //
+        $product = Product::findOrFail($product_id);
+        
+        $name = $product->image;
+        Storage::disk('public')->delete($product->image);
+        
+        $product->forceDelete();
+
+        /*
         $product = Product::where('_id', $product_id)->forceDelete();
 
-            return response()->json([
-                'status' => $product,
-                'message' => $product ? 'Product Deleted!' : 'Error Deleting Product'
-            ]);
+        Storage::disk('public')->delete($product->image);
+
+        $product->forceDelete();
+        return response()->json([
+            'status' => $product,
+            'message' => $product ? 'Product Deleted!' : 'Error Deleting Product'
+        ]);
+        */
     }
 }
