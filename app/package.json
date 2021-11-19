@@ -28,6 +28,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "@coreui/coreui": "^4.0.5",
         "@mdi/font": "^6.4.95",
         "bootstrap-vue": "^2.21.2",
         "chart.js": "^2.9.4",

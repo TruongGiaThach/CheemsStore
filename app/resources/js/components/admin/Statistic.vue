@@ -17,7 +17,7 @@ import CardLineChart from "./CardLineChart"
   export default {
     data () {
       return {
-          items:[40, 500, 120, 200, 56, 300, 87],
+          items:[40, 500, 120, 200, 56, 300, 87, 100],
       }
     },
     computed: {

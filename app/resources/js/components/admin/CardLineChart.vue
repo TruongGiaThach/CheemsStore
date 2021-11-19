@@ -9,16 +9,19 @@
           <h6 class="uppercase text-blueGray-100 mb-1 text-xs font-semibold">
             Overview
           </h6>
+          <div class="d-flex flex-no-wrap justify-space-between mr-5">
           <h2 class="text-info text-xl font-semibold">
             Sales value
           </h2>
+            <slot></slot>
+          </div>
         </div>
       </div>
     </div>
     <div class="p-4 flex-auto">
       <!-- Chart -->
-      <div class="relative h-600-px" style="height: 500px;">
-        <canvas id="line-chart"></canvas>
+      <div class="relative h-500-px" >
+        <canvas height="400" id="line-chart"></canvas>
       </div>
     </div>
   </div>
@@ -34,6 +37,7 @@ export default {
         }
     },
     data(){
+        return{}
     },
   mounted: function () {
     this.$nextTick(function () {
@@ -41,24 +45,29 @@ export default {
         type: "line",
         data: {
           labels: [
-            "January",
-            "February",
-            "March",
-            "April",
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
             "May",
-            "June",
-            "July",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
           ],
           datasets: [
             {
-              label: new Date().getFullYear(),
+              label: "Doang thu",
               backgroundColor: "#2196f3",
               borderColor: "#2196f3",
-              data: [0, 78, 66, 44, 56, 67,101],
+              data: [0, 78, 66, 44, 56, 67,101,100],
               fill: false,
             },
             {
-              label: new Date().getFullYear() - 1,
+              label: "Lợi nhuận",
               fill: false,
               backgroundColor: "#F37E21",
               borderColor: "#F37E21",
@@ -98,7 +107,7 @@ export default {
                 display: true,
                 scaleLabel: {
                   display: true,
-                  labelString: "Month",
+                  labelString: "Month",//
                   fontColor: "#FFFFFF",
                 },
                 gridLines: {
@@ -120,7 +129,7 @@ export default {
                 display: true,
                 scaleLabel: {
                   display: true,
-                  labelString: "Value",
+                  labelString: "VNĐ",
                   fontColor: "white",
                 },
                 gridLines: {
