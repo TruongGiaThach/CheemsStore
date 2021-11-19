@@ -28,7 +28,10 @@ class UserController extends Controller
                 'token' => Auth::user()->createToken('bigStore')->accessToken,
             ];
         }
-
+        $user = User::where('email',$request->email);
+        $user->update(
+            ['state'=>"active"]
+        );    
         return response()->json($response, $status);
     }
 
@@ -37,7 +40,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:50',
             'email' => 'required|email',
-            'password' => 'required|min:6',
+            'password' => 'required|min:1',
             'c_password' => 'required|same:password',
         ]);
 
@@ -45,7 +48,7 @@ class UserController extends Controller
             return response()->json(['error' => $validator->errors()], 401);
         }
 
-        $data = $request->only(['name', 'email', 'password','role']);
+        $data = $request->only(['name', 'email', 'password','role','state']);
         $data['password'] = bcrypt($data['password']);
         
         
@@ -57,9 +60,17 @@ class UserController extends Controller
         ]);
     }
    
-    public function show(User $user)
+    public function log_out(Request $request)
     {
-        return response()->json($user);
+        $user = User::where('email',$request->email);
+        error_log($request->email);
+        $user->update(
+            ['state'=>"inactive"]
+        );  
+        return response()->json([
+            'status' => $user,
+            'message' => $user? 'User Loggout!' : 'Error Loggout User'
+        ]);
     }
     public function details()
     {
@@ -68,7 +79,7 @@ class UserController extends Controller
         return response()->json(
             [
                 'success' => $user
-            ],
+            ],  
             $this->successStatus
         );
     }

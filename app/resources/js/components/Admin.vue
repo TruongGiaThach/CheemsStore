@@ -250,8 +250,11 @@ export default {
       this.setDefaults();
     },
     logout() {
+      let user = JSON.parse(localStorage.getItem("bigStore.user"));
+      axios.patch("/api/users/",{email: user.email}).catch((response) => {});
       localStorage.removeItem("bigStore.jwt");
       localStorage.removeItem("bigStore.user");
+      
       this.change();
       this.$router.push("/");
     },

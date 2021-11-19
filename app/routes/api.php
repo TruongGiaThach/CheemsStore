@@ -27,7 +27,7 @@ Route::get('/customer', 'CustomerController@index');
 Route::post('/customer', 'CustomerController@store');
 
 Route::get('/users','UserController@index');
-Route::get('users/{user}','UserController@show');
+Route::patch('users','UserController@log_out');
 Route::patch('users/{user}','UserController@update');
 Route::delete('users/{email}','UserController@destroy');
 Route::get('users/{user}/orders','UserController@showOrders');

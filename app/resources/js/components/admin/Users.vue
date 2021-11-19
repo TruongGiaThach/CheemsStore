@@ -25,6 +25,17 @@
         class="elevation-1"
         min-height="70vh"
       >
+        <template v-slot:[`item.state`]="{ item }">
+          <v-chip :color="getColor(item.state)">
+             <span v-if="item.state === 'active'">
+               Đang hoạt động
+             </span>
+              <span v-if="item.state === 'inactive'">
+               Đã thoát
+              </span>
+          </v-chip>
+        </template>
+
         <!-- dialog thêm tài khoản và thông tin nhân viên -->
         <template v-slot:top>
           <v-toolbar flat>
@@ -202,6 +213,7 @@ export default {
         { text: "Email", value: "email" },
         { text: "Role", value: "role" },
         { text: "Actions", value: "actions", sortable: false },
+        { text: "Trạng thái", value: "state" },
       ],
       state: true,
       users: [],
@@ -272,7 +284,18 @@ export default {
         console.error(error);
       });
   },
+   
   methods: {
+    creat_default_editing_item() {
+      this.editedItem = Object.assign({}, this.defaultItem);
+      this.editedIndex = -1;
+    },
+    getColor(state) {
+      if (state == "active") return "#01D145";
+      else if (state == "inactive") return "#FAE5F3"
+      else  return "#D1018D";
+     
+    },
     initialize() {
       axios
         .get("/api/users")
@@ -305,14 +328,11 @@ export default {
       console.log("deleteItemConfirm");
       this.closeDelete();
     },
+   
     //close save user
     close() {
       this.dialog = false;
       this.initialize();
-      this.$nextTick(() => {
-        this.editedItem = Object.assign({}, this.defaultItem);
-        this.editedIndex = -1;
-      });
     },
     //close delete user
     closeDelete() {
@@ -323,33 +343,36 @@ export default {
         this.editedIndex = -1;
       });
     },
-    addUser() {
+    async addUser() {
       //add user
+
       let index = -1;
       index = this.users.findIndex((i) => i.email == this.editedItem.email);
-      console.log(index);
+      console.log(this.editedItem);
       if (index != -1) {
         alert("Email đã có tài khoản. Vui lòng dùng email khác");
         return;
       } else
-        axios
+        await axios
           .post("/api/register", {
             name: this.editedItem.name,
             email: this.editedItem.email,
             password: this.editedItem.password,
             c_password: this.editedItem.c_password,
             role: "staff",
+            state: "inactive",
           })
           .catch((response) => {
             if (response.user == null) {
-              // delete staff
-              this.deleteStaff();
               alert("Lỗi bất ngờ khi thêm tài khoản");
             }
           });
     },
     async addStaffAndUserAccount() {
       //add staff
+
+      console.log("when add staff");
+      console.log(this.editedItem);
       let index = -1;
       index = this.staffs.findIndex(
         (staff) => staff.email == this.editedItem.email
@@ -366,12 +389,19 @@ export default {
             salary: this.editedItem.salary,
             dateBegin: this.editedItem.dateBegin,
           })
-          .then((response) => {
+          .catch((response) => {
             if (response.data.status == false) {
               alert("Lỗi bất ngờ khi thêm nhân viên");
-              this.state = false;
-            } else this.addUser();
+              return;
+            }
+          })
+          .then((response) => {
+            if (response.data.status != false) {
+              this.addUser();
+              return;
+            }
           });
+      this.creat_default_editing_item();
     },
     save() {
       this.addStaffAndUserAccount();

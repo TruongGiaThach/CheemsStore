@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Staff;
 
+
 class StaffController extends Controller
 {
     //
@@ -30,11 +31,13 @@ class StaffController extends Controller
     {
         //'email', 'name', 'cmnd', 'numOfDayOff','salary','dateBegin'
         $staff = Staff::where('email',$request->email);
-        if ($staff != null)
+         
+        if ($staff == [])
+           
             return response()->json([
                 'status' => false,
                 'data'   => $staff,
-                'message' => 'Email existed',
+                'message' => $request->email//'Email existed',
             ]);
         $staff = Staff::create([    
             'name' => $request->name,

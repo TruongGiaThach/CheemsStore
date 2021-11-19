@@ -275,7 +275,7 @@ export default {
         alert("Email đã được sử dụng. Vui lòng dùng email khác");
       } else
         axios
-          .post("/api/staffs/", {
+          .post("/api/staffs", {
             name: this.editedItem.name,
             email: this.editedItem.email,
             cmnd: this.editedItem.cmnd,
