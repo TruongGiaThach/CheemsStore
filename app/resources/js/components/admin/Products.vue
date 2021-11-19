@@ -489,7 +489,6 @@ export default {
     },
     endEditing(product) {
       let formData = new FormData();
-      formData.append('_id', this.editedItem._id);
       formData.append('name', this.editedItem.name);
       formData.append('amount', this.editedItem.amount);
       formData.append('importPrice', this.editedItem.importPrice);
@@ -506,11 +505,12 @@ export default {
         formData.append('image', document.getElementById("image").files[0]);
         this.editedItem.image =  this.editedItem.name + '.' + document.getElementById("image").files[0].name.split('.')[1];
         console.log(document.getElementById('image').files[0]);
-        console.log(this.editedItem.image);
       };
 
+      formData.append("_method", "PUT");
+
       axios
-        .put(`/api/products/${product._id}`, formData, {
+        .post(`/api/products/${product._id}`, formData, {
           header:{
             'Content-Type':"multipart/form-data"
           }

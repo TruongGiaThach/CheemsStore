@@ -60,7 +60,7 @@ class ProductController extends Controller
             $product->image = $name;
         }
         else{
-            $product->image = 'default.png';
+            $product->image = 'missing.webp';
         }
 
         $product -> save();
@@ -98,8 +98,24 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $product_id)
     {
+        $product = Product::findOrFail($product_id);
+        
+        $name = $product->image;
+        Storage::disk('public')->delete($product->image);
+        
+        $product->name = $request->name;
+        $product->amount = $request->amount;
+        $product->importPrice = $request->importPrice;
+        $product->outportPrice = $request->outportPrice;
+        $product->manufacture = $request->manufacture;
+        $product->warrantyPeriod = $request->warrantyPeriod;
+        $product->category_id = $request->category_id;
+        $product->description = $request->description;
+        $product->tag = $request->tag;
+
+
         if ($request->image){
             $image = $request->image;
             $extension = $image->getClientOriginalExtension();
@@ -110,13 +126,8 @@ class ProductController extends Controller
         else{
             $product->image = 'missing.webp';
         }
-        //
-        $status = $product->update(
-            $request->only([
-        'name','amount','importPrice','outportPrice','manufacture','warrantyPeriod',
-        'category_id','description','tag'
-            ])
-        );
+
+        $product -> save();
 
         return response()->json([
             'status' => $status,
