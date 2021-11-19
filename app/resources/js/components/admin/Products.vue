@@ -189,14 +189,25 @@
                     </v-row>
 
                     <v-row>
-                      <div class="col-md-6">
-                          <input 
-                          type="file" 
-                          class="form-control-file" 
-                          id="image" 
-                          accept="image/*"
-                          >
-                      </div>
+                      <v-col cols="12" md="6">
+                        <div class="col-md-6">
+                            image
+                            <v-file-input 
+                            show-size
+                            outlined
+                            dense
+                            truncate-length="15"
+                            class="form-control-file" 
+                            id="image" 
+                            accept="image/*"
+                            v-model="formImage"
+                            @change="Preview_image"
+                            />
+                        </div>
+                      </v-col>
+                      <v-col cols="12" md="6">
+                          <v-img width="150" height="150" :src="previewImage"></v-img>
+                      </v-col>
                     </v-row>
 
                     <v-row>
@@ -301,6 +312,8 @@ export default {
   data() {
     return {
       selected: undefined,
+      formImage: null,
+      previewImage: null,
       categorySelected: '',
       products: [],
       category: [],
@@ -426,6 +439,9 @@ export default {
           }
         }
       },
+    Preview_image() {
+      this.previewImage= URL.createObjectURL(this.formImage)
+    },
     clickRow(item, event) {
       if (event.isExpanded) {
         const index = this.expanded.findIndex((i) => i === item);
@@ -503,6 +519,7 @@ export default {
 
       if (document.getElementById('image').files[0])
       {
+        formData.append('oldImage', product.image);
         formData.append('image', document.getElementById("image").files[0]);
         this.editedItem.image =  this.editedItem.name + '.' + document.getElementById("image").files[0].name.split('.')[1];
         console.log(document.getElementById('image').files[0]);
@@ -567,6 +584,7 @@ export default {
     },
 
     editItem(item) {
+      this.previewImage = "http://localhost/images/"+item.image;
       this.editedIndex = this.products.indexOf(item);
       this.editedItem = Object.assign({}, item);
       this.dialog = true;
@@ -590,6 +608,7 @@ export default {
       this.$nextTick(() => {
         this.editedItem = Object.assign({}, this.defaultItem);
         this.editedIndex = -1;
+        this.formImage = null;
       });
     },
 

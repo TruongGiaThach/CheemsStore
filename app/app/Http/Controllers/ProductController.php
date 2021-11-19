@@ -100,6 +100,10 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+        if ($request->oldImage) {
+            $oldImage = $request->oldImage;
+            Storage::disk('public')->delete($oldImage);
+        }
         if ($request->image){
             $image = $request->image;
             $extension = $image->getClientOriginalExtension();
