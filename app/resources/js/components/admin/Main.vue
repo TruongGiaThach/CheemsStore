@@ -94,10 +94,13 @@ import CardLineChart from "./CardLineChart";
 export default {
   data() {
     return {
+      profit: [],
+      revenue: [],
       customers: [],
       receipts: [],
       products: [],
       receiptDetails: [],
+      receiptsDay: [],
       values: [],
       items: [40, 500, 120, 200, 56, 300, 87],
       dayinWeek: ["Sun", "Mon", "Tue", "Web", "Thur", "Fri", "Sar"],
@@ -149,11 +152,35 @@ export default {
   },
   methods: {
     createDataWithDay() {
-      this.receipts.fliter((e) => {
+      this.revenue = [];
+      this.profit = [];
+      this.receiptsDay = [];
+      var receiptsDay = this.receipts.fliter((e) => {
         return (
           new Date(e.createDay).getTime() <= this.endDay.getTime() &&
           new Date(e.createDay).getTime() >= this.endDay.getTime()
         );
+      });
+      //doanh thu
+      this.revenue = receiptsDay.map((e) => {
+        var receiptDetailDay = this.receiptDetails.filter((f) => {
+          return f.receipt_id === e._id;
+        });
+        this.receiptsDay.push(receiptDetailDay);
+        return parseInt(e.total);
+      });
+      // loi nhuan
+      this.receiptsDay.forEach((element) => {
+        var amount = element.map((value) => {
+          return value.amount;
+        });
+        var product = this.products.fliter((e) => {
+          return e._id === element[0].product_id;
+        });
+        var importPrices = product.reduce((acc, value, index) => {
+          return acc + parseInt(value.importPrice * amount[index]);
+        });
+        this.profit.push(this.revenue - importPrices);
       });
     },
     createLabelWithDay() {
