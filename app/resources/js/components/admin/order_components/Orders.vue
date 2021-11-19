@@ -93,7 +93,7 @@
                               <v-avatar class="ma-4" size="140" tile>
                                 <v-img
                                   style="border-radius: 5px"
-                                  :src="require('../../../../public/images/' + item.image).default"
+                                  :src="require('../../../../../public/images/' + item.image).default"
                                 ></v-img>
                               </v-avatar>
                               <div>

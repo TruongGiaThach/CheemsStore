@@ -128,7 +128,7 @@
 import Main from "./admin/Main";
 import Users from "./admin/Users";
 import Products from "./admin/Products";
-import Orders from "./admin/Orders";
+import Orders from "./admin/order_components/Orders";
 import Statistic from "./admin/Statistic";
 import CreateOrder from "./admin/order_components/createOrder";
 

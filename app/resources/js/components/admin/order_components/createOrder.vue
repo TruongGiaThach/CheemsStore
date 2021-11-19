@@ -67,7 +67,7 @@
                             <td>{{row.item.name}}</td>
                             <td>
                                 <v-form >
-                                    <input type="number" v-model="row.item.amount" min="1" onkeydown="return false" >
+                                    <input type="number" v-model="row.item.amount"  v-bind:min="row.item.amount" onkeydown="return false" >
                                 </v-form>
                             </td>
                             <td>{{Number(row.item.price).toLocaleString()}} VNĐ</td>
