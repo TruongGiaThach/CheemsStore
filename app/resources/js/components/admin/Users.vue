@@ -27,12 +27,8 @@
       >
         <template v-slot:[`item.state`]="{ item }">
           <v-chip :color="getColor(item.state)">
-             <span v-if="item.state === 'active'">
-               Đang hoạt động
-             </span>
-              <span v-if="item.state === 'inactive'">
-               Đã thoát
-              </span>
+            <span v-if="item.state === 'active'"> Đang hoạt động </span>
+            <span v-if="item.state === 'inactive'"> Đã thoát </span>
           </v-chip>
         </template>
 
@@ -142,47 +138,54 @@
         <!-- expand 1 row -->
         <template v-slot:expanded-item="{ headers, item }">
           <td :colspan="headers.length">
-            <table class="table_style">
-              <tr>
-                <h3>Thông tin nhân viên {{ item.name }}</h3>
-              </tr>
-              <tr>
-                <div v-for="staff in staffs" :key="staff.id">
-                  <v-list class="text-justify" v-if="staff.email == item.email">
-                    <tr>
-                      <td>Email:</td>
-                      <td>
-                        {{ staff.email }}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>CMND:</td>
-                      <td>
-                        {{ staff.cmnd }}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Số ngày nghỉ:</td>
-                      <td>
-                        {{ staff.numOfDayOff }}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Mức lương:</td>
-                      <td>
-                        {{ staff.salary }}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Ngày vào làm:</td>
-                      <td>
-                        {{ staff.dateBegin }}
-                      </td>
-                    </tr>
-                  </v-list>
-                </div>
-              </tr>
-            </table>
+            <v-container fluid>
+              <v-row>
+                <table class="table_style">
+                  <tr>
+                    <h3>Thông tin nhân viên {{ item.name }}</h3>
+                  </tr>
+                  <tr>
+                    <div v-for="staff in staffs" :key="staff.id">
+                      <v-list
+                        class="text-justify"
+                        v-if="staff.email == item.email"
+                      >
+                        <tr>
+                          <td>Email:</td>
+                          <td>
+                            {{ staff.email }}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>CMND:</td>
+                          <td>
+                            {{ staff.cmnd }}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Số ngày nghỉ:</td>
+                          <td>
+                            {{ staff.numOfDayOff }}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Mức lương:</td>
+                          <td>
+                            {{ staff.salary }}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Ngày vào làm:</td>
+                          <td>
+                            {{ staff.dateBegin }}
+                          </td>
+                        </tr>
+                      </v-list>
+                    </div>
+                  </tr>
+                </table>
+              </v-row>
+            </v-container>
           </td>
         </template>
         <!-- delete button -->
@@ -284,7 +287,7 @@ export default {
         console.error(error);
       });
   },
-   
+
   methods: {
     creat_default_editing_item() {
       this.editedItem = Object.assign({}, this.defaultItem);
@@ -292,9 +295,8 @@ export default {
     },
     getColor(state) {
       if (state == "active") return "#01D145";
-      else if (state == "inactive") return "#FAE5F3"
-      else  return "#D1018D";
-     
+      else if (state == "inactive") return "#FAE5F3";
+      else return "#D1018D";
     },
     initialize() {
       axios
@@ -328,7 +330,7 @@ export default {
       console.log("deleteItemConfirm");
       this.closeDelete();
     },
-   
+
     //close save user
     close() {
       this.dialog = false;

@@ -165,7 +165,7 @@ export default {
   },
   beforeMount() {
     this.setComponent(this.$route.params.page);
-    this.user = JSON.parse(localStorage.getItem("bigStore.  d fuser"));
+    this.user = JSON.parse(localStorage.getItem("bigStore.user"));
     axios.defaults.headers.common["Content-Type"] = "application/json";
     axios.defaults.headers.common["Authorization"] =
       "Bearer " + localStorage.getItem("bigStore.jwt");
