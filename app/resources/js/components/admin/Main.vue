@@ -112,7 +112,7 @@ export default {
 
       values: [],
       dayinWeek: ["Sun", "Mon", "Tue", "Web", "Thur", "Fri", "Sar"],
-      indexDayInWeek: [],
+      monthinYear:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
       startDay: new Date("2021-11-12").toISOString().slice(0, 10),
       endDay: new Date().toISOString().slice(0, 10),
     };
