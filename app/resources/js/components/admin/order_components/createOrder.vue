@@ -32,7 +32,7 @@
                             <div class="price">{{Number(product.outportPrice).toLocaleString()}} VNĐ</div>
                         </div>
                         <div>
-                            <img :src = "require('../../../../../public/images/' + product.image).default">
+                            <img :src = "baseUrl +'/images/' + product.image">
                         </div>
                         <div>
                             <p>{{product.name}}</p>
@@ -168,6 +168,7 @@
         name: "create-order",
         data(){
             return {
+                baseUrl: window.location.origin,
                 products : [],
                 category : [],
                 items : [],
