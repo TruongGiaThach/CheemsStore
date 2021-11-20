@@ -596,7 +596,7 @@ export default {
     },
 
     editItem(item) {
-      this.previewImage = this.baseUrl+"/images/"+item.image;
+      this.previewImage = this.baseUrl+"/images/"+item.image+'?time=' + Date.now();
       this.editedIndex = this.products.indexOf(item);
       this.editedItem = Object.assign({}, item);
       this.dialog = true;
