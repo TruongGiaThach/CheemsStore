@@ -139,7 +139,7 @@
         <template v-slot:expanded-item="{ headers, item }">
           <td :colspan="headers.length">
             <v-container fluid>
-              <v-row>
+              <v-row no-gutters>
                 <table class="table_style">
                   <tr>
                     <h3>Thông tin nhân viên {{ item.name }}</h3>

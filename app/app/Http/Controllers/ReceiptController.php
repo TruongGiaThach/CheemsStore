@@ -17,7 +17,15 @@ class ReceiptController extends Controller
         //
         return response()->json(Receipt::all(),200);
     }
-
+    public function getByCustomerID(Request $request)
+    {
+        
+        $receipt = Receipt::where('user_id',$request->customerID);
+        return response()->json([
+            'status'=>(bool) $receipt,
+            'data'=> $receipt,
+        ]);
+    }
     /**
      * Show the form for creating a new resource.
      *

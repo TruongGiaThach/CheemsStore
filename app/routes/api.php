@@ -24,6 +24,7 @@ Route::get('/receipt', 'ReceiptController@index');
 Route::get('/receipt_detail', 'ReceiptDetailController@index');
 Route::post('/receipt', 'ReceiptController@store');
 Route::post('/receipt_detail', 'ReceiptDetailController@store');
+Route::get('/receipts', 'ReceiptController@getByCustomerID');
 //customer
 Route::get('/customer', 'CustomerController@index');
 Route::post('/customer', 'CustomerController@store');

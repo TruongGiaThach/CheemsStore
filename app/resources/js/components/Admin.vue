@@ -131,6 +131,7 @@ import Orders from "./admin/Orders";
 import Statistic from "./admin/Statistic";
 import CreateOrder from "./admin/order_components/createOrder";
 import Staffs from "./admin/Staffs";
+import Customers from "./admin/Customers";
 export default {
   data() {
     return {
@@ -145,7 +146,8 @@ export default {
       drawer: true,
       Nav_bar_items: [
         ["mdi-store-search", "Sản phẩm", "products"],
-        ["mdi-account-group", "Người dùng", "users"],
+        ["mdi-account", "Tài khoản", "users"],
+        ["mdi-account-group", "Khách hàng", "customers"],
         ["mdi-account-cog-outline", "Nhân viên", "staffs"],
         ["mdi-chart-line", "Thống kê", "statistic"],
       ],
@@ -162,6 +164,7 @@ export default {
     Orders,
     CreateOrder,
     Staffs,
+    Customers
   },
   beforeMount() {
     this.setComponent(this.$route.params.page);
@@ -243,6 +246,14 @@ export default {
             this.$router.push({
               name: "admin-pages",
               params: { page: "staffs" },
+            });
+          break;
+        case "customers":
+          this.activeComponent = Customers;
+          if (this.$route.path != "/admin/customers")
+            this.$router.push({
+              name: "admin-pages",
+              params: { page: "customers" },
             });
           break;
         default:

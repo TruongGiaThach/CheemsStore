@@ -15,7 +15,7 @@ class Customer extends Eloquent
     protected $connection = 'mongodb';
     protected $colection = 'customers';
     protected $fillable = [
-        'name', 'email', 'number'
+        '_id','name', 'email', 'number'
     ];
 
     public function user()
