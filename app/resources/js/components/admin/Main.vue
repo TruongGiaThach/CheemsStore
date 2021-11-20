@@ -8,7 +8,7 @@
     >
       <v-row align-content-end full-width>
         <v-col cols="12" md="3">
-          <v-card color="#321fdb" height="180"> </v-card>
+          <v-card color="#321fdb" height="180"><customer-chart></customer-chart> </v-card>
         </v-col>
         <v-col cols="12" md="3">
           <v-card color="#39f" height="180"> </v-card>

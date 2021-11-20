@@ -15,7 +15,7 @@
         </div>
       <!-- Chart -->
       <div>
-        <canvas class="pl-5 pr-2  s" id="line-chart" height="84em"></canvas>
+        <canvas class="pl-5 pr-2  s" id="customer-chart" height="84em"></canvas>
       </div>
     </div>
   </div>
@@ -107,7 +107,7 @@ export default {
             },
           },
         };
-        var ctx = document.getElementById("line-chart").getContext("2d");
+        var ctx = document.getElementById("customer-chart").getContext("2d");
         window.myLine = new Chart(ctx, config);
       });
     },
