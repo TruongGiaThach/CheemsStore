@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import CardBarChart from "./CardBarChart";
-import CardLineChart from "./CardLineChart"
+import CardBarChart from "./charts/CardBarChart";
+import CardLineChart from "./charts/CardLineChart"
   export default {
     data () {
       return {

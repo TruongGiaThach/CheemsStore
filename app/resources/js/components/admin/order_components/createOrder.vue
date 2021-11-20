@@ -67,7 +67,7 @@
                             <td>{{row.item.name}}</td>
                             <td>
                                 <v-form >
-                                    <input type="number" v-model="row.item.amount"  v-bind:min="row.item.amount" onkeydown="return false" >
+                                    <input type="number" v-model="row.item.amount" min="1" v-bind:max="row.item.max" onkeydown="return false" >
                                 </v-form>
                             </td>
                             <td>{{Number(row.item.price).toLocaleString()}} VNĐ</td>
@@ -270,14 +270,16 @@
                         id: product._id,
                         name: product.name,
                         amount: 1,
-                        price: product.outportPrice
+                        price: product.outportPrice,
+                        max: product.amount,
                     })
                 }else{
                     this.items.push({
                         id: product._id,
                         name: product.name,
                         amount: 1,
-                        price: product.outportPrice
+                        price: product.outportPrice,
+                        max: product.amount,
                     })
                 }
             },
