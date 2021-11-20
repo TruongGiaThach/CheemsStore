@@ -12,7 +12,7 @@ export default {
     watch: {
         'data'(to, from) {
             this.render()
-        }
+        },
     },
     methods: {
         render () {

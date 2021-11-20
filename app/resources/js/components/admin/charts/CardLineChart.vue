@@ -38,7 +38,7 @@
 </template>
 <script>
 import Chart from "chart.js";
-import LineChart from "./LineChart.js";
+import LineChart from ".././LineChart.js";
 export default {
   components: {
     LineChart,
