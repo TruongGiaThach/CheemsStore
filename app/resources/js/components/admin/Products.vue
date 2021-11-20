@@ -227,7 +227,7 @@
                         </div>
                       </v-col>
                       <v-col cols="12" md="6">
-                          <v-img width="150" height="150" :src="previewImage  + '?time=' + Date.now()"></v-img>
+                          <v-img width="150" height="150" :src="previewImage"></v-img>
                       </v-col>
                     </v-row>
 
