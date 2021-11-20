@@ -26,7 +26,11 @@
       <v-row align-content-end full-width>
         <v-col>
           <v-card>
-            <card-line-chart :items="items">
+            <card-line-chart
+              :labels="labels"
+              :revenue="revenue"
+              :profit="profit"
+            >
               <div
                 class="btn-group"
                 role="group"
@@ -43,7 +47,7 @@
                 <label
                   class="btn btn-outline-primary white--text"
                   for="btnradio1"
-                  @click="createLabelWithDay()"
+                  @click="createStatisticWithDay()"
                   >Ngày</label
                 >
 
@@ -95,18 +99,21 @@ import CardLineChart from "./charts/CardLineChart";
 export default {
   data() {
     return {
+      // du lieu thong ke
       profit: [],
       revenue: [],
+      labels: [],
+      receiptsDay: [],
+      // dư lieu duoc lay len
       customers: [],
       receipts: [],
       products: [],
       receiptDetails: [],
-      receiptsDay: [],
+
       values: [],
-      items: [40, 500, 120, 200, 56, 300, 87],
       dayinWeek: ["Sun", "Mon", "Tue", "Web", "Thur", "Fri", "Sar"],
-      labels: [],
-      startDay: new Date().toISOString().slice(0, 10),
+      monthinYear:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+      startDay: new Date("2021-11-12").toISOString().slice(0, 10),
       endDay: new Date().toISOString().slice(0, 10),
     };
   },
@@ -153,41 +160,87 @@ export default {
       });
   },
   methods: {
+    createStatisticWithDay()
+    {
+        this.createLabelWithDay();
+        this.createDataWithDay();
+    },
     createDataWithDay() {
       this.revenue = [];
       this.profit = [];
       this.receiptsDay = [];
-      var receiptsDay = this.receipts.fliter((e) => {
+      var receiptsDay = this.receipts.filter((e) => {
         return (
-          new Date(e.createDay).getTime() <= this.endDay.getTime() &&
-          new Date(e.createDay).getTime() >= this.endDay.getTime()
+          new Date(e.createDay).getTime() <= new Date(this.endDay).getTime() &&
+          new Date(e.createDay).getTime() >= new Date(this.startDay).getTime()
         );
       });
-      //doanh thu
-      this.revenue = receiptsDay.map((e) => {
+      console.log(this.receipts);
+      receiptsDay.sort(this.compareDay);
+      //doanh thu chua sap xep
+      var revenue = receiptsDay.map((e) => {
         var receiptDetailDay = this.receiptDetails.filter((f) => {
           return f.receipt_id === e._id;
         });
         this.receiptsDay.push(receiptDetailDay);
         return parseInt(e.total);
       });
-      // loi nhuan
-      this.receiptsDay.forEach((element) => {
+      // loi nhuan chua sap xep
+      var profit = [];
+      this.receiptsDay.forEach((element, ind) => {
         var amount = element.map((value) => {
           return value.amount;
         });
-        var product = this.products.fliter((e) => {
+        var product = this.products.filter((e) => {
           return e._id === element[0].product_id;
         });
         var importPrices = product.reduce((acc, value, index) => {
-          return acc + parseInt(value.importPrice * amount[index]);
-        });
-        this.profit.push(this.revenue - importPrices);
+          return acc + parseInt(value.importPrice) * parseInt(amount[index]);
+        }, 0);
+        profit.push(revenue[ind] - importPrices);
       });
+      //1 troi yeu thuong:)))
+      for(var i=0;i<receiptsDay.length-1;i++)
+      {
+          if(receiptsDay[i].createDay === receiptsDay[i+1].createDay)
+          {
+              revenue[i]+=revenue[i+1];
+              profit[i]+=profit[i+1];
+              revenue.splice(i+1,1)
+              profit.splice(i+1,1)
+              receiptsDay.splice(i+1,1)
+              i--;
+          }
+      }
+      console.log(profit);
+      console.log(receiptsDay);
+      var j = 0;
+      var datecheck = new Date(this.startDay);
+      var lengths = this.daysdifference();
+      for (var i = 0; i <= lengths; i++) {
+        var dateRec = new Date(receiptsDay[j].createDay);
+        if (datecheck.getTime() < dateRec.getTime()) {
+          this.revenue.push(0);
+          this.profit.push(0);
+        } else if (datecheck.getTime() === dateRec.getTime()) {
+          this.revenue.push(revenue[j]);
+          this.profit.push(profit[j]);
+          j++;
+        } else {
+          break;
+        }
+        datecheck.setDate(datecheck.getDate() + 1);
+      }
+      console.log(this.profit);
+      console.log(this.revenue);
     },
     createLabelWithDay() {
       // push tuần đầu tiên
       this.labels = [];
+      var a = new Date();
+      var c = new Date();
+      c.setDate(c.getDate() + 40);
+      console.log(a);
       var currentDay = new Date(this.startDay).getDay();
       this.labels.push(
         ...this.dayinWeek.filter((e, i) => {
@@ -208,6 +261,7 @@ export default {
         })
       );
     },
+    // tim ngay giua 2 thoi diem
     daysdifference() {
       var startDay = new Date(this.startDay);
       var endDay = new Date(this.endDay);
@@ -216,6 +270,21 @@ export default {
       var days = millisBetween / (1000 * 3600 * 24);
 
       return Math.round(Math.abs(days));
+    },
+    //so sanh ngay de sort
+    compareDay(date1, date2) {
+      var datemot = new Date(date1.createDay);
+      var datehai = new Date(date2.createDay);
+      if (datehai.getFullYear() > datemot.getFullYear()) {
+        return -1;
+      }
+      if (datehai.getMonth() > datemot.getMonth()) {
+        return -1;
+      }
+      if (datehai.getDate() > datemot.getDate()) {
+        return -1;
+      }
+      return 1;
     },
   },
 };
