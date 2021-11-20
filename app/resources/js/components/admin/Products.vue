@@ -1,16 +1,69 @@
 <template>
-  <v-card height="100%" outlined class="pa-md-4 mx-lg-auto grey lighten-3">
+  <v-card height="100%" outlined class="pa-md-4 mx-lg-auto grey lighten-3" max-height="680">
+    <v-row>
+      <v-col cols="12" md="3">
+  <v-card
+    height="100%"
+    class="mx-auto"
+  >
+    <v-toolbar
+      dark
+    >
+      <v-toolbar-title>Category</v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-dots-vertical</v-icon>
+      </v-btn>
+    </v-toolbar>
+    <v-list>
+      <v-list-item-group
+        v-model="selected"
+        active-class="gray--text"
+      >
+        <template v-for="(cate) in category">
+
+          <v-list-item :key="cate.name" :value="cate._id">
+            <template v-slot:default="{ active }">
+              <v-list-item-content>
+                <v-list-item-title v-text="cate.name"></v-list-item-title>
+              </v-list-item-content>
+
+              <v-list-item-action>
+                <v-icon
+                  v-if="active"
+                  color="grey lighten-1"
+                >
+                  mdi-star-outline
+                </v-icon>
+              </v-list-item-action>
+            </template>
+          </v-list-item>
+        </template>
+      </v-list-item-group>
+    </v-list>
+  </v-card>
+      </v-col>
+      <v-col cols="12" md="9">
     <v-data-table
       :headers="headers"
-      :items="products"
+      :items="tableData"
       :search="search"
-      :expanded.sync="expanded"
       :single-expand="singleExpand"
+      :expanded.sync="expanded"
+      
+      fixed-header
       item-key="name"
       show-expand
       rounded-xl
       class="elevation-1"
       min-height="100vh"
+      height="73vh"
       @click:row="clickRow"
     >
       <template v-slot:top>
@@ -28,44 +81,145 @@
           <v-spacer></v-spacer>
           <v-dialog v-model="dialog" max-width="500px">
             <template v-slot:activator="{ on, attrs }">
-              <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">
+              <v-btn dark class="mb-2" v-bind="attrs" v-on="on">
                 New Item
               </v-btn>
             </template>
-            <v-card>
+            <ValidationObserver ref="observer" v-slot="{invalid}">
+            <v-card class="elevation-12">
               <v-card-title>
                 <span class="text-h5">{{ formTitle }}</span>
               </v-card-title>
 
+
               <v-card-text>
                 <v-container>
-                  <v-row>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field
-                        v-model="editedItem.name"
-                        label="Product Name"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field
-                        v-model="editedItem.units"
-                        label="Amount"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field
-                        v-model="editedItem.price"
-                        label="Price"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12">
-                      <v-textarea v-model="editedItem.description" color="teal">
-                        <template v-slot:label>
-                          <div>Description <small>(optional)</small></div>
-                        </template>
-                      </v-textarea>
-                    </v-col>
-                  </v-row>
+                  <V-form @submit.prevent="save">
+                    <v-row>
+                      <v-col cols="12" sm="6" md="8">
+                        <ValidationProvider v-slot="{ errors }" name="Name" rules="required">
+                          <v-text-field
+                            v-model="editedItem.name"
+                            :error-messages="errors"
+                            label="Product Name"
+                            required
+                          ></v-text-field>
+                        </ValidationProvider>
+                      </v-col>
+                      <v-col cols="12" sm="4" md="4">
+                        <ValidationProvider v-slot="{ errors }" name="Amount" rules="required">
+                          <v-text-field
+                            v-model.number="editedItem.amount"
+                            :error-messages="errors"
+                            label="Amounts"
+                            required
+                          ></v-text-field>
+                        </ValidationProvider>
+                      </v-col>
+                    </v-row>
+
+                    <v-row>
+                      <v-col cols="12" sm="6" md="6">
+                        <ValidationProvider v-slot="{ errors }" name="ImportPrice" rules="required">
+                          <v-text-field
+                            v-model.number="editedItem.importPrice"
+                            :error-messages="errors"
+                            label="Import Price"
+                            required
+                          ></v-text-field>
+                        </ValidationProvider>
+                      </v-col>
+                      <v-col cols="12" sm="6" md="6">
+                        <ValidationProvider v-slot="{ errors }" name="OutportPrice" rules="required">
+                          <v-text-field
+                            v-model.number="editedItem.outportPrice"
+                            :error-messages="errors"
+                            label="Outport Price"
+                            required
+                          ></v-text-field>
+                        </ValidationProvider>
+                      </v-col>
+                    </v-row>
+
+                    <v-row>
+                      <v-col cols="12" sm="6" md="8">
+                        <ValidationProvider v-slot="{ errors }" name="manufacture" rules="required">
+                          <v-text-field
+                            v-model="editedItem.manufacture"
+                            :error-messages="errors"
+                            label="Manufacure"
+                            required
+                          ></v-text-field>
+                        </ValidationProvider>
+                      </v-col>
+                      <v-col cols="12" sm="4" md="4">
+                        <ValidationProvider v-slot="{ errors }" name="warrantyPeriod" rules="required">
+                          <v-text-field
+                            v-model.number="editedItem.warrantyPeriod"
+                            :error-messages="errors"
+                            label="Warranty Period"
+                            required
+                          ></v-text-field>
+                        </ValidationProvider>
+                      </v-col>
+                    </v-row>
+
+                    <v-row>
+                      <v-col cols="12" md="8">
+                        <ValidationProvider v-slot="{ errors }" name="category" rules="required">
+                          <v-select
+                            v-model="editedItem.category_id"
+                            :items="category"
+                            :error-messages="errors"
+                            item-text="name"
+                            item-value="_id"
+                            label="Category"
+                            single-line
+                            required
+                          ></v-select>
+                        </ValidationProvider>
+                      </v-col>
+                      <v-col cols="12" md="4">
+                          <v-text-field
+                            v-model="editedItem.tag"
+                            label="Tags"
+                            required
+                          ></v-text-field>
+                      </v-col>
+                    </v-row>
+
+                    <v-row>
+                      <v-col cols="12" md="6">
+                        <div class="col-md-6">
+                            image
+                            <v-file-input 
+                            show-size
+                            outlined
+                            dense
+                            truncate-length="15"
+                            class="form-control-file" 
+                            id="image" 
+                            accept="image/*"
+                            v-model="formImage"
+                            @change="Preview_image"
+                            />
+                        </div>
+                      </v-col>
+                      <v-col cols="12" md="6">
+                          <v-img width="150" height="150" :src="previewImage"></v-img>
+                      </v-col>
+                    </v-row>
+
+                    <v-row>
+                      <v-col cols="12">
+                          <v-textarea v-model="editedItem.description" color="teal">
+                            <template v-slot:label>
+                              <div>Description <small>(optional)</small></div>
+                            </template>
+                          </v-textarea>
+                      </v-col>
+                    </v-row>
+                  </V-form>
                 </v-container>
               </v-card-text>
 
@@ -74,9 +228,10 @@
                 <v-btn color="blue darken-1" text @click="close">
                   Cancel
                 </v-btn>
-                <v-btn color="blue darken-1" text @click="save"> Save </v-btn>
+                <v-btn color="blue darken-1" type="submit" :disabled="invalid" text @click="save"> Save </v-btn>
               </v-card-actions>
             </v-card>
+            </ValidationObserver>
           </v-dialog>
           <v-dialog v-model="dialogDelete" max-width="500px">
             <v-card>
@@ -97,19 +252,35 @@
           </v-dialog>
         </v-toolbar>
       </template>
+
+      <template v-slot:[`item.tag`]="{ items }">
+        <v-row v-for="tag in items" :key="tag">
+          <v-chip
+            :color="green"
+            dark
+          >
+            {{ tag }}
+          </v-chip>
+        </v-row>
+      </template>
+
       <template #expanded-item="{ headers, item }">
         <td :colspan="headers.length">
-          <v-row>
+        <v-container fluid >
+        
+          <v-row no-gutters>
             <v-col cols="12" md="4">
-              <v-img :src="item.poster" :lazy-src="lazy"> </v-img>
+              <v-img contain aspect-ratio="2" :src= "baseUrl+`/images/${item.image}` + '?time=' + Date.now()"/> 
             </v-col>
             <v-col cols="12" md="8">
-              <h3>{{ item.name }}</h3>
-              <p class="text-justify">
-                {{ item.description }}
-              </p>
+              <h3 class="text-justify">{{ item.name }}</h3>
+              <p> nhà sản xuất: {{ item.manufacture }}</p>
+              <p> thời hạn bảo hành: {{ item.warrantyPeriod }} tháng</p>
+              <p class="text-justify">{{ item.description }}</p>
             </v-col>
           </v-row>
+        
+        </v-container>
         </td>
       </template>
       <template v-slot:[`item.actions`]="{ item }">
@@ -123,23 +294,41 @@
         </v-btn>
       </template>
     </v-data-table>
+      </v-col>
+    </v-row>
   </v-card>
 </template>
 
 <script>
-import Modal from "./ProductModal";
+
+import { required, digits, max, regex } from 'vee-validate/dist/rules'
+import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from 'vee-validate'
+
+setInteractionMode('eager')
+
+extend('required', {
+    ...required,
+    message: '{_field_} can not be empty',
+  })
+
+
 export default {
   data() {
     return {
+      baseUrl: window.location.origin,
+      selected: undefined,
+      formImage: null,
+      previewImage: null,
+      categorySelected: '',
       products: [],
+      category: [],
       search: "",
-      editingItem: null,
       addingProduct: null,
       dialog: false,
       dialogDelete: false,
       lazy: `https://goo.gl/jbJWmK`,
-      expanded: [],
       singleExpand: true,
+      expanded: [],
       headers: [
         {
           text: "Name",
@@ -147,30 +336,84 @@ export default {
           sortable: false,
           value: "name",
         },
-        { text: "Units", value: "units" },
-        { text: "Price", value: "price" },
-        { text: "Actions", value: "actions", sortable: false },
+        { 
+          text: "Amounts", 
+          value: "amount" 
+        },
+        { 
+          text: "Buy Price", 
+          value: "importPrice" 
+        },
+        { 
+          text: "Sell Price", 
+          value: "outportPrice" 
+        },
+        { 
+          text: "Sell Price", 
+          value: "outportPrice" 
+        },
+        { 
+          text: "Tag", 
+          value: "tag" 
+        },
+        { 
+          text: "Actions", 
+          value: "actions", 
+          sortable: false 
+        },
       ],
       editedIndex: -1,
       editedItem: {
-        name: "",
-        units: 0,
-        price: 0,
-        image: null,
-        description: "",
+        id: '',
+        name: '',
+        amount: 0,
+        importPrice: 0,
+        outportPrice: 0,
+        manufacture: '',
+        warrantyPeriod: 0,
+        category_id: '',
+        description: '',
+        image: '',
+        tag: '',
       },
-      defaultItem: {
-        name: "",
-        units: 0,
-        price: 0,
-        image: null,
-        description: "",
+      DefaultItem: {
+        id: '',
+        name: '',
+        amount: 0,
+        importPrice: 0,
+        outportPrice: 0,
+        manufacture: '',
+        warrantyPeriod: 0,
+        category_id: '',
+        description: '',
+        image: '',
+        tag: '',
       },
+
     };
   },
+
+  components: {
+    ValidationProvider,
+    ValidationObserver
+  },
+
   computed: {
     formTitle() {
       return this.editedIndex === -1 ? "New Item" : "Edit Item";
+    },
+    tableData() {
+      //for(const item of this.products){
+      //  item.image = `http://localhost/images/${item.image}`;
+      //};
+      if (this.selected != undefined) {
+        console.log(this.selected)
+        return this.products.filter((e) => {
+          return (e.category_id == this.selected);
+        });
+      } else if (this.selected == undefined) {
+        return this.products
+      }
     },
   },
 
@@ -184,20 +427,26 @@ export default {
   },
 
   created() {
+    
     this.initialize();
   },
 
-  beforeMount() {
-    axios
-      .get("/api/products")
-      .then((response) => {
-        this.products = response.data;
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  },
+  
   methods: {
+    nameExists: function () {
+        if (this.editItem.name !== '') {
+          var exists = this.products.some(function() {
+            return products.name === this.editItem.name
+          });
+          if(exists) {
+            this.nameMessage = 'Name has exist'
+            this.rules.existingName = false
+          }
+        }
+      },
+    Preview_image() {
+      this.previewImage= URL.createObjectURL(this.formImage)
+    },
     clickRow(item, event) {
       if (event.isExpanded) {
         const index = this.expanded.findIndex((i) => i === item);
@@ -206,7 +455,35 @@ export default {
         this.expanded.push(item);
       }
     },
-    initialize() {
+    initialize(){
+      this.initialize_product();
+      
+      this.initialize_category();
+    },
+
+    initialize_product() {
+      axios
+      .get("/api/products")
+      .then((response) => {
+        this.products = response.data;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    },
+
+
+    initialize_category() {
+      axios
+        .get("/api/category")
+        .then((response) => {
+          this.category = response.data;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
+    getCategory() {
       axios
         .get("/api/products/")
         .then((response) => {
@@ -220,37 +497,99 @@ export default {
     newProduct() {
       this.addingProduct = {
         name: null,
-        units: null,
-        price: null,
-        description: null,
         image: null,
+        amount: null,
+        importPrice: null,
+        outportPrice: null,
+        manufacture: null,
+        warrantyPeriod: null,
+        category_id: null,
+        description: null,
+        tag: null,
       };
     },
     endEditing(product) {
-      this.editingItem = null;
-      let index = this.products.indexOf(product);
+      let formData = new FormData();
+      formData.append('name', this.editedItem.name);
+      formData.append('amount', this.editedItem.amount);
+      formData.append('importPrice', this.editedItem.importPrice);
+      formData.append('outportPrice', this.editedItem.outportPrice);
+      formData.append('manufacture', this.editedItem.manufacture);
+      formData.append('warrantyPeriod', this.editedItem.warrantyPeriod);
+      formData.append('category_id', this.editedItem.category_id);
+      formData.append('description', this.editedItem.description);
+      formData.append('tag', this.editedItem.tag);
+      formData.append('name', this.editedItem.name);
+
+      if (document.getElementById('image').files[0])
+      {
+        formData.append('image', document.getElementById("image").files[0]);
+        this.editedItem.image =  this.editedItem.name + '.' + document.getElementById("image").files[0].name.split('.')[1];
+        console.log(document.getElementById('image').files[0]);
+        console.log(this.editedItem.image);
+      };
+
+      formData.append("_method", "PUT");
+
       axios
-        .put(`/api/products/${product.id}`, {
-          name: product.name,
-          units: product.units,
-          price: product.price,
-          description: product.description,
+        .post(`/api/products/${product._id}`, formData, {
+          header:{
+            'Content-Type':"multipart/form-data"
+          }
         })
         .catch((response) => {});
     },
-    addProduct(product) {
+    addProduct() {
+      
       this.addingProduct = null;
+      
+      let formData = new FormData();
+      formData.append('name', this.editedItem.name);
+      formData.append('amount', this.editedItem.amount);
+      formData.append('importPrice', this.editedItem.importPrice);
+      formData.append('outportPrice', this.editedItem.outportPrice);
+      formData.append('manufacture', this.editedItem.manufacture);
+      formData.append('warrantyPeriod', this.editedItem.warrantyPeriod);
+      formData.append('category_id', this.editedItem.category_id);
+      formData.append('description', this.editedItem.description);
+      formData.append('tag', this.editedItem.tag);
+      formData.append('name', this.editedItem.name);
+      
+      if (document.getElementById('image').files[0])
+      {
+        formData.append('image', document.getElementById("image").files[0]);
+        this.editedItem.image =  this.editedItem.name + '.' + document.getElementById("image").files[0].name.split('.')[1];
+      };
+
       axios
-        .post("/api/products/", {
-          name: product.name,
-          units: product.units,
-          price: product.price,
-          description: product.description,
-          image: product.image,
+        .post("/api/products/", formData, {
+          header:{
+            'Content-Type':"multipart/form-data"
+          }
         })
+        .then(
+          res => {
+            console.log("worked");
+            this.initialize();
+          }
+        )
+        .catch((response) => {});
+
+},
+
+    endDelete(product) {
+      axios
+        .delete('/api/products/'+product._id)
+        .then(
+          res => {
+            console.log("delete.")
+          }
+        )
         .catch((response) => {});
     },
+
     editItem(item) {
+      this.previewImage = this.baseUrl+"/images/"+item.image;
       this.editedIndex = this.products.indexOf(item);
       this.editedItem = Object.assign({}, item);
       this.dialog = true;
@@ -263,33 +602,38 @@ export default {
     },
 
     deleteItemConfirm() {
+      this.endDelete(this.editedItem);
       this.products.splice(this.editedIndex, 1);
       this.closeDelete();
     },
 
-    close() {
+    async close() {
+      this.$refs.observer.reset()
       this.dialog = false;
       this.$nextTick(() => {
-        this.editedItem = Object.assign({}, this.defaultItem);
+        this.editedItem = Object.assign({}, this.DefaultItem);
         this.editedIndex = -1;
+        this.formImage = null;
       });
     },
 
     closeDelete() {
       this.dialogDelete = false;
       this.$nextTick(() => {
-        this.editedItem = Object.assign({}, this.defaultItem);
+        this.editedItem = Object.assign({}, this.DefaultItem);
         this.editedIndex = -1;
       });
     },
 
-    save() {
+    async save() {
+      const reuslt = await this.$refs.observer.validate()
       if (this.editedIndex > -1) {
-        Object.assign(this.products[this.editedIndex], this.editedItem);
         this.endEditing(this.editedItem);
+        Object.assign(this.products[this.editedIndex], this.editedItem);
       } else {
-        this.addProduct(this.editedItem);
+        await this.addProduct();
         this.products.push(this.editedItem);
+        //this.initialize();
       }
       this.close();
     },

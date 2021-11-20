@@ -15,7 +15,7 @@ class Product extends Eloquent
     protected $connection = 'mongodb';
     protected $colection = 'products';
     protected $fillable = [
-        'name','amount','importPrice','outportPrice','manufacture','warrantyPeriod',
+        'name','image','amount','importPrice','outportPrice','manufacture','warrantyPeriod',
         'category_id','description','tag'
     ];
     public function category()

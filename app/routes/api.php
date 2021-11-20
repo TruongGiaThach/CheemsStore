@@ -10,6 +10,8 @@ Route::get('/products', 'ProductController@index');
 Route::post('/products', 'ProductController@store');
 Route::post('/upload-file', 'ProductController@uploadFile');
 Route::get('/products/{product}', 'ProductController@show');
+Route::delete('/products/{product_id}', 'ProductController@destroy');
+Route::post('/products/{product}', "ProductController@update");
 //staff
 Route::get('/staffs', 'StaffController@index');
 Route::get('/staffs/{staff}', 'StaffController@show');

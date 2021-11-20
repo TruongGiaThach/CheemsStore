@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Storage;
+use File;
+
 
 class ProductController extends Controller
 {
@@ -49,6 +52,19 @@ class ProductController extends Controller
             'tag' => $request->tag,
         ]);
 
+        if ($request->image){
+            $image = $request->image;
+            $extension = $image->getClientOriginalExtension();
+            $name = $product->name.'.'.$extension;
+            Storage::disk('public')-> put($name, File::get($image));
+            $product->image = $name;
+        }
+        else{
+            $product->image = 'default.png';
+        }
+
+        $product -> save();
+
         return response()->json($product);
     }
 
@@ -64,14 +80,6 @@ class ProductController extends Controller
         return response()->json($product,200); 
     }
 
-    public function uploadFile(Request $request)
-        {
-            if($request->hasFile('image')){
-                $name = time()."_".$request->file('image')->getClientOriginalName();
-                $request->file('image')->move(public_path('images'), $name);
-            }
-            return response()->json(asset("images/$name"),201);
-        }
     /**
      * Show the form for editing the specified resource.
      *
@@ -90,8 +98,39 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $product_id)
     {
+        $product = Product::findOrFail($product_id);
+        
+        
+        
+        $product->name = $request->name;
+        $product->amount = $request->amount;
+        $product->importPrice = $request->importPrice;
+        $product->outportPrice = $request->outportPrice;
+        $product->manufacture = $request->manufacture;
+        $product->warrantyPeriod = $request->warrantyPeriod;
+        $product->category_id = $request->category_id;
+        $product->description = $request->description;
+        $product->tag = $request->tag;
+
+
+        if ($request->image){
+
+            if($product->image != 'CheemsIcons.png')
+            {
+                Storage::disk('public')->delete($product->image);
+            }
+
+            $image = $request->image;
+            $extension = $image->getClientOriginalExtension();
+            $name = $product->name.'.'.$extension;
+            Storage::disk('public')-> put($name, File::get($image));
+            $product->image = $name;
+        }
+        else if($product->image == ''){
+            $product->image = 'CheemsIcons.png';
+        }
         //
         $status = $product->update(
             $request->only([
@@ -99,6 +138,8 @@ class ProductController extends Controller
         'category_id','description','tag'
             ])
         );
+
+        $product -> save();
 
         return response()->json([
             'status' => $status,
@@ -122,14 +163,26 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($product_id)
     {
         //
-        $status = $product->delete();
+        $product = Product::findOrFail($product_id);
+        
+        $name = $product->image;
+        Storage::disk('public')->delete($product->image);
+        
+        $product->forceDelete();
 
-            return response()->json([
-                'status' => $status,
-                'message' => $status ? 'Product Deleted!' : 'Error Deleting Product'
-            ]);
+        /*
+        $product = Product::where('_id', $product_id)->forceDelete();
+
+        Storage::disk('public')->delete($product->image);
+
+        $product->forceDelete();
+        return response()->json([
+            'status' => $product,
+            'message' => $product ? 'Product Deleted!' : 'Error Deleting Product'
+        ]);
+        */
     }
 }

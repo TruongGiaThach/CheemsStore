@@ -91,7 +91,7 @@
             .catch(error => {
                 console.error(error);
             })
-            axios.get('/api/orders/')
+            axios.get('/api/category/')
             .then(response => {
                 this.orders = response.data
             })
