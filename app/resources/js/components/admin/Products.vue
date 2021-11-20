@@ -212,14 +212,14 @@
                     <v-row>
                       <v-col cols="12" md="6">
                         <div class="col-md-6">
-                            image
+                            ảnh
                             <v-file-input 
                             show-size
                             outlined
                             dense
                             truncate-length="15"
                             class="form-control-file" 
-                            id="ảnh" 
+                            id="image" 
                             accept="image/*"
                             v-model="formImage"
                             @change="Preview_image"
@@ -462,7 +462,7 @@ export default {
         }
       },
     Preview_image() {
-      this.previewImage= URL.createObjectURL(this.formImage)
+      if(this.formImage != null)this.previewImage= URL.createObjectURL(this.formImage)
     },
     clickRow(item, event) {
       if (event.isExpanded) {
@@ -620,6 +620,7 @@ export default {
       this.$nextTick(() => {
         this.editedItem = Object.assign({}, this.DefaultItem);
         this.editedIndex = -1;
+        URL.revokeObjectURL(this.formImage)
         this.formImage = null;
       });
     },
