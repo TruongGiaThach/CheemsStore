@@ -35,7 +35,11 @@ Route::delete('users/{email}','UserController@destroy');
 Route::get('users/{user}/orders','UserController@showOrders');
 Route::patch('products/{product}/units/add','ProductController@updateUnits');
 Route::resource('/products', 'ProductController')->except(['index','show']);
-Route::resource('category', 'CategoryController');
+
+//category
+Route::resource('category', 'CategoryController')->except(['index','show']);
+Route::post('/category', 'CategoryController@store');
+Route::put('/category/{category_id}', 'CategoryController@update');
 /*
 |--------------------------------------------------------------------------
 | API Routes

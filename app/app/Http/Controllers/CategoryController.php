@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Storage;
+use File;
 
 class CategoryController extends Controller
 {
@@ -36,7 +38,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = Category::create([
+            'name' => $request->name,
+            'description' => $request->description,
+        ]);
+        $category -> save();
+
+        return response()->json($category);
     }
 
     /**
@@ -68,9 +76,18 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $category_id)
     {
-        //
+        $category = Category::findOrFail($category_id);
+
+        $status = $category->update(
+            $request->only(['name', 'description'])
+        );
+
+        return response()->json([
+            'status' => $status,
+            'message' => $status ? 'Category Updated!' : 'Error Updating Category'
+        ]);
     }
 
     /**
