@@ -8,7 +8,7 @@
         elevate-on-scroll
         scroll-target="#scrolling-techniques-7"
       >
-        <v-toolbar-title>Admin Dashboard</v-toolbar-title>
+        <v-toolbar-title>Cheems Store</v-toolbar-title>
 
         <v-spacer></v-spacer>
 
@@ -44,8 +44,11 @@
         <v-list>
           <v-list-item class="px-2">
             <v-list-item-avatar color="grey darken-1">
-              <v-img src="" />
+              <v-img :src="image_user" alt="" />
             </v-list-item-avatar>
+            <v-list-item-title>{{
+              user.role == "admin" ? "(Quản lí)" : "(Nhân viên)"
+            }}</v-list-item-title>
           </v-list-item>
 
           <v-divider></v-divider>
@@ -72,11 +75,7 @@
               <v-list-item-title>{{ textDashBoard }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-          <v-list-group
-            :value="true"
-            no-action
-            color="colors"
-          >
+          <v-list-group :value="true" no-action color="colors">
             <template v-slot:activator>
               <v-list-item-icon>
                 <v-icon>mdi-domain</v-icon>
@@ -131,7 +130,7 @@ import Products from "./admin/Products";
 import Orders from "./admin/Orders";
 import Statistic from "./admin/Statistic";
 import CreateOrder from "./admin/order_components/createOrder";
-import Staffs from './admin/Staffs'
+import Staffs from "./admin/Staffs";
 export default {
   data() {
     return {
@@ -139,14 +138,15 @@ export default {
       iconDashBoard: "mdi-monitor-dashboard",
       textDashBoard: "Bảng điều khiển",
       textOrder: "Kinh doanh",
-      colors:"white",
+      colors: "white",
+      image_user: "/images/CheemsIcons.png",
       user: null,
       activeComponent: null,
       drawer: true,
       Nav_bar_items: [
         ["mdi-store-search", "Sản phẩm", "products"],
         ["mdi-account-group", "Người dùng", "users"],
-        ['mdi-account-cog-outline','Nhân viên','staffs'],
+        ["mdi-account-cog-outline", "Nhân viên", "staffs"],
         ["mdi-chart-line", "Thống kê", "statistic"],
       ],
       Nav_bar_order: [
@@ -169,8 +169,20 @@ export default {
     axios.defaults.headers.common["Content-Type"] = "application/json";
     axios.defaults.headers.common["Authorization"] =
       "Bearer " + localStorage.getItem("bigStore.jwt");
+    this.getImage();
+    if (this.user.role == "staff") {
+      this.Nav_bar_items.pop();
+      this.Nav_bar_items.pop();
+      this.Nav_bar_items.pop()
+    }
   },
   methods: {
+    getImage() {
+      this.user = JSON.parse(localStorage.getItem("bigStore.user"));
+      if (this.user.role == "admin") this.image_user = "/images/admin.png";
+      else this.image_user = "/images/CheemsIcons.png";
+      console.log(2);
+    },
     toggleTheme() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
     },
@@ -225,10 +237,13 @@ export default {
               params: { page: "createOrder" },
             });
           break;
-    	case "staffs":
-          this.activeComponent = Staffs
+        case "staffs":
+          this.activeComponent = Staffs;
           if (this.$route.path != "/admin/staffs")
-            this.$router.push({name: 'admin-pages', params: {page: 'staffs'}})
+            this.$router.push({
+              name: "admin-pages",
+              params: { page: "staffs" },
+            });
           break;
         default:
           this.activeComponent = Main;
@@ -243,6 +258,7 @@ export default {
         let user = JSON.parse(localStorage.getItem("bigStore.user"));
         this.name = user.name;
         this.user_type = user.role;
+        this.getImage();
       }
     },
     change() {
@@ -251,10 +267,10 @@ export default {
     },
     logout() {
       let user = JSON.parse(localStorage.getItem("bigStore.user"));
-      axios.patch("/api/users/",{email: user.email}).catch((response) => {});
+      axios.patch("/api/users/", { email: user.email }).catch((response) => {});
       localStorage.removeItem("bigStore.jwt");
       localStorage.removeItem("bigStore.user");
-      
+
       this.change();
       this.$router.push("/");
     },
