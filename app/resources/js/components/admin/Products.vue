@@ -213,14 +213,14 @@
                     <v-row>
                       <v-col cols="12" md="6">
                         <div class="col-md-6">
-                            image
+                            ảnh
                             <v-file-input 
                             show-size
                             outlined
                             dense
                             truncate-length="15"
                             class="form-control-file" 
-                            id="ảnh" 
+                            id="image" 
                             accept="image/*"
                             v-model="formImage"
                             @change="Preview_image"
@@ -228,7 +228,7 @@
                         </div>
                       </v-col>
                       <v-col cols="12" md="6">
-                          <v-img width="150" height="150" :src="previewImage  + '?time=' + Date.now()"></v-img>
+                          <v-img width="150" height="150" :src="previewImage"></v-img>
                       </v-col>
                     </v-row>
 
@@ -469,7 +469,7 @@ export default {
         }
       },
     Preview_image() {
-      this.previewImage= URL.createObjectURL(this.formImage)
+      if(this.formImage != null)this.previewImage= URL.createObjectURL(this.formImage)
     },
     clickRow(item, event) {
       if (event.isExpanded) {
@@ -603,7 +603,7 @@ export default {
     },
 
     editItem(item) {
-      this.previewImage = this.baseUrl+"/images/"+item.image;
+      this.previewImage = this.baseUrl+"/images/"+item.image+'?time=' + Date.now();
       this.editedIndex = this.products.indexOf(item);
       this.editedItem = Object.assign({}, item);
       this.dialog = true;
@@ -627,6 +627,7 @@ export default {
       this.$nextTick(() => {
         this.editedItem = Object.assign({}, this.DefaultItem);
         this.editedIndex = -1;
+        URL.revokeObjectURL(this.formImage)
         this.formImage = null;
       });
     },

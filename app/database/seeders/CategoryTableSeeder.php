@@ -18,18 +18,22 @@ class CategoryTableSeeder extends Seeder
         DB::table('category')->delete();
         $category = [
             [
+                '_id' => 'cate1',
                 'name' => "Điện máy - Điện gia dụng",
                 'description' => "Điện máy - Điện gia dụng",
             ],
             [
+                '_id' => 'cate2',
                 'name' => "Laptop & Macbook",
                 'description' => "Laptop & Macbook",
             ],
             [
+                '_id' => 'cate3',
                 'name' => "Điện thoại & Thiết bị thông minh",
                 'description' => "Điện thoại & Thiết bị thông minh",
             ],
             [
+                '_id' => 'cate4',
                 'name' => "PC - Máy tính đồng bộ",
                 'description' => "PC - Máy tính đồng bộ",
             ],

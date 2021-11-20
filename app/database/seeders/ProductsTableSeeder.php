@@ -26,7 +26,7 @@ class ProductsTableSeeder extends Seeder
                 'outportPrice' => 900000,
                 'manufacture' => "Cheems",
                 'warrantyPeriod' => 69,
-                'category_id' => "0",
+                'category_id' => "cate2",
                 'description' => "Hàng fake",
                 'tag' => "[pc, điện thoại, laptop]"
             ],
@@ -38,7 +38,7 @@ class ProductsTableSeeder extends Seeder
                 'outportPrice' => 900000,
                 'manufacture' => "Cheems",
                 'warrantyPeriod' => 69,
-                'category_id' => "0",
+                'category_id' => "cate2",
                 'description' => "Hàng fake",
                 'tag' => "[pc, điện thoại, laptop]"
             ],
@@ -50,7 +50,7 @@ class ProductsTableSeeder extends Seeder
                 'outportPrice' => "800000",
                 'manufacture' => "Cheems",
                 'warrantyPeriod' => 69,
-                'category_id' => "0",
+                'category_id' => "cate2",
                 'description' => "Hàng fake",
                 'tag' => "[pc, điện thoại, laptop]"
             ],
@@ -62,7 +62,7 @@ class ProductsTableSeeder extends Seeder
                 'outportPrice' => "700000",
                 'manufacture' => "Cheems",
                 'warrantyPeriod' => 69,
-                'category_id' => "0",
+                'category_id' => "cate2",
                 'description' => "Hàng fake",
                 'tag' => "[pc, điện thoại, laptop]"
             ],
@@ -74,7 +74,7 @@ class ProductsTableSeeder extends Seeder
                 'outportPrice' => 900000,
                 'manufacture' => "Cheems",
                 'warrantyPeriod' => 69,
-                'category_id' => "0",
+                'category_id' => "cate4",
                 'description' => "Hàng fake",
                 'tag' => "[pc, điện thoại, laptop]"
             ],
@@ -86,7 +86,7 @@ class ProductsTableSeeder extends Seeder
                 'outportPrice' => "600000",
                 'manufacture' => "Cheems",
                 'warrantyPeriod' => 69,
-                'category_id' => "0",
+                'category_id' => "cate2",
                 'description' => "Hàng fake",
                 'tag' => "[pc, điện thoại, laptop]"
             ],
@@ -98,7 +98,7 @@ class ProductsTableSeeder extends Seeder
                 'outportPrice' => "500000",
                 'manufacture' => "Cheems",
                 'warrantyPeriod' => 69,
-                'category_id' => "0",
+                'category_id' => "cate3",
                 'description' => "Hàng fake",
                 'tag' => "[pc, điện thoại, laptop]"
             ],
@@ -110,7 +110,7 @@ class ProductsTableSeeder extends Seeder
                 'outportPrice' => "88",
                 'manufacture' => "Cheems",
                 'warrantyPeriod' => 69,
-                'category_id' => "0",
+                'category_id' => "cate4",
                 'description' => "Hàng fake",
                 'tag' => "[pc, điện thoại, laptop]"
             ],
@@ -122,7 +122,7 @@ class ProductsTableSeeder extends Seeder
                 'outportPrice' => 900000,
                 'manufacture' => "Cheems",
                 'warrantyPeriod' => 69,
-                'category_id' => "0",
+                'category_id' => "cate3",
                 'description' => "Hàng fake",
                 'tag' => "[pc, điện thoại, laptop]"
             ],
@@ -134,7 +134,7 @@ class ProductsTableSeeder extends Seeder
                 'outportPrice' => 900000,
                 'manufacture' => "Cheems",
                 'warrantyPeriod' => 69,
-                'category_id' => "0",
+                'category_id' => "cate1",
                 'description' => "Hàng fake",
                 'tag' => "[pc, điện thoại, laptop]"
             ],
@@ -146,7 +146,7 @@ class ProductsTableSeeder extends Seeder
                 'outportPrice' => 900000,
                 'manufacture' => "Cheems",
                 'warrantyPeriod' => 69,
-                'category_id' => "0",
+                'category_id' => "cate3",
                 'description' => "Hàng fake",
                 'tag' => "[pc, điện thoại, laptop]"
             ],
@@ -158,7 +158,7 @@ class ProductsTableSeeder extends Seeder
                 'outportPrice' => 900000,
                 'manufacture' => "Cheems",
                 'warrantyPeriod' => 69,
-                'category_id' => "0",
+                'category_id' => "cate1",
                 'description' => "Hàng fake",
                 'tag' => "[pc, điện thoại, laptop]"
             ],
@@ -170,7 +170,7 @@ class ProductsTableSeeder extends Seeder
                 'outportPrice' => 900000,
                 'manufacture' => "Cheems",
                 'warrantyPeriod' => 70,
-                'category_id' => "0",
+                'category_id' => "cate3",
                 'description' => "Hàng fake",
                 'tag' => "[pc, điện thoại, laptop]"
             ],
@@ -182,7 +182,7 @@ class ProductsTableSeeder extends Seeder
                 'outportPrice' => 900000,
                 'manufacture' => "Cheems",
                 'warrantyPeriod' => 69,
-                'category_id' => "0",
+                'category_id' => "cate3",
                 'description' => "Hàng fake",
                 'tag' => "[pc, điện thoại, laptop]"
             ],
@@ -194,7 +194,7 @@ class ProductsTableSeeder extends Seeder
                 'outportPrice' => 900000,
                 'manufacture' => "Cheems",
                 'warrantyPeriod' => 69,
-                'category_id' => "0",
+                'category_id' => "cate3",
                 'description' => "Hàng fake",
                 'tag' => "[pc, điện thoại, laptop]"
             ],
@@ -206,7 +206,7 @@ class ProductsTableSeeder extends Seeder
                 'outportPrice' => 900000,
                 'manufacture' => "Cheems",
                 'warrantyPeriod' => 69,
-                'category_id' => "0",
+                'category_id' => "cate3",
                 'description' => "Hàng fake",
                 'tag' => "[pc, laptop]"
             ],
