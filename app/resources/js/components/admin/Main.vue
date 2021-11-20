@@ -49,7 +49,7 @@
                 <label
                   class="btn btn-outline-primary white--text"
                   for="btnradio1"
-                  @click="createStatisticWithDay()"
+                  @click="createStatisticWithDay(1)"
                   >Ngày</label
                 >
 
@@ -63,7 +63,7 @@
                 <label
                   class="btn btn-outline-primary white--text"
                   for="btnradio2"
-                  @click="createStatisticWithMonth()"
+                  @click="createStatisticWithMonth(2)"
                   >Tháng</label
                 >
 
@@ -77,6 +77,7 @@
                 <label
                   class="btn btn-outline-primary white--text"
                   for="btnradio3"
+                  @click="createStatisticWithYear(3)"
                   >Năm</label
                 >
               </div>
@@ -103,6 +104,7 @@ export default {
   data() {
     return {
       // du lieu thong ke
+      check: 1,
       profit: [],
       revenue: [],
       labels: [],
@@ -175,34 +177,37 @@ export default {
         console.error(error);
       });
   },
-  created(){
-      setTimeout(() => {
-        if(this.labels1!=[])
-            this.createStatisticWithDay()
-    }, 3000)
-  },
+  /*created() {
+    setInterval(() => {
+      if (this.check === 1) this.createStatisticWithDay();
+      if (this.check === 2) this.createStatisticWithMonth();
+      if (this.check === 3) this.createStatisticWithYear();
+    }, 5000);
+  },*/
   methods: {
-    createStatisticWithMonth(){
-        this.createLabelWithMonth();
-        this.createDataWithMonth();
+    createStatisticWithYear(index) {
+      this.createLabelWithYear();
+      this.creatDataWithYear();
+      this.check = index;
     },
-    createStatisticWithDay() {
+    createStatisticWithMonth(index) {
+      this.createLabelWithMonth();
+      this.createDataWithMonth();
+      this.check = index;
+    },
+    createStatisticWithDay(index) {
       this.createLabelWithDay();
       this.createDataWithDay();
+      this.check = index;
     },
-    createDataWithMonth() {
+    creatDataWithYear() {
       this.revenue = [];
       this.profit = [];
       this.receiptsDay = [];
       var receiptsDay = this.receipts.filter((e) => {
         return (
           new Date(e.createDay).getYear() <= new Date(this.endDay).getYear() &&
-          (new Date(e.createDay).getYear() >
-            new Date(this.startDay).getYear() ||
-            (new Date(e.createDay).getYear() ===
-              new Date(this.startDay).getYear() &&
-              new Date(e.createDay).getMonth() >=
-                new Date(this.startDay).getMonth()))
+          new Date(e.createDay).getYear() >= new Date(this.startDay).getYear()
         );
       });
       receiptsDay.sort(this.compareDay);
@@ -229,21 +234,110 @@ export default {
       });
       for (var i = 0; i < receiptsDay.length - 1; i++) {
         if (
-          new Date(receiptsDay[i].createDay).getMonth() ===
-          new Date(receiptsDay[i + 1].createDay).getMonth()
+          new Date(receiptsDay[i].createDay).getYear() ===
+          new Date(receiptsDay[i + 1].createDay).getYear()
         ) {
           revenue[i] += revenue[i + 1];
           profit[i] += profit[i + 1];
           revenue.splice(i + 1, 1);
           profit.splice(i + 1, 1);
           receiptsDay.splice(i + 1, 1);
+          if(receiptsDay.length===1) break;
+          i--;
+        }
+      }
+      console.log(revenue)
+      var j = 0;
+      var i = 0;
+      var yearcheck = new Date(this.startDay);
+      var lengths = this.labels.length;
+      for (; i <= lengths; i++) {
+        var yearRec = new Date(receiptsDay[j].createDay);
+        if (yearcheck.getYear() < yearRec.getYear()) {
+          this.revenue.push(0);
+          this.profit.push(0);
+        } else if (yearcheck.getYear() === yearRec.getYear()) {
+          this.revenue.push(revenue[j]);
+          this.profit.push(profit[j]);
+          j++;
+          if (j >= receiptsDay.length) { i++;break;}
+        } else {
+          break;
+        }
+        yearcheck.setFullYear(yearcheck.getFullYear()+1)
+      }
+      for(;i<lengths;i++)
+      {
+        this.revenue.push(0);
+        this.profit.push(0);
+      }
+    },
+    createLabelWithYear() {
+      this.labels = [];
+      var yearStart = new Date(this.startDay).getFullYear();
+      var yearEnd = new Date(this.endDay).getFullYear();
+      for (var i = yearStart; i <= yearEnd; i++) {
+        this.labels.push(i);
+      }
+    },
+    createDataWithMonth() {
+      this.revenue = [];
+      this.profit = [];
+      this.receiptsDay = [];
+      var receiptsDay = this.receipts.filter((e) => {
+        return (
+          new Date(e.createDay).getYear() <= new Date(this.endDay).getYear() &&
+          (new Date(e.createDay).getYear() >
+            new Date(this.startDay).getYear() ||
+            ((new Date(e.createDay).getYear() ===
+              new Date(this.startDay).getYear()) &&
+              (new Date(e.createDay).getMonth() >=
+                new Date(this.startDay).getMonth())))
+        );
+      });
+      receiptsDay.sort(this.compareDay);
+      var revenue = receiptsDay.map((e) => {
+        var receiptDetailDay = this.receiptDetails.filter((f) => {
+          return f.receipt_id === e._id;
+        });
+        this.receiptsDay.push(receiptDetailDay);
+        return parseInt(e.total);
+      });
+      // loi nhuan chua sap xep
+      var profit = [];
+      this.receiptsDay.forEach((element, ind) => {
+        var amount = element.map((value) => {
+          return value.amount;
+        });
+        var product = this.products.filter((e) => {
+          return e._id === element[0].product_id;
+        });
+        var importPrices = product.reduce((acc, value, index) => {
+          return acc + parseInt(value.importPrice) * parseInt(amount[index]);
+        }, 0);
+        profit.push(revenue[ind] - importPrices);
+      });
+      for (var i = 0; i < receiptsDay.length - 1; i++) {
+        if (
+          (new Date(receiptsDay[i].createDay).getMonth() ===
+            new Date(receiptsDay[i + 1].createDay).getMonth()) &&
+          (new Date(receiptsDay[i].createDay).getYear() ===
+            new Date(receiptsDay[i + 1].createDay).getYear())
+        ) {
+          revenue[i] += revenue[i + 1];
+          profit[i] += profit[i + 1];
+          revenue.splice(i + 1, 1);
+          profit.splice(i + 1, 1);
+          receiptsDay.splice(i + 1, 1);
+          if(receiptsDay.length===1) break;
           i--;
         }
       }
       var j = 0;
+      var i = 0;
       var monthcheck = new Date(this.startDay);
       var lengths = this.labels.length;
-      for (var i = 0; i <= lengths; i++) {
+      for (; i < lengths; i++) {
         var monthRec = new Date(receiptsDay[j].createDay);
         if (monthcheck.getYear() < monthRec.getYear()) {
           this.revenue.push(0);
@@ -253,12 +347,22 @@ export default {
             this.revenue.push(revenue[j]);
             this.profit.push(profit[j]);
             j++;
+            if (j >= receiptsDay.length){ i++;break;}
+          } else
+          {
+            this.revenue.push(0);
+            this.profit.push(0);
           }
         } else {
           break;
         }
+        monthcheck.setMonth(monthcheck.getMonth()+1);
       }
-      console.log(this.revenue)
+      for(;i<lengths;i++)
+      {
+         this.revenue.push(0);
+         this.profit.push(0);
+      }
     },
     createLabelWithMonth() {
       this.labels = [];
@@ -287,7 +391,6 @@ export default {
           })
         );
       }
-      console.log(this.labels);
     },
     createDataWithDay() {
       this.revenue = [];
@@ -299,7 +402,6 @@ export default {
           new Date(e.createDay).getTime() >= new Date(this.startDay).getTime()
         );
       });
-      console.log(this.receipts);
       receiptsDay.sort(this.compareDay);
       //doanh thu chua sap xep
       var revenue = receiptsDay.map((e) => {
@@ -331,13 +433,15 @@ export default {
           revenue.splice(i + 1, 1);
           profit.splice(i + 1, 1);
           receiptsDay.splice(i + 1, 1);
+          if(receiptsDay.length===1) break;
           i--;
         }
       }
       var j = 0;
+      var i= 0;
       var datecheck = new Date(this.startDay);
       var lengths = this.daysdifference();
-      for (var i = 0; i <= lengths; i++) {
+      for (; i <= lengths; i++) {
         var dateRec = new Date(receiptsDay[j].createDay);
         if (datecheck.getTime() < dateRec.getTime()) {
           this.revenue.push(0);
@@ -346,21 +450,21 @@ export default {
           this.revenue.push(revenue[j]);
           this.profit.push(profit[j]);
           j++;
+          if (j >= receiptsDay.length) { i++;break;}
         } else {
           break;
         }
         datecheck.setDate(datecheck.getDate() + 1);
       }
-      console.log(this.profit);
-      console.log(this.revenue);
+      for(;i<=lengths;i++)
+      {
+          this.revenue.push(0);
+          this.profit.push(0);
+      }
     },
     createLabelWithDay() {
       // push tuần đầu tiên
       this.labels = [];
-      var a = new Date();
-      var c = new Date();
-      c.setDate(c.getDate() + 40);
-      console.log(a);
       var currentDay = new Date(this.startDay).getDay();
       if (7 - currentDay <= this.daysdifference() + 1) {
         this.labels.push(
@@ -377,7 +481,7 @@ export default {
       for (var i = 0; i < allweek; ++i) {
         this.labels.push(...this.dayinWeek);
       }
-      console.log(this.labels);
+
       // push các ngày còn lại
       this.labels.push(
         ...this.dayinWeek.filter((e, i) => {
