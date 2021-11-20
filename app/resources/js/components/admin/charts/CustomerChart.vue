@@ -59,7 +59,7 @@ export default {
           this.time.push("Tháng " + (new Date().getMonth() - i).toString());
         }
     },
-    mounted: function () {
+    mounted() {
       this.$nextTick(function () {
         var config = {
           type: "line",
@@ -108,7 +108,8 @@ export default {
           },
         };
         var ctx = document.getElementById("customer-chart").getContext("2d");
-        window.myLine = new Chart(ctx, config);
+        var charts = new Chart(ctx, config);
+        setTimeout(function() { charts.update(); },300);
       });
     },
 };
