@@ -102,8 +102,7 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($product_id);
         
-        $name = $product->image;
-        Storage::disk('public')->delete($product->image);
+        
         
         $product->name = $request->name;
         $product->amount = $request->amount;
@@ -117,13 +116,19 @@ class ProductController extends Controller
 
 
         if ($request->image){
+
+            if($product->image != 'CheemsIcons.png')
+            {
+                Storage::disk('public')->delete($product->image);
+            }
+
             $image = $request->image;
             $extension = $image->getClientOriginalExtension();
             $name = $product->name.'.'.$extension;
             Storage::disk('public')-> put($name, File::get($image));
             $product->image = $name;
         }
-        else{
+        else if($product->image == ''){
             $product->image = 'CheemsIcons.png';
         }
         //

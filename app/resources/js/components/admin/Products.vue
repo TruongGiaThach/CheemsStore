@@ -266,9 +266,11 @@
 
       <template #expanded-item="{ headers, item }">
         <td :colspan="headers.length">
+        <v-container fluid >
+        
           <v-row no-gutters>
             <v-col cols="12" md="4">
-              <img width="100px" height="100px" :src= "`http://localhost/images/${item.image}`"> 
+              <v-img contain aspect-ratio="2" :src= "baseUrl+`/images/${item.image}` + '?time=' + Date.now()"/> 
             </v-col>
             <v-col cols="12" md="8">
               <h3 class="text-justify">{{ item.name }}</h3>
@@ -277,6 +279,8 @@
               <p class="text-justify">{{ item.description }}</p>
             </v-col>
           </v-row>
+        
+        </v-container>
         </td>
       </template>
       <template v-slot:[`item.actions`]="{ item }">
@@ -311,6 +315,7 @@ extend('required', {
 export default {
   data() {
     return {
+      baseUrl: window.location.origin,
       selected: undefined,
       formImage: null,
       previewImage: null,
@@ -584,7 +589,7 @@ export default {
     },
 
     editItem(item) {
-      this.previewImage = "http://localhost/images/"+item.image;
+      this.previewImage = this.baseUrl+"/images/"+item.image;
       this.editedIndex = this.products.indexOf(item);
       this.editedItem = Object.assign({}, item);
       this.dialog = true;
@@ -606,7 +611,7 @@ export default {
       this.$refs.observer.reset()
       this.dialog = false;
       this.$nextTick(() => {
-        this.editedItem = Object.assign({}, this.defaultItem);
+        this.editedItem = Object.assign({}, this.DefaultItem);
         this.editedIndex = -1;
         this.formImage = null;
       });
@@ -615,7 +620,7 @@ export default {
     closeDelete() {
       this.dialogDelete = false;
       this.$nextTick(() => {
-        this.editedItem = Object.assign({}, this.defaultItem);
+        this.editedItem = Object.assign({}, this.DefaultItem);
         this.editedIndex = -1;
       });
     },
