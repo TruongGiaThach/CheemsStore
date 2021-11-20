@@ -93,7 +93,7 @@
                               <v-avatar class="ma-4" size="140" tile>
                                 <v-img
                                   style="border-radius: 5px"
-                                  :src="require('../../../../public/images/' + item.image).default"
+                                  :src="baseUrl +'/images/' + item.image"
                                 ></v-img>
                               </v-avatar>
                               <div>
@@ -171,6 +171,7 @@
 <script>
 export default {
   data: () => ({
+    baseUrl: window.location.origin,
     fav: true,
     menu: false,
     message: false,
