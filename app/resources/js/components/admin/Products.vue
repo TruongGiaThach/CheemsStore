@@ -9,7 +9,7 @@
     <v-toolbar
       dark
     >
-      <v-toolbar-title>Category</v-toolbar-title>
+      <v-toolbar-title>Danh mục</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
@@ -25,7 +25,24 @@
       <v-list-item-group
         v-model="selected"
         active-class="gray--text"
+        mandatory
       >
+        <v-list-item  :value="'ALL'">
+          <template v-slot:default="{ active }">
+              <v-list-item-content>
+                <v-list-item-title v-text="'Tất cả'"></v-list-item-title>
+              </v-list-item-content>
+
+              <v-list-item-action>
+                <v-icon
+                  v-if="active"
+                  color="grey lighten-1"
+                >
+                  mdi-star-outline
+                </v-icon>
+              </v-list-item-action>
+            </template>
+        </v-list-item>
         <template v-for="(cate) in category">
 
           <v-list-item :key="cate.name" :value="cate._id">
@@ -49,6 +66,9 @@
     </v-list>
   </v-card>
       </v-col>
+
+
+      
       <v-col cols="12" md="9">
     <v-data-table
       :headers="headers"
@@ -68,13 +88,13 @@
     >
       <template v-slot:top>
         <v-toolbar flat>
-          <v-toolbar-title>Products</v-toolbar-title>
+          <v-toolbar-title>Sản phẩm</v-toolbar-title>
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
           <v-text-field
             v-model="search"
             append-icon="mdi-magnify"
-            label="Search"
+            label="Tìm kiếm"
             single-line
             hide-details
           ></v-text-field>
@@ -82,7 +102,7 @@
           <v-dialog v-model="dialog" max-width="500px">
             <template v-slot:activator="{ on, attrs }">
               <v-btn dark class="mb-2" v-bind="attrs" v-on="on">
-                New Item
+                Thêm sản phẩm
               </v-btn>
             </template>
             <ValidationObserver ref="observer" v-slot="{invalid}">
@@ -101,7 +121,7 @@
                           <v-text-field
                             v-model="editedItem.name"
                             :error-messages="errors"
-                            label="Product Name"
+                            label="Tên sản phẩm"
                             required
                           ></v-text-field>
                         </ValidationProvider>
@@ -111,7 +131,7 @@
                           <v-text-field
                             v-model.number="editedItem.amount"
                             :error-messages="errors"
-                            label="Amounts"
+                            label="số lượng"
                             required
                           ></v-text-field>
                         </ValidationProvider>
@@ -124,7 +144,7 @@
                           <v-text-field
                             v-model.number="editedItem.importPrice"
                             :error-messages="errors"
-                            label="Import Price"
+                            label="giá mua"
                             required
                           ></v-text-field>
                         </ValidationProvider>
@@ -134,7 +154,7 @@
                           <v-text-field
                             v-model.number="editedItem.outportPrice"
                             :error-messages="errors"
-                            label="Outport Price"
+                            label="giá xuất"
                             required
                           ></v-text-field>
                         </ValidationProvider>
@@ -147,7 +167,7 @@
                           <v-text-field
                             v-model="editedItem.manufacture"
                             :error-messages="errors"
-                            label="Manufacure"
+                            label="nhà sản xuất"
                             required
                           ></v-text-field>
                         </ValidationProvider>
@@ -157,8 +177,9 @@
                           <v-text-field
                             v-model.number="editedItem.warrantyPeriod"
                             :error-messages="errors"
-                            label="Warranty Period"
+                            label="thời hạn bảo hành"
                             required
+                            prefix="tháng"
                           ></v-text-field>
                         </ValidationProvider>
                       </v-col>
@@ -173,7 +194,7 @@
                             :error-messages="errors"
                             item-text="name"
                             item-value="_id"
-                            label="Category"
+                            label="Danh mục"
                             single-line
                             required
                           ></v-select>
@@ -198,7 +219,7 @@
                             dense
                             truncate-length="15"
                             class="form-control-file" 
-                            id="image" 
+                            id="ảnh" 
                             accept="image/*"
                             v-model="formImage"
                             @change="Preview_image"
@@ -214,7 +235,7 @@
                       <v-col cols="12">
                           <v-textarea v-model="editedItem.description" color="teal">
                             <template v-slot:label>
-                              <div>Description <small>(optional)</small></div>
+                              <div>Mô tả <small>(optional)</small></div>
                             </template>
                           </v-textarea>
                       </v-col>
@@ -226,9 +247,9 @@
               <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn color="blue darken-1" text @click="close">
-                  Cancel
+                  Hủy
                 </v-btn>
-                <v-btn color="blue darken-1" type="submit" :disabled="invalid" text @click="save"> Save </v-btn>
+                <v-btn color="blue darken-1" type="submit" :disabled="invalid" text @click="save"> Lưu </v-btn>
               </v-card-actions>
             </v-card>
             </ValidationObserver>
@@ -236,15 +257,15 @@
           <v-dialog v-model="dialogDelete" max-width="500px">
             <v-card>
               <v-card-title class="text-h6"
-                >Are you sure you want to delete this item?</v-card-title
+                >bạn có chắc muốn xóa sản phẩm này?</v-card-title
               >
               <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn color="blue darken-1" text @click="closeDelete"
-                  >Cancel</v-btn
+                  >Hủy</v-btn
                 >
                 <v-btn color="blue darken-1" text @click="deleteItemConfirm"
-                  >OK</v-btn
+                  >Đồng ý</v-btn
                 >
                 <v-spacer></v-spacer>
               </v-card-actions>
@@ -316,7 +337,7 @@ export default {
   data() {
     return {
       baseUrl: window.location.origin,
-      selected: undefined,
+      selected: 'ALL',
       formImage: null,
       previewImage: null,
       categorySelected: '',
@@ -331,25 +352,21 @@ export default {
       expanded: [],
       headers: [
         {
-          text: "Name",
+          text: "Tên",
           align: "left",
           sortable: false,
           value: "name",
         },
         { 
-          text: "Amounts", 
+          text: "Số lượng", 
           value: "amount" 
         },
         { 
-          text: "Buy Price", 
+          text: "Giá mua", 
           value: "importPrice" 
         },
         { 
-          text: "Sell Price", 
-          value: "outportPrice" 
-        },
-        { 
-          text: "Sell Price", 
+          text: "giá bán", 
           value: "outportPrice" 
         },
         { 
@@ -357,7 +374,7 @@ export default {
           value: "tag" 
         },
         { 
-          text: "Actions", 
+          text: "", 
           value: "actions", 
           sortable: false 
         },
@@ -406,12 +423,12 @@ export default {
       //for(const item of this.products){
       //  item.image = `http://localhost/images/${item.image}`;
       //};
-      if (this.selected != undefined) {
+      if (this.selected != "ALL") {
         console.log(this.selected)
         return this.products.filter((e) => {
           return (e.category_id == this.selected);
         });
-      } else if (this.selected == undefined) {
+      } else {
         return this.products
       }
     },
@@ -478,16 +495,6 @@ export default {
         .get("/api/category")
         .then((response) => {
           this.category = response.data;
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    },
-    getCategory() {
-      axios
-        .get("/api/products/")
-        .then((response) => {
-          this.products = response.data;
         })
         .catch((error) => {
           console.error(error);
