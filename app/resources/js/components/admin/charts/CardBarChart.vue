@@ -8,9 +8,12 @@
           <h6 class="uppercase text-blueGray-400 mb-1 text-xs font-semibold">
             Performance
           </h6>
+           <div class="d-flex flex-no-wrap justify-space-between mr-5">
           <h2 class="text-blueGray-700 text-xl font-semibold">
             Total orders
           </h2>
+          <slot></slot>
+          </div>
         </div>
       </div>
     </div>
@@ -24,6 +27,16 @@
 <script>
 import Chart from "chart.js";
 export default {
+    props:{
+        customers:{
+            type: Array,
+            default: [],
+        },
+        orders: {
+            type: Array,
+            default: []
+        }
+    },
   mounted: function () {
     this.$nextTick(function () {
       let config = {
@@ -45,7 +58,7 @@ export default {
           ],
           datasets: [
             {
-              label: new Date().getFullYear(),
+              label: "Khách hàng",
               backgroundColor: "#F37E21",
               borderColor: "#F37E21",
               data: [30, 78, 56, 34, 100, 45, 13],
@@ -53,7 +66,7 @@ export default {
               barThickness: 8,
             },
             {
-              label: new Date().getFullYear() - 1,
+              label: "Đơn đặt hàng",
               fill: false,
               backgroundColor: "#4c51bf",
               borderColor: "#4c51bf",
