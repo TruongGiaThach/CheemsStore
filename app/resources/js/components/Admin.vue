@@ -146,8 +146,8 @@ export default {
       drawer: true,
       Nav_bar_items: [
         ["mdi-store-search", "Sản phẩm", "products"],
-        ["mdi-account", "Tài khoản", "users"],
         ["mdi-account-group", "Khách hàng", "customers"],
+         ["mdi-account", "Tài khoản", "users"],
         ["mdi-account-cog-outline", "Nhân viên", "staffs"],
         ["mdi-chart-line", "Thống kê", "statistic"],
       ],
@@ -159,12 +159,12 @@ export default {
   },
   components: {
     Main,
-    Users,
     Products,
+    Customers,
     Orders,
     CreateOrder,
     Staffs,
-    Customers
+    Users,
   },
   beforeMount() {
     this.setComponent(this.$route.params.page);
@@ -176,7 +176,7 @@ export default {
     if (this.user.role == "staff") {
       this.Nav_bar_items.pop();
       this.Nav_bar_items.pop();
-      this.Nav_bar_items.pop()
+      this.Nav_bar_items.pop();
     }
   },
   methods: {

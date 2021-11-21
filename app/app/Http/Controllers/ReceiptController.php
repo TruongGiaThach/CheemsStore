@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Receipt;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ReceiptController extends Controller
 {
@@ -19,11 +20,14 @@ class ReceiptController extends Controller
     }
     public function getByCustomerID(Request $request)
     {
-        
-        $receipt = Receipt::where('user_id',$request->customerID);
+         
+        error_log($request->customerID);
+      //  $receipt = Receipt::where('user_id',"6196655b4e781e6b24412523")->get();
+        $receipt = DB::connection('mongodb')->collection('receipt')
+                    ->where('user_id',$request->customerID)->get();
         return response()->json([
-            'status'=>(bool) $receipt,
-            'data'=> $receipt,
+            'status'=> (bool) $receipt,
+            'receipt'=> $receipt,
         ]);
     }
     /**

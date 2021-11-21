@@ -35,7 +35,7 @@
         <!-- dialog thêm tài khoản và thông tin nhân viên -->
         <template v-slot:top>
           <v-toolbar flat>
-            <v-toolbar-title>Tài khoản</v-toolbar-title>
+            <v-toolbar-title class="info--text" >Tài khoản</v-toolbar-title>
             <v-divider class="mx-4" inset vertical></v-divider>
             <v-spacer></v-spacer>
             <v-dialog v-model="dialog" max-width="500px">
@@ -211,12 +211,12 @@ export default {
           text: "Name",
           align: "start",
           sortable: false,
-          value: "name",
+          value: "name", class: "info--text"
         },
-        { text: "Email", value: "email" },
-        { text: "Role", value: "role" },
-        { text: "Actions", value: "actions", sortable: false },
-        { text: "Trạng thái", value: "state" },
+        { text: "Email", value: "email" , class: "info--text"},
+        { text: "Role", value: "role", class: "info--text" },
+        { text: "Actions", value: "actions", sortable: false , class: "info--text"},
+        { text: "Trạng thái", value: "state" , class: "info--text"},
       ],
       state: true,
       users: [],

@@ -204,7 +204,7 @@ export default {
     ],
     headers: [
       {
-        text: "ID Sản Phẩm",
+        text: "ID Hóa đơn",
         align: "left",
         sortable: false,
         value: "_id",

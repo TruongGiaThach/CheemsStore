@@ -13,10 +13,10 @@ class Receipt extends Eloquent
     use HasFactory, SoftDeletes;
 
     protected $connection = 'mongodb';
-    protected $colection = 'receipt';
+    protected $table = 'receipt';
     protected $fillable = [
         'user_id','createDay','total','VAT',
     ];
-    protected $table = 'receipt';
+    
     
 }

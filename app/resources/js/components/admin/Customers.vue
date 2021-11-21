@@ -17,10 +17,6 @@
         :headers="headers"
         :items="customers"
         :search="search"
-        :expanded.sync="expanded"
-        :single-expand="singleExpand"
-        show-expand
-        @item-expanded="clickRow"
         item-key="email"
         rounded-xl
         class="elevation-1"
@@ -28,48 +24,52 @@
       >
         <template v-slot:top>
           <v-toolbar flat>
-            <v-toolbar-title>Khách hàng</v-toolbar-title>
+            <v-toolbar-title class="info--text">Khách hàng</v-toolbar-title>
             <v-divider inset class="mx-4" vertical></v-divider>
             <v-spacer></v-spacer>
+
+            <v-dialog v-model="dialog" max-height="100vh" max-width="100vh">
+              <v-card
+                class="p-3 m-2 overflow-x-hidden"
+                max-height="inherit"
+                max-width="inherit"
+              >
+                <div id="receipt_page">
+                  <v-card-title class="bg-info mx-auto" max-width="inherit">
+                    <span class="text-h5 mx-auto white--text">
+                      HÓA ĐƠN ĐÃ MUA</span
+                    >
+                  </v-card-title>
+
+                  <v-data-table
+                    max-width="inherit"
+                    :headers="headers_receipt"
+                    :items="receipts"
+                    hide-default-footer
+                    class="elevation-1"
+                  >
+                    <template v-slot:no-data>
+                      <b-button
+                        variant="info"
+                        @click="getDataToTable(selectedCustomer)"
+                      >
+                        Reset
+                      </b-button>
+                    </template>
+                  </v-data-table>
+                </div>
+                <v-card-actions max-width="inherit">
+                  <v-spacer></v-spacer>
+                  <v-btn pill color="primary" @click="close">Thoát </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
           </v-toolbar>
         </template>
-        <!-- expand 1 row -->
-        <template v-slot:expanded-item="{ headers, item }">
-          <td :colspan="headers.length">
-            <v-container fluid>
-              <v-row no-gutters>
-                <table class="table_style">
-                  <tr>
-                    <h5>Thông tin các hóa đơn đã mua</h5>
-                  </tr>
-                  <tr>
-                    <div v-for="(receipt, index) in item.receipts" :key="index">
-                      <v-list class="text-justify">
-                        <tr>
-                          <td>Ngày tạo hóa đơn:</td>
-                          <td>
-                            {{ receipt.createDay }}
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>VAT:</td>
-                          <td>
-                            {{ receipt.VAT }}
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Tổng tiền:</td>
-                          <td>
-                            {{ receipt.total }}
-                          </td>
-                        </tr>
-                      </v-list>
-                    </div>
-                  </tr>
-                </table>
-              </v-row>
-            </v-container>
-          </td>
+
+        <!-- -->
+        <template v-slot:[`item.actions`]="{ item }">
+          <v-btn color="#afcefa"  @click="getDataToTable(item)">Xem hóa đơn </v-btn>
         </template>
         <!-- reload -->
         <template v-slot:no-data>
@@ -91,47 +91,44 @@ export default {
           align: "start",
           sortable: false,
           value: "name",
+          class: "info--text",
         },
-        { text: "Email", value: "email" },
-        { text: "Số điện thoại", value: "number" },
+        { text: "Email", value: "email", class: "info--text" },
+        { text: "Số điện thoại", value: "number", class: "info--text" },
+        {
+          text: "Actions",
+          value: "actions",
+          sortable: false,
+          class: "info--text",
+        },
+      ],
+      headers_receipt: [
+        {
+          text: "ID Hóa đơn",
+          align: "left",
+          sortable: false,
+          value: "_id.$oid",
+          class: "info--text",
+        },
+        { text: "Tổng (đ)", value: "total", class: "info--text" },
+        { text: "VAT (đ)", value: "VAT", class: "info--text" },
+        { text: "Ngày tạo", value: "createDay", class: "info--text" },
       ],
       state: true,
-      customers: [],
 
-      editingItem: null,
-      addingUser: null,
+      customers: [],
+      receipts: [],
+      selectedCustomer: null,
       dialog: false,
-      dialogDelete: false,
       editedIndex: -1,
       expanded: [],
       singleExpand: true,
-      editedItem: {
-        _id: "",
-        name: "",
-        email: "",
-        cmnd: "",
-        numOfDayOff: 0,
-        salary: 0,
-        dateBegin: new Date(Date.now()).toLocaleString().split(",")[0],
-      },
-      defaultItem: {
-        _id: "",
-        name: "",
-        email: "",
-        cmnd: "",
-        numOfDayOff: 0,
-        salary: 0,
-        dateBegin: new Date(Date.now()).toLocaleString().split(",")[0],
-      },
     };
   },
 
   watch: {
     dialog(val) {
       val || this.close();
-    },
-    dialogDelete(val) {
-      val || this.closeDelete();
     },
   },
 
@@ -158,15 +155,25 @@ export default {
         .catch((error) => {
           console.error(error);
         });
-    },
-    clickRow({ item }, event) {
+    } ,
+    getDataToTable(item) {
+      // get customer receipt detail
+      this.selectedCustomer = item;
+      console.log(item._id);
       axios
-        .get("/api/receipts", { customerID: item._id })
+        .post("/api/receipts", { customerID: item._id })
         .then((response) => {
-          item.receipts = response.data;
-          
+          this.receipts = response.data.receipt;
+          console.log(this.receipts);
         })
-        .catch((response) => {});
+        .catch((error) => {
+          console.error(error);
+        });
+
+      this.dialog = true;
+    },
+    close() {
+      this.dialog = false;
     },
   },
 };

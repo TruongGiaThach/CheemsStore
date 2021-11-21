@@ -25,7 +25,7 @@
         <!-- dialog thêm thông tin nhân viên -->
         <template v-slot:top>
           <v-toolbar flat>
-            <v-toolbar-title>Nhân viên</v-toolbar-title>
+            <v-toolbar-title  class="info--text" >Nhân viên</v-toolbar-title>
             <v-divider class="mx-4" inset vertical></v-divider>
             <v-spacer></v-spacer>
             <v-dialog v-model="dialog" max-width="500px">
@@ -141,14 +141,15 @@ export default {
           text: "Name",
           align: "start",
           sortable: false,
-          value: "name",
+          value: "name", 
+          class:"info--text",
         },
-        { text: "Email", value: "email" },
-        { text: "CMND", value: "cmnd" },
-        { text: "Số ngày nghỉ", value: "numOfDayOff" },
-        { text: "Lương", value: "salary" },
-        { text: "Ngày vào làm", value: "dateBegin" },
-        { text: "Actions", value: "actions", sortable: false },
+        { text: "Email", value: "email" , class:"info--text",},
+        { text: "CMND", value: "cmnd" , class:"info--text",},
+        { text: "Số ngày nghỉ", value: "numOfDayOff", class:"info--text", },
+        { text: "Lương", value: "salary" , class:"info--text",},
+        { text: "Ngày vào làm", value: "dateBegin", class:"info--text", },
+        { text: "Actions", value: "actions", sortable: false , class:"info--text",},
       ],
       state: true,
       staffs: [],
