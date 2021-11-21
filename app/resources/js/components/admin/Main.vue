@@ -13,19 +13,21 @@
           </v-card>
         </v-col>
         <v-col cols="12" md="3">
-          <v-card color="#39f" height="180"> 
-            
+          <v-card color="#39f" height="180">
+
           </v-card>
         </v-col>
         <v-col cols="12" md="3">
-          <v-card color="#f9b115" height="180"> 
+          <v-card color="#f9b115" height="180">
             <product-amount-chart></product-amount-chart>
           </v-card>
         </v-col>
         <v-col cols="12" md="3">
           <v-card color="#e55353" height="180">
-            <input type="date" id="startDay" v-model="startDay" />
-            <input type="date" id="endDay" v-model="endDay" />
+            <input type="date" id="startDay" v-model="startDay1" />
+            <input type="date" id="endDay" v-model="endDay1" />
+            <input type="date" id="startDay" v-model="startDay2" />
+            <input type="date" id="endDay" v-model="endDay2" />
           </v-card>
         </v-col>
       </v-row>
@@ -92,9 +94,6 @@
       <v-row align-content-end full-width>
         <v-col>
           <v-card>
-<<<<<<< Updated upstream
-            <card-bar-chart />
-=======
             <card-bar-chart
             :labels ="labels2"
             :customers="sCustomers"
@@ -103,7 +102,6 @@
                 <div
                 class="btn-group"
                 role="group"
-                aria-label="Basic radio toggle button group"
               >
                 <input
                   type="radio"
@@ -149,7 +147,6 @@
                 >
               </div>
             </card-bar-chart>
->>>>>>> Stashed changes
           </v-card>
         </v-col>
       </v-row>
@@ -193,8 +190,14 @@ export default {
         "Tháng 11",
         "Tháng 12",
       ],
-      startDay: new Date("2021-11-12").toISOString().slice(0, 10),
-      endDay: new Date().toISOString().slice(0, 10),
+      //du lieu thogn ke bang 2
+      sOrder: [],
+      sCustomers: [],
+      labels2: [],
+      startDay1: new Date("2021-11-12").toISOString().slice(0, 10),
+      endDay1: new Date().toISOString().slice(0, 10),
+      startDay2: new Date("2021-11-12").toISOString().slice(0, 10),
+      endDay2: new Date().toISOString().slice(0, 10),
     };
   },
   components: {
@@ -249,22 +252,20 @@ export default {
   },
   methods: {
     createStatisticWithYear(index) {
-      this.createLabelWithYear();
-      this.creatDataWithYear();
+      this.labels =this.createLabelWithYear(this.startDay1, this.endDay1);
+      this.createDataWithYear();
       this.check = index;
     },
     createStatisticWithMonth(index) {
-      this.createLabelWithMonth();
+      this.labels =this.createLabelWithMonth(this.startDay1, this.endDay1);
       this.createDataWithMonth();
       this.check = index;
     },
     createStatisticWithDay(index) {
-      this.createLabelWithDay();
+      this.labels = this.createLabelWithDay(this.startDay1, this.endDay1);
       this.createDataWithDay();
       this.check = index;
     },
-<<<<<<< Updated upstream
-=======
     //bang thong ke 2
     createStatisticWithYear2(index) {
       this.labels2 = this.createLabelWithYear(this.startDay2, this.endDay2);
@@ -475,15 +476,14 @@ export default {
           this.sCustomers.push(0)
       }
     },
->>>>>>> Stashed changes
-    creatDataWithYear() {
+    createDataWithYear() {
       this.revenue = [];
       this.profit = [];
       this.receiptsDay = [];
       var receiptsDay = this.receipts.filter((e) => {
         return (
-          new Date(e.createDay).getYear() <= new Date(this.endDay).getYear() &&
-          new Date(e.createDay).getYear() >= new Date(this.startDay).getYear()
+          new Date(e.createDay).getYear() <= new Date(this.endDay1).getYear() &&
+          new Date(e.createDay).getYear() >= new Date(this.startDay1).getYear()
         );
       });
       receiptsDay.sort(this.compareDay);
@@ -525,7 +525,7 @@ export default {
       console.log(revenue)
       var j = 0;
       var i = 0;
-      var yearcheck = new Date(this.startDay);
+      var yearcheck = new Date(this.startDay1);
       var lengths = this.labels.length;
       for (; i <= lengths; i++) {
         var yearRec = new Date(receiptsDay[j].createDay);
@@ -548,13 +548,14 @@ export default {
         this.profit.push(0);
       }
     },
-    createLabelWithYear() {
-      this.labels = [];
-      var yearStart = new Date(this.startDay).getFullYear();
-      var yearEnd = new Date(this.endDay).getFullYear();
+    createLabelWithYear(startDay, endDay) {
+      var labels = [];
+      var yearStart = new Date(startDay).getFullYear();
+      var yearEnd = new Date(endDay).getFullYear();
       for (var i = yearStart; i <= yearEnd; i++) {
-        this.labels.push(i);
+        labels.push(i);
       }
+      return labels
     },
     createDataWithMonth() {
       this.revenue = [];
@@ -562,13 +563,13 @@ export default {
       this.receiptsDay = [];
       var receiptsDay = this.receipts.filter((e) => {
         return (
-          new Date(e.createDay).getYear() <= new Date(this.endDay).getYear() &&
+          new Date(e.createDay).getYear() <= new Date(this.endDay1).getYear() &&
           (new Date(e.createDay).getYear() >
-            new Date(this.startDay).getYear() ||
+            new Date(this.startDay1).getYear() ||
             ((new Date(e.createDay).getYear() ===
-              new Date(this.startDay).getYear()) &&
+              new Date(this.startDay1).getYear()) &&
               (new Date(e.createDay).getMonth() >=
-                new Date(this.startDay).getMonth())))
+                new Date(this.startDay1).getMonth())))
         );
       });
       receiptsDay.sort(this.compareDay);
@@ -611,7 +612,7 @@ export default {
       }
       var j = 0;
       var i = 0;
-      var monthcheck = new Date(this.startDay);
+      var monthcheck = new Date(this.startDay1);
       var lengths = this.labels.length;
       for (; i < lengths; i++) {
         var monthRec = new Date(receiptsDay[j].createDay);
@@ -641,28 +642,28 @@ export default {
       }
       console.log(this.revenue)
     },
-    createLabelWithMonth() {
-      this.labels = [];
-      var monthStart = new Date(this.startDay).getMonth();
-      var monthEnd = new Date(this.endDay).getMonth();
-      var yearStart = new Date(this.startDay).getFullYear();
-      var yearEnd = new Date(this.endDay).getFullYear();
+    createLabelWithMonth(startDay, endDay) {
+      var labels = [];
+      var monthStart = new Date(startDay).getMonth();
+      var monthEnd = new Date(endDay).getMonth();
+      var yearStart = new Date(startDay).getFullYear();
+      var yearEnd = new Date(endDay).getFullYear();
       if (yearStart < yearEnd) {
-        this.labels.push(
+        labels.push(
           ...this.monthinYear.filter((e, i) => {
             return i >= monthStart;
           })
         );
         for (var i = 0; i < yearEnd - yearStart - 1; i++) {
-          this.labels.push(...this.monthinYear);
+          labels.push(...this.monthinYear);
         }
-        this.labels.push(
+        labels.push(
           ...this.monthinYear.filter((e, i) => {
             return i <= monthEnd;
           })
         );
       } else {
-        this.labels.push(
+        labels.push(
           ...this.monthinYear.filter((e, i) => {
             return i >= monthStart && i <= monthEnd;
           })
@@ -676,8 +677,8 @@ export default {
       this.receiptsDay = [];
       var receiptsDay = this.receipts.filter((e) => {
         return (
-          new Date(e.createDay).getTime() <= new Date(this.endDay).getTime() &&
-          new Date(e.createDay).getTime() >= new Date(this.startDay).getTime()
+          new Date(e.createDay).getTime() <= new Date(this.endDay1).getTime() &&
+          new Date(e.createDay).getTime() >= new Date(this.startDay1).getTime()
         );
       });
       receiptsDay.sort(this.compareDay);
@@ -717,8 +718,8 @@ export default {
       }
       var j = 0;
       var i= 0;
-      var datecheck = new Date(this.startDay);
-      var lengths = this.daysdifference();
+      var datecheck = new Date(this.startDay1);
+      var lengths = this.daysdifference(this.startDay1, this.endDay1);
       for (; i <= lengths; i++) {
         var dateRec = new Date(receiptsDay[j].createDay);
         if (datecheck.getTime() < dateRec.getTime()) {
@@ -740,39 +741,39 @@ export default {
           this.profit.push(0);
       }
     },
-    createLabelWithDay() {
+    createLabelWithDay(startDay, endDay) {
       // push tuần đầu tiên
-      this.labels = [];
-      var currentDay = new Date(this.startDay).getDay();
-      if (7 - currentDay <= this.daysdifference() + 1) {
-        this.labels.push(
+      var labels = [];
+      var rangeDay = this.daysdifference(startDay, endDay)
+      var currentDay = new Date(startDay).getDay();
+      if (7 - currentDay <= rangeDay + 1) {
+        labels.push(
           ...this.dayinWeek.filter((e, i) => {
             return i >= currentDay;
           })
         );
       }
-      var allweek = Math.floor(
-        (this.daysdifference() + 1 - (7 - currentDay)) / 7
-      );
-      var residualDays = (this.daysdifference() + 1 - (7 - currentDay)) % 7;
+      var allweek = Math.floor((rangeDay + 1 - (7 - currentDay)) / 7);
+      var residualDays = (rangeDay + 1 - (7 - currentDay)) % 7;
       // push các tuần trong năm
       for (var i = 0; i < allweek; ++i) {
-        this.labels.push(...this.dayinWeek);
+        labels.push(...this.dayinWeek);
       }
 
       // push các ngày còn lại
-      this.labels.push(
+      labels.push(
         ...this.dayinWeek.filter((e, i) => {
           return i < residualDays;
         })
       );
+      return labels;
     },
     // tim ngay giua 2 thoi diem
-    daysdifference() {
-      var startDay = new Date(this.startDay);
-      var endDay = new Date(this.endDay);
+    daysdifference(startDay, endDay) {
+      var startDay1 = new Date(startDay);
+      var endDay1 = new Date(endDay);
 
-      var millisBetween = startDay.getTime() - endDay.getTime();
+      var millisBetween = startDay1.getTime() - endDay1.getTime();
       var days = millisBetween / (1000 * 3600 * 24);
 
       return Math.round(Math.abs(days));
@@ -798,3 +799,4 @@ export default {
 
 <style scoped>
 </style>
+
