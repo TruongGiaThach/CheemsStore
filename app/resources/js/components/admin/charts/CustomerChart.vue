@@ -73,7 +73,7 @@ export default {
                 borderWidth: 1,
                 data: this.customerNum,
                 pointStyle: 'circle',
-                pointRadius: 3,
+                pointRadius: 4,
               },
             ],
           },

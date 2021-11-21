@@ -8,15 +8,19 @@
     >
       <v-row align-content-end full-width>
         <v-col cols="12" md="3">
-          <v-card color="#321fdb" height="180"
-            ><customer-chart></customer-chart>
+          <v-card color="#321fdb" height="180">
+            <customer-chart></customer-chart>
           </v-card>
         </v-col>
         <v-col cols="12" md="3">
-          <v-card color="#39f" height="180"> </v-card>
+          <v-card color="#39f" height="180"> 
+            
+          </v-card>
         </v-col>
         <v-col cols="12" md="3">
-          <v-card color="#f9b115" height="180"> </v-card>
+          <v-card color="#f9b115" height="180"> 
+            <product-amount-chart></product-amount-chart>
+          </v-card>
         </v-col>
         <v-col cols="12" md="3">
           <v-card color="#e55353" height="180">
@@ -47,7 +51,7 @@
                   checked
                 />
                 <label
-                  class="btn btn-outline-primary white--text"
+                  class="btn btn-outline-primary --text"
                   for="btnradio1"
                   @click="createStatisticWithDay(1)"
                   >Ngày</label
@@ -61,7 +65,7 @@
                   autocomplete="off"
                 />
                 <label
-                  class="btn btn-outline-primary white--text"
+                  class="btn btn-outline-primary --text"
                   for="btnradio2"
                   @click="createStatisticWithMonth(2)"
                   >Tháng</label
@@ -75,7 +79,7 @@
                   autocomplete="off"
                 />
                 <label
-                  class="btn btn-outline-primary white--text"
+                  class="btn btn-outline-primary --text"
                   for="btnradio3"
                   @click="createStatisticWithYear(3)"
                   >Năm</label
@@ -98,6 +102,7 @@
 
 <script>
 import CustomerChart from "./charts/CustomerChart";
+import ProductAmountChart from "./charts/ProductAmountChart";
 import CardBarChart from "./charts/CardBarChart";
 import CardLineChart from "./charts/CardLineChart";
 export default {
@@ -116,20 +121,20 @@ export default {
       receiptDetails: [],
 
       values: [],
-      dayinWeek: ["Sun", "Mon", "Tue", "Web", "Thur", "Fri", "Sar"],
+      dayinWeek: ["Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"],
       monthinYear: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
+        "Tháng 1",
+        "Tháng 2",
+        "Tháng 3",
+        "Tháng 4",
+        "Tháng 5",
+        "Tháng 6",
+        "Tháng 7",
+        "Tháng 8",
+        "Tháng 9",
+        "Tháng 10",
+        "Tháng 11",
+        "Tháng 12",
       ],
       startDay: new Date("2021-11-12").toISOString().slice(0, 10),
       endDay: new Date().toISOString().slice(0, 10),
@@ -139,6 +144,7 @@ export default {
     CardLineChart,
     CardBarChart,
     CustomerChart,
+    ProductAmountChart,
   },
   beforeMount() {
     axios
@@ -177,13 +183,13 @@ export default {
         console.error(error);
       });
   },
-  /*created() {
+  created() {
     setInterval(() => {
       if (this.check === 1) this.createStatisticWithDay();
       if (this.check === 2) this.createStatisticWithMonth();
       if (this.check === 3) this.createStatisticWithYear();
-    }, 5000);
-  },*/
+    }, 500);
+  },
   methods: {
     createStatisticWithYear(index) {
       this.createLabelWithYear();

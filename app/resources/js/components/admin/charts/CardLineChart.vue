@@ -13,16 +13,16 @@
     :revenue="revenue"
     :labels="labels"
     :profit="profit"
-    style="background: black"
+    style="background: white"
   >
     <div class="rounded-t mb-0 px-4 py-3 bg-transparent">
       <div class="flex flex-wrap items-center">
         <div class="relative w-full max-w-full flex-grow flex-1">
-          <h6 class="uppercase text-blueGray-100 mb-1 text-xs font-semibold">
-            Overview
+          <h6 class="uppercase text-blueGray-100 mb-1 text-xs font-semibold" style="color: rgb(100, 100, 100); ">
+            Tổng quan
           </h6>
           <div class="d-flex flex-no-wrap justify-space-between mr-5">
-            <h2 class="text-info text-xl font-semibold">Sales value</h2>
+            <h2 class="text-info text-xl font-semibold">Doanh thu & Lợi nhuận</h2>
             <slot></slot>
           </div>
         </div>
@@ -63,7 +63,7 @@ export default {
       labels: this.labels,
       datasets: [
         {
-          label: "Doang thu",
+          label: "Doanh thu",
           backgroundColor: "#2196f3",
           borderColor: "#2196f3",
           data: this.revenue,
@@ -88,7 +88,7 @@ export default {
         },
         legend: {
           labels: {
-            fontColor: "#FFF",
+            fontColor: "rgb(100, 100, 100)",
           },
           align: "end",
           position: "bottom",
@@ -105,19 +105,19 @@ export default {
           xAxes: [
             {
               ticks: {
-                fontColor: "rgba(141, 238, 238,.7)",
+                fontColor: "rgb(100, 100, 100)",
               },
               display: true,
               scaleLabel: {
                 display: true,
-                labelString: "Month", //
-                fontColor: "#FFFFFF",
+                labelString: "Thời gian", //
+                fontColor: "black",
               },
               gridLines: {
                 display: true,
                 borderDash: [2],
                 borderDashOffset: [2],
-                color: "blue",
+                color: "rgb(255,255,255)",
                 zeroLineColor: "rgba(0, 0, 0, 0)",
                 zeroLineBorderDash: [2],
                 zeroLineBorderDashOffset: [2],
@@ -127,20 +127,20 @@ export default {
           yAxes: [
             {
               ticks: {
-                fontColor: "rgba(141, 238, 238,.7)",
+                fontColor: "rgb(100, 100, 100)",
               },
               display: true,
               scaleLabel: {
                 display: true,
                 labelString: "VNĐ",
-                fontColor: "white",
+                fontColor: "black",
               },
               gridLines: {
                 display: true,
                 borderDash: [3],
                 borderDashOffset: [3],
                 drawBorder: false,
-                color: "rgba(255, 255, 255, 0.15)",
+                color: "rgba(0, 0, 0, 0.15)",
                 zeroLineColor: "rgba(33, 37, 41, 0)",
                 zeroLineBorderDash: [2],
                 zeroLineBorderDashOffset: [2],
@@ -155,10 +155,10 @@ export default {
     return {
       data1:
       {
-      labels:  ["Sun", "Mon", "Tue", "Web", "Thur", "Fri", "Sar"],
+      labels:  ["Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"],
       datasets: [
         {
-          label: "Doang thu",
+          label: "Doanh thu",
           backgroundColor: "#2196f3",
           borderColor: "#2196f3",
           data: [2,3,4,5,6, 20],
@@ -205,7 +205,7 @@ export default {
               display: true,
               scaleLabel: {
                 display: true,
-                labelString: "Month", //
+                labelString: "Thời gian", //
                 fontColor: "#FFFFFF",
               },
               gridLines: {
