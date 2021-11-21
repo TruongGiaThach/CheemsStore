@@ -18,11 +18,19 @@
     <div class="rounded-t mb-0 px-4 py-3 bg-transparent">
       <div class="flex flex-wrap items-center">
         <div class="relative w-full max-w-full flex-grow flex-1">
+<<<<<<< Updated upstream
           <h6 class="uppercase text-blueGray-100 mb-1 text-xs font-semibold" style="color: rgb(100, 100, 100); ">
             Tổng quan
           </h6>
           <div class="d-flex flex-no-wrap justify-space-between mr-5">
             <h2 class="text-info text-xl font-semibold">Doanh thu & Lợi nhuận</h2>
+=======
+          <h6 class="uppercase text-blueGray-100 mb-1 text-xs font-semibold">
+            Chi tiết
+          </h6>
+          <div class="d-flex flex-no-wrap justify-space-between mr-5">
+            <h2 class="text-info text-xl font-semibold">Bán Hàng</h2>
+>>>>>>> Stashed changes
             <slot></slot>
           </div>
         </div>
@@ -83,7 +91,7 @@ export default {
         responsive: true,
         title: {
           display: false,
-          text: "Sales Charts",
+          text: "Bán Hàng",
           fontColor: "info",
         },
         legend: {

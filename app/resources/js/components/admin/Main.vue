@@ -33,6 +33,7 @@
         <v-col>
           <v-card>
             <card-line-chart
+              v-model="startDay1"
               :labels="labels"
               :revenue="revenue"
               :profit="profit"
@@ -40,7 +41,6 @@
               <div
                 class="btn-group"
                 role="group"
-                aria-label="Basic radio toggle button group"
               >
                 <input
                   type="radio"
@@ -92,7 +92,64 @@
       <v-row align-content-end full-width>
         <v-col>
           <v-card>
+<<<<<<< Updated upstream
             <card-bar-chart />
+=======
+            <card-bar-chart
+            :labels ="labels2"
+            :customers="sCustomers"
+            :orders="sOrder"
+            >
+                <div
+                class="btn-group"
+                role="group"
+                aria-label="Basic radio toggle button group"
+              >
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="btnradio"
+                  id="btnradio4"
+                  autocomplete="off"
+                  checked
+                />
+                <label
+                  class="btn btn-outline-primary white--text"
+                  for="btnradio4"
+                  @click="createStatisticWithDay2(1)"
+                  >Ngày</label
+                >
+
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="btnradio"
+                  id="btnradio5"
+                  autocomplete="off"
+                />
+                <label
+                  class="btn btn-outline-primary white--text"
+                  for="btnradio5"
+                  @click="createStatisticWithMonth2(2)"
+                  >Tháng</label
+                >
+
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="btnradio"
+                  id="btnradio6"
+                  autocomplete="off"
+                />
+                <label
+                  class="btn btn-outline-primary white--text"
+                  for="btnradio6"
+                  @click="createStatisticWithYear2(3)"
+                  >Năm</label
+                >
+              </div>
+            </card-bar-chart>
+>>>>>>> Stashed changes
           </v-card>
         </v-col>
       </v-row>
@@ -206,6 +263,219 @@ export default {
       this.createDataWithDay();
       this.check = index;
     },
+<<<<<<< Updated upstream
+=======
+    //bang thong ke 2
+    createStatisticWithYear2(index) {
+      this.labels2 = this.createLabelWithYear(this.startDay2, this.endDay2);
+      this.createDataWithYear2();
+      this.check2 = index;
+    },
+    createStatisticWithMonth2(index) {
+      this.labels2=this.createLabelWithMonth(this.startDay2, this.endDay2);
+      this.createDataWithMonth2();
+      this.check2 = index;
+    },
+    createStatisticWithDay2(index) {
+      this.labels2=this.createLabelWithDay(this.startDay2, this.endDay2);
+      this.createDataWithDay2();
+      this.check2 = index;
+    },
+    createDataWithYear2()
+    {
+        this.sCustomers=[]
+        this.sOrder =[]
+        var receiptsDay = this.receipts.filter((e) => {
+            return (
+                new Date(e.createDay).getYear() <= new Date(this.endDay2).getYear() &&
+                new Date(e.createDay).getYear() >= new Date(this.startDay2).getYear()
+            );
+        });
+        var productAmount = []
+        var CustomerAmount = []
+        receiptsDay.forEach(element => {
+            var receiptDetailDay = this.receiptDetails.filter((f) => {
+                return f.receipt_id === element._id;
+            });
+            productAmount.push(receiptDetailDay.reduce((total,value)=>{
+                return total + parseInt(value.amount)
+            },0))
+            CustomerAmount.push(1)
+        });
+        for(var i=0; i< receiptsDay.length-1;i++)
+        {
+            if (
+            new Date(receiptsDay[i].createDay).getYear() ===
+            new Date(receiptsDay[i + 1].createDay).getYear()
+            )  {
+                productAmount[i]+=productAmount[i+1]
+                CustomerAmount[i]+=1
+                CustomerAmount.splice(i+1,1)
+                productAmount.splice(i+1,1)
+                receiptsDay.splice(i + 1, 1);
+                if(receiptsDay.length===1) break;
+                i--;
+            }
+        }
+         var j = 0;
+      var i = 0;
+      var yearcheck = new Date(this.startDay2);
+      var lengths = this.labels2.length;
+      for (; i <= lengths; i++) {
+        var yearRec = new Date(receiptsDay[j].createDay);
+        if (yearcheck.getYear() < yearRec.getYear()) {
+          this.sCustomers.push(0)
+          this.sOrder.push(0)
+        } else if (yearcheck.getYear() === yearRec.getYear()) {
+          this.sCustomers.push(CustomerAmount[j])
+          this.sOrder.push(productAmount[j])
+          j++;
+          if (j >= receiptsDay.length) { i++;break;}
+        } else {
+          break;
+        }
+        yearcheck.setFullYear(yearcheck.getFullYear()+1)
+      }
+      for(;i<lengths;i++)
+      {
+        this.sCustomers.push(0)
+          this.sOrder.push(0)
+      }
+
+    },
+    createDataWithMonth2()
+    {
+        this.sCustomers=[]
+        this.sOrder =[]
+        var receiptsDay = this.receipts.filter((e) => {
+            return (
+            new Date(e.createDay).getYear() <= new Date(this.endDay2).getYear() &&
+            (new Date(e.createDay).getYear() >
+                new Date(this.startDay2).getYear() ||
+                ((new Date(e.createDay).getYear() ===
+                new Date(this.startDay2).getYear()) &&
+                (new Date(e.createDay).getMonth() >=
+                    new Date(this.startDay2).getMonth())))
+            );
+        });
+        var productAmount = []
+        var CustomerAmount = []
+        receiptsDay.forEach(element => {
+            var receiptDetailDay = this.receiptDetails.filter((f) => {
+                return f.receipt_id === element._id;
+            });
+            productAmount.push(receiptDetailDay.reduce((total,value)=>{
+                return total + parseInt(value.amount)
+            },0))
+            CustomerAmount.push(1)
+        });
+        for(var i=0; i< receiptsDay.length-1;i++)
+        {
+            if (
+          (new Date(receiptsDay[i].createDay).getMonth() ===
+            new Date(receiptsDay[i + 1].createDay).getMonth()) &&
+          (new Date(receiptsDay[i].createDay).getYear() ===
+            new Date(receiptsDay[i + 1].createDay).getYear())
+            ){
+                productAmount[i]+=productAmount[i+1]
+                CustomerAmount[i]+=1
+                CustomerAmount.splice(i+1,1)
+                productAmount.splice(i+1,1)
+                receiptsDay.splice(i + 1, 1);
+                if(receiptsDay.length===1) break;
+                i--;
+            }
+        }
+      var j = 0;
+      var i = 0;
+      var monthcheck = new Date(this.startDay2);
+      var lengths = this.labels2.length;
+      for (; i < lengths; i++) {
+        var monthRec = new Date(receiptsDay[j].createDay);
+        if (monthcheck.getYear() < monthRec.getYear()) {
+          this.sCustomers.push(0)
+          this.sOrder.push(0)
+        } else if (monthcheck.getYear() === monthRec.getYear()) {
+          if (monthcheck.getMonth() === monthRec.getMonth()) {
+            this.sCustomers.push(CustomerAmount[j])
+          this.sOrder.push(productAmount[j]);
+            j++;
+            if (j >= receiptsDay.length){ i++;break;}
+          } else
+          {
+            this.sCustomers.push(0)
+         this.sOrder.push(0)
+          }
+        } else {
+          break;
+        }
+        monthcheck.setMonth(monthcheck.getMonth()+1);
+      }
+      for(;i<lengths;i++)
+      {
+         this.sCustomers.push(0)
+         this.sOrder.push(0)
+      }
+    },
+    createDataWithDay2()
+    {
+        this.sCustomers=[]
+        this.sOrder =[]
+        var receiptsDay = this.receipts.filter((e) => {
+            return (
+            new Date(e.createDay).getTime() <= new Date(this.endDay2).getTime() &&
+            new Date(e.createDay).getTime() >= new Date(this.startDay2).getTime()
+            );
+        });
+        var productAmount = []
+        var CustomerAmount =[]
+        receiptsDay.forEach(element => {
+            var receiptDetailDay = this.receiptDetails.filter((f) => {
+                return f.receipt_id === element._id;
+            });
+            productAmount.push(receiptDetailDay.reduce((total,value)=>{
+                return total + parseInt(value.amount)
+            },0))
+            CustomerAmount.push(1)
+        });
+        for(var i=0; i< receiptsDay.length-1;i++)
+        {
+            if (receiptsDay[i].createDay === receiptsDay[i + 1].createDay) {
+                productAmount[i]+=productAmount[i+1]
+                CustomerAmount[i]+=1
+                CustomerAmount.splice(i+1,1)
+                productAmount.splice(i+1,1)
+                receiptsDay.splice(i + 1, 1);
+                if(receiptsDay.length===1) break;
+                i--;
+            }
+        }
+        var lengths = this.daysdifference(this.startDay2, this.endDay2);
+        var j = 0;
+        var i= 0;
+        var datecheck = new Date(this.startDay2);
+      for (; i <= lengths; i++) {
+        var dateRec = new Date(receiptsDay[j].createDay);
+        if (datecheck.getTime() < dateRec.getTime()) {
+          this.sOrder.push(0)
+          this.sCustomers.push(0)
+        } else if (datecheck.getTime() === dateRec.getTime()) {
+          this.sCustomers.push(CustomerAmount[j])
+          this.sOrder.push(productAmount[j])
+          j++;
+          if (j >= receiptsDay.length) { i++;break;}
+        } else {
+          break;
+        }
+        datecheck.setDate(datecheck.getDate() + 1);
+      }
+      for(;i<=lengths;i++)
+      {
+          this.sOrder.push(0)
+          this.sCustomers.push(0)
+      }
+    },
+>>>>>>> Stashed changes
     creatDataWithYear() {
       this.revenue = [];
       this.profit = [];
@@ -369,6 +639,7 @@ export default {
          this.revenue.push(0);
          this.profit.push(0);
       }
+      console.log(this.revenue)
     },
     createLabelWithMonth() {
       this.labels = [];
@@ -397,6 +668,7 @@ export default {
           })
         );
       }
+      return labels
     },
     createDataWithDay() {
       this.revenue = [];

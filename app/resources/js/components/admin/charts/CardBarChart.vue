@@ -1,144 +1,151 @@
 <template>
   <div
-    class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded"
+    class="
+      relative
+      flex flex-col
+      min-w-0
+      break-words
+      bg-white
+      w-full
+      mb-6
+      shadow-lg
+      rounded
+    "
+    :labels="labels2"
+    :customers="sCustomers"
+    :orders="sOrder"
   >
     <div class="rounded-t mb-0 px-4 py-3 bg-transparent">
       <div class="flex flex-wrap items-center">
         <div class="relative w-full max-w-full flex-grow flex-1">
           <h6 class="uppercase text-blueGray-400 mb-1 text-xs font-semibold">
-            Performance
+            Chi tiết
           </h6>
-           <div class="d-flex flex-no-wrap justify-space-between mr-5">
-          <h2 class="text-blueGray-700 text-xl font-semibold">
-            Total orders
-          </h2>
-          <slot></slot>
+          <div class="d-flex flex-no-wrap justify-space-between mr-5">
+            <h2 class="text-blueGray-700 text-xl font-semibold">
+              Số Lượng
+            </h2>
+            <slot></slot>
           </div>
         </div>
       </div>
     </div>
     <div class="p-4 flex-auto">
-      <div class="relative h-350-px" style ="height: 500px;">
-        <canvas  id="bar-chart"></canvas>
+      <div class="relative h-350-px" style="height: 400px">
+        <bar-chart :data="data1" :options="options"></bar-chart>
       </div>
     </div>
   </div>
 </template>
 <script>
 import Chart from "chart.js";
+import BarChart from "../BarChart.js";
 export default {
-    props:{
-        customers:{
-            type: Array,
-            default: [],
-        },
-        orders: {
-            type: Array,
-            default: []
-        }
+  props: {
+    customers: {
+      type: Array,
+      default: [],
     },
-  mounted: function () {
-    this.$nextTick(function () {
-      let config = {
-        type: "bar",
-        data: {
-          labels: [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec"
-          ],
-          datasets: [
-            {
-              label: "Khách hàng",
-              backgroundColor: "#F37E21",
-              borderColor: "#F37E21",
-              data: [30, 78, 56, 34, 100, 45, 13],
-              fill: false,
-              barThickness: 8,
-            },
-            {
-              label: "Đơn đặt hàng",
-              fill: false,
-              backgroundColor: "#4c51bf",
-              borderColor: "#4c51bf",
-              data: [27, 68, 86, 74, 10, 4, 87],
-              barThickness: 8,
-            },
-          ],
+    orders: {
+      type: Array,
+      default: [],
+    },
+    labels: {
+      type: Array,
+      default: [],
+    },
+  },
+  data() {
+    return {
+      data1: [],
+      options: [],
+    };
+  },
+  components: {
+    BarChart,
+  },
+  beforeUpdate() {
+    (this.data1 = {
+      labels: this.labels,
+      datasets: [
+        {
+          label: "Khách hàng",
+          backgroundColor: "#F37E21",
+          borderColor: "#F37E21",
+          data: this.customers,
+          fill: false,
+          barThickness: 10,
         },
-        options: {
-          maintainAspectRatio: false,
-          responsive: true,
-          title: {
-            display: false,
-            text: "Orders Chart",
+        {
+          label: "Sản phẩm",
+          fill: false,
+          backgroundColor: "#4c51bf",
+          borderColor: "#4c51bf",
+          data: this.orders,
+          barThickness: 10,
+        },
+      ],
+    }),
+      (this.options = {
+        maintainAspectRatio: false,
+        responsive: true,
+        title: {
+          display: false,
+          text: "Số lượng",
+        },
+        tooltips: {
+          mode: "index",
+          intersect: false,
+        },
+        hover: {
+          mode: "nearest",
+          intersect: true,
+        },
+        legend: {
+          labels: {
+            fontColor: "rgba(0,0,0,.4)",
           },
-          tooltips: {
-            mode: "index",
-            intersect: false,
-          },
-          hover: {
-            mode: "nearest",
-            intersect: true,
-          },
-          legend: {
-            labels: {
-              fontColor: "rgba(0,0,0,.4)",
-            },
-            align: "end",
-            position: "bottom",
-          },
-          scales: {
-            xAxes: [
-              {
-                display: false,
-                scaleLabel: {
-                  display: true,
-                  labelString: "Month",
-                },
-                gridLines: {
-                  borderDash: [2],
-                  borderDashOffset: [2],
-                  color: "rgba(33, 37, 41, 0.3)",
-                  zeroLineColor: "rgba(33, 37, 41, 0.3)",
-                  zeroLineBorderDash: [2],
-                  zeroLineBorderDashOffset: [2],
-                },
-              },
-            ],
-            yAxes: [
-              {
+          align: "end",
+          position: "bottom",
+        },
+        scales: {
+          xAxes: [
+            {
+              display: true,
+              scaleLabel: {
                 display: true,
-                scaleLabel: {
-                  display: false,
-                  labelString: "Value",
-                },
-                gridLines: {
-                  borderDash: [2],
-                  drawBorder: false,
-                  borderDashOffset: [2],
-                  color: "rgba(33, 37, 41, 0.2)",
-                  zeroLineColor: "rgba(33, 37, 41, 0.15)",
-                  zeroLineBorderDash: [2],
-                  zeroLineBorderDashOffset: [2],
-                },
+                labelString: "Month",
               },
-            ],
-          },
+              gridLines: {
+                borderDash: [2],
+                borderDashOffset: [2],
+                color: "rgba(33, 37, 41, 0.3)",
+                zeroLineColor: "rgba(33, 37, 41, 0.3)",
+                zeroLineBorderDash: [2],
+                zeroLineBorderDashOffset: [2],
+              },
+            },
+          ],
+          yAxes: [
+            {
+              display: true,
+              scaleLabel: {
+                display: false,
+                labelString: "Value",
+              },
+              gridLines: {
+                borderDash: [2],
+                drawBorder: false,
+                borderDashOffset: [2],
+                color: "rgba(33, 37, 41, 0.2)",
+                zeroLineColor: "rgba(33, 37, 41, 0.15)",
+                zeroLineBorderDash: [2],
+                zeroLineBorderDashOffset: [2],
+              },
+            },
+          ],
         },
-      };
-      let ctx = document.getElementById("bar-chart").getContext("2d");
-      window.myBar = new Chart(ctx, config);
-    });
+      });
   },
 };
 </script>
