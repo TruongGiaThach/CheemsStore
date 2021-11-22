@@ -113,7 +113,7 @@
                   checked
                 />
                 <label
-                  class="btn btn-outline-primary white--text"
+                  class="btn btn-outline-primary --text"
                   for="btnradio4"
                   @click="createStatisticWithDay2(1)"
                   >Ngày</label
@@ -127,7 +127,7 @@
                   autocomplete="off"
                 />
                 <label
-                  class="btn btn-outline-primary white--text"
+                  class="btn btn-outline-primary --text"
                   for="btnradio5"
                   @click="createStatisticWithMonth2(2)"
                   >Tháng</label
@@ -141,7 +141,7 @@
                   autocomplete="off"
                 />
                 <label
-                  class="btn btn-outline-primary white--text"
+                  class="btn btn-outline-primary --text"
                   for="btnradio6"
                   @click="createStatisticWithYear2(3)"
                   >Năm</label

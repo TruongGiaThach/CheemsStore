@@ -1,5 +1,5 @@
 <template>
-  <div
+  <v-app
     class="
       relative
       flex flex-col
@@ -13,7 +13,6 @@
     :revenue="revenue"
     :labels="labels"
     :profit="profit"
-    style="background: white"
   >
     <div class="rounded-t mb-0 px-4 py-3 bg-transparent">
       <div class="flex flex-wrap items-center">
@@ -33,7 +32,7 @@
         <line-chart :data="data1" :options="options"></line-chart>
       </div>
     </div>
-  </div>
+  </v-app>
 </template>
 <script>
 import Chart from "chart.js";

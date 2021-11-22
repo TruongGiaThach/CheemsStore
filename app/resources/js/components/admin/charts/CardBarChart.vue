@@ -1,11 +1,10 @@
 <template>
-  <div
+  <v-app
     class="
       relative
       flex flex-col
       min-w-0
       break-words
-      bg-white
       w-full
       mb-6
       shadow-lg
@@ -35,7 +34,7 @@
         <bar-chart :data="data1" :options="options"></bar-chart>
       </div>
     </div>
-  </div>
+  </v-app>
 </template>
 <script>
 import Chart from "chart.js";
