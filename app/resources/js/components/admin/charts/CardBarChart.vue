@@ -102,7 +102,7 @@ export default {
         },
         legend: {
           labels: {
-            fontColor: "rgba(0,0,0,.4)",
+            fontColor: "rgb(100, 100, 100)",
           },
           align: "end",
           position: "bottom",
@@ -118,8 +118,8 @@ export default {
               gridLines: {
                 borderDash: [2],
                 borderDashOffset: [2],
-                color: "rgba(33, 37, 41, 0.3)",
-                zeroLineColor: "rgba(33, 37, 41, 0.3)",
+                color: "rgba(100, 100, 100, 0.5)",
+                zeroLineColor: "rgb(100, 100, 100)",
                 zeroLineBorderDash: [2],
                 zeroLineBorderDashOffset: [2],
               },
@@ -136,8 +136,8 @@ export default {
                 borderDash: [2],
                 drawBorder: false,
                 borderDashOffset: [2],
-                color: "rgba(33, 37, 41, 0.2)",
-                zeroLineColor: "rgba(33, 37, 41, 0.15)",
+                color: "rgba(100, 100, 100, 0.5)",
+                zeroLineColor: "rgb(100, 100, 100)",
                 zeroLineBorderDash: [2],
                 zeroLineBorderDashOffset: [2],
               },

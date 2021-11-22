@@ -48,7 +48,7 @@
                 <input
                   type="radio"
                   class="btn-check"
-                  name="btnradio"
+                  name="btnradio1"
                   id="btnradio1"
                   autocomplete="off"
                   checked
@@ -63,7 +63,7 @@
                 <input
                   type="radio"
                   class="btn-check"
-                  name="btnradio"
+                  name="btnradio1"
                   id="btnradio2"
                   autocomplete="off"
                 />
@@ -77,7 +77,7 @@
                 <input
                   type="radio"
                   class="btn-check"
-                  name="btnradio"
+                  name="btnradio1"
                   id="btnradio3"
                   autocomplete="off"
                 />
@@ -107,7 +107,7 @@
                 <input
                   type="radio"
                   class="btn-check"
-                  name="btnradio"
+                  name="btnradio2"
                   id="btnradio4"
                   autocomplete="off"
                   checked
@@ -122,7 +122,7 @@
                 <input
                   type="radio"
                   class="btn-check"
-                  name="btnradio"
+                  name="btnradio2"
                   id="btnradio5"
                   autocomplete="off"
                 />
@@ -136,7 +136,7 @@
                 <input
                   type="radio"
                   class="btn-check"
-                  name="btnradio"
+                  name="btnradio2"
                   id="btnradio6"
                   autocomplete="off"
                 />
