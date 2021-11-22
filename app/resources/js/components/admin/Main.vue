@@ -9,31 +9,32 @@
       <v-row align-content-end full-width>
         <v-col cols="12" md="3">
           <v-card color="#321fdb" height="180">
-            <customer-chart></customer-chart>
+            <customer-chart :customers="customer_c" :time="time" :total="customer_total"></customer-chart>
           </v-card>
         </v-col>
         <v-col cols="12" md="3">
           <v-card color="#39f" height="180">
-
+            <receipt-amount-chart :receipts="receipt_c" :time="time" :total="receipt_total"></receipt-amount-chart>
           </v-card>
         </v-col>
         <v-col cols="12" md="3">
           <v-card color="#f9b115" height="180">
-            <product-amount-chart></product-amount-chart>
+            <product-amount-chart :products="product_c" :time="time" :total="product_total"></product-amount-chart>
           </v-card>
         </v-col>
         <v-col cols="12" md="3">
           <v-card color="#e55353" height="180">
-            <input type="date" id="startDay" v-model="startDay1" />
-            <input type="date" id="endDay" v-model="endDay1" />
-            <input type="date" id="startDay" v-model="startDay2" />
-            <input type="date" id="endDay" v-model="endDay2" />
+            <buy-ratio-chart :ratio="ratio_c" :time="time" :total="ratio_total"></buy-ratio-chart>
           </v-card>
         </v-col>
       </v-row>
       <v-row align-content-end full-width>
         <v-col>
           <v-card>
+            <input type="date" id="startDay" v-model="startDay1" />
+            <input type="date" id="endDay" v-model="endDay1" />
+            <input type="date" id="startDay" v-model="startDay2" />
+            <input type="date" id="endDay" v-model="endDay2" />
             <card-line-chart
               v-model="startDay1"
               :labels="labels"
@@ -156,7 +157,9 @@
 
 <script>
 import CustomerChart from "./charts/CustomerChart";
+import ReceiptAmountChart from "./charts/ReceiptAmountChart";
 import ProductAmountChart from "./charts/ProductAmountChart";
+import BuyRatioChart from "./charts/BuyRatioChart";
 import CardBarChart from "./charts/CardBarChart";
 import CardLineChart from "./charts/CardLineChart";
 export default {
@@ -168,12 +171,20 @@ export default {
       revenue: [],
       labels: [],
       receiptsDay: [],
+      customer_c: [],
+      customer_total: '',
+      receipt_c: [],
+      receipt_total: '',
+      product_c: [],
+      product_total: '',
+      ratio_c: [],
+      ratio_total: '',
       // dư lieu duoc lay len
       customers: [],
       receipts: [],
       products: [],
       receiptDetails: [],
-
+      
       values: [],
       dayinWeek: ["Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"],
       monthinYear: [
@@ -190,6 +201,7 @@ export default {
         "Tháng 11",
         "Tháng 12",
       ],
+      time: [],
       //du lieu thogn ke bang 2
       sOrder: [],
       sCustomers: [],
@@ -204,13 +216,60 @@ export default {
     CardLineChart,
     CardBarChart,
     CustomerChart,
+    ReceiptAmountChart,
     ProductAmountChart,
+    BuyRatioChart,
   },
   beforeMount() {
+    var ratio = [];
+    var ratioTotal = 0;
+
     axios
       .get("/api/customer/")
       .then((response) => {
-        this.customers = response.data;
+        if(response.data.length > 0){
+          this.customers = response.data;
+                this.customer_total = response.data.length;
+                var count = 0;
+                var month = 0;
+                var day = new Date(response.data[0].created_at).getMonth();
+                  for(var i = 0; i < response.data.length; i++){
+                    if(new Date(response.data[i].created_at).getMonth() != day){
+                      day = new Date(response.data[i].created_at).getMonth();
+                      this.customer_c.push(count);
+                      count = 1;
+                      month++;
+                      if(month > 6) return;
+                    }else{count++;}
+                  }
+                this.customer_c.push(count);
+              }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+      axios
+      .get("/api/receipt_detail")
+      .then((response) => {
+        if(response.data.length > 0){
+          this.receiptDetails = response.data;
+                this.product_total = response.data.length;
+                var count = 0;
+                var month = 0;
+                var day = new Date(response.data[0].created_at).getMonth();
+                  for(var i = 0; i < response.data.length; i++){
+                    if(new Date(response.data[i].created_at).getMonth() != day){
+                      day = new Date(response.data[i].created_at).getMonth();
+                      ratio[month] = count;
+                      this.product_c.push(count);
+                      count = 1;
+                      month++;
+                      if(month > 6) return;
+                    }else{count += response.data[i].amount;}
+                  }
+                this.product_c.push(count);
+                ratio[month] = count;
+              }
       })
       .catch((error) => {
         console.error(error);
@@ -218,10 +277,36 @@ export default {
     axios
       .get("/api/receipt/")
       .then((response) => {
-        this.receipts = response.data;
-        for (var i = 0; i < response.data.length; i++) {
-          this.values.push(response.data[i].total);
-        }
+        if(response.data.length > 0){
+          this.receipts = response.data;
+          for (var i = 0; i < response.data.length; i++) {
+            this.values.push(response.data[i].total);
+          }
+                this.receipt_total = response.data.length;
+                var count = 0;
+                var month = 0;
+                var day = new Date(response.data[0].created_at).getMonth();
+                  for(var i = 0; i < response.data.length; i++){
+                    if(new Date(response.data[i].created_at).getMonth() != day){
+                      day = new Date(response.data[i].created_at).getMonth();
+                      //add Ratio (tù vl, nhưng mà đel làm khác đc ae à, ngồi cả ngày chỉ còn cách nhét vô đây thôi)
+                      ratio[month] = (ratio[month] / count);
+                      ratioTotal += ratio[month];
+                      this.ratio_c.push(ratio[month]);
+                      this.receipt_c.push(count);
+                      count = 1;
+                      month++;
+                      if(month > 6) return;
+                    }else{count++;}
+                  }
+                this.receipt_c.push(count);
+                ratio[month] = (ratio[month] / count);
+                ratioTotal += ratio[month];
+                ratioTotal = ratioTotal / 7;
+                this.ratio_c.push(ratio[month]);
+                this.ratio_total = ratioTotal.toFixed(2);
+                
+              }
       })
       .catch((error) => {
         console.error(error);
@@ -234,14 +319,12 @@ export default {
       .catch((error) => {
         console.error(error);
       });
-    axios
-      .get("/api/receipt_detail")
-      .then((response) => {
-        this.receiptDetails = response.data;
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+
+    for(var i = 5; i > -2; i--){
+      this.time.push("Tháng " + (new Date().getMonth() - i).toString());
+    }
+
+
   },
   created() {
     setInterval(() => {

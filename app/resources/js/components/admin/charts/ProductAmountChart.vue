@@ -24,40 +24,25 @@
 import Chart from "chart.js";
 
 export default {
-    data(){
-        return{
-          time: [],
-          productAmount: [],
-          total: [],
-        }
+    props: {
+      products: {
+        type: Array,
+        default: [],
+      },
+      time: {
+        type: Array,
+        default: [],
+      },
+      total: Number,
     },
     beforeMount() {
       axios.get('/api/receipt_detail/')
             .then(response => {
-              if(response.data.length > 0){
-                this.total = response.data.length;
-                var count = 0;
-                var month = 0;
-                var day = new Date(response.data[0].created_at).getMonth();
-                  for(var i = 0; i < response.data.length; i++){
-                    if(new Date(response.data[i].created_at).getMonth() != day){
-                      day = new Date(response.data[i].created_at).getMonth();
-                      this.productAmount.push(count);
-                      count = 1;
-                      month++;
-                      if(month > 6) return;
-                    }else{count += response.data[i].amount;}
-                  }
-                this.productAmount.push(count);
-              }
+              
             })
             .catch(error => {
                 console.error(error);
             })
-
-        for(var i = 5; i > -2; i--){
-          this.time.push("Tháng " + (new Date().getMonth() - i).toString());
-        }
     },
     mounted() {
       this.$nextTick(function () {
@@ -71,7 +56,7 @@ export default {
                 backgroundColor: "#f7c251",
                 borderColor: "yellow",
                 borderWidth: 1,
-                data: this.productAmount,
+                data: this.products,
               },
             ],
           },

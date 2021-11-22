@@ -8,14 +8,14 @@
                     {{total}}
                 </h4>
                 <h6 class = "title-name">
-                    Khách hàng
+                    Tỉ lệ sản phẩm / đơn hàng
                 </h6>
                 </div>
             </div>
         </div>
       <!-- Chart -->
       <div>
-        <canvas class="pl-5 pr-2  s" id="customer-chart" height="84em"></canvas>
+        <canvas class="pl-5 pr-2 s" id="ratio-chart" height="84em"></canvas>
       </div>
     </div>
   </div>
@@ -25,7 +25,7 @@ import Chart from "chart.js";
 
 export default {
     props: {
-      customers: {
+      ratio: {
         type: Array,
         default: [],
       },
@@ -38,25 +38,25 @@ export default {
     mounted() {
       this.$nextTick(function () {
         var config = {
-          type: "line",
+          type: "bar",
           data: {
             labels: this.time,
             datasets: [
               {
-                label: "Khách hàng",
-                backgroundColor: "#321fdb",
+                label: "Tỉ lệ",
+                backgroundColor: "#e08282",
                 borderColor: "rgba(255, 255, 255, 0.6)",
                 borderWidth: 1,
-                data: this.customers,
+                data: this.ratio,
                 pointStyle: 'circle',
                 pointRadius: 4,
               },
             ],
           },
           options: {
-              layout: {
-              padding: 4
-          },
+                layout: {
+                padding: 4
+            },
             maintainAspectRatio: false,
             responsive: true,
             title: {
@@ -83,7 +83,7 @@ export default {
             },
           },
         };
-        var ctx = document.getElementById("customer-chart").getContext("2d");
+        var ctx = document.getElementById("ratio-chart").getContext("2d");
         var charts = new Chart(ctx, config);
         setTimeout(function() { charts.update(); },300);
       });

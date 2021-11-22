@@ -8,14 +8,14 @@
                     {{total}}
                 </h4>
                 <h6 class = "title-name">
-                    Khách hàng
+                    Đơn hàng
                 </h6>
                 </div>
             </div>
         </div>
       <!-- Chart -->
       <div>
-        <canvas class="pl-5 pr-2  s" id="customer-chart" height="84em"></canvas>
+        <canvas class="pl-5 pr-2 s" id="receipt-chart" height="84em"></canvas>
       </div>
     </div>
   </div>
@@ -25,7 +25,7 @@ import Chart from "chart.js";
 
 export default {
     props: {
-      customers: {
+      receipts: {
         type: Array,
         default: [],
       },
@@ -43,20 +43,25 @@ export default {
             labels: this.time,
             datasets: [
               {
-                label: "Khách hàng",
-                backgroundColor: "#321fdb",
+                label: "Đơn hàng",
+                backgroundColor: "#39f",
                 borderColor: "rgba(255, 255, 255, 0.6)",
                 borderWidth: 1,
-                data: this.customers,
+                data: this.receipts,
                 pointStyle: 'circle',
                 pointRadius: 4,
               },
             ],
           },
           options: {
-              layout: {
-              padding: 4
-          },
+                layout: {
+                padding: 4
+            },
+                elements: {
+                line: {
+                    tension: 0
+                }
+            },
             maintainAspectRatio: false,
             responsive: true,
             title: {
@@ -83,9 +88,9 @@ export default {
             },
           },
         };
-        var ctx = document.getElementById("customer-chart").getContext("2d");
+        var ctx = document.getElementById("receipt-chart").getContext("2d");
         var charts = new Chart(ctx, config);
-        setTimeout(function() { charts.update(); },300);
+        setTimeout(function() { charts.update(); },450);
       });
     },
 };
