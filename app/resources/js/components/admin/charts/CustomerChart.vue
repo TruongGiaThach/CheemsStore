@@ -3,13 +3,16 @@
     <div class="p-4 flex-auto">
         <div class="rounded-t mb-0 px-2  bg-transparent">
             <div class="flex flex-wrap items-center">
-                <div class="relative w-full max-w-full flex-grow flex-1">
+                <div class="relative  flex-grow flex-1">
                 <h4 class = "title-number">
                     {{total}}
                 </h4>
                 <h6 class = "title-name">
                     Khách hàng
                 </h6>
+                </div>
+                <div class="icon">
+                  <v-icon x-large dark>mdi-account-arrow-up</v-icon>
                 </div>
             </div>
         </div>
@@ -97,5 +100,11 @@ export default {
 }
 .title-name {
     color: white;
+}
+.icon{
+  position: absolute;
+  display: inline;
+  right: 3.5em;
+  top: 1.7em;
 }
 </style>

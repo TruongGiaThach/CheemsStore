@@ -11,6 +11,9 @@
                     Đơn hàng
                 </h6>
                 </div>
+                <div class="icon">
+                  <v-icon x-large dark>mdi-receipt</v-icon>
+                </div>
             </div>
         </div>
       <!-- Chart -->
@@ -102,5 +105,11 @@ export default {
 }
 .title-name {
     color: white;
+}
+.icon{
+  position: absolute;
+  display: inline;
+  right: 3.5em;
+  top: 1.7em;
 }
 </style>

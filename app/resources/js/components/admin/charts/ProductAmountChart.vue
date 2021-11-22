@@ -11,6 +11,9 @@
                     Sản phẩm bán ra
                 </h6>
                 </div>
+                <div class="icon">
+                  <v-icon x-large dark>mdi-package-variant</v-icon>
+                </div>
             </div>
         </div>
       <!-- Chart -->
@@ -113,5 +116,11 @@ export default {
 .graph {
   padding-right: 0.1em;
   padding-left: 0.1em;
+}
+.icon{
+  position: absolute;
+  display: inline;
+  right: 3.5em;
+  top: 1.7em;
 }
 </style>
