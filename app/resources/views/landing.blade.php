@@ -20,6 +20,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
     <!-- Script font awesome tạm thời -->
     <script src="https://kit.fontawesome.com/21dc83aae1.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+
+    <script src="https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js"></script>
 
         <script src="{{ mix('js/bootstrap.js') }}"></script>
         <script src="{{ mix('js/app.js') }}"></script>
