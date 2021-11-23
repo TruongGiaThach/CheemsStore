@@ -95,16 +95,11 @@ export default {
         }
     },
     methods: {
-        editCategory() {
-            let formData = new FormData();
-            formData.append('name', this.editedCategory.name);
-            formData.append('description', this.editedCategory.description);
-
+        editCategory() { 
             axios
-                .put(`/api/category/${this.editedCategory._id}`, formData, {
-                    header:{
-                        'Content-Type':"multipart/form-data"
-                    }
+                .put(`/api/category/${this.editedCategory._id}`, {
+                    name: this.editedCategory.name,
+                    description: this.editedCategory.description,
                 })
                 .then(
                   res => {

@@ -9,6 +9,14 @@ use File;
 
 class CategoryController extends Controller
 {
+    function debug_to_console($data) {
+        $output = $data;
+        if (is_array($output))
+            $output = implode(',', $output);
+    
+        echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -85,6 +93,8 @@ class CategoryController extends Controller
         );
 
         return response()->json([
+            'contentBefore' => $category,
+            'contentAfter' => $request->only(['name', 'description']),
             'status' => $status,
             'message' => $status ? 'Category Updated!' : 'Error Updating Category'
         ]);
@@ -96,8 +106,15 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
-    {
-        //
+    public function destroy($category_id)
+    {   
+        $category = Category::findOrFail($category_id);
+
+        $status = $category->forceDelete();
+
+        return response()->json([
+            'status' => $status,
+            'message' => $status ? 'category deleted' : 'Error delete category'
+        ]);
     }
 }
