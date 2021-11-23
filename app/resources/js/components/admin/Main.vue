@@ -33,8 +33,6 @@
           <v-card>
             <input type="date" id="startDay" v-model="startDay1" />
             <input type="date" id="endDay" v-model="endDay1" />
-            <input type="date" id="startDay" v-model="startDay2" />
-            <input type="date" id="endDay" v-model="endDay2" />
             <card-line-chart
               v-model="startDay1"
               :labels="labels"
@@ -95,6 +93,8 @@
       <v-row align-content-end full-width>
         <v-col>
           <v-card>
+            <input type="date" id="startDay" v-model="startDay2" />
+            <input type="date" id="endDay" v-model="endDay2" />
             <card-bar-chart
             :labels ="labels2"
             :customers="sCustomers"
@@ -184,7 +184,7 @@ export default {
       receipts: [],
       products: [],
       receiptDetails: [],
-      
+
       values: [],
       dayinWeek: ["Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"],
       monthinYear: [
@@ -305,7 +305,7 @@ export default {
                 ratioTotal = ratioTotal / 7;
                 this.ratio_c.push(ratio[month]);
                 this.ratio_total = ratioTotal.toFixed(2);
-                
+
               }
       })
       .catch((error) => {
