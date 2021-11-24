@@ -40,6 +40,7 @@ Route::resource('/products', 'ProductController')->except(['index']);
 
 //category
 Route::resource('category', 'CategoryController')->except(['index']);
+Route::get('/category', 'CategoryController@index');
 Route::post('/category', 'CategoryController@store');
 Route::put('/category/{category_id}', 'CategoryController@update');
 Route::delete('/category/{category_id}', 'CategoryController@destroy');
