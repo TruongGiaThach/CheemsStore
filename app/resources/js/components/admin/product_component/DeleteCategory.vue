@@ -13,7 +13,7 @@
           v-on="on"
         >
             <v-icon>
-                mdi-delete
+                mdi-transfer
             </v-icon>
         </v-btn>
       </template>
@@ -21,7 +21,7 @@
         <v-toolbar
           dark
         >
-          <v-toolbar-title>Xóa danh mục</v-toolbar-title>
+          <v-toolbar-title>Tùy chỉnh danh mục</v-toolbar-title>
 
           <v-spacer></v-spacer>
         </v-toolbar>
@@ -31,7 +31,8 @@
                 <v-col cols="12" md="8">
                     <v-text-field
                         v-model="categoryName"
-                        label="Danh mục bị xóa"
+                        label="Danh mục được chọn"
+                        hide-details="auto"
                         readonly
                     ></v-text-field>
                     <v-subheader :class="this.checkResultColor" v-if="categoryChecked">
@@ -49,28 +50,43 @@
             </v-row>
 
             <v-subheader v-if="categoryChecked && productOfCategory.length != 0">
+             
               <v-row justify="start">
-                <v-col cols="12" md="1">
+                <v-col cols="12" md="2">
                   <v-checkbox
                     small
                     v-model="tickAllProduct"
                     class="AllCheckBox"
                   >
+                    <template v-slot:label>
+                      <v-row
+                      align-center
+                      justify-end
+                      >
+                        <v-col>
+                          <h6>
+                            All
+                          </h6>
+                        </v-col>
+                      </v-row>
+                    </template>
                   </v-checkbox>
                 </v-col>
                 <template v-if="tickAllProduct">
                   <v-col cols="12" md="3">
                     <v-select
                       v-model="tickAllProduct_ActionSelect"
-                      :items="['DELETE', 'CHANGE']"
-                      label="chọn hành động"
+                      :items="[{name: 'Danh mục', value: 'CHANGE'}, {name: 'Thùng rác', value: 'DELETE'}]"
+                      item-text="name"
+                      item-value="value"
+                      label="nơi chuyển"
                       single-line
                       required
                     ></v-select>
                   </v-col>
                 </template>
                 <template v-if="tickAllProduct_ActionSelect == 'CHANGE' && tickAllProduct">
-                  <v-col cols="12" md="8">
+                  <v-col cols="12" md="7">
                     <v-select
                       v-model="tickAllProduct_CateSelect"
                       :items="categoryChosenList"
@@ -99,6 +115,7 @@
                       :SelectAllToggle="tickAllProduct" 
                       :SelectAllACtion="tickAllProduct_ActionSelect"
                       :SelectAllCate="tickAllProduct_CateSelect"
+                      ref="ProductListItem"
                     />
                   </v-list-item>
                   <v-divider
@@ -126,7 +143,7 @@
             :disabled="invalid" 
             @click="save"
           >
-            Xác nhận
+            {{ this.productOfCategory.length == 0?'Xóa':'Chuyển'}}
           </v-btn>
         </v-card-actions>
       </v-card>
