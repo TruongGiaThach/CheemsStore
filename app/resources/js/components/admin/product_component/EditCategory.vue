@@ -17,8 +17,8 @@
       </template>
       <ValidationObserver ref="observer" v-slot="{invalid}">
       <v-card>
-        <v-card-title>
-          <span class="text-h5">Danh mục</span>
+         <v-card-title class="bg-info mx-auto" max-width="inherit">
+          <span class="text-h5 mx-auto white--text"> Sửa danh mục</span>
         </v-card-title>
         <v-card-text>
           <v-container>
