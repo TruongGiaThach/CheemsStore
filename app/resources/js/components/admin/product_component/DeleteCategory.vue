@@ -18,13 +18,9 @@
         </v-btn>
       </template>
       <v-card class="mx-auto grey lighten-3">
-        <v-toolbar
-          dark
-        >
-          <v-toolbar-title>Xóa danh mục</v-toolbar-title>
-
-          <v-spacer></v-spacer>
-        </v-toolbar>
+         <v-card-title class="bg-info mx-auto" max-width="inherit">
+          <span class="text-h5 mx-auto white--text"> Xóa danh mục </span>
+        </v-card-title>
         <v-card-text>
           <v-container fluid>
             <v-row>
