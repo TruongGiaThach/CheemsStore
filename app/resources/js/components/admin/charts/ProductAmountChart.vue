@@ -111,11 +111,13 @@ export default {
     color: white;
 }
 .chart {
-  padding-bottom: 1.5em;
+  padding-bottom: 0.9em;
 }
 .graph {
   padding-right: 0.1em;
   padding-left: 0.1em;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 .icon{
   position: absolute;
