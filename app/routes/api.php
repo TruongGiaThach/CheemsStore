@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 Route::post('login', 'UserController@login');
 Route::post('register', 'UserController@register');
 Route::get('/products', 'ProductController@index');
+Route::get('/products/find', 'ProductController@show');
 Route::post('/products', 'ProductController@store');
 Route::post('/upload-file', 'ProductController@uploadFile');
 Route::get('/products/{product}', 'ProductController@show');
@@ -35,8 +36,13 @@ Route::patch('users/{user}','UserController@update');
 Route::delete('users/{email}','UserController@destroy');
 Route::get('users/{user}/orders','UserController@showOrders');
 Route::patch('products/{product}/units/add','ProductController@updateUnits');
-Route::resource('/products', 'ProductController')->except(['index','show']);
-Route::resource('category', 'CategoryController');
+Route::resource('/products', 'ProductController')->except(['index']);
+
+//category
+Route::resource('category', 'CategoryController')->except(['index']);
+Route::post('/category', 'CategoryController@store');
+Route::put('/category/{category_id}', 'CategoryController@update');
+Route::delete('/category/{category_id}', 'CategoryController@destroy');
 /*
 |--------------------------------------------------------------------------
 | API Routes

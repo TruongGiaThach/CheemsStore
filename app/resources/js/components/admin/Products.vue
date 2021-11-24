@@ -13,13 +13,22 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
+      <add-category @resetCategory="this.initialize_category" />
 
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
+      <edit-category 
+      :editedCategory="this.category.filter((e) => {
+          return (e._id == this.selected);
+        })[0]"
+      @resetCategory="this.initialize_category" 
+      />
+
+      <delete-category
+      :category="this.category.filter((e) => {
+          return (e._id == this.selected);
+        })[0]"
+      :categoryList="this.category"
+      @resetAll="initialize"
+      />
     </v-toolbar>
     <v-list>
       <v-list-item-group
@@ -322,6 +331,10 @@
 
 <script>
 
+import addCategory from "./product_component/AddCategory.vue"
+import editCategory from "./product_component/EditCategory.vue"
+import deleteCategory from "./product_component/DeleteCategory.vue"
+
 import { required, digits, max, regex } from 'vee-validate/dist/rules'
 import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from 'vee-validate'
 
@@ -412,7 +425,11 @@ export default {
 
   components: {
     ValidationProvider,
-    ValidationObserver
+    ValidationObserver,
+
+    addCategory,
+    editCategory,
+    deleteCategory
   },
 
   computed: {
@@ -622,6 +639,7 @@ export default {
         this.editedIndex = -1;
         URL.revokeObjectURL(this.formImage)
         this.formImage = null;
+        this.previewImage = null;
       });
     },
 

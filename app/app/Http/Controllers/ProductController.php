@@ -71,13 +71,13 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Request $request)
     {
-        //
-        return response()->json($product,200); 
+        return response()->json(Product::where($request->type,$request->condition)->get(),200); 
     }
 
     /**
