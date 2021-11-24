@@ -108,7 +108,6 @@
                     <product-listitem 
                       @ActionCommand="productProcessing" 
                       @turnOffAll="turnOffTickAll"
-                      :triggerAction="triggerChildAction" 
                       :productIndex="index" 
                       :product="item" 
                       :categoryList="categoryChosenList" 
@@ -152,6 +151,7 @@
 
 <script>
 
+import { eventBus } from '../../../app'
 import productListitem from "./deleteCategory_component/ProductList_item.vue"
 
 export default {
@@ -160,7 +160,7 @@ export default {
       categoryChecking: false,
       categoryChecked: false,
       tickAllProduct: false,
-      triggerChildAction: false,
+      //triggerChildAction: false,
 
       categoryId: '',
       categoryName: '',
@@ -275,7 +275,7 @@ export default {
             this.checkResult = 'vẫn còn sản phẩm chưa xử lí'
             this.checkResultColor = 'red--text'
             console.log('there still product left')
-            this.triggerChildAction = false;
+            //this.triggerChildAction = false;
           }
         },
 
@@ -293,7 +293,7 @@ export default {
 
           this.categoryChecking = false;
           this.categoryChecked = false;
-          this.triggerChildAction = false;
+          //this.triggerChildAction = false;
           this.tickAllProduct = false;
 
           this.checkResult = '';
@@ -310,7 +310,8 @@ export default {
         },
 
         async save() {
-          this.triggerChildAction = true;
+          //this.triggerChildAction = true;
+          eventBus.$emit('TriggerChildAction', true)
           if(this.productOfCategory.length == 0){
             axios
             .delete(`/api/category/${this.categoryId}`)

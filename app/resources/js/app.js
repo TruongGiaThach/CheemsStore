@@ -58,6 +58,7 @@ const router = new VueRouter({
 
 */
 
+export const eventBus = new Vue();
 
 const app = new Vue({
     vuetify: Vuetify,

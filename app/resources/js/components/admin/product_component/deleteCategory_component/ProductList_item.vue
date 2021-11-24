@@ -18,9 +18,9 @@
                     <h6 class="text-left">
                         {{ product.name }}
                     </h6>
-                    <subtitle-1 v-if="chosenCategory!=null && toggle_exclusive == 'CHANGE'" class="text-left">
+                    <div v-if="chosenCategory!=null && toggle_exclusive == 'CHANGE'" :class="'text-caption'" class="transition-swing">
                         To->{{ chosenCategory.name }}
-                    </subtitle-1>
+                    </div>
             </v-col>
             <v-col cols="12" md="2">
                 <v-btn-toggle
@@ -89,6 +89,9 @@
 </template>
 
 <script>
+
+import { eventBus } from '../../../../app'
+
 export default {
     data: () => ({
         toggle_exclusive: undefined,
@@ -97,6 +100,7 @@ export default {
         overlayLoading: false,
         overlaySelectCate: false,
         finish: false,
+        triggerAction: false,
         chosenCategory: null,
 
 
@@ -106,11 +110,15 @@ export default {
         productIndex: [Number],
         product: [Object],
         categoryList: [Array],
-        triggerAction: false,
 
         SelectAllToggle: false,
         SelectAllACtion: null,
         SelectAllCate: null,
+    },
+    created: function() {
+        eventBus.$on('TriggerChildAction', (payload) => {
+            this.triggerchildAction(payload);
+        });
     },
     computed: {
         choseWay() {
@@ -131,22 +139,6 @@ export default {
         },
     },
     watch: {
-        triggerAction: function() {
-            if(this.triggerAction) {
-                if(this.choseWay) {
-                    if(this.toggle_exclusive == 'DELETE') {
-                        this.acceptDelete();
-                    }
-                    else {
-                        if(this.isChangeCategory)
-                        this.acceptChange();
-                    }
-                }
-                else {
-                    this.$emit('ActionCommand', false);
-                }
-            }
-        },
         SelectAllACtion: function() {
             if(this.SelectAllACtion == 'DELETE') {
                 if(this.SelectAllToggle) this.toggle_exclusive = this.SelectAllACtion;
@@ -178,6 +170,26 @@ export default {
         }
     },
     methods: {
+        triggerchildAction(trigger) {
+            if(trigger != this.triggerAction) {
+                this.triggerAction = true;
+                if(this.choseWay) {
+                    if(this.toggle_exclusive == 'DELETE') {
+                        this.acceptDelete();
+                        this.triggerAction = false;
+                    }
+                    else {
+                        if(this.isChangeCategory)
+                        this.acceptChange();
+                        this.triggerAction = false;
+                    }
+                }
+                else {
+                    this.$emit('ActionCommand', false);
+                    this.triggerAction = false;
+                }
+            }
+        },
         acceptChange() {
             let formData = new FormData();
             formData.append('name', this.product.name);
