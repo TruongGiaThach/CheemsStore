@@ -1,5 +1,5 @@
   <template>
-  <div class="container-fluid">
+  <div>
     <div class="row no-gutter">
       <!-- The image half -->
       <div class="col-md-7 d-none d-md-flex bg-image"></div>
@@ -72,7 +72,7 @@
                   <div class="text-center d-flex justify-content-between mt-4">
                     <p>
                       Tạo bởi
-                      <a href="#" class="font-italic text-muted">
+                      <a href="https://youtu.be/tzYPr9w22VU" class="font-italic text-muted">
                         <u>Cheems family</u></a
                       >
                     </p>
