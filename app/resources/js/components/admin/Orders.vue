@@ -104,7 +104,7 @@
 
                                 <v-card-subtitle>
                                   <p>ID: {{ item.id }}</p>
-                                  <p>Số lượng còn lại: {{ item.amount }}</p>
+                                  <p>Số lượng còn lại: {{ item.amountProduct }}</p>
                                   <p>Giá nhập vào: {{ item.importPrice }}</p>
                                 </v-card-subtitle>
                               </div>
@@ -308,6 +308,7 @@ export default {
           importPrice: this.defaultItem.importPrice,
           image: this.defaultItem.image,
           id: this.defaultItem._id,
+          amountProduct: this.defaultItem.amount,
           color: "info",
         });
       });
