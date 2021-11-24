@@ -7,49 +7,52 @@
       >
         <v-container fluid>
         <v-row
-            justify="center"
+            justify="start"
         >
             <v-col cols="12" md="1">
                 <v-icon v-if="choseWay" left dark color="green"> mdi-checkbox-marked-circle </v-icon>
                 <v-icon v-else left dark color="red" > mdi-alert-circle </v-icon>
                 <v-icon v-if="chosenCategory!=null && toggle_exclusive == 'CHANGE'" left dark color="#2196F3" @click="overlaySelectCate = true"> mdi-cog</v-icon>
             </v-col>
-            <v-col cols="12" md="6">
-                    <h4 class="text-left">
-                        {{ product.name }}
-                    </h4>
-                    <p v-if="chosenCategory!=null && toggle_exclusive == 'CHANGE'" class="subheader text-left">
-                        To->{{ chosenCategory.name }}
-                    </p>
-            </v-col>
             <v-col cols="12" md="5">
+                    <h6 class="text-left">
+                        {{ product.name }}
+                    </h6>
+                    <subtitle-1 v-if="chosenCategory!=null && toggle_exclusive == 'CHANGE'" class="text-left">
+                        To->{{ chosenCategory.name }}
+                    </subtitle-1>
+            </v-col>
+            <v-col cols="12" md="2">
                 <v-btn-toggle
                  
                   v-model="toggle_exclusive"
                   rounded
+                  dense
                   borderless
                 >
                     <v-btn
                         :v-if="hover"
                         color="#3F51B5"
                         active-class="choseChangeActive"
+                        block
                         small
                         outlined
                         value="CHANGE"
                         @click="$emit('turnOffAll')"
                     >
-                        Chuyển
+                        Danh mục
                     </v-btn>
                     <v-btn
                         :v-if="hover"
                         color="#F44336"
                         active-class="choseDeleteActive"
+                        block
                         small
                         outlined
                         value="DELETE"
                         @click="$emit('turnOffAll')"
                     >
-                        Xóa
+                        Thùng rác
                     </v-btn>
                 </v-btn-toggle>
             </v-col>

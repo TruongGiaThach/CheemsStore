@@ -68,9 +68,9 @@
 
         <!-- -->
         <template v-slot:[`item.actions`]="{ item }">
-          <v-btn color="#afcefa" @click="getDataToTable(item)"
+          <b-button variant="outline-info" class="hovertext" @click="getDataToTable(item)"
             >Xem hóa đơn
-          </v-btn>
+          </b-button>
         </template>
         <!-- reload -->
         <template v-slot:no-data>
@@ -97,7 +97,7 @@ export default {
         { text: "Email", value: "email", class: "info--text" },
         { text: "Số điện thoại", value: "number", class: "info--text" },
         {
-          text: "Actions",
+          text: "Chi tiết hóa đơn",
           value: "actions",
           sortable: false,
           class: "info--text",

@@ -25,7 +25,7 @@
             <v-text-field
               v-model="search"
               append-icon="mdi-magnify"
-              label="Search"
+              label="Tìm kiếm nhân viên"
               single-line
               hide-details
             ></v-text-field>

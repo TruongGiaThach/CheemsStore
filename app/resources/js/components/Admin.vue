@@ -128,7 +128,6 @@ import Main from "./admin/Main";
 import Users from "./admin/Users";
 import Products from "./admin/Products";
 import Orders from "./admin/Orders";
-import Statistic from "./admin/Statistic";
 import CreateOrder from "./admin/order_components/createOrder";
 import Staffs from "./admin/Staffs";
 import Customers from "./admin/Customers";
@@ -149,7 +148,6 @@ export default {
         ["mdi-account-group", "Khách hàng", "customers"],
          ["mdi-account", "Tài khoản", "users"],
         ["mdi-account-cog-outline", "Nhân viên", "staffs"],
-        ["mdi-chart-line", "Thống kê", "statistic"],
       ],
       Nav_bar_order: [
         ["mdi-cart-plus", "Bán hàng", "createOrder"],
@@ -222,14 +220,6 @@ export default {
             this.$router.push({
               name: "admin-pages",
               params: { page: "products" },
-            });
-          break;
-        case "statistic":
-          this.activeComponent = Statistic;
-          if (this.$route.path != "/admin/statistic")
-            this.$router.push({
-              name: "admin-pages",
-              params: { page: "statistic" },
             });
           break;
         case "createOrder":
