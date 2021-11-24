@@ -293,7 +293,7 @@ export default {
                       //add Ratio (tù vl, nhưng mà đel làm khác đc ae à, ngồi cả ngày chỉ còn cách nhét vô đây thôi)
                       ratio[month] = (ratio[month] / count);
                       ratioTotal += ratio[month];
-                      this.ratio_c.push(ratio[month]);
+                      this.ratio_c.push(ratio[month].toFixed(2));
                       this.receipt_c.push(count);
                       count = 1;
                       month++;
@@ -304,7 +304,7 @@ export default {
                 ratio[month] = (ratio[month] / count);
                 ratioTotal += ratio[month];
                 ratioTotal = ratioTotal / 7;
-                this.ratio_c.push(ratio[month]);
+                this.ratio_c.push(ratio[month].toFixed(2));
                 this.ratio_total = ratioTotal.toFixed(2);
 
               }

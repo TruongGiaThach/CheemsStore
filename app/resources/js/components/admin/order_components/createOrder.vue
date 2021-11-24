@@ -92,7 +92,7 @@
                     </span>
                 </div>
                 <div class="conclusion-buttons">
-                    <button type="button" class="btn btn-danger btn-block btn-cancel">Hủy</button>
+                    <button type="button" class="btn btn-danger btn-block btn-cancel" v-on:click="close()">Hủy</button>
                     <button type="button" class="btn btn-success btn-block btn-finish py-5" data-target="#ConfirmModal" v-bind:disabled="!okToGo" v-on:click="checkExistingCustomer()">Thanh toán </button>
                 </div>
                 <!-- Modal -->
