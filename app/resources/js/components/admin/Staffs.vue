@@ -2,13 +2,7 @@
   <v-card height="100%" outlined class="pa-md-4 mx-lg-auto grey lighten-3">
     <v-card-title>
       <v-spacer></v-spacer>
-      <v-text-field
-        v-model="search"
-        append-icon="mdi-magnify"
-        label="Tìm kiếm nhân viên"
-        single-line
-        hide-details
-      ></v-text-field>
+    
     </v-card-title>
     <div
       style="width: 80%; align: center; margin-left: auto; margin-right: auto"
@@ -27,6 +21,14 @@
           <v-toolbar flat>
             <v-toolbar-title  class="info--text" >Nhân viên</v-toolbar-title>
             <v-divider class="mx-4" inset vertical></v-divider>
+            <v-spacer></v-spacer>
+            <v-text-field
+              v-model="search"
+              append-icon="mdi-magnify"
+              label="Search"
+              single-line
+              hide-details
+            ></v-text-field>
             <v-spacer></v-spacer>
             <v-dialog v-model="dialog" max-width="500px">
               <template v-slot:activator="{ on, attrs }">

@@ -2,13 +2,6 @@
   <v-card height="100%" outlined class="pa-md-4 mx-lg-auto grey lighten-3">
     <v-card-title>
       <v-spacer></v-spacer>
-      <v-text-field
-        v-model="search"
-        append-icon="mdi-magnify"
-        label="Tìm kiếm khách hàng"
-        single-line
-        hide-details
-      ></v-text-field>
     </v-card-title>
     <div
       style="width: 80%; align: center; margin-left: auto; margin-right: auto"
@@ -27,7 +20,13 @@
             <v-toolbar-title class="info--text">Khách hàng</v-toolbar-title>
             <v-divider inset class="mx-4" vertical></v-divider>
             <v-spacer></v-spacer>
-
+            <v-text-field
+              v-model="search"
+              append-icon="mdi-magnify"
+              label="Tìm kiếm khách hàng"
+              single-line
+              hide-details
+            ></v-text-field>
             <v-dialog v-model="dialog" max-height="100vh" max-width="100vh">
               <v-card
                 class="p-3 m-2 overflow-x-hidden"
@@ -69,7 +68,9 @@
 
         <!-- -->
         <template v-slot:[`item.actions`]="{ item }">
-          <v-btn color="#afcefa"  @click="getDataToTable(item)">Xem hóa đơn </v-btn>
+          <v-btn color="#afcefa" @click="getDataToTable(item)"
+            >Xem hóa đơn
+          </v-btn>
         </template>
         <!-- reload -->
         <template v-slot:no-data>
@@ -155,7 +156,7 @@ export default {
         .catch((error) => {
           console.error(error);
         });
-    } ,
+    },
     getDataToTable(item) {
       // get customer receipt detail
       this.selectedCustomer = item;
