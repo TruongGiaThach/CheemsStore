@@ -224,7 +224,7 @@ export default {
           break;
         case "createOrder":
           this.activeComponent = CreateOrder;
-          if (this.$route.path != "/admin/order_components/createOrder")
+          if (this.$route.path != "/admin/createOrder")
             this.$router.push({
               name: "admin-pages",
               params: { page: "createOrder" },
