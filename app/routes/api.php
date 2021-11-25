@@ -44,6 +44,9 @@ Route::get('/category', 'CategoryController@index');
 Route::post('/category', 'CategoryController@store');
 Route::put('/category/{category_id}', 'CategoryController@update');
 Route::delete('/category/{category_id}', 'CategoryController@destroy');
+
+//product
+Route::post('/productUpdate/{product_id}', 'ProductController@updateProductAmount');
 /*
 |--------------------------------------------------------------------------
 | API Routes

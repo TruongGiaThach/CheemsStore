@@ -67,7 +67,9 @@
                             <td>{{row.item.name}}</td>
                             <td>
                                 <v-form >
+                                    <v-icon small style="color: green;" @click="plusItem(row.index)">mdi-plus</v-icon>
                                     <input type="number" v-model="row.item.amount" min="1" onkeydown="return false" >
+                                    <v-icon small style="color: red;" @click="minusItem(row.index)">mdi-minus</v-icon>
                                 </v-form>
                             </td>
                             <td>{{Number(row.item.price).toLocaleString()}} VNĐ</td>
@@ -158,6 +160,25 @@
                     </v-card-actions>
                     </v-card>
                 </v-dialog>
+                <v-dialog
+                width ="300px"
+                v-model="outOfStock">
+                    <v-card>
+                        <v-card-title class="text-h5 info">
+                        <span class="text-h5 mx-auto white--text">Hết hàng rồi má ơi</span>
+                        </v-card-title>
+                        <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn
+                            color="primary"
+                            text
+                            @click="outOfStock = false"
+                        >
+                            Trở lại
+                        </v-btn>
+                        </v-card-actions>
+                    </v-card>
+                </v-dialog>
             </div>
         </v-card>
 
@@ -168,6 +189,7 @@
         name: "create-order",
         data(){
             return {
+                outOfStock: false,
                 baseUrl: window.location.origin,
                 products : [],
                 category : [],
@@ -215,7 +237,9 @@
         beforeMount(){
             axios.get('/api/products/')
             .then(response => {
-                this.products = response.data
+                this.products = response.data.filter((element)=>{
+                    return element.amount > 0
+                })
             })
             .catch(error => {
                 console.error(error);
@@ -259,33 +283,65 @@
         },
         methods : {
             addItemToBill(product){
-                if(this.items.length > 0)
-                {
-                    for(var i = 0; i < this.items.length; i++){
-                        if(this.items[i].id == product._id){
-                            this.items[i].amount++;
-                            return;
+                if(product.amount >0){
+                    if(this.items.length > 0)
+                    {
+                        for(var i = 0; i < this.items.length; i++){
+                            if(this.items[i].id == product._id){
+                                this.items[i].amount++;
+                                product.amount-=1;
+                                return;
+                            }
                         }
+                        this.items.push({
+                            id: product._id,
+                            name: product.name,
+                            amount: 1,
+                            price: product.outportPrice
+                        })
+                    }else{
+                        this.items.push({
+                            id: product._id,
+                            name: product.name,
+                            amount: 1,
+                            price: product.outportPrice
+                        })
                     }
-                    this.items.push({
-                        id: product._id,
-                        name: product.name,
-                        amount: 1,
-                        price: product.outportPrice
-                    })
-                }else{
-                    this.items.push({
-                        id: product._id,
-                        name: product.name,
-                        amount: 1,
-                        price: product.outportPrice
-                    })
+                    product.amount-=1;
+                } else {
+                    this.outOfStock =true;
                 }
             },
             deleteItem(index){
                 if(this.items.length > 0)
                 {
+                    var indexProduct = this.products.findIndex(element => element._id === this.items[index].id);
+                    this.products[indexProduct].amount += this.items[index].amount;
                     this.items.splice(index, 1);
+                }
+            },
+            plusItem(index){
+                if(this.items.length > 0)
+                {
+                    var indexProduct = this.products.findIndex(element => element._id === this.items[index].id);
+                    if(this.products[indexProduct].amount > 0){
+                        this.products[indexProduct].amount -= 1;
+                        this.items[index].amount += 1;
+                    } else {
+                        this.outOfStock =true;
+                    }
+                }
+            },
+            minusItem(index){
+                if(this.items.length > 0)
+                {
+                    var indexProduct = this.products.findIndex(element => element._id === this.items[index].id);
+                    this.products[indexProduct].amount += 1;
+                    this.items[index].amount -= 1;
+                    if(this.items[index].amount===0)
+                    {
+                        this.items.splice(index,1);
+                    }
                 }
             },
             sameCategory(product) {
@@ -306,6 +362,7 @@
             },
             //Create new user for each new receipt with new email
             checkExistingCustomer() {
+                this.updateProductAmount();
                 axios.get('/api/customer/')
                 .then(response => {
                     for(var i = 0; i < response.data.length; i++){
@@ -366,6 +423,17 @@
                     })
                 }
             },
+            updateProductAmount()
+            {
+                this.products.forEach(element =>{
+                    axios.post(`/api/productUpdate/${element._id}`,{
+                        amount: element.amount
+                    }).then(response =>{
+                        console.log(response.data)
+                    })
+                })
+
+            },
             printDetail(){
                 this.dialog=true;
                 window.print('page');
@@ -375,6 +443,10 @@
                 this.dialog = false;
                 window.location.reload()
             },
+            cancel()
+            {
+                this.outOfStock =false;
+            }
         }
     }
 </script>
@@ -475,8 +547,8 @@
     background: rgba(0, 139, 139, 0.3);
 }
 .sell-menu .product-list input{
-    background-color: white;
-    width: 3em;
+    width: 1.5em;
+    margin: 0px;
 }
 .sell-menu .product-list tr:hover input{
     background-color: #EEEEEE;
@@ -513,4 +585,10 @@
     color:#2196f3;
     display: inline;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 </style>

@@ -77,7 +77,7 @@ class ProductController extends Controller
      */
     public function show(Request $request)
     {
-        return response()->json(Product::where($request->type,$request->condition)->get(),200); 
+        return response()->json(Product::where($request->type,$request->condition)->get(),200);
     }
 
     /**
@@ -101,9 +101,9 @@ class ProductController extends Controller
     public function update(Request $request, $product_id)
     {
         $product = Product::findOrFail($product_id);
-        
-        
-        
+
+
+
         $product->name = $request->name;
         $product->amount = $request->amount;
         $product->importPrice = $request->importPrice;
@@ -157,6 +157,14 @@ class ProductController extends Controller
             'message' => $status ? 'Units Added!' : 'Error Adding Product Units'
         ]);
     }
+
+    public function updateProductAmount(Request $request, $product_id)
+    {
+         $product =Product::findOrFail($product_id);
+         $product->amount = $request->amount;
+         $product -> save();
+         return response ->json($product);
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -167,10 +175,10 @@ class ProductController extends Controller
     {
         //
         $product = Product::findOrFail($product_id);
-        
+
         $name = $product->image;
         Storage::disk('public')->delete($product->image);
-        
+
         $product->forceDelete();
 
         /*
