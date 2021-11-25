@@ -15,7 +15,7 @@
         item-key="email"
         show-expand
         rounded-xl
-        class="elevation-1"
+        class="elevation-1 "
         min-height="70vh"
       >
         <template v-slot:[`item.state`]="{ item }">
@@ -51,71 +51,130 @@
                   Tạo tài khoản mới
                 </v-btn>
               </template>
-              <v-card>
-               <v-card-title class="bg-info mx-auto" max-width="inherit">
+              <ValidationObserver ref="observer" v-slot="{ invalid }">
+                <v-card class="elevation-12 ">
+                  <v-card-title class="bg-info mx-auto" max-width="inherit">
                     <span class="text-h5 mx-auto white--text">
-                      {{formTitle}}</span
+                      {{ formTitle }}</span
                     >
                   </v-card-title>
-                <v-card-text>
-                  <v-container>
-                    <v-row>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-text-field
-                          v-model="editedItem.name"
-                          label="Tên nhân viên"
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4"></v-col>
-                      <v-col cols="12" sm="6" md="4"></v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-text-field
-                          v-model="editedItem.email"
-                          label="Email"
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-text-field
-                          v-model="editedItem.password"
-                          label="Mật khẩu"
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-text-field
-                          v-model="editedItem.c_password"
-                          label="Xác nhân mật khẩ"
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-text-field
-                          v-model="editedItem.cmnd"
-                          label="CMND"
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-text-field
-                          v-model="editedItem.salary"
-                          label="Mức lương"
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-text-field
-                          v-model="editedItem.numOfDayOff"
-                          label="Số ngày nghỉ"
-                        ></v-text-field>
-                      </v-col>
-                    </v-row>
-                  </v-container>
-                </v-card-text>
+                  <v-card-text>
+                    <v-container>
+                      <V-form @submit.prevent="save">
+                        <v-row>
+                          <v-col cols="12" sm="6" md="4">
+                            <ValidationProvider
+                              v-slot="{ errors }"
+                              name="name"
+                              rules="required"
+                            >
+                              <v-text-field
+                                v-model="editedItem.name"
+                                :error-messages="errors"
+                                label="Tên nhân viên"
+                                required
+                              ></v-text-field>
+                            </ValidationProvider>
+                          </v-col>
+                          <v-col cols="12" sm="6" md="4"></v-col>
+                          <v-col cols="12" sm="6" md="4"></v-col>
+                          <v-col cols="12" sm="6" md="4">
+                            <ValidationProvider
+                              v-slot="{ errors }"
+                              name="email"
+                              rules="required|email"
+                            >
+                              <v-text-field
+                                v-model="editedItem.email"
+                                label="Email"
+                                :error-messages="errors"
+                                required
+                              ></v-text-field>
+                            </ValidationProvider>
+                          </v-col>
+                          <v-col cols="12" sm="6" md="4">
+                            <ValidationProvider
+                              v-slot="{ errors }"
+                              name="password"
+                              rules="required|max:10"
+                              vid="password"
+                            >
+                              <v-text-field
+                                v-model="editedItem.password"
+                                label="Mật khẩu"
+                                :error-messages="errors"
+                                required
+                                type="password"
+                                
+                                
+                              ></v-text-field>
+                            </ValidationProvider>
+                          </v-col>
+                          <v-col cols="12" sm="6" md="4">
+                            <ValidationProvider
+                              v-slot="{ errors }"
+                              name="c_password"
+                              
+                              rules="required|confirmed:password"
+                              data-vv-as="password"
+                            >
+                              <v-text-field
+                                v-model="editedItem.c_password"
+                                label="Xác nhân mật khẩ"
+                                type="password"
+                                :error-messages="errors"
+                                required
+                              ></v-text-field>
+                            </ValidationProvider>
+                          </v-col>
+                          <v-col cols="12" sm="6" md="4">
+                            <ValidationProvider
+                              v-slot="{ errors }"
+                              name="cmnd"
+                              rules="required|numeric"
+                            >
+                              <v-text-field
+                                v-model="editedItem.cmnd"
+                                label="CMND"
+                                :error-messages="errors"
+                                required
+                              ></v-text-field>
+                            </ValidationProvider>
+                          </v-col>
+                          <v-col cols="12" sm="6" md="4">
+                            <v-text-field
+                              v-model="editedItem.salary"
+                              label="Mức lương"
+                            ></v-text-field>
+                          </v-col>
+                          <v-col cols="12" sm="6" md="4">
+                            <v-text-field
+                              v-model="editedItem.numOfDayOff"
+                              label="Số ngày nghỉ"
+                            ></v-text-field>
+                          </v-col>
+                        </v-row>
+                      </V-form>
+                    </v-container>
+                  </v-card-text>
 
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn color="blue darken-1" text @click="close">
-                    Cancel
-                  </v-btn>
-                  <v-btn color="blue darken-1" text @click="save"> Save </v-btn>
-                </v-card-actions>
-              </v-card>
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="blue darken-1" text @click="close">
+                      Cancel
+                    </v-btn>
+                    <v-btn
+                      color="blue darken-1"
+                      type="submit"
+                      text
+                      @click="save"
+                      :disabled="invalid"
+                    >
+                      Save
+                    </v-btn>
+                  </v-card-actions>
+                </v-card>
+              </ValidationObserver>
             </v-dialog>
             <!-- dialog khi xóa 1 row -->
             <v-dialog v-model="dialogDelete" max-width="500px">
@@ -204,9 +263,51 @@
 </template>
 
 <script>
+import { required, digits, max, regex ,email ,numeric , confirmed} from "vee-validate/dist/rules";
+import {
+  extend,
+  ValidationObserver,
+  ValidationProvider,
+  setInteractionMode,
+} from "vee-validate";
+setInteractionMode("eager");
+
+extend("digits", {
+  ...digits,
+  message: "{_field_} needs to be {length} digits. ({_value_})",
+});
+extend("confirmed", {
+  ...confirmed,
+  message: "Mật khẩu không khớp.",
+});
+extend("max", {
+  ...max,
+  message: "{_field_} Không quá {length} kí tự. ({_value_})",
+});
+
+extend("required", {
+  ...required,
+  message: "{_field_} không được để trống",
+});
+
+extend("numeric", {
+  ...numeric,
+  message: "{_field_} chỉ được nhập số",
+});
+extend('email', {
+  ...email,
+  message: 'Email cần nhập đúng',
+});
+extend("regex", {
+  ...regex,
+  message: "{_field_} {_value_} does not match {regex}",
+});
+
+
 export default {
   data() {
     return {
+      errors: [],
       search: "",
       headers: [
         {
@@ -257,6 +358,10 @@ export default {
         dateBegin: new Date(Date.now()).toLocaleString().split(",")[0],
       },
     };
+  },
+  components: {
+    ValidationProvider,
+    ValidationObserver,
   },
   computed: {
     formTitle() {
@@ -342,6 +447,7 @@ export default {
     //close save user
     close() {
       this.dialog = false;
+      this.$refs.observer.reset()
       this.initialize();
     },
     //close delete user
@@ -413,8 +519,13 @@ export default {
           });
       this.creat_default_editing_item();
     },
-    save() {
-      this.addStaffAndUserAccount();
+    async save() {
+      const reuslt = await this.$refs.observer.validate();
+
+      await this.addStaffAndUserAccount();
+      this.products.push(this.editedItem);
+      //this.initialize();
+
       this.close();
     },
     deleteStaff() {

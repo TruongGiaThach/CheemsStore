@@ -2,7 +2,6 @@
   <v-card height="100%" outlined class="pa-md-4 mx-lg-auto grey lighten-3">
     <v-card-title>
       <v-spacer></v-spacer>
-    
     </v-card-title>
     <div
       style="width: 80%; align: center; margin-left: auto; margin-right: auto"
@@ -19,7 +18,7 @@
         <!-- dialog thêm thông tin nhân viên -->
         <template v-slot:top>
           <v-toolbar flat>
-            <v-toolbar-title  class="info--text" >Nhân viên</v-toolbar-title>
+            <v-toolbar-title class="info--text">Nhân viên</v-toolbar-title>
             <v-divider class="mx-4" inset vertical></v-divider>
             <v-spacer></v-spacer>
             <v-text-field
@@ -42,61 +41,99 @@
                   Thêm nhân viên mới
                 </v-btn>
               </template>
-              <v-card>
-               <v-card-title class="bg-info mx-auto" max-width="inherit">
+              <ValidationObserver ref="observer" v-slot="{ invalid }">
+                <v-card class="elevation-12">
+                  <v-card-title class="bg-info mx-auto" max-width="inherit">
                     <span class="text-h5 mx-auto white--text">
-                      {{formTitle}}</span
+                      {{ formTitle }}</span
                     >
                   </v-card-title>
-                <v-card-text>
-                  <v-container>
-                    <v-row>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-text-field
-                          v-model="editedItem.name"
-                          label="Tên nhân viên"
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4"></v-col>
-                      <v-col cols="12" sm="6" md="4"></v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-text-field
-                          v-model="editedItem.email"
-                          label="Email"
-                          type="text" :disabled="editedIndex != -1" 
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-text-field
-                          v-model="editedItem.cmnd"
-                          label="CMND"
-                          type="text" :disabled="editedIndex != -1" 
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-text-field
-                          v-model="editedItem.salary"
-                          label="Mức lương"
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-text-field
-                          v-model="editedItem.numOfDayOff"
-                          label="Số ngày nghỉ"
-                        ></v-text-field>
-                      </v-col>
-                    </v-row>
-                  </v-container>
-                </v-card-text>
+                  <v-card-text>
+                    <v-container>
+                      <V-form @submit.prevent="save">
+                        <v-row>
+                          <v-col cols="12" sm="6" md="4">
+                            <ValidationProvider
+                              v-slot="{ errors }"
+                              name="name"
+                              rules="required"
+                            >
+                              <v-text-field
+                                :error-messages="errors"
+                                v-model="editedItem.name"
+                                label="Tên nhân viên"
+                                required
+                              ></v-text-field>
+                            </ValidationProvider>
+                          </v-col>
+                          <v-col cols="12" sm="6" md="4"></v-col>
+                          <v-col cols="12" sm="6" md="4"></v-col>
+                          <v-col cols="12" sm="6" md="4">
+                            <ValidationProvider
+                              v-slot="{ errors }"
+                              name="email"
+                              rules="required|email"
+                            >
+                              <v-text-field
+                                v-model="editedItem.email"
+                                label="Email"
+                                type="text"
+                                :error-messages="errors"
+                                required
+                                :disabled="editedIndex != -1"
+                              ></v-text-field>
+                            </ValidationProvider>
+                          </v-col>
+                          <v-col cols="12" sm="6" md="4">
+                            <ValidationProvider
+                              v-slot="{ errors }"
+                              name="cmnd"
+                              rules="required|numeric"
+                            >
+                              <v-text-field
+                                v-model="editedItem.cmnd"
+                                label="CMND"
+                                type="text"
+                                :disabled="editedIndex != -1"
+                                :error-messages="errors"
+                                required
+                              ></v-text-field>
+                            </ValidationProvider>
+                          </v-col>
+                          <v-col cols="12" sm="6" md="4">
+                            <v-text-field
+                              v-model="editedItem.salary"
+                              label="Mức lương"
+                            ></v-text-field>
+                          </v-col>
+                          <v-col cols="12" sm="6" md="4">
+                            <v-text-field
+                              v-model="editedItem.numOfDayOff"
+                              label="Số ngày nghỉ"
+                            ></v-text-field>
+                          </v-col>
+                        </v-row>
+                      </V-form>
+                    </v-container>
+                  </v-card-text>
 
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn color="blue darken-1" text @click="close">
-                    Cancel
-                  </v-btn>
-                  <v-btn color="blue darken-1" text @click="save"> Save </v-btn>
-                </v-card-actions>
-              </v-card>
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="blue darken-1" text @click="close">
+                      Cancel
+                    </v-btn>
+                    <v-btn
+                      color="blue darken-1"
+                      type="submit"
+                      text
+                      @click="save"
+                      :disabled="invalid"
+                    >
+                      Save
+                    </v-btn>
+                  </v-card-actions>
+                </v-card>
+              </ValidationObserver>
             </v-dialog>
             <!-- dialog khi xóa 1 row -->
             <v-dialog v-model="dialogDelete" max-width="500px">
@@ -135,6 +172,45 @@
 </template>
 
 <script>
+import {
+  required,
+  digits,
+  max,
+  regex,
+  email,
+  numeric,
+} from "vee-validate/dist/rules";
+import {
+  extend,
+  ValidationObserver,
+  ValidationProvider,
+  setInteractionMode,
+} from "vee-validate";
+setInteractionMode("eager");
+
+extend("max", {
+  ...max,
+  message: "{_field_} Không quá {length} kí tự. ({_value_})",
+});
+
+extend("required", {
+  ...required,
+  message: "{_field_} không được để trống",
+});
+
+extend("numeric", {
+  ...numeric,
+  message: "{_field_} chỉ được nhập số",
+});
+extend("email", {
+  ...email,
+  message: "Email cần nhập đúng",
+});
+extend("regex", {
+  ...regex,
+  message: "{_field_} {_value_} does not match {regex}",
+});
+
 export default {
   data() {
     return {
@@ -144,15 +220,20 @@ export default {
           text: "Name",
           align: "start",
           sortable: false,
-          value: "name", 
-          class:"info--text",
+          value: "name",
+          class: "info--text",
         },
-        { text: "Email", value: "email" , class:"info--text",},
-        { text: "CMND", value: "cmnd" , class:"info--text",},
-        { text: "Số ngày nghỉ", value: "numOfDayOff", class:"info--text", },
-        { text: "Lương", value: "salary" , class:"info--text",},
-        { text: "Ngày vào làm", value: "dateBegin", class:"info--text", },
-        { text: "Actions", value: "actions", sortable: false , class:"info--text",},
+        { text: "Email", value: "email", class: "info--text" },
+        { text: "CMND", value: "cmnd", class: "info--text" },
+        { text: "Số ngày nghỉ", value: "numOfDayOff", class: "info--text" },
+        { text: "Lương", value: "salary", class: "info--text" },
+        { text: "Ngày vào làm", value: "dateBegin", class: "info--text" },
+        {
+          text: "Actions",
+          value: "actions",
+          sortable: false,
+          class: "info--text",
+        },
       ],
       state: true,
       staffs: [],
@@ -180,6 +261,10 @@ export default {
         dateBegin: new Date(Date.now()).toLocaleString().split(",")[0],
       },
     };
+  },
+  components: {
+    ValidationProvider,
+    ValidationObserver,
   },
   computed: {
     formTitle() {
@@ -237,6 +322,7 @@ export default {
     },
     //close save user
     close() {
+      this.$refs.observer.reset();
       this.dialog = false;
       this.initialize();
       this.$nextTick(() => {
@@ -293,7 +379,9 @@ export default {
             }
           });
     },
-    save() {
+    async save() {
+      const reuslt = await this.$refs.observer.validate();
+
       if (this.editedIndex > -1) {
         this.endEditing(this.editedItem);
       } else {
