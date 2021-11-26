@@ -402,16 +402,23 @@
             addRecepitDetail(rec) {
                 this.billId = rec._id;
                 this.createDay = rec.createDay;
-                console.log(rec);
                 for(var i = 0; i < this.items.length; i++){
                     axios.post('/api/receipt_detail/',{
                         receipt_id: rec._id.toString(),
                         product_id: this.items[i].id.toString(),
                         unitPrice: this.items[i].price,
-                        amount: this.items[i].amount,
+                        amount: this.items[i].amount, 
                     })
                 }
+                this.decreaseProductAmount();
                 this.dialog = true;
+            },
+            decreaseProductAmount(){
+                for(var i = 0; i < this.items.length; i++){
+                    axios.patch('api/product/',{ amount: this.items[i].amount },'/amount/decrease', {
+                    amount: this.items[i].amount,
+                    })
+                }
             },
             addItemToPrint(){
                 for(var i = 0; i < this.items.length; i++){

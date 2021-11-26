@@ -566,7 +566,7 @@ export default {
       this.addingProduct = {
         name: null,
         image: null,
-        amount: null,
+        amount: 0,
         importPrice: null,
         outportPrice: null,
         manufacture: null,

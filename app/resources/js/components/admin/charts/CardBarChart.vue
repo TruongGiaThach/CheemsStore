@@ -1,5 +1,5 @@
 <template>
-  <v-app
+  <v-card
     class="
       relative
       flex flex-col
@@ -34,11 +34,10 @@
         <bar-chart :data="data1" :options="options"></bar-chart>
       </div>
     </div>
-  </v-app>
+  </v-card>
 </template>
 <script>
-import Chart from "chart.js";
-import BarChart from "../BarChart.js";
+import BarChart from "./BarChart.js";
 export default {
   props: {
     customers: {

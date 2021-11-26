@@ -31,8 +31,7 @@
       <v-row align-content-end full-width>
         <v-col>
           <v-card>
-            <input type="date" id="startDay" v-model="startDay1" />
-            <input type="date" id="endDay" v-model="endDay1" />
+            
             <card-line-chart
               v-model="startDay1"
               :labels="labels"
@@ -43,18 +42,24 @@
                 class="btn-group"
                 role="group"
               >
+              <div class="calender">
+                <input type="date" id="endDay" v-model="endDay1" :max='this.today' v-on:input="changeDate1()"/>
+              </div>
+              
                 <input
                   type="radio"
                   class="btn-check"
                   name="btnradio1"
                   id="btnradio1"
                   autocomplete="off"
+                  value=1 
+                  v-model="check"
                   checked
                 />
                 <label
                   class="btn btn-outline-primary --text"
                   for="btnradio1"
-                  @click="createStatisticWithDay(1)"
+                  @click="createStatisticWithDay()"
                   >Ngày</label
                 >
 
@@ -64,11 +69,13 @@
                   name="btnradio1"
                   id="btnradio2"
                   autocomplete="off"
+                  value=2
+                  v-model="check"
                 />
                 <label
                   class="btn btn-outline-primary --text"
                   for="btnradio2"
-                  @click="createStatisticWithMonth(2)"
+                  @click="createStatisticWithMonth()"
                   >Tháng</label
                 >
 
@@ -78,11 +85,13 @@
                   name="btnradio1"
                   id="btnradio3"
                   autocomplete="off"
+                  value=3 
+                  v-model="check"
                 />
                 <label
                   class="btn btn-outline-primary --text"
                   for="btnradio3"
-                  @click="createStatisticWithYear(3)"
+                  @click="createStatisticWithYear()"
                   >Năm</label
                 >
               </div>
@@ -93,8 +102,6 @@
       <v-row align-content-end full-width>
         <v-col>
           <v-card>
-            <input type="date" id="startDay" v-model="startDay2" />
-            <input type="date" id="endDay" v-model="endDay2" />
             <card-bar-chart
             :labels ="labels2"
             :customers="sCustomers"
@@ -104,18 +111,23 @@
                 class="btn-group"
                 role="group"
               >
+              <div class="calender">
+                <input type="date" id="endDay" v-model="endDay2" :max='this.today' v-on:input="changeDate2()"/>
+              </div>
                 <input
                   type="radio"
                   class="btn-check"
                   name="btnradio2"
                   id="btnradio4"
                   autocomplete="off"
+                  value=1 
+                  v-model="check2"
                   checked
                 />
                 <label
                   class="btn btn-outline-primary --text"
                   for="btnradio4"
-                  @click="createStatisticWithDay2(1)"
+                  @click="createStatisticWithDay2()"
                   >Ngày</label
                 >
 
@@ -125,11 +137,13 @@
                   name="btnradio2"
                   id="btnradio5"
                   autocomplete="off"
+                  value=2 
+                  v-model="check2"
                 />
                 <label
                   class="btn btn-outline-primary --text"
                   for="btnradio5"
-                  @click="createStatisticWithMonth2(2)"
+                  @click="createStatisticWithMonth2()"
                   >Tháng</label
                 >
 
@@ -139,11 +153,13 @@
                   name="btnradio2"
                   id="btnradio6"
                   autocomplete="off"
+                  value=3 
+                  v-model="check2"
                 />
                 <label
                   class="btn btn-outline-primary --text"
                   for="btnradio6"
-                  @click="createStatisticWithYear2(3)"
+                  @click="createStatisticWithYear2()"
                   >Năm</label
                 >
               </div>
@@ -167,6 +183,7 @@ export default {
     return {
       // du lieu thong ke
       check: 1,
+      check2: 1,
       profit: [],
       revenue: [],
       labels: [],
@@ -206,10 +223,10 @@ export default {
       sOrder: [],
       sCustomers: [],
       labels2: [],
-      check2: 1,
-      startDay1: new Date("2021-11-12").toISOString().slice(0, 10),
+      today: new Date().toISOString().slice(0, 10),
+      startDay1: new Date((new Date()).valueOf() - 86400000*7).toISOString().slice(0, 10),
       endDay1: new Date().toISOString().slice(0, 10),
-      startDay2: new Date("2021-11-12").toISOString().slice(0, 10),
+      startDay2: new Date((new Date()).valueOf() - 86400000*7).toISOString().slice(0, 10),
       endDay2: new Date().toISOString().slice(0, 10),
     };
   },
@@ -303,7 +320,7 @@ export default {
                 this.receipt_c.push(count);
                 ratio[month] = (ratio[month] / count);
                 ratioTotal += ratio[month];
-                ratioTotal = ratioTotal / 7;
+                ratioTotal = ratioTotal / ratio.length;
                 this.ratio_c.push(ratio[month].toFixed(2));
                 this.ratio_total = ratioTotal.toFixed(2);
 
@@ -324,50 +341,63 @@ export default {
     for(var i = 5; i > -2; i--){
       this.time.push("Tháng " + (new Date().getMonth() - i).toString());
     }
-
-
   },
   created() {
-    setInterval(() => {
-      if (this.check === 1) this.createStatisticWithDay();
-      if (this.check === 2) this.createStatisticWithMonth();
-      if (this.check === 3) this.createStatisticWithYear();
-      if (this.check2 === 1) this.createStatisticWithDay2();
-      if (this.check2 === 2) this.createStatisticWithMonth2();
-      if (this.check2 === 3) this.createStatisticWithYear2();
-    }, 500);
+    //Tạo line chart
+    setTimeout(() => {
+      this.createStatisticWithDay()
+      this.createStatisticWithDay2()
+      }, 500);
   },
   methods: {
-    createStatisticWithYear(index) {
+    changeDate1(){
+      if (this.check == 1){
+        this.createStatisticWithDay()
+      }else if(this.check == 2){
+        this.createStatisticWithMonth()
+      }else{
+        this.createStatisticWithYear()
+      }
+    },
+    changeDate2(){
+      if (this.check2 == 1){
+        this.createStatisticWithDay()
+      }else if(this.check2 == 2){
+        this.createStatisticWithMonth()
+      }else{
+        this.createStatisticWithYear()
+      }
+    },
+    createStatisticWithYear() {
+      this.startDay1 = new Date((new Date(this.endDay1)).valueOf() - 31536000000*7).toISOString().slice(0, 10);
       this.labels =this.createLabelWithYear(this.startDay1, this.endDay1);
       this.createDataWithYear();
-      this.check = index;
     },
-    createStatisticWithMonth(index) {
+    createStatisticWithMonth() {
+      this.startDay1 = new Date((new Date(this.endDay1)).valueOf() - 2592000000*7).toISOString().slice(0, 10);
       this.labels =this.createLabelWithMonth(this.startDay1, this.endDay1);
       this.createDataWithMonth();
-      this.check = index;
     },
-    createStatisticWithDay(index) {
+    createStatisticWithDay() {
+      this.startDay1 = new Date((new Date(this.endDay1)).valueOf() - 86400000*7).toISOString().slice(0, 10);
       this.labels = this.createLabelWithDay(this.startDay1, this.endDay1);
       this.createDataWithDay();
-      this.check = index;
     },
     //bang thong ke 2
-    createStatisticWithYear2(index) {
+    createStatisticWithYear2() {
+      this.startDay2 = new Date((new Date(this.endDay2)).valueOf() - 31536000000*7).toISOString().slice(0, 10);
       this.labels2 = this.createLabelWithYear(this.startDay2, this.endDay2);
       this.createDataWithYear2();
-      this.check2 = index;
     },
-    createStatisticWithMonth2(index) {
+    createStatisticWithMonth2() {
+      this.startDay2 = new Date((new Date(this.endDay2)).valueOf() - 2592000000*7).toISOString().slice(0, 10);
       this.labels2=this.createLabelWithMonth(this.startDay2, this.endDay2);
       this.createDataWithMonth2();
-      this.check2 = index;
     },
-    createStatisticWithDay2(index) {
+    createStatisticWithDay2() {
+      this.startDay2 = new Date((new Date(this.endDay2)).valueOf() - 86400000*7).toISOString().slice(0, 10);
       this.labels2=this.createLabelWithDay(this.startDay2, this.endDay2);
       this.createDataWithDay2();
-      this.check2 = index;
     },
     createDataWithYear2()
     {
@@ -609,7 +639,6 @@ export default {
           i--;
         }
       }
-      console.log(revenue)
       var j = 0;
       var i = 0;
       var yearcheck = new Date(this.startDay1);
@@ -727,7 +756,6 @@ export default {
          this.revenue.push(0);
          this.profit.push(0);
       }
-      console.log(this.revenue)
     },
     createLabelWithMonth(startDay, endDay) {
       var labels = [];
@@ -885,4 +913,21 @@ export default {
 </script>
 
 <style scoped>
+.calender{
+  border: 1px solid #2196f3;
+  height: 2.6em;
+  border-radius:3px;
+  margin-right: 1em;
+}
+.calender #endDay{
+  padding: 0.5em;
+  vertical-align: center;
+  color:rgb(100, 100, 100);
+}
+.calender #endDay:focus{
+  outline-color:#2196f3;
+}
+::-webkit-calendar-picker-indicator {
+filter: invert(40%) sepia(0%) saturate(0%) hue-rotate(50deg) brightness(96%) contrast(89%);
+}
 </style>

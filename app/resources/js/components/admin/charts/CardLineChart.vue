@@ -1,5 +1,5 @@
 <template>
-  <v-app
+  <v-card
     class="
       relative
       flex flex-col
@@ -32,11 +32,10 @@
         <line-chart :data="data1" :options="options"></line-chart>
       </div>
     </div>
-  </v-app>
+  </v-card>
 </template>
 <script>
-import Chart from "chart.js";
-import LineChart from ".././LineChart.js";
+import LineChart from "./LineChart.js";
 export default {
   components: {
     LineChart,
