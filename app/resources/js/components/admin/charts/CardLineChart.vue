@@ -21,7 +21,8 @@
             Tổng quan
           </h6>
           <div class="d-flex flex-no-wrap justify-space-between mr-5">
-            <h2 class="text-info text-xl font-semibold">Doanh thu & Lợi nhuận</h2>            <slot></slot>
+            <h2 class="text-info text-xl font-semibold">Doanh thu & Lợi nhuận</h2>            
+            <slot></slot>
           </div>
         </div>
       </div>

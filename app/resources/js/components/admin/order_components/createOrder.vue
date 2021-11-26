@@ -26,7 +26,7 @@
             </nav>
             <!--Product List-->
             <v-container class="products-showcase">
-                <span class ="box-container" v-for="(product,index) in filteredProducts" :key="index" v-on:click="addItemToBill(product)">
+                <span class ="box-container" v-for="(product,index) in filteredProducts" :key="index" v-on:click="addItemToBill(product)" disable>
                     <v-card class = "product-box">
                         <div>
                             <div class="price">{{Number(product.outportPrice).toLocaleString()}} VNĐ</div>
@@ -36,6 +36,9 @@
                         </div>
                         <div>
                             <p>{{product.name}}</p>
+                        </div>
+                        <div class="amount" :style="'background-color :' + chooseColor(product.amount)">
+                            {{chooseText(product.amount)}}
                         </div>
                     </v-card>
                 </span>
@@ -164,19 +167,9 @@
                 width ="300px"
                 v-model="outOfStock">
                     <v-card>
-                        <v-card-title class="text-h5 info">
-                        <span class="text-h5 mx-auto white--text">Hết hàng rồi má ơi</span>
+                        <v-card-title class="text-h4 red">
+                        <span class="text-h4 mx-auto white--text">HẾT HÀNG</span>
                         </v-card-title>
-                        <v-card-actions>
-                        <v-spacer></v-spacer>
-                        <v-btn
-                            color="primary"
-                            text
-                            @click="outOfStock = false"
-                        >
-                            Trở lại
-                        </v-btn>
-                        </v-card-actions>
                     </v-card>
                 </v-dialog>
             </div>
@@ -279,9 +272,21 @@
                 if(this.c_name != '' && this.c_number.length == 10 && this.c_email != '' && this.items.length > 0){
                     return true;
                 }else return false;
-            }
+            },
         },
         methods : {
+            chooseColor(item) {
+                if(Number(item) < 1){
+                    return 'red';
+                }
+                else return 'green';
+            },
+            chooseText(item) {
+                if(Number(item) < 1){
+                    return 'Hết hàng';
+                }
+                else return 'Số lượng: ' + item;
+            },
             addItemToBill(product){
                 if(product.amount >0){
                     if(this.items.length > 0)
@@ -450,10 +455,6 @@
                 this.dialog = false;
                 window.location.reload()
             },
-            cancel()
-            {
-                this.outOfStock =false;
-            }
         }
     }
 </script>
@@ -509,10 +510,16 @@
     right: 0;
     background-color: #2196f3;
     color: white;
+    font-weight: bold;
     padding-right: 0.2em;
     padding-left: 0.4em;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+}
+.product-search-menu .product-box .amount{
+    color: white;
+    font-weight: bold;
+    padding-left: 0.4em;
 }
 .product-search-menu .product-box img{
     height: 9em;

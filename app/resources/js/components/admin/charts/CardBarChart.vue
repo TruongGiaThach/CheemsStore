@@ -21,7 +21,7 @@
             Chi tiết
           </h6>
           <div class="d-flex flex-no-wrap justify-space-between mr-5">
-            <h2 class="text-blueGray-700 text-xl font-semibold">
+            <h2 class="text-info text-xl font-semibold">
               Số Lượng
             </h2>
             <slot></slot>
