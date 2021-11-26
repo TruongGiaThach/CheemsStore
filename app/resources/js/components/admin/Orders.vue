@@ -1,4 +1,5 @@
 <template>
+<v-card height="100%" outlined class="pa-md-4 mx-lg-auto grey lighten-3">
   <div>
     <v-data-table
       style="
@@ -12,7 +13,11 @@
       :headers="headers"
       :items="receipts"
       :search="search"
-      sort-by="calories"
+      :footer-props="{
+          itemsPerPageOptions: [ 10, 20, 50, 100, -1], 
+          itemsPerPageText: 'Số lượng',
+          pageText: '{0}-{1} trên {2}' 
+          }"
       class="elevation-1"
     >
       <template v-slot:top>
@@ -157,6 +162,7 @@
       </template>
     </v-data-table>
   </div>
+</v-card> 
 </template>
 
 <style scoped>

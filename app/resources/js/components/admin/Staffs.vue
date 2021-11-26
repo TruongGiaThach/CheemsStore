@@ -1,15 +1,23 @@
 <template>
   <v-card height="100%" outlined class="pa-md-4 mx-lg-auto grey lighten-3">
-    <v-card-title>
-      <v-spacer></v-spacer>
-    </v-card-title>
-    <div
-      style="width: 80%; align: center; margin-left: auto; margin-right: auto"
-    >
+    <div>
       <v-data-table
+      style="
+        height: 91vh;
+        overflow: auto;
+        width: 80%;
+        align: center;
+        margin-left: auto;
+        margin-right: auto;
+      "
         :headers="headers"
         :items="staffs"
         :search="search"
+        :footer-props="{
+          itemsPerPageOptions: [ 10, 20, 50, 100, -1], 
+          itemsPerPageText: 'Số lượng',
+          pageText: '{0}-{1} trên {2}' 
+          }"
         item-key="email"
         rounded-xl
         class="elevation-1"
