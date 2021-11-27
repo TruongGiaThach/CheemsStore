@@ -23,12 +23,15 @@ Route::put('staffs/{id}','StaffController@update');
 //receipt
 Route::get('/receipt', 'ReceiptController@index');
 Route::get('/receipt_detail', 'ReceiptDetailController@index');
+Route::get('/receipt_detail/find', 'ReceiptDetailController@find');
 Route::post('/receipt', 'ReceiptController@store');
 Route::post('/receipt_detail', 'ReceiptDetailController@store');
 Route::post('/receipts', 'ReceiptController@getByCustomerID');
+Route::get('/receipt/getReceipt', 'ReceiptController@getReceipt');
 //customer
 Route::get('/customer', 'CustomerController@index');
 Route::post('/customer', 'CustomerController@store');
+Route::get('/customer/find', 'CustomerController@find');
 
 Route::get('/users','UserController@index');
 Route::patch('users','UserController@log_out');

@@ -27,6 +27,8 @@
           >
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
+          <return-product/>
+
           <v-dialog v-model="dialog" max-height="100vh" max-width="100vh">
             <v-card
               class="p-3 m-2 overflow-x-hidden"
@@ -175,6 +177,9 @@
 </style>
 
 <script>
+
+import returnProduct from "./reuturnProduct_component/returnProdut.vue"
+
 export default {
   data: () => ({
     baseUrl: window.location.origin,
@@ -238,6 +243,10 @@ export default {
     createDay: "",
     billId: "",
   }),
+
+  components: {
+    returnProduct,
+  },
 
   watch: {
     dialog(val) {

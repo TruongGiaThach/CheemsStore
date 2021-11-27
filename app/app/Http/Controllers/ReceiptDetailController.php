@@ -15,6 +15,11 @@ class ReceiptDetailController extends Controller
         return response()->json(ReceiptDetail::all(),200);
     }
 
+    public function find(Request $request)
+    {
+        return response()->json(ReceiptDetail::where($request->type,$request->condition)->get(),200); 
+    }
+
     public function store(Request $request)
     {
         //

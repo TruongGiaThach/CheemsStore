@@ -30,6 +30,19 @@ class ReceiptController extends Controller
             'receipt'=> $receipt,
         ]);
     }
+
+     /**
+     * Display the specified resource.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Receipt $receipt
+     * @return \Illuminate\Http\Response
+     */
+    public function getReceipt(Request $request)
+    {
+        return response()->json(Receipt::where($request->type,$request->condition)->get(),200); 
+    }
+
     /**
      * Show the form for creating a new resource.
      *
