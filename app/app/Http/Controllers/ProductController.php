@@ -162,6 +162,14 @@ class ProductController extends Controller
             'message' => $status ? 'Units Added!' : 'Error Adding Product Units'
         ]);
     }
+
+    public function updateProductAmount(Request $request, $product_id)
+    {
+         $product =Product::findOrFail($product_id);
+         $product->amount = $request->amount;
+         $product -> save();
+         return response ->json($product);
+    }
     /**
      * Remove the specified resource from storage.
      *

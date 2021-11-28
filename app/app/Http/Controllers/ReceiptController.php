@@ -103,15 +103,18 @@ class ReceiptController extends Controller
      * @param  \App\Models\Receipt $receipt
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Receipt $receipt)
+    public function update(Request $request, $receiptId)
     {
-        //
+        $receipt = Receipt::findOrFail($receiptId);
+
         $status = $receipt->update(
-            
+            $request->only(['VAT', 'createDay', 'total', 'user_id'])
         );
 
         return response()->json([
-          
+            'contentBefore' => $receipt,
+            'status' => $status,
+            'message' => $status ? 'receipt Updated!' : 'Error Updating receipt'
         ]);
     }
 
