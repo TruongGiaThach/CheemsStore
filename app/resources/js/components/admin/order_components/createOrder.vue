@@ -19,9 +19,9 @@
                             </div>
                         </li>
                     </ul>
-                        <form class="form-inline search-box">
+                        <div class="form-inline search-box">
                             <input class="form-control mr-sm-2 " v-model="search" type="search" placeholder="Nhập từ khóa cần tìm" aria-label="Search" size="50">
-                        </form>
+                        </div>
                     </div>
             </nav>
             <!--Product List-->
