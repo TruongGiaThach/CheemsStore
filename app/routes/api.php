@@ -23,6 +23,7 @@ Route::put('staffs/{id}','StaffController@update');
 //receipt
 Route::get('/receipt', 'ReceiptController@index');
 Route::get('/receipt_detail', 'ReceiptDetailController@index');
+Route::post('/receipt_details', 'ReceiptDetailController@getByReceiptId');
 Route::post('/receipt', 'ReceiptController@store');
 Route::post('/receipt_detail', 'ReceiptDetailController@store');
 Route::post('/receipts', 'ReceiptController@getByCustomerID');
