@@ -1,5 +1,5 @@
 <template>
-  <v-app
+  <v-card
     class="
       relative
       flex flex-col
@@ -21,7 +21,7 @@
             Chi tiết
           </h6>
           <div class="d-flex flex-no-wrap justify-space-between mr-5">
-            <h2 class="text-blueGray-700 text-xl font-semibold">
+            <h2 class="text-info text-xl font-semibold">
               Số Lượng
             </h2>
             <slot></slot>
@@ -34,11 +34,10 @@
         <bar-chart :data="data1" :options="options"></bar-chart>
       </div>
     </div>
-  </v-app>
+  </v-card>
 </template>
 <script>
-import Chart from "chart.js";
-import BarChart from "../BarChart.js";
+import BarChart from "./BarChart.js";
 export default {
   props: {
     customers: {

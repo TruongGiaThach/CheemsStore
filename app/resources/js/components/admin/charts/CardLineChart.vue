@@ -1,5 +1,5 @@
 <template>
-  <v-app
+  <v-card
     class="
       relative
       flex flex-col
@@ -21,7 +21,8 @@
             Tổng quan
           </h6>
           <div class="d-flex flex-no-wrap justify-space-between mr-5">
-            <h2 class="text-info text-xl font-semibold">Doanh thu & Lợi nhuận</h2>            <slot></slot>
+            <h2 class="text-info text-xl font-semibold">Doanh thu & Lợi nhuận</h2>            
+            <slot></slot>
           </div>
         </div>
       </div>
@@ -32,11 +33,10 @@
         <line-chart :data="data1" :options="options"></line-chart>
       </div>
     </div>
-  </v-app>
+  </v-card>
 </template>
 <script>
-import Chart from "chart.js";
-import LineChart from ".././LineChart.js";
+import LineChart from "./LineChart.js";
 export default {
   components: {
     LineChart,

@@ -80,6 +80,11 @@
           :search="search"
           :single-expand="singleExpand"
           :expanded.sync="expanded"
+          :footer-props="{
+          itemsPerPageOptions: [ 10, 20, 50, 100, -1], 
+          itemsPerPageText: 'Số lượng',
+          pageText: '{0}-{1} trên {2}' 
+          }"
           fixed-header
           item-key="name"
           show-expand
@@ -566,7 +571,7 @@ export default {
       this.addingProduct = {
         name: null,
         image: null,
-        amount: null,
+        amount: 0,
         importPrice: null,
         outportPrice: null,
         manufacture: null,

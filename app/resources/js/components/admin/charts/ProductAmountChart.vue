@@ -38,15 +38,6 @@ export default {
       },
       total: Number,
     },
-    beforeMount() {
-      axios.get('/api/receipt_detail/')
-            .then(response => {
-              
-            })
-            .catch(error => {
-                console.error(error);
-            })
-    },
     mounted() {
       this.$nextTick(function () {
         var config = {
