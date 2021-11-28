@@ -2,22 +2,22 @@
   <v-card height="100%" outlined class="pa-md-4 mx-lg-auto grey lighten-3">
     <div>
       <v-data-table
-      style="
-        height: 91vh;
-        overflow: auto;
-        width: 80%;
-        align: center;
-        margin-left: auto;
-        margin-right: auto;
-      "
+        style="
+          height: 91vh;
+          overflow: auto;
+          width: 80%;
+          align: center;
+          margin-left: auto;
+          margin-right: auto;
+        "
         :headers="headers"
         :items="customers"
         :search="search"
         :footer-props="{
-          itemsPerPageOptions: [ 10, 20, 50, 100, -1], 
+          itemsPerPageOptions: [10, 20, 50, 100, -1],
           itemsPerPageText: 'Số lượng',
-          pageText: '{0}-{1} trên {2}' 
-          }"
+          pageText: '{0}-{1} trên {2}',
+        }"
         item-key="email"
         rounded-xl
         class="elevation-1"
@@ -50,20 +50,33 @@
                 max-width="inherit"
               >
                 <div id="receipt_page">
+                   
                   <v-card-title class="bg-info mx-auto" max-width="inherit">
+                    <v-card-actions max-width="inherit">
+                      <v-spacer></v-spacer>
+                      <v-btn pill color="normal" @click="close">Trở về </v-btn>
+                    </v-card-actions>
                     <span class="text-h5 mx-auto white--text">
                       HÓA ĐƠN ĐÃ MUA</span
                     >
+                   
                   </v-card-title>
 
                   <v-data-table
+                    style="
+                      height: 91vh;
+                      overflow: auto;
+                      width: 80%;
+                      align: center;
+                      margin-left: auto;
+                      margin-right: auto;
+                    "
                     max-width="inherit"
                     :headers="headers_receipt"
                     :items="receipts"
                     hide-default-footer
                     class="elevation-1"
                     @click:row="clickRow"
-                   
                     item-key="_id.$oid"
                   >
                     <template v-slot:no-data>
@@ -88,7 +101,6 @@
                     max-height="100vh"
                     max-width="100vh"
                     scrollable
-                   
                     transition="dialog-bottom-transition"
                   >
                     <v-card
@@ -120,10 +132,6 @@
                     </v-card>
                   </v-dialog>
                 </div>
-                <v-card-actions max-width="inherit">
-                  <v-spacer></v-spacer>
-                  <v-btn pill color="primary" @click="close">Thoát </v-btn>
-                </v-card-actions>
               </v-card>
             </v-dialog>
           </v-toolbar>
