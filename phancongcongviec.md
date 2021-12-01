@@ -2,7 +2,7 @@
 ## Bảy:
 	sửa lại UI phần sản phẩm
 ## tiến
-	
+	sửa lại giao diện trả sản phẩm
 ## Hùng:
 	tiếp tục làm thêm dữ liệu excel add cùng lúc
 ## tính năng
@@ -22,3 +22,19 @@
 	1. lưu giữ thông tin hóa đơn
 	2. hiển thị cho tiết thông tin hóa dơn
 	3. trả hàng
+	
+### trang sản phẩm
+	1. thêm xóa sửa  danh mục
+	2. thêm xóa sửa sản phẩm
+	3. thay đổi danh mục của sản phẩm
+
+### trang khách hàng
+	1. xem thông tin khách hàng
+	2. xem các hóa đơn, chi tiết hóa đơn đã mua của khách hàng
+
+### trang quản lí nhân viên
+	1. têm, xóa, sửa thông tin nhân viên
+	2. tạo, xóa tài khoản nhân viên
+	
+## tính năng đang phát triển
+	1. thêm danh sách sản phẩm từ file excel
