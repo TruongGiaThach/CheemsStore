@@ -59,6 +59,18 @@ class CustomerController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Customer  $customer
+     * @return \Illuminate\Http\Response
+     */
+    public function find(Request $request)
+    {
+        return response()->json(Customer::where($request->type,$request->condition)->get(),200); 
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Customer  $customer

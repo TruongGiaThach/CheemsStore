@@ -31,6 +31,19 @@ class ReceiptController extends Controller
             'receipt'=> $receipt,
         ]);
     }
+
+     /**
+     * Display the specified resource.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Receipt $receipt
+     * @return \Illuminate\Http\Response
+     */
+    public function getReceipt(Request $request)
+    {
+        return response()->json(Receipt::where($request->type,$request->condition)->get(),200); 
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -91,15 +104,18 @@ class ReceiptController extends Controller
      * @param  \App\Models\Receipt $receipt
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Receipt $receipt)
+    public function update(Request $request, $receiptId)
     {
-        //
+        $receipt = Receipt::findOrFail($receiptId);
+
         $status = $receipt->update(
-            
+            $request->only(['VAT', 'createDay', 'total', 'user_id'])
         );
 
         return response()->json([
-          
+            'contentBefore' => $receipt,
+            'status' => $status,
+            'message' => $status ? 'receipt Updated!' : 'Error Updating receipt'
         ]);
     }
 

@@ -77,7 +77,7 @@ class ProductController extends Controller
      */
     public function show(Request $request)
     {
-        return response()->json(Product::where($request->type,$request->condition)->get(),200);
+        return response()->json(Product::where($request->type,$request->condition)->get(),200); 
     }
 
     /**
@@ -101,9 +101,9 @@ class ProductController extends Controller
     public function update(Request $request, $product_id)
     {
         $product = Product::findOrFail($product_id);
-
-
-
+        
+        
+        
         $product->name = $request->name;
         $product->amount = $request->amount;
         $product->importPrice = $request->importPrice;
@@ -147,6 +147,11 @@ class ProductController extends Controller
         ]);
     }
 
+    public function updateOne(Request $request, Product $product)
+    {
+        
+    }
+
     public function updateUnits(Request $request, Product $product)
     {
         $product->units = $product->units + $request->get('units');
@@ -163,7 +168,7 @@ class ProductController extends Controller
          $product =Product::findOrFail($product_id);
          $product->amount = $request->amount;
          $product -> save();
-         return response ->json($product);
+         return response()->json($product);
     }
     /**
      * Remove the specified resource from storage.
@@ -175,10 +180,10 @@ class ProductController extends Controller
     {
         //
         $product = Product::findOrFail($product_id);
-
+        
         $name = $product->image;
         Storage::disk('public')->delete($product->image);
-
+        
         $product->forceDelete();
 
         /*

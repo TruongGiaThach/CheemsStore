@@ -27,13 +27,19 @@
           >
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
+          
+
           <v-text-field
                 v-model="search"
                 append-icon="mdi-magnify"
                 label="Tìm kiếm"
                 single-line
                 hide-details
-              ></v-text-field>
+          ></v-text-field>
+          
+          <return-product
+            @refundFinish="initialize"
+          />
           <v-dialog v-model="dialog" max-height="100vh" max-width="100vh">
             <v-card
               class="p-3 m-2 overflow-x-hidden"
@@ -182,6 +188,9 @@
 </style>
 
 <script>
+
+import returnProduct from "./reuturnProduct_component/returnProdut.vue"
+
 export default {
   data: () => ({
     baseUrl: window.location.origin,
@@ -246,13 +255,21 @@ export default {
     billId: "",
   }),
 
+  components: {
+    returnProduct,
+  },
+
   watch: {
     dialog(val) {
       val || this.close();
     },
   },
   beforeMount() {
-    axios
+    this.initialize()
+  },
+  methods: {
+    initialize() {
+      axios
       .get("/api/receipt")
       .then((response) => {
         this.receipts = response.data;
@@ -291,8 +308,7 @@ export default {
       .catch((error) => {
         console.error(error);
       });
-  },
-  methods: {
+    },
     printDetail() {
       this.dialog = true;
       window.print("page");

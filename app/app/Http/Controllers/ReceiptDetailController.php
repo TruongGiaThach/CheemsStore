@@ -19,6 +19,11 @@ class ReceiptDetailController extends Controller
         return response()->json(ReceiptDetail::all(),200);
     }
 
+    public function find(Request $request)
+    {
+        return response()->json(ReceiptDetail::where($request->type,$request->condition)->get(),200); 
+    }
+
     public function store(Request $request)
     {
         //
@@ -31,6 +36,29 @@ class ReceiptDetailController extends Controller
 
         return response()->json($receiptDetail);
     }
+
+    public function updateAmount(Request $request, $receiptDetailId)
+    {
+        //
+        $receiptDetail = ReceiptDetail::findOrFail($receiptDetailId);
+
+        $receiptDetail->amount = $request->amount;
+         $receiptDetail -> save();
+         return response()->json($receiptDetail);
+    }
+
+    public function destroy($receiptDetailId)
+    {   
+        $receiptDetail = ReceiptDetail::findOrFail($receiptDetailId);
+
+        $status = $receiptDetail->forceDelete();
+
+        return response()->json([
+            'status' => $status,
+            'message' => $status ? 'receipt Detail deleted' : 'Error delete receipt Detail'
+        ]);
+    }
+    
     public function getByReceiptId(Request $request)
     {
         $receiptDetail = DB::connection('mongodb')->collection('receipt_detail')
