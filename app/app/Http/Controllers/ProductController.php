@@ -168,7 +168,7 @@ class ProductController extends Controller
          $product =Product::findOrFail($product_id);
          $product->amount = $request->amount;
          $product -> save();
-         return response ->json($product);
+         return response()->json($product);
     }
     /**
      * Remove the specified resource from storage.

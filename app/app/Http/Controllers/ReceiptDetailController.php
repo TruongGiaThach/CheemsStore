@@ -32,4 +32,26 @@ class ReceiptDetailController extends Controller
 
         return response()->json($receiptDetail);
     }
+
+    public function updateAmount(Request $request, $receiptDetailId)
+    {
+        //
+        $receiptDetail = ReceiptDetail::findOrFail($receiptDetailId);
+
+        $receiptDetail->amount = $request->amount;
+         $receiptDetail -> save();
+         return response()->json($receiptDetail);
+    }
+
+    public function destroy($receiptDetailId)
+    {   
+        $receiptDetail = ReceiptDetail::findOrFail($receiptDetailId);
+
+        $status = $receiptDetail->forceDelete();
+
+        return response()->json([
+            'status' => $status,
+            'message' => $status ? 'receipt Detail deleted' : 'Error delete receipt Detail'
+        ]);
+    }
 }

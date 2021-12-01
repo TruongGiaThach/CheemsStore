@@ -27,7 +27,9 @@
           >
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
-          <return-product/>
+          <return-product
+            @refundFinish="initialize"
+          />
 
           <v-dialog v-model="dialog" max-height="100vh" max-width="100vh">
             <v-card
@@ -254,7 +256,11 @@ export default {
     },
   },
   beforeMount() {
-    axios
+    this.initialize()
+  },
+  methods: {
+    initialize() {
+      axios
       .get("/api/receipt")
       .then((response) => {
         this.receipts = response.data;
@@ -292,8 +298,7 @@ export default {
       .catch((error) => {
         console.error(error);
       });
-  },
-  methods: {
+    },
     printDetail() {
       this.dialog = true;
       window.print("page");

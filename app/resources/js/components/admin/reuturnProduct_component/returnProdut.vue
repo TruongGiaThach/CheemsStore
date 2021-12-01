@@ -46,6 +46,11 @@
                     >Tìm Kiếm</v-btn>
                 </v-col>
               </v-row>
+              <v-row>
+                <p style="color: red" > 
+                  {{ this.notifycationText }}
+                </p>
+              </v-row>
             </v-container>
           </v-card-text>
         </template>
@@ -92,28 +97,47 @@
                 :headers="headers"
                 :items="dataTable"
 
+                v-model="selected"
                 height="30vh"
-
+                show-select
                 dense
                 hide-default-footer
                 fixed-header
-                item-key="name"
+                item-key="_id"
                 rounded-xl
               >
                 <template v-slot:[`item.actions`]="{ item }">
                   <v-container
-                    width="10px"
+                    fluid
                   >
-                    <v-text-field
-                      v-model.number="changeAmount[item.index]"
-                      hide-details
-                      single-line
-                      type="number"
-                    />
+                    <v-row 
+                      align="center"
+                      justify="center"
+                      no-gutters
+                    >
+                      <v-col>
+                        <v-text-field
+                          v-model.number="changeAmount[item.index].num"
+                          hide-details
+                          single-line
+                          type="number"
+                          class="d-flex justify-center align-center"
+                          style="padding-top: 0px; margin-top: 0px;"
+                        />
+                      </v-col>
+                      <v-col>
+                        <v-icon :color="changeAmount[item.index].action == 'DELETE'?'red':'gray'" @click="deleteSelect(item.index)"> mdi-delete </v-icon>
+                      </v-col>
+                    </v-row>
                   </v-container>
                 </template>
                 <!--data table header------------------------------------------------------------------------------------------------------------------------>
-                
+                <template v-slot:top>
+                  <v-container fluid>
+                    <v-spacer></v-spacer>
+                    <v-icon  @click="deleteSelectAll"> mdi-delete </v-icon>
+                  </v-container>
+                </template>
                 <!-------------------------------------------------------------------------------------------------------------------------------------------->
                 <template v-slot:footer>
                   <p> {{ changeAmout }} </p>
@@ -137,11 +161,15 @@
                   >
                 </v-col>
                 <v-col cols="12" md="3">
-                  <v-spacer></v-spacer>
+                  <span><h5 style="display: inline">trả lại:</h5></span>
+                  <span
+                    ><b style="color: #2196f3; font-size: 110%">{{
+                      refundMoney
+                    }}</b></span
+                  >
                 </v-col>
                 <v-col cols="12" md="3" align-self="end">
                   <v-btn
-                    small
                     color="primary"
                     @click="calculateTotal"
                   >
@@ -166,6 +194,8 @@
             color="blue darken-1"
             type="submit"
             text
+            :loading="updateLoading"
+            :disabled="!isChange"
             @click="save"
           >
             Xác nhận
@@ -181,17 +211,22 @@ export default {
         dialog: false, 
         orderChecked: false,
         orderChecking: false,
+        updateLoading: false,
+        isChange: false,
         
         orderID: '',
+        notifycationText: '',
 
         totalMoney: 0,
         VATmoney: 0,
+        refundMoney: 0,
 
         order: null,
         user: null,
 
         orderDetail: [],
         changeAmount: [],
+        selected: [],
 
         headers: [
           {
@@ -252,12 +287,6 @@ export default {
     },
 
     watch: {
-      changeAmount: function() {
-        for(i in this.orderDetail.length)
-        {
-          this.totalMoney = (this.orderDetail[i].amount - this.changeAmount[i]) * this.orderDetail[i].unitPrice
-        }
-      }
     },
 
     methods: {
@@ -273,69 +302,82 @@ export default {
             }
           })
           .then((response) =>{
-            console.log(`recevie order of ${this.orderID}`);
-            this.order = response.data[0];
-            if(this.order != undefined) {
-              this.totalMoney = this.order.total;
-              this.VATmoney = this.order.VAT;
-              //get customer info
-              axios
-              .get('/api/customer/find', {
-                params: {
-                  type: '_id',
-                  condition: this.order.user_id,
-                }
-              })
-              .then((response) => {
-                this.user = response.data[0];
-              })
-              .catch((error) => {
-                console.log('there something wrong when get customer');
-                this.orderChecking = false;
-              })
-
-              //get product
-              axios
-              .get('/api/receipt_detail/find', {
-                params: {
-                  type: 'receipt_id',
-                  condition: this.orderID,
-                }
-              })
-              .then((response) => {
-                console.log(`get order detail of order ${this.orderID}`)
-                var j = 0;
-                this.orderDetail = response.data;
-                for (var i = 0, l = this.orderDetail.length; i < l; i++)
-                  {
-                    axios
-                    .get('/api/products/find', {
-                      params: {
-                        type: '_id',
-                        condition: this.orderDetail[i].product_id,
-                      }
-                    })
-                    .then((response) => {
-                      this.orderDetail[j].index = j;
-                      this.orderDetail[j].product = response.data[0];
-                      this.changeAmount[j] = 0;
-                      j++;
-                      if(j == this.orderDetail.length) {
-                        this.orderChecked = true;
-                        this.orderChecking = false;
-                      }
-                    })
-                    .catch((error) => {
-                      console.log(`error when get product`)
-                      console.log(error)
-                      this.orderChecking = false;
-                    })
+            if(response.data.length != 0) {
+              console.log(`recevie order of ${this.orderID}`);
+              this.order = response.data[0];
+              if(this.order != undefined) {
+                this.totalMoney = this.order.total;
+                this.VATmoney = this.order.VAT;
+                //get customer info
+                axios
+                .get('/api/customer/find', {
+                  params: {
+                    type: '_id',
+                    condition: this.order.user_id,
                   }
-              })
-              .catch((error) => {
-                console.log(`error when get order detail`)
-                console.log(`${error}`)
-              })
+                })
+                .then((response) => {
+                  this.user = response.data[0];
+                })
+                .catch((error) => {
+                  console.log('there something wrong when get customer');
+                  this.orderChecking = false;
+                })
+
+                //get product
+                axios
+                .get('/api/receipt_detail/find', {
+                  params: {
+                    type: 'receipt_id',
+                    condition: this.orderID,
+                  }
+                })
+                .then((response) => {
+                  console.log(`get order detail of order ${this.orderID}`)
+                  var j = 0;
+                  this.orderDetail = response.data;
+                  if(this.orderDetail.length != 0) {
+                    for (var i = 0, l = this.orderDetail.length; i < l; i++)
+                    {
+                      axios
+                      .get('/api/products/find', {
+                        params: {
+                          type: '_id',
+                          condition: this.orderDetail[i].product_id,
+                        }
+                      })
+                      .then((response) => {
+                        this.orderDetail[j].index = j;
+                        this.orderDetail[j].product = response.data[0];
+                        this.changeAmount[j] = {action: 'CHANGE', num: 0};
+                        j++;
+                        if(j == this.orderDetail.length) {
+                          this.orderChecked = true;
+                          this.orderChecking = false;
+                        }
+                      })
+                      .catch((error) => {
+                        console.log(`error when get product`)
+                        console.log(error)
+                        this.orderChecking = false;
+                      })
+                    }
+                  }
+                  else {
+                    this.orderChecked = true;
+                    this.orderChecking = false;
+                  }
+                })
+                .catch((error) => {
+                  console.log(`error when get order detail`)
+                  console.log(`${error}`)
+                })
+              }
+            }
+            else {
+              console.log('no order founded');
+              this.notifycationText = 'không tìm thấy hóa đơn';
+              this.orderChecking = false;
             }
           })
           .catch((error) => {
@@ -345,8 +387,8 @@ export default {
         }
       },
 
-      updateOrder() {
-        axios
+      async updateOrder() {
+        return axios
         .put(`/api/receipt/${this.orderID}`, {
           VAT: this.VATmoney,
           createDay: this.order.createDay,
@@ -354,38 +396,124 @@ export default {
           user_id: this.order.user_id,
         })
         .then((res) => {
-          console.log('update order')
+          console.log('update order');
+          return "update order success";
+        })
+        .catch((error) => {
+          console.log('error when update order');
+          return "error when update order"
         })
       },
 
-      updateOrderDetail() {
-        
+      async deleteOrderDetail(receiptDetailId) {
+        return axios
+          .delete(`/api/receipt_detail/${receiptDetailId}`)
+          .then(
+            res => {
+              console.log('delete order detail success');
+              return "delete order detail success";
+            }
+          )
+          .catch((error) => {
+              console.error(error);
+              return "delete order detail success";
+          });
       },
 
-      updateProductAmount() {
-
+      async updateOrderDetailAmount(receiptDetailId, oldAmount, newAmount) {
+        if(oldAmount != newAmount)
+        {
+          return axios
+          .put(`/api/amount/receipt_detail/${receiptDetailId}`, {
+            amount: newAmount,
+          })
+          .then((res) => {
+            console.log('update order detail');
+            return "update order detail success";
+          })
+          .catch((error) => {
+            console.log('error when update order');
+            return "error when update order detail"
+          })
+        }
+        else return 'nothing to update';
       },
 
-      calculateTotal() {
+      async updateProductAmount(productId, oldAmount, newAmount) {
+        if(oldAmount != newAmount)
+        {
+          return axios
+          .put(`/api/amount/products/${productId}`, {
+            amount: newAmount,
+          })
+          .then((res) => {
+            console.log('update product');
+            return "update product amount success";
+          })
+          .catch((error) => {
+            console.log('error when update order');
+            return "error when update product amount"
+          })
+        }
+        else return 'nothing to update';
+      },
+
+      deleteSelect(index) {
+        console.log(index);
+        if(this.changeAmount[index].action == 'CHANGE') {
+          console.log('change action to delete');
+          console.log(this.changeAmount[index].action);
+          this.changeAmount[index].action = "DELETE";
+        }
+        else {
+          console.log('change action to change');
+          console.log(this.changeAmount[index].action);
+          this.changeAmount[index].action = 'CHANGE';
+        }
+      },
+
+      deleteSelectAll() {
+        for (var i = 0, l = this.selected.length; i < l; i++) {
+          this.changeAmount[i].action = "DELETE";
+        }
+      },
+
+      calculateTotal() {                      
         var total = 0;
         var vat = 0;
         for(var i in this.orderDetail)
         {
-          total = total + (parseInt(this.orderDetail[i].amount) - parseInt(this.changeAmount[i])) * parseFloat(this.orderDetail[i].unitPrice)
+          if(this.changeAmount[i].action == 'CHANGE') {
+            total = total + (parseInt(this.orderDetail[i].amount) - parseInt(this.changeAmount[i].num)) * parseFloat(this.orderDetail[i].unitPrice)
+          }
+          else {
+            total = total + (0) * parseFloat(this.orderDetail[i].unitPrice)
+          }
         }
         vat = total * 0.1;
         total = total + vat;
+        this.refundMoney = this.totalMoney - total;
         this.totalMoney = total;
         this.VATmoney = vat;
+        if(this.order.total != this.totalMoney) this.isChange = true;
+        else this.isChange = false;
       },
 
       async close() {
         this.orderID = '';
+        this.notifycationText = '',
+
         this.orderChecked = false;
+        this.updateLoading = false;
+        this.isChange = false;
+
         this.order = null;
 
         this.orderDetail = [];
         this.changeAmount = [];
+        this.selected = [];
+
+        this.refundMoney = 0;
 
         this.user = null;
 
@@ -393,8 +521,75 @@ export default {
         this.dialog = false;
       },
 
+      async updateAndDelete(index) {
+        if(this.changeAmount[index].action == 'CHANGE') {
+          console.log('order detail number ' + index);
+          this.updateOrderDetailAmount(this.orderDetail[index]._id, parseInt(this.orderDetail[index].amount), parseInt(this.orderDetail[index].amount) - parseInt(this.changeAmount[index].num))
+          .then((response) => {
+            console.log('product number ' + index);
+            this.updateProductAmount(this.orderDetail[index].product_id, parseInt(this.orderDetail[index].product.amount), parseInt(this.orderDetail[index].product.amount) + parseInt(this.changeAmount[index].num))
+            .then((res) => {
+              console.log(res);
+              if(index == this.orderDetail.length-1) {
+                this.close();
+              }
+            })
+            .catch((error) => {
+              console.log('error: ' + error);
+            })
+          })
+          .catch((error) => {
+            console.log('error: ' + error);
+          })
+        }
+        else {
+          console.log('order detail number ' + index);
+          this.deleteOrderDetail(this.orderDetail[index]._id)
+          .then((response) => {
+            this.updateProductAmount(this.orderDetail[index].product_id, parseInt(this.orderDetail[index].product.amount), parseInt(this.orderDetail[index].product.amount) + parseInt(this.orderDetail[index].amount))
+            .then((res) => {
+              console.log(res);
+              if(index == this.orderDetail.length-1) {
+                this.close();
+              }
+            })
+            .catch((error) => {
+              console.log('error: ' + error);
+            })
+            
+          })
+          .catch((error) => {
+            console.log('error: ' + error);
+          })
+        }
+      },
+
       async save() {
-        this.close();
+        this.updateLoading = true;
+        if(this.orderChecked && this.orderDetail.length != 0) {
+          if(this.isChange) {
+            this.updateOrder()
+            .then((res) => {
+              console.log(res);
+              console.log(this.orderDetail.length);
+              var j = 0;
+              for (var i = 0, l = this.orderDetail.length; i < l; i++) {
+                this.updateAndDelete(i)
+              }
+              this.$emit('refundFinish');
+            })
+            .catch((error) => {
+              console.log(error);
+            })
+          }
+          else {
+            //
+            this.updateLoading = false;
+          }
+        }
+        else {
+          this.updateLoading = false;
+        }
       },
     }
 }
