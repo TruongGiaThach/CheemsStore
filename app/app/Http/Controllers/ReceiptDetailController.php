@@ -70,7 +70,7 @@ class ReceiptDetailController extends Controller
                         //61a23b83d664c812a133ef06
                 foreach ($receiptDetail as $value){
                     $value = (array)$value;
-                    $product =Product::findOrFail("61a23b83d664c812a133ef06");
+                    $product =Product::findOrFail($value['product_id']);
                     
                     
                     $value['product_name'] = $product->name;
