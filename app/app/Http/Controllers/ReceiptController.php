@@ -22,6 +22,7 @@ class ReceiptController extends Controller
     {
          
         error_log($request->customerID);
+        
       //  $receipt = Receipt::where('user_id',"6196655b4e781e6b24412523")->get();
         $receipt = DB::connection('mongodb')->collection('receipt')
                     ->where('user_id',$request->customerID)->get();

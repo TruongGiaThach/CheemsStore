@@ -174,7 +174,7 @@ export default {
     if (this.user.role == "staff") {
       this.Nav_bar_items.pop();
       this.Nav_bar_items.pop();
-      this.Nav_bar_items.pop();
+   
     }
   },
   methods: {

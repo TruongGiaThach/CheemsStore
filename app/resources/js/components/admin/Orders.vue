@@ -14,9 +14,9 @@
       :items="receipts"
       :search="search"
       :footer-props="{
-          itemsPerPageOptions: [ 10, 20, 50, 100, -1], 
+          itemsPerPageOptions: [ 10, 20, 50, 100, -1],
           itemsPerPageText: 'Số lượng',
-          pageText: '{0}-{1} trên {2}' 
+          pageText: '{0}-{1} trên {2}'
           }"
       class="elevation-1"
     >
@@ -27,10 +27,19 @@
           >
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
+          
+
+          <v-text-field
+                v-model="search"
+                append-icon="mdi-magnify"
+                label="Tìm kiếm"
+                single-line
+                hide-details
+          ></v-text-field>
+          
           <return-product
             @refundFinish="initialize"
           />
-
           <v-dialog v-model="dialog" max-height="100vh" max-width="100vh">
             <v-card
               class="p-3 m-2 overflow-x-hidden"
@@ -166,7 +175,7 @@
       </template>
     </v-data-table>
   </div>
-</v-card> 
+</v-card>
 </template>
 
 <style scoped>
@@ -270,6 +279,7 @@ export default {
           this.receipts[i].VAT =
             Number(this.receipts[i].VAT).toLocaleString() + " VNĐ";
         }
+        this.receipts.reverse();
       })
       .catch((error) => {
         console.error(error);

@@ -203,7 +203,7 @@ export default {
       receiptDetails: [],
 
       values: [],
-      dayinWeek: ["Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"],
+      // dayinWeek: ["Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"],
       monthinYear: [
         "Tháng 1",
         "Tháng 2",
@@ -370,12 +370,12 @@ export default {
     },
     createStatisticWithYear() {
       this.startDay1 = new Date((new Date(this.endDay1)).valueOf() - 31536000000*7).toISOString().slice(0, 10);
-      this.labels =this.createLabelWithYear(this.startDay1, this.endDay1);
+      this.labels = this.createLabelWithYear(this.startDay1, this.endDay1);
       this.createDataWithYear();
     },
     createStatisticWithMonth() {
-      this.startDay1 = new Date((new Date(this.endDay1)).valueOf() - 2592000000*7).toISOString().slice(0, 10);
-      this.labels =this.createLabelWithMonth(this.startDay1, this.endDay1);
+      this.startDay1 = new Date((new Date(this.endDay1)).valueOf() - 2678400000*7).toISOString().slice(0, 10);
+      this.labels = this.createLabelWithMonth(this.startDay1, this.endDay1);
       this.createDataWithMonth();
     },
     createStatisticWithDay() {
@@ -390,7 +390,7 @@ export default {
       this.createDataWithYear2();
     },
     createStatisticWithMonth2() {
-      this.startDay2 = new Date((new Date(this.endDay2)).valueOf() - 2592000000*7).toISOString().slice(0, 10);
+      this.startDay2 = new Date((new Date(this.endDay2)).valueOf() - 2678400000*7).toISOString().slice(0, 10);
       this.labels2=this.createLabelWithMonth(this.startDay2, this.endDay2);
       this.createDataWithMonth2();
     },
@@ -568,7 +568,7 @@ export default {
                 i--;
             }
         }
-        var lengths = this.daysdifference(this.startDay2, this.endDay2);
+        var lengths = 7;  //this.daysdifference(this.startDay2, this.endDay2);
         var j = 0;
         var i= 0;
         var datecheck = new Date(this.startDay2);
@@ -834,7 +834,7 @@ export default {
       var j = 0;
       var i= 0;
       var datecheck = new Date(this.startDay1);
-      var lengths = this.daysdifference(this.startDay1, this.endDay1);
+      var lengths = 7; //this.daysdifference(this.startDay1, this.endDay1);
       for (; i <= lengths; i++) {
         var dateRec = new Date(receiptsDay[j].createDay);
         if (datecheck.getTime() < dateRec.getTime()) {
@@ -858,41 +858,51 @@ export default {
     },
     createLabelWithDay(startDay, endDay) {
       // push tuần đầu tiên
+      // var labels = [];
+      // var rangeDay = 7; //this.daysdifference(startDay, endDay)
+      // var currentDay = new Date(startDay).getDay();
+      // if (7 - currentDay <= rangeDay + 1) {
+      //   labels.push(
+      //     ...this.dayinWeek.filter((e, i) => {
+      //       return i >= currentDay;
+      //     })
+      //   );
+      // }
+      // var allweek = Math.floor((rangeDay + 1 - (7 - currentDay)) / 7);
+      // var residualDays = (rangeDay + 1 - (7 - currentDay)) % 7;
+      // // push các tuần trong năm
+      // for (var i = 0; i < allweek; ++i) {
+      //   labels.push(...this.dayinWeek);
+      // }
+
+      // // push các ngày còn lại
+      // labels.push(
+      //   ...this.dayinWeek.filter((e, i) => {
+      //     return i < residualDays;
+      //   })
+      // );
       var labels = [];
-      var rangeDay = this.daysdifference(startDay, endDay)
-      var currentDay = new Date(startDay).getDay();
-      if (7 - currentDay <= rangeDay + 1) {
-        labels.push(
-          ...this.dayinWeek.filter((e, i) => {
-            return i >= currentDay;
-          })
-        );
-      }
-      var allweek = Math.floor((rangeDay + 1 - (7 - currentDay)) / 7);
-      var residualDays = (rangeDay + 1 - (7 - currentDay)) % 7;
-      // push các tuần trong năm
-      for (var i = 0; i < allweek; ++i) {
-        labels.push(...this.dayinWeek);
+      var currentDay = new Date(startDay).getDate();
+      var currentMonth = new Date(startDay).getMonth();
+      for(var i = 0; i < 8; i++){
+        labels.push(currentDay + i + '/' + (currentMonth + 1));
       }
 
-      // push các ngày còn lại
-      labels.push(
-        ...this.dayinWeek.filter((e, i) => {
-          return i < residualDays;
-        })
-      );
+
       return labels;
     },
     // tim ngay giua 2 thoi diem
-    daysdifference(startDay, endDay) {
-      var startDay1 = new Date(startDay);
-      var endDay1 = new Date(endDay);
 
-      var millisBetween = startDay1.getTime() - endDay1.getTime();
-      var days = millisBetween / (1000 * 3600 * 24);
+    // daysdifference(startDay, endDay) {
+    //   var startDay1 = new Date(startDay);
+    //   var endDay1 = new Date(endDay);
 
-      return Math.round(Math.abs(days));
-    },
+    //   var millisBetween = startDay1.getTime() - endDay1.getTime();
+    //   var days = millisBetween / (1000 * 3600 * 24);
+
+    //   return Math.round(Math.abs(days));
+    // },
+
     //so sanh ngay de sort
     compareDay(date1, date2) {
       var datemot = new Date(date1.createDay);

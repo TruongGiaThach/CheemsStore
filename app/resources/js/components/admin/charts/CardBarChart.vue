@@ -112,7 +112,7 @@ export default {
               display: true,
               scaleLabel: {
                 display: true,
-                labelString: "Month",
+                labelString: "Thời gian",
               },
               gridLines: {
                 borderDash: [2],
