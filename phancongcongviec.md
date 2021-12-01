@@ -1,4 +1,4 @@
-## hoàn thành trước thứ 3, và merge vào master
+## hoàn thành trước thứ CN, và merge vào master
 ## Bảy:
 	sửa lại UI phần sản phẩm
 ## tiến
@@ -38,3 +38,39 @@
 	
 ## tính năng đang phát triển
 	1. thêm danh sách sản phẩm từ file excel
+	
+## Task
+### usecase
+ 	kẻ bảng rồi ghi thêm luồng sử lí chính và phụ
+  	sơ đồ usecase tổng quát:
+  	người làm: anh Bảy
+
+	usecase thống kê:
+
+	usecase bán hàng:
+
+	usecase quản lí sản phẩm:
+
+	usecase quản lí khách hàng
+	
+	usecase quản lí tài khoản
+
+	usecase quản lí nhân viên
+	
+	usecase quản lí hóa đơn
+
+
+### giao diện
+	người làm: Dũng
+	
+### kiến trúc:
+	người làm: anh Hùng
+	giới thiệu về MVC
+	tổng quan về MVC và cách áp dụng nó vào đồ án
+	
+### phân tích:
+	người làm: Tiến
+	vẽ sơ đồ class, sơ đồ state
+	
+### thiết kế dữ liệu, phát biểu bài toán, vẽ sơ đồ cơ sở dữ liệu, liệt kê các đối tượng, yêu cầu chức năng
+	người làm: Thạch
