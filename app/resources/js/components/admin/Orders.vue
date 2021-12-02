@@ -189,7 +189,7 @@
 
 <script>
 
-import returnProduct from "./reuturnProduct_component/returnProdut.vue"
+import returnProduct from "./product_component/reuturnProduct_component/returnProdut.vue"
 
 export default {
   data: () => ({
