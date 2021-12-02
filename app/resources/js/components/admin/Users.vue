@@ -169,7 +169,7 @@
                   <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn color="blue darken-1" text @click="close">
-                      Cancel
+                      Hủy
                     </v-btn>
                     <v-btn
                       color="blue darken-1"
@@ -178,7 +178,7 @@
                       @click="save"
                       :disabled="invalid"
                     >
-                      Save
+                      Lưu
                     </v-btn>
                   </v-card-actions>
                 </v-card>
@@ -188,12 +188,12 @@
             <v-dialog v-model="dialogDelete" max-width="500px">
               <v-card>
                 <v-card-title class="text-h5"
-                  >Are you sure you want to delete this item?</v-card-title
+                  >Bạn có chắc bạn muốn xóa tài khoản này?</v-card-title
                 >
                 <v-card-actions>
                   <v-spacer></v-spacer>
                   <v-btn color="blue darken-1" text @click="closeDelete"
-                    >Cancel</v-btn
+                    >Hủy</v-btn
                   >
                   <v-btn color="blue darken-1" text @click="deleteItemConfirm"
                     >OK</v-btn
@@ -319,7 +319,7 @@ export default {
       search: "",
       headers: [
         {
-          text: "Name",
+          text: "Tên",
           align: "start",
           sortable: false,
           value: "name",
@@ -416,7 +416,7 @@ export default {
     },
     getColor(state) {
       if (state == "active") return "#01D145";
-      else if (state == "inactive") return "#FAE5F3";
+      else if (state == "inactive") return "#ed6a50";
       else return "#D1018D";
     },
     initialize() {

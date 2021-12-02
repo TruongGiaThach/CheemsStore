@@ -17,18 +17,14 @@
             </v-icon>
         </v-btn>
       </template>
-      <v-card class="mx-auto grey lighten-3">
-        <v-toolbar
-          dark
-        >
-          <v-toolbar-title>Tùy chỉnh danh mục</v-toolbar-title>
-
-          <v-spacer></v-spacer>
-        </v-toolbar>
+      <v-card>
+        <v-card-title class="bg-info mx-auto" max-width="inherit">
+          <span class="text-h5 mx-auto white--text">Tùy chỉnh danh mục</span>
+        </v-card-title>
         <v-card-text>
           <v-container fluid>
             <v-row>
-                <v-col cols="12" md="8">
+                <v-col cols="12" md="12">
                     <v-text-field
                         v-model="categoryName"
                         label="Danh mục được chọn"
@@ -41,8 +37,9 @@
                 </v-col>
                 <v-col cols="12" md="4">
                     <v-btn
+                    color="primary"
                         dark
-                        @click="checkCategory"
+                        v-model="checkCategory"
                         :disabled="categoryChecked"
                         :loading="categoryChecking"
                     >Kiểm tra</v-btn>
@@ -231,9 +228,7 @@ export default {
           return this.categoryList.filter((e) => {
           return (e._id != this.categoryId);
         });
-        }
-    },
-    methods: {
+        },
         checkCategory() {
             this.categoryChecking = true;
             axios
@@ -258,6 +253,9 @@ export default {
                 this.checkResultColor = 'red--text'
             });
         },
+    },
+    methods: {
+        
 
         productProcessing(event) {
           if(event[0])

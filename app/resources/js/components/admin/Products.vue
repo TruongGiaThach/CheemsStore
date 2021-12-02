@@ -1,14 +1,16 @@
 <template>
   <v-card
-    height="100%"
-    outlined
-    class="pa-md-4 mx-lg-auto grey lighten-3"
-    max-height="680"
-  >
+    height="100%" outlined class="pa-md-4 mx-lg-auto grey lighten-3">
     <v-row>
       <v-col cols="12" md="3">
-        <v-card height="100%" class="mx-auto">
-          <v-toolbar dark>
+        <v-card style="
+        height: 91vh;
+        align: center;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+        ">
+          <v-toolbar color="primary" dark>
             <v-toolbar-title>Danh mục</v-toolbar-title>
 
             <v-spacer></v-spacer>
@@ -34,7 +36,12 @@
               @resetAll="initialize"
             />
           </v-toolbar>
-          <v-list>
+          <v-list
+          style="
+          height: 90%;
+          overflow-y: scroll;
+          "
+          >
             <v-list-item-group
               v-model="selected"
               active-class="gray--text"
@@ -75,6 +82,13 @@
 
       <v-col cols="12" md="9">
         <v-data-table
+        style="
+        height: 91vh;
+        overflow: auto;
+        align: center;
+        margin-left: auto;
+        margin-right: auto;
+        "
           :headers="headers"
           :items="tableData"
           :search="search"
@@ -96,7 +110,7 @@
         >
           <template v-slot:top>
             <v-toolbar flat>
-              <v-toolbar-title>Sản phẩm</v-toolbar-title>
+              <v-toolbar-title class="info--text">Sản phẩm</v-toolbar-title>
               <v-divider class="mx-4" inset vertical></v-divider>
               <v-spacer></v-spacer>
               <v-text-field
@@ -109,7 +123,7 @@
               <v-spacer></v-spacer>
               <v-dialog v-model="dialog" max-width="500px">
                 <template v-slot:activator="{ on, attrs }">
-                  <v-btn dark class="mb-2" v-bind="attrs" v-on="on">
+                  <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">
                     Thêm sản phẩm
                   </v-btn>
                 </template>
@@ -421,27 +435,33 @@ export default {
           align: "left",
           sortable: false,
           value: "name",
+          class: "info--text" 
         },
         {
           text: "Số lượng",
           value: "amount",
+          class: "info--text" 
         },
         {
           text: "Giá mua",
           value: "importPrice",
+          class: "info--text" 
         },
         {
           text: "giá bán",
           value: "outportPrice",
+          class: "info--text" 
         },
         {
           text: "Tag",
           value: "tag",
+          class: "info--text" 
         },
         {
           text: "",
           value: "actions",
           sortable: false,
+          class: "info--text" 
         },
       ],
       editedIndex: -1,
@@ -492,7 +512,6 @@ export default {
       //  item.image = `http://localhost/images/${item.image}`;
       //};
       if (this.selected != "ALL") {
-        console.log(this.selected);
         return this.products.filter((e) => {
           return e.category_id == this.selected;
         });
