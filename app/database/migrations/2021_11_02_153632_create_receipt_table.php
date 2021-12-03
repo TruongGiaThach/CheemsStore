@@ -15,10 +15,11 @@ class CreateReceiptTable extends Migration
     {
         Schema::create('receipt', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('user_id');
+            $table->string('user_id'); //customer
             $table->string('createDay');
             $table->double('total'); // no need
             $table->double('VAT');
+            $table->double('staff_id');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
