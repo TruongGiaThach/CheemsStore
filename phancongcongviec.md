@@ -1,6 +1,7 @@
 ## hoàn thành trước thứ CN, và merge vào master
 ## Bảy:
 	sửa lại UI phần sản phẩm
+	thêm trang user show product, chỉnh lại router
 ## tiến
 	sửa lại giao diện trả sản phẩm
 	thêm lích sử chỉnh sửa sản phẩm của nhân viên vào bảng history trong database
