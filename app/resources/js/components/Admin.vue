@@ -147,7 +147,7 @@ export default {
         ["mdi-store-search", "Sản phẩm", "products"],
         ["mdi-account-group", "Khách hàng", "customers"],
          ["mdi-account", "Tài khoản", "users"],
-        ["mdi-account-cog-outline", "Nhân viên", "staffs"],
+        ["mdi-account-cog-outline", "Thông tin cá nhân", "staffs"],
       ],
       Nav_bar_order: [
         ["mdi-cart-plus", "Bán hàng", "createOrder"],
@@ -172,9 +172,7 @@ export default {
       "Bearer " + localStorage.getItem("bigStore.jwt");
     this.getImage();
     if (this.user.role == "staff") {
-      this.Nav_bar_items.pop();
-      this.Nav_bar_items.pop();
-   
+      this.Nav_bar_items.splice(2,1);
     }
   },
   methods: {

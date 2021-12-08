@@ -1,277 +1,358 @@
 <template>
   <v-card height="100%" outlined class="pa-md-4 mx-lg-auto grey lighten-3">
-    <div>
-      <v-data-table
-      style="
-        height: 91vh;
-        overflow: auto;
-        width: 80%;
-        align: center;
-        margin-left: auto;
-        margin-right: auto;
-      "
-        :headers="headers"
-        :items="users"
-        :search="search"
-        :expanded.sync="expanded"
-        :single-expand="singleExpand"
-        :footer-props="{
-          itemsPerPageOptions: [ 10, 20, 50, 100, -1], 
-          itemsPerPageText: 'Số lượng',
-          pageText: '{0}-{1} trên {2}' 
+    <v-row>
+      <v-col cols="12" md="3">
+        <v-card
+          style="
+            height: 30vh;
+            align: center;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+          "
+        >
+          <v-toolbar color="primary" dark>
+            <v-toolbar-title>Mục</v-toolbar-title>
+
+            <v-spacer></v-spacer>
+          </v-toolbar>
+          <v-list style="height: 90%">
+            <v-list-item-group
+              v-model="selected"
+              active-class="gray--text"
+              mandatory
+            >
+              <v-list-item :value="'staff'">
+                <template v-slot:default="{ active }">
+                  <v-list-item-content>
+                    <v-list-item-title v-text="'Nhân viên'"></v-list-item-title>
+                  </v-list-item-content>
+
+                  <v-list-item-action>
+                    <v-icon v-if="active" color="grey lighten-1">
+                      mdi-star-outline
+                    </v-icon>
+                  </v-list-item-action>
+                </template>
+              </v-list-item>
+              <v-list-item :value="'account'">
+                <template v-slot:default="{ active }">
+                  <v-list-item-content>
+                    <v-list-item-title v-text="'Tài khoản'"></v-list-item-title>
+                  </v-list-item-content>
+
+                  <v-list-item-action>
+                    <v-icon v-if="active" color="grey lighten-1">
+                      mdi-star-outline
+                    </v-icon>
+                  </v-list-item-action>
+                </template>
+              </v-list-item>
+            </v-list-item-group>
+          </v-list>
+        </v-card>
+      </v-col>
+
+      <v-col cols="12" md="9">
+        <v-data-table
+          style="
+            height: 91vh;
+            overflow: auto;
+            align: center;
+            margin-left: auto;
+            margin-right: auto;
+          "
+          :headers="headerIsSelected"
+          :items="tableIsSelected"
+          :search="search"
+          :expanded.sync="expanded"
+          :single-expand="singleExpand"
+          :footer-props="{
+            itemsPerPageOptions: [10, 20, 50, 100, -1],
+            itemsPerPageText: 'Số lượng',
+            pageText: '{0}-{1} trên {2}',
           }"
-        item-key="email"
-        show-expand
-        rounded-xl
-        class="elevation-1 "
-        min-height="70vh"
-      >
-        <template v-slot:[`item.state`]="{ item }">
-          <v-chip :color="getColor(item.state)">
-            <span v-if="item.state === 'active'"> Đang hoạt động </span>
-            <span v-if="item.state === 'inactive'"> Đã thoát </span>
-          </v-chip>
-        </template>
+          item-key="email"
+          show-expand
+          rounded-xl
+          class="elevation-1"
+          min-height="70vh"
+        >
+          <template v-slot:[`item.state`]="{ item }">
+            <v-chip :color="getColor(item.state)">
+              <span v-if="item.state === 'active'"> Đang hoạt động </span>
+              <span v-if="item.state === 'inactive'"> Đã thoát </span>
+            </v-chip>
+          </template>
 
-        <!-- dialog thêm tài khoản và thông tin nhân viên -->
-        <template v-slot:top>
-          <v-toolbar flat>
-            <v-toolbar-title class="info--text">Tài khoản</v-toolbar-title>
-            <v-divider class="mx-4" inset vertical></v-divider>
-            <v-spacer></v-spacer>
-            <v-text-field
-              v-model="search"
-              append-icon="mdi-magnify"
-              label="Tìm kiếm tài khoản"
-              single-line
-              hide-details
-            ></v-text-field>
-            <v-spacer></v-spacer>
-            <v-dialog v-model="dialog" max-width="500px">
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                  color="primary"
-                  dark
-                  class="mb-2"
-                  v-bind="attrs"
-                  v-on="on"
-                >
-                  Tạo tài khoản mới
-                </v-btn>
-              </template>
-              <ValidationObserver ref="observer" v-slot="{ invalid }">
-                <v-card class="elevation-12 ">
-                  <v-card-title class="bg-info mx-auto" max-width="inherit">
-                    <span class="text-h5 mx-auto white--text">
-                      {{ formTitle }}</span
-                    >
-                  </v-card-title>
-                  <v-card-text>
-                    <v-container>
-                      <V-form @submit.prevent="save">
-                        <v-row>
-                          <v-col cols="12" sm="6" md="4">
-                            <ValidationProvider
-                              v-slot="{ errors }"
-                              name="name"
-                              rules="required"
-                            >
-                              <v-text-field
-                                v-model="editedItem.name"
-                                :error-messages="errors"
-                                label="Tên nhân viên"
-                                required
-                              ></v-text-field>
-                            </ValidationProvider>
-                          </v-col>
-                          <v-col cols="12" sm="6" md="4"></v-col>
-                          <v-col cols="12" sm="6" md="4"></v-col>
-                          <v-col cols="12" sm="6" md="4">
-                            <ValidationProvider
-                              v-slot="{ errors }"
-                              name="email"
-                              rules="required|email"
-                            >
-                              <v-text-field
-                                v-model="editedItem.email"
-                                label="Email"
-                                :error-messages="errors"
-                                required
-                              ></v-text-field>
-                            </ValidationProvider>
-                          </v-col>
-                          <v-col cols="12" sm="6" md="4">
-                            <ValidationProvider
-                              v-slot="{ errors }"
-                              name="password"
-                              rules="required|max:10"
-                              vid="password"
-                            >
-                              <v-text-field
-                                v-model="editedItem.password"
-                                label="Mật khẩu"
-                                :error-messages="errors"
-                                required
-                                type="password"
-                                
-                                
-                              ></v-text-field>
-                            </ValidationProvider>
-                          </v-col>
-                          <v-col cols="12" sm="6" md="4">
-                            <ValidationProvider
-                              v-slot="{ errors }"
-                              name="c_password"
-                              
-                              rules="required|confirmed:password"
-                              data-vv-as="password"
-                            >
-                              <v-text-field
-                                v-model="editedItem.c_password"
-                                label="Xác nhân mật khẩ"
-                                type="password"
-                                :error-messages="errors"
-                                required
-                              ></v-text-field>
-                            </ValidationProvider>
-                          </v-col>
-                          <v-col cols="12" sm="6" md="4">
-                            <ValidationProvider
-                              v-slot="{ errors }"
-                              name="cmnd"
-                              rules="required|numeric"
-                            >
-                              <v-text-field
-                                v-model="editedItem.cmnd"
-                                label="CMND"
-                                :error-messages="errors"
-                                required
-                              ></v-text-field>
-                            </ValidationProvider>
-                          </v-col>
-                          <v-col cols="12" sm="6" md="4">
-                            <v-text-field
-                              v-model="editedItem.salary"
-                              label="Mức lương"
-                            ></v-text-field>
-                          </v-col>
-                          <v-col cols="12" sm="6" md="4">
-                            <v-text-field
-                              v-model="editedItem.numOfDayOff"
-                              label="Số ngày nghỉ"
-                            ></v-text-field>
-                          </v-col>
-                        </v-row>
-                      </V-form>
-                    </v-container>
-                  </v-card-text>
+          <!-- dialog thêm tài khoản và thông tin nhân viên -->
+          <template v-slot:top>
+            <v-toolbar flat>
+              <v-toolbar-title class="info--text">{{
+                nameTitle
+              }}</v-toolbar-title>
+              <v-divider class="mx-4" inset vertical></v-divider>
+              <v-spacer></v-spacer>
+              <v-text-field
+                v-model="search"
+                append-icon="mdi-magnify"
+                label="Tìm kiếm tài khoản"
+                single-line
+                hide-details
+              ></v-text-field>
+              <v-spacer></v-spacer>
+              <v-dialog v-model="dialog" max-width="500px">
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
+                    color="primary"
+                    dark
+                    class="mb-2"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    Tạo tài khoản mới
+                  </v-btn>
+                </template>
+                <ValidationObserver ref="observer" v-slot="{ invalid }">
+                  <v-card class="elevation-12">
+                    <v-card-title class="bg-info mx-auto" max-width="inherit">
+                      <span class="text-h5 mx-auto white--text">
+                        {{ formTitle }}</span
+                      >
+                    </v-card-title>
+                    <v-card-text>
+                      <v-container>
+                        <V-form @submit.prevent="save">
+                          <v-row>
+                            <v-col cols="12" sm="6" md="6">
+                              <ValidationProvider
+                                v-slot="{ errors }"
+                                name="name"
+                                rules="required"
+                              >
+                                <v-text-field
+                                  v-model="editedItem.name"
+                                  :error-messages="errors"
+                                  label="Tên nhân viên"
+                                  required
+                                ></v-text-field>
+                              </ValidationProvider>
+                            </v-col>
+                            <v-col cols="12" sm="6" md="6">
+                              <ValidationProvider
+                                v-slot="{ errors }"
+                                name="position"
+                                rules="required"
+                              >
+                                <v-select
+                                  v-model="editItem.position"
+                                  :items="positions"
+                                  :error-messages="errors"
+                                  label="Chức vụ"
+                                  required
+                                ></v-select>
+                              </ValidationProvider>
+                            </v-col>
+                            <div v-if="editcheck != true">
+                              <v-col cols="12" sm="6" md="10">
+                                <ValidationProvider
+                                  v-slot="{ errors }"
+                                  name="email"
+                                  rules="required|email"
+                                >
+                                  <v-text-field
+                                    v-model="editedItem.email"
+                                    label="Email"
+                                    :error-messages="errors"
+                                    required
+                                  ></v-text-field>
+                                </ValidationProvider>
+                              </v-col>
+                              <v-col cols="12" sm="6" md="10">
+                                <ValidationProvider
+                                  v-slot="{ errors }"
+                                  name="password"
+                                  rules="required|max:10"
+                                  vid="password"
+                                >
+                                  <v-text-field
+                                    v-model="editedItem.password"
+                                    label="Mật khẩu"
+                                    :error-messages="errors"
+                                    required
+                                    type="password"
+                                  ></v-text-field>
+                                </ValidationProvider>
+                              </v-col>
 
+                              <v-col cols="12" sm="6" md="10">
+                                <ValidationProvider
+                                  v-slot="{ errors }"
+                                  name="c_password"
+                                  rules="required|confirmed:password"
+                                  data-vv-as="password"
+                                >
+                                  <v-text-field
+                                    v-model="editedItem.c_password"
+                                    label="Xác nhân mật khẩu"
+                                    type="password"
+                                    :error-messages="errors"
+                                    required
+                                  ></v-text-field>
+                                </ValidationProvider>
+                              </v-col>
+                            </div>
+                            <v-col cols="12" sm="6" md="4">
+                              <ValidationProvider
+                                v-slot="{ errors }"
+                                name="cmnd"
+                                rules="required|numeric"
+                              >
+                                <v-text-field
+                                  v-model="editedItem.cmnd"
+                                  label="CMND"
+                                  :error-messages="errors"
+                                  required
+                                ></v-text-field>
+                              </ValidationProvider>
+                            </v-col>
+                            <v-col cols="12" sm="6" md="4">
+                              <v-text-field
+                                v-model="editedItem.salary"
+                                label="Mức lương"
+                              ></v-text-field>
+                            </v-col>
+                            <v-col cols="12" sm="6" md="4">
+                              <v-text-field
+                                v-model="editedItem.numOfDayOff"
+                                label="Số ngày nghỉ"
+                              ></v-text-field>
+                            </v-col>
+                          </v-row>
+                        </V-form>
+                      </v-container>
+                    </v-card-text>
+
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn color="blue darken-1" text @click="close">
+                        Hủy
+                      </v-btn>
+                      <v-btn
+                        color="blue darken-1"
+                        type="submit"
+                        text
+                        @click="save"
+                        :disabled="invalid"
+                      >
+                        Lưu
+                      </v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </ValidationObserver>
+              </v-dialog>
+              <!-- dialog khi xóa 1 row -->
+              <v-dialog v-model="dialogDelete" max-width="500px">
+                <v-card>
+                  <v-card-title class="text-h5"
+                    >Bạn có chắc bạn muốn xóa tài khoản này?</v-card-title
+                  >
                   <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn color="blue darken-1" text @click="close">
-                      Hủy
-                    </v-btn>
-                    <v-btn
-                      color="blue darken-1"
-                      type="submit"
-                      text
-                      @click="save"
-                      :disabled="invalid"
+                    <v-btn color="blue darken-1" text @click="closeDelete"
+                      >Hủy</v-btn
                     >
-                      Lưu
-                    </v-btn>
+                    <v-btn color="blue darken-1" text @click="deleteItemConfirm"
+                      >OK</v-btn
+                    >
+                    <v-spacer></v-spacer>
                   </v-card-actions>
                 </v-card>
-              </ValidationObserver>
-            </v-dialog>
-            <!-- dialog khi xóa 1 row -->
-            <v-dialog v-model="dialogDelete" max-width="500px">
-              <v-card>
-                <v-card-title class="text-h5"
-                  >Bạn có chắc bạn muốn xóa tài khoản này?</v-card-title
-                >
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn color="blue darken-1" text @click="closeDelete"
-                    >Hủy</v-btn
-                  >
-                  <v-btn color="blue darken-1" text @click="deleteItemConfirm"
-                    >OK</v-btn
-                  >
-                  <v-spacer></v-spacer>
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
-          </v-toolbar>
-        </template>
-        <!-- expand 1 row -->
-        <template v-slot:expanded-item="{ headers, item }">
-          <td :colspan="headers.length">
-            <v-container fluid>
-              <v-row no-gutters>
-                <table class="table_style">
-                  <tr>
-                    <h3>Thông tin nhân viên {{ item.name }}</h3>
-                  </tr>
-                  <tr>
-                    <div v-for="staff in staffs" :key="staff.id">
-                      <v-list
-                        class="text-justify"
-                        v-if="staff.email == item.email"
-                      >
-                        <tr>
-                          <td>Email:</td>
-                          <td>
-                            {{ staff.email }}
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>CMND:</td>
-                          <td>
-                            {{ staff.cmnd }}
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Số ngày nghỉ:</td>
-                          <td>
-                            {{ staff.numOfDayOff }}
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Mức lương:</td>
-                          <td>
-                            {{ staff.salary }}
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Ngày vào làm:</td>
-                          <td>
-                            {{ staff.dateBegin }}
-                          </td>
-                        </tr>
-                      </v-list>
-                    </div>
-                  </tr>
-                </table>
-              </v-row>
-            </v-container>
-          </td>
-        </template>
-        <!-- delete button -->
-        <template v-slot:[`item.actions`]="{ item }">
-          <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
-        </template>
-        <!-- reload -->
-        <template v-slot:no-data>
-          <v-btn color="primary" @click="initialize"> Reset </v-btn>
-        </template>
-      </v-data-table>
-    </div>
+              </v-dialog>
+            </v-toolbar>
+          </template>
+          <!-- expand 1 row -->
+          <template v-slot:expanded-item="{ headers, item }">
+            <td :colspan="headers.length">
+              <v-container fluid>
+                <v-row no-gutters>
+                  <table class="table_style">
+                    <tr>
+                      <h3>Thông tin nhân viên {{ item.name }}</h3>
+                    </tr>
+                    <tr>
+                      <div v-for="staff in staffs" :key="staff.id">
+                        <v-list
+                          class="text-justify"
+                          v-if="staff.email == item.email"
+                        >
+                          <tr>
+                            <td>Email:</td>
+                            <td>
+                              {{ staff.email }}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>CMND:</td>
+                            <td>
+                              {{ staff.cmnd }}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Số ngày nghỉ:</td>
+                            <td>
+                              {{ staff.numOfDayOff }}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Mức lương:</td>
+                            <td>
+                              {{ staff.salary }}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Ngày vào làm:</td>
+                            <td>
+                              {{ staff.dateBegin }}
+                            </td>
+                          </tr>
+                        </v-list>
+                      </div>
+                    </tr>
+                  </table>
+                </v-row>
+              </v-container>
+            </td>
+          </template>
+          <!-- delete button -->
+          <template v-slot:[`item.actions`]="{ item }">
+            <div v-if="hide != false">
+              <v-icon small class="mr-2" @click="editItem(item)">
+                mdi-pencil
+              </v-icon>
+            </div>
+            <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
+          </template>
+          <!-- reload -->
+          <template v-slot:no-data>
+            <v-btn color="primary" @click="initialize"> Reset </v-btn>
+          </template>
+        </v-data-table>
+      </v-col>
+    </v-row>
   </v-card>
 </template>
 
 <script>
-import { required, digits, max, regex ,email ,numeric , confirmed} from "vee-validate/dist/rules";
+import {
+  required,
+  digits,
+  max,
+  regex,
+  email,
+  numeric,
+  confirmed,
+} from "vee-validate/dist/rules";
 import {
   extend,
   ValidationObserver,
@@ -302,19 +383,22 @@ extend("numeric", {
   ...numeric,
   message: "{_field_} chỉ được nhập số",
 });
-extend('email', {
+extend("email", {
   ...email,
-  message: 'Email cần nhập đúng',
+  message: "Email cần nhập đúng",
 });
 extend("regex", {
   ...regex,
   message: "{_field_} {_value_} does not match {regex}",
 });
 
-
 export default {
   data() {
     return {
+      nameTitle: "Nhân viên",
+      editcheck: false,
+      hide: false,
+      selected: "staff",
       errors: [],
       search: "",
       headers: [
@@ -335,6 +419,27 @@ export default {
         },
         { text: "Trạng thái", value: "state", class: "info--text" },
       ],
+      staffHeaders: [
+        {
+          text: "Name",
+          align: "start",
+          sortable: false,
+          value: "name",
+          class: "info--text",
+        },
+        { text: "Email", value: "email", class: "info--text" },
+        { text: "CMND", value: "cmnd", class: "info--text" },
+        { text: "Số ngày nghỉ", value: "numOfDayOff", class: "info--text" },
+        { text: "Lương", value: "salary", class: "info--text" },
+        { text: "Ngày vào làm", value: "dateBegin", class: "info--text" },
+        {
+          text: "Actions",
+          value: "actions",
+          sortable: false,
+          class: "info--text",
+        },
+      ],
+      positions: ["Bảo vệ", "Thu ngân", "Lễ tân"],
       state: true,
       users: [],
       staffs: [],
@@ -347,6 +452,7 @@ export default {
       editedIndex: -1,
       editedItem: {
         name: "",
+        position: "",
         email: "",
         password: "",
         c_password: "",
@@ -357,6 +463,7 @@ export default {
       },
       defaultItem: {
         name: "",
+        position: "",
         email: "",
         password: "",
         c_password: "",
@@ -371,12 +478,6 @@ export default {
     ValidationProvider,
     ValidationObserver,
   },
-  computed: {
-    formTitle() {
-      return "Thêm nhân viên";
-    },
-  },
-
   watch: {
     dialog(val) {
       val || this.close();
@@ -408,15 +509,40 @@ export default {
         console.error(error);
       });
   },
-
+  computed: {
+    formTitle() {
+      return this.editedIndex === -1
+        ? "Thêm nhân viên"
+        : "Sửa thông tin nhân viên";
+    },
+    tableIsSelected() {
+      if (this.selected === "staff") {
+        this.nameTitle = "Nhân viên";
+        return this.staffs;
+      } else {
+        this.nameTitle = "Tài khoản";
+        return this.users;
+      }
+    },
+    headerIsSelected() {
+      this.editcheck = false;
+      if (this.selected === "staff") {
+        this.hide = true;
+        return this.staffHeaders;
+      } else {
+        this.hide = false;
+        return this.headers;
+      }
+    },
+  },
   methods: {
     creat_default_editing_item() {
       this.editedItem = Object.assign({}, this.defaultItem);
       this.editedIndex = -1;
     },
     getColor(state) {
-      if (state == "active") return "#01D145";
-      else if (state == "inactive") return "#ed6a50";
+      if (state === "active") return "#01D145";
+      else if (state === "inactive") return "#ed6a50";
       else return "#D1018D";
     },
     initialize() {
@@ -455,7 +581,9 @@ export default {
     //close save user
     close() {
       this.dialog = false;
-      this.$refs.observer.reset()
+      this.editcheck = false;
+      this.creat_default_editing_item();
+      this.$refs.observer.reset();
       this.initialize();
     },
     //close delete user
@@ -507,6 +635,7 @@ export default {
         await axios
           .post("/api/staffs/", {
             name: this.editedItem.name,
+            position: this.editedItem.position,
             email: this.editedItem.email,
             cmnd: this.editedItem.cmnd,
             numOfDayOff: this.editedItem.numOfDayOff,
@@ -528,12 +657,15 @@ export default {
       this.creat_default_editing_item();
     },
     async save() {
-      const reuslt = await this.$refs.observer.validate();
+      if (this.editedIndex > -1) {
+        this.endEditing(this.editedItem);
+      } else {
+        const reuslt = await this.$refs.observer.validate();
 
-      await this.addStaffAndUserAccount();
-      this.products.push(this.editedItem);
-      //this.initialize();
-
+        await this.addStaffAndUserAccount();
+        this.staffs.push(this.editedItem);
+        //this.initialize();
+      }
       this.close();
     },
     deleteStaff() {
@@ -548,6 +680,26 @@ export default {
         axios.delete(`/api/users/${this.editedItem.email}`).then((response) => {
           console.log(response.message);
         });
+    },
+    editItem(item) {
+      this.editcheck = true;
+      this.editedIndex = this.staffs.indexOf(item);
+      console.log(this.editedIndex);
+      this.editedItem = Object.assign({}, item);
+      this.dialog = true;
+    },
+    endEditing(staff) {
+      this.editingItem = null;
+      console.log(this.editedItem.position)
+      axios
+        .put(`/api/staffs/${staff._id}`, {
+          name: staff.name,
+          position: staff.position,
+          numOfDayOff: staff.numOfDayOff,
+          salary: staff.salary,
+        })
+        .catch((response) => {});
+        this.creat_default_editing_item();
     },
     clickRow(item, event) {
       if (event.isExpanded) {

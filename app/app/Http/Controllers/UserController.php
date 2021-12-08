@@ -31,7 +31,7 @@ class UserController extends Controller
         $user = User::where('email',$request->email);
         $user->update(
             ['state'=>"active"]
-        );    
+        );
         return response()->json($response, $status);
     }
 
@@ -50,23 +50,23 @@ class UserController extends Controller
 
         $data = $request->only(['name', 'email', 'password','role','state']);
         $data['password'] = bcrypt($data['password']);
-        
-        
+
+
         $user = User::create($data);
-        
+
         return response()->json([
             'user' => $user,
             'token' => $user->createToken('bigStore')->accessToken,
         ]);
     }
-   
+
     public function log_out(Request $request)
     {
         $user = User::where('email',$request->email);
         error_log($request->email);
         $user->update(
             ['state'=>"inactive"]
-        );  
+        );
         return response()->json([
             'status' => $user,
             'message' => $user? 'User Loggout!' : 'Error Loggout User'
@@ -79,7 +79,7 @@ class UserController extends Controller
         return response()->json(
             [
                 'success' => $user
-            ],  
+            ],
             $this->successStatus
         );
     }
@@ -91,12 +91,17 @@ class UserController extends Controller
             'status' => $status,
             'message' => $status ? 'User Deleted!' : 'Error Deleting User'
         ]);
-       
+
     }
     public function showOrders(User $user)
     {
         return response()->json($user->orders()->with(['product'])->get());
     }
 
+    public function updatePassword(Request $request, $email)
+    {
+        $user = User::where('email',$email)->update(['password'=>$request->newPassword]);
+        return response() -> json($user);
+    }
 }
 

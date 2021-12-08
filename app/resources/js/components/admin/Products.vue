@@ -75,7 +75,7 @@
                   </template>
                 </v-list-item>
               </template>
-            </v-list-item-group>
+            </v-list-item-group>    
           </v-list>
         </v-card>
       </v-col>
@@ -95,9 +95,9 @@
           :single-expand="singleExpand"
           :expanded.sync="expanded"
           :footer-props="{
-          itemsPerPageOptions: [ 10, 20, 50, 100, -1], 
+          itemsPerPageOptions: [ 10, 20, 50, 100, -1],
           itemsPerPageText: 'Số lượng',
-          pageText: '{0}-{1} trên {2}' 
+          pageText: '{0}-{1} trên {2}'
           }"
           fixed-header
           item-key="name"
@@ -435,33 +435,33 @@ export default {
           align: "left",
           sortable: false,
           value: "name",
-          class: "info--text" 
+          class: "info--text"
         },
         {
           text: "Số lượng",
           value: "amount",
-          class: "info--text" 
+          class: "info--text"
         },
         {
           text: "Giá mua",
           value: "importPrice",
-          class: "info--text" 
+          class: "info--text"
         },
         {
           text: "giá bán",
           value: "outportPrice",
-          class: "info--text" 
+          class: "info--text"
         },
         {
           text: "Tag",
           value: "tag",
-          class: "info--text" 
+          class: "info--text"
         },
         {
           text: "",
           value: "actions",
           sortable: false,
-          class: "info--text" 
+          class: "info--text"
         },
       ],
       editedIndex: -1,

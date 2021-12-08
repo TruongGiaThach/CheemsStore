@@ -14,7 +14,7 @@ class StaffController extends Controller
         return response()->json(Staff::all());
     }
 
-    
+
 
     public function create()
     {
@@ -29,18 +29,19 @@ class StaffController extends Controller
      */
     public function store(Request $request)
     {
-        //'email', 'name', 'cmnd', 'numOfDayOff','salary','dateBegin'
+        //'email', 'name', 'cmnd', 'numOfDayOff','salary','dateBegin', 'postion'
         $staff = Staff::where('email',$request->email);
-         
+
         if ($staff == [])
-           
+
             return response()->json([
                 'status' => false,
                 'data'   => $staff,
                 'message' => $request->email//'Email existed',
             ]);
-        $staff = Staff::create([    
+        $staff = Staff::create([
             'name' => $request->name,
+            'position'=> $request->position,
             'email' => $request->email,
             'cmnd' => $request->cmnd,
             'numOfDayOff' => $request->numOfDayOff,
@@ -64,10 +65,10 @@ class StaffController extends Controller
     public function show(Request $request)
     {
         //
-        return response()->json($staff,200); 
+        return response()->json($staff,200);
     }
 
-   
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -91,7 +92,7 @@ class StaffController extends Controller
         //
         $staff = Staff::find($_id);
         $status = $staff->update(
-            $request->only(['name', 'numOfDayOff','salary'])
+            $request->only(['name', 'numOfDayOff','salary','position'])
         );
 
         return response()->json([
@@ -100,7 +101,11 @@ class StaffController extends Controller
         ]);
     }
 
-  
+    public function getStaffWithEmail($email)
+    {
+        $staff = Staff::where('email',$email)->get();
+        return response()->json($staff[0]);
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -110,9 +115,9 @@ class StaffController extends Controller
     public function destroy($email)
     {
         //
-        
+
         $staff = Staff::where('email',$email)->forceDelete();
-        
+
         return response()->json([
             'status' => $staff,
             'message' => $staff ? 'Staff Deleted!' : 'Error Deleting Staff'
