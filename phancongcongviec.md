@@ -3,8 +3,13 @@
 	sửa lại UI phần sản phẩm
 ## tiến
 	sửa lại giao diện trả sản phẩm
+	thêm lích sử chỉnh sửa sản phẩm của nhân viên vào bảng history trong database
 ## Hùng:
 	tiếp tục làm thêm dữ liệu excel add cùng lúc
+## Dũng
+	sửa lại form hóa đơn
+## Thạch
+	sửa phần nhân viên
 ## tính năng
 ### dashboard
 	1. biểu đò doanh thu lợi nhuận theo ngày tháng năm
