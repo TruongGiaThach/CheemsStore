@@ -1,15 +1,16 @@
 <template>
-  <v-card
-    height="100%" outlined class="pa-md-4 mx-lg-auto grey lighten-3">
+  <v-card height="100%" outlined class="pa-md-4 mx-lg-auto grey lighten-3">
     <v-row>
       <v-col cols="12" md="3">
-        <v-card style="
-        height: 91vh;
-        align: center;
-        margin-left: auto;
-        margin-right: auto;
-        overflow: hidden;
-        ">
+        <v-card
+          style="
+            height: 91vh;
+            align: center;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+          "
+        >
           <v-toolbar color="primary" dark>
             <v-toolbar-title>Danh mục</v-toolbar-title>
 
@@ -36,12 +37,7 @@
               @resetAll="initialize"
             />
           </v-toolbar>
-          <v-list
-          style="
-          height: 90%;
-          overflow-y: scroll;
-          "
-          >
+          <v-list style="height: 90%; overflow-y: scroll">
             <v-list-item-group
               v-model="selected"
               active-class="gray--text"
@@ -82,22 +78,22 @@
 
       <v-col cols="12" md="9">
         <v-data-table
-        style="
-        height: 91vh;
-        overflow: auto;
-        align: center;
-        margin-left: auto;
-        margin-right: auto;
-        "
+          style="
+            height: 91vh;
+            overflow: auto;
+            align: center;
+            margin-left: auto;
+            margin-right: auto;
+          "
           :headers="headers"
           :items="tableData"
           :search="search"
           :single-expand="singleExpand"
           :expanded.sync="expanded"
           :footer-props="{
-          itemsPerPageOptions: [ 10, 20, 50, 100, -1], 
-          itemsPerPageText: 'Số lượng',
-          pageText: '{0}-{1} trên {2}' 
+            itemsPerPageOptions: [10, 20, 50, 100, -1],
+            itemsPerPageText: 'Số lượng',
+            pageText: '{0}-{1} trên {2}',
           }"
           fixed-header
           item-key="name"
@@ -123,7 +119,13 @@
               <v-spacer></v-spacer>
               <v-dialog v-model="dialog" max-width="500px">
                 <template v-slot:activator="{ on, attrs }">
-                  <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">
+                  <v-btn
+                    color="primary"
+                    dark
+                    class="mb-2"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
                     Thêm sản phẩm
                   </v-btn>
                 </template>
@@ -415,6 +417,9 @@ extend("required", {
 export default {
   data() {
     return {
+      content: "",
+      itemIsChose: [],
+      staff: [],
       baseUrl: window.location.origin,
       selected: "ALL",
       formImage: null,
@@ -435,33 +440,33 @@ export default {
           align: "left",
           sortable: false,
           value: "name",
-          class: "info--text" 
+          class: "info--text"
         },
         {
           text: "Số lượng",
           value: "amount",
-          class: "info--text" 
+          class: "info--text"
         },
         {
           text: "Giá mua",
           value: "importPrice",
-          class: "info--text" 
+          class: "info--text"
         },
         {
           text: "giá bán",
           value: "outportPrice",
-          class: "info--text" 
+          class: "info--text"
         },
         {
           text: "Tag",
           value: "tag",
-          class: "info--text" 
+          class: "info--text"
         },
         {
           text: "",
           value: "actions",
           sortable: false,
-          class: "info--text" 
+          class: "info--text"
         },
       ],
       editedIndex: -1,
@@ -531,10 +536,18 @@ export default {
   },
 
   created() {
+    this.getUser();
     this.initialize();
   },
 
   methods: {
+    getUser(){
+        let user = JSON.parse(localStorage.getItem("bigStore.user"));
+        axios.get(`/api/getStaffs/${user.email}`).then((response) => {
+            this.staff = response.data;
+            console.log(this.staff);
+        });
+    },
     nameExists: function () {
       if (this.editItem.name !== "") {
         var exists = this.products.some(function () {
@@ -632,7 +645,65 @@ export default {
           },
         })
         .catch((response) => {});
+        this.compareData()
+        this.addHistory()
     },
+
+    //add history
+    addHoursAndDays()
+    {
+        let day = new Date()
+        let date = day.getDate().toString()+'/'+day.getMonth()+'/'+day.getFullYear();
+        let hours =day.getHours() + ':' + day.getMinutes()+ ':' +day.getSeconds()+'  ';
+        return hours + date;
+    },
+    addHistory(){
+        axios.post('/api/histories/', {
+            staff_id: this.staff._id,
+            content: this.content,
+            impDate: this.addHoursAndDays(),
+        }).then((reponse)=>{console.log(reponse.data)})
+    },
+    compareData()
+    {
+        this.content = "Đã chỉnh sửa sản phẩm " + this.editedItem.name+'&';
+        if(this.editedItem.name !== this.itemIsChose.name)
+        {
+            this.content=this.content + "Tên: "+ this.itemIsChose.name+" -> "+this.editedItem.name+'&';
+        } else {
+            this.content=this.content + "Tên: "+ this.itemIsChose.name+'&';
+        }
+        if(this.editedItem.amount !== this.itemIsChose.amount)
+        {
+            this.content=this.content+"Số lượng: "+ this.itemIsChose.amount.toString() +" -> "+this.editedItem.amount.toString()+'&';
+        };
+        if(this.editedItem.importPrice !== this.itemIsChose.importPrice)
+        {
+             this.content=this.content+"Giá nhập: "+ this.itemIsChose.importPrice.toString() +" -> "+this.editedItem.importPrice.toString()+'&';
+        }
+        if(this.editedItem.outportPrice != this.itemIsChose.outportPrice)
+        {
+             this.content=this.content+"Giá bán: "+ this.itemIsChose.importPrice.toString() +" -> "+this.editedItem.outportPrice.toString()+'&';
+        }
+        if(this.editedItem.manufacture != this.itemIsChose.manufacture)
+        {
+             this.content=this.content+"Nhà sản xuất: "+ this.itemIsChose.manufacture +" -> "+this.editedItem.manufacture+'&';
+        }
+        if(this.editedItem.warrantyPeriod != this.itemIsChose.warrantyPeriod){
+             this.content=this.content+"Thời hạn bảo hành: "+ this.itemIsChose.warrantyPeriod +" -> "+this.editedItem.warrantyPeriod+'&';
+        }
+        if(this.editedItem.category_id != this.itemIsChose.category_id){
+             this.content=this.content+"Loại: "+ this.itemIsChose.category_id +" -> "+this.editedItem.category_id + '&';
+        }
+        if(this.editedItem.description != this.itemIsChose.description){
+             this.content=this.content+"Mô tả: "+ this.itemIsChose.description +" -> "+this.editedItem.description+'&';
+        }
+        if(this.editedItem.tag != this.itemIsChose.tag){
+             this.content=this.content+"Tag: "+ this.itemIsChose.tag +" -> "+this.editedItem.tag+'&';
+        }
+    },
+
+    //
     addProduct() {
       this.addingProduct = null;
 
@@ -683,6 +754,7 @@ export default {
         this.baseUrl + "/images/" + item.image + "?time=" + Date.now();
       this.editedIndex = this.products.indexOf(item);
       this.editedItem = Object.assign({}, item);
+      this.itemIsChose = item;
       this.dialog = true;
     },
 

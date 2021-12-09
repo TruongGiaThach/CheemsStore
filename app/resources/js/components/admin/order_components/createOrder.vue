@@ -415,15 +415,7 @@
                         amount: this.items[i].amount, 
                     })
                 }
-                this.decreaseProductAmount();
                 this.dialog = true;
-            },
-            decreaseProductAmount(){
-                for(var i = 0; i < this.items.length; i++){
-                    axios.patch('api/product/',{ amount: this.items[i].amount },'/amount/decrease', {
-                    amount: this.items[i].amount,
-                    })
-                }
             },
             addItemToPrint(){
                 for(var i = 0; i < this.items.length; i++){

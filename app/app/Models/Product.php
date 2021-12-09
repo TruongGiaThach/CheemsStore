@@ -22,5 +22,6 @@ class Product extends Eloquent
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
-    
+
 }
+

@@ -131,6 +131,7 @@ import Orders from "./admin/Orders";
 import CreateOrder from "./admin/order_components/createOrder";
 import Staffs from "./admin/Staffs";
 import Customers from "./admin/Customers";
+import Histories from "./admin/Histories";
 export default {
   data() {
     return {
@@ -146,8 +147,9 @@ export default {
       Nav_bar_items: [
         ["mdi-store-search", "Sản phẩm", "products"],
         ["mdi-account-group", "Khách hàng", "customers"],
-         ["mdi-account", "Tài khoản", "users"],
-        ["mdi-account-cog-outline", "Nhân viên", "staffs"],
+        ["mdi-account", "Tài khoản", "users"],
+        ["mdi-account-cog-outline", "Thông tin cá nhân", "staffs"],
+        ["mdi-rancher-outline", "Lịch sử", "histories"],
       ],
       Nav_bar_order: [
         ["mdi-cart-plus", "Bán hàng", "createOrder"],
@@ -163,6 +165,7 @@ export default {
     CreateOrder,
     Staffs,
     Users,
+    Histories,
   },
   beforeMount() {
     this.setComponent(this.$route.params.page);
@@ -172,9 +175,7 @@ export default {
       "Bearer " + localStorage.getItem("bigStore.jwt");
     this.getImage();
     if (this.user.role == "staff") {
-      this.Nav_bar_items.pop();
-      this.Nav_bar_items.pop();
-   
+      this.Nav_bar_items.splice(2, 1);
     }
   },
   methods: {
@@ -244,6 +245,14 @@ export default {
             this.$router.push({
               name: "admin-pages",
               params: { page: "customers" },
+            });
+          break;
+        case "histories":
+          this.activeComponent = Histories;
+          if (this.$route.path != "/admin/histories")
+            this.$router.push({
+              name: "admin-pages",
+              params: { page: "histories" },
             });
           break;
         default:

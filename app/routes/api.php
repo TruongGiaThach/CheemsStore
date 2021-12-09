@@ -21,6 +21,8 @@ Route::post('/staffs', 'StaffController@store');
 Route::patch('staffs/{staff}','StaffController@update');
 Route::delete('staffs/{email}','StaffController@destroy');
 Route::put('staffs/{id}','StaffController@update');
+Route::get('/getStaffs/{email}', 'StaffController@getStaffWithEmail');
+Route::get('/getStaffWithID/{id}', 'StaffController@getStaffWithId');
 //receipt
 Route::get('/receipt', 'ReceiptController@index');
 Route::get('/receipt_detail', 'ReceiptDetailController@index');
@@ -42,6 +44,7 @@ Route::get('/users','UserController@index');
 Route::patch('users','UserController@log_out');
 Route::patch('users/{user}','UserController@update');
 Route::delete('users/{email}','UserController@destroy');
+Route::post('/updateUsers/{email}','UserController@updatePassword');
 Route::get('users/{user}/orders','UserController@showOrders');
 Route::patch('products/{product}/units/add','ProductController@updateUnits');
 Route::resource('/products', 'ProductController')->except(['index']);
@@ -52,13 +55,16 @@ Route::get('/category', 'CategoryController@index');
 Route::post('/category', 'CategoryController@store');
 Route::put('/category/{category_id}', 'CategoryController@update');
 Route::delete('/category/{category_id}', 'CategoryController@destroy');
-
+//History
+Route::get('/histories', 'HistoryController@index');
+Route::get('/histories/{id}','HistoryController@getStaff');
+Route::post('/histories', 'HistoryController@store');
 //product
 Route::post('/productUpdate/{product_id}', 'ProductController@updateProductAmount');
 /*
 |--------------------------------------------------------------------------
 | API Routes
-|------------------------------------------------------------------------
+|--------------------------------------------------------------------------
 |
 | Here is where you can register API routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
