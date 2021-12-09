@@ -22,6 +22,9 @@ class CreateStaffTable extends Migration
             $table->string('NumOfDayOff');
             $table->double('salary');
             $table->date('dateBegin');
+            $table->string('number');
+            $table->string('address');
+            $table->string('note');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
