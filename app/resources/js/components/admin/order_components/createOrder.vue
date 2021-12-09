@@ -182,9 +182,6 @@
         name: "create-order",
         data(){
             return {
-                //history
-                content: "Đã bán",
-                imDate: Date.Now(),
                 outOfStock: false,
                 baseUrl: window.location.origin,
                 products : [],
@@ -415,7 +412,7 @@
                         receipt_id: rec._id.toString(),
                         product_id: this.items[i].id.toString(),
                         unitPrice: this.items[i].price,
-                        amount: this.items[i].amount,
+                        amount: this.items[i].amount, 
                     })
                 }
                 this.decreaseProductAmount();
@@ -457,10 +454,6 @@
             close() {
                 this.dialog = false;
                 window.location.reload()
-            },
-            addInToHistory()
-            {
-
             },
         }
     }
