@@ -614,39 +614,43 @@ export default {
       };
     },
     endEditing(product) {
-      let formData = new FormData();
-      formData.append("name", this.editedItem.name);
-      formData.append("amount", this.editedItem.amount);
-      formData.append("importPrice", this.editedItem.importPrice);
-      formData.append("outportPrice", this.editedItem.outportPrice);
-      formData.append("manufacture", this.editedItem.manufacture);
-      formData.append("warrantyPeriod", this.editedItem.warrantyPeriod);
-      formData.append("category_id", this.editedItem.category_id);
-      formData.append("description", this.editedItem.description);
-      formData.append("tag", this.editedItem.tag);
-      formData.append("name", this.editedItem.name);
+      if(this.compareData()) {
+        let formData = new FormData();
+        formData.append("name", this.editedItem.name);
+        formData.append("amount", this.editedItem.amount);
+        formData.append("importPrice", this.editedItem.importPrice);
+        formData.append("outportPrice", this.editedItem.outportPrice);
+        formData.append("manufacture", this.editedItem.manufacture);
+        formData.append("warrantyPeriod", this.editedItem.warrantyPeriod);
+        formData.append("category_id", this.editedItem.category_id);
+        formData.append("description", this.editedItem.description);
+        formData.append("tag", this.editedItem.tag);
+        formData.append("name", this.editedItem.name);
 
-      if (document.getElementById("image").files[0]) {
-        formData.append("image", document.getElementById("image").files[0]);
-        this.editedItem.image =
-          this.editedItem.name +
-          "." +
-          document.getElementById("image").files[0].name.split(".")[1];
-        console.log(document.getElementById("image").files[0]);
-        console.log(this.editedItem.image);
+        if (document.getElementById("image").files[0]) {
+          formData.append("image", document.getElementById("image").files[0]);
+          this.editedItem.image =
+            this.editedItem.name +
+            "." +
+            document.getElementById("image").files[0].name.split(".")[1];
+          console.log(document.getElementById("image").files[0]);
+          console.log(this.editedItem.image);
+        }
+
+        formData.append("_method", "PUT");
+
+        axios
+          .post(`/api/products/${product._id}`, formData, {
+            header: {
+              "Content-Type": "multipart/form-data",
+            },
+          })
+          .catch((response) => {
+
+          });
+          this.addHistory();
       }
-
-      formData.append("_method", "PUT");
-
-      axios
-        .post(`/api/products/${product._id}`, formData, {
-          header: {
-            "Content-Type": "multipart/form-data",
-          },
-        })
-        .catch((response) => {});
-        this.compareData()
-        this.addHistory()
+      this.content = [];
     },
 
     //add history
@@ -660,49 +664,68 @@ export default {
     addHistory(){
         axios.post('/api/histories/', {
             staff_id: this.staff._id,
+            staff_name: this.staff.name,
             content: this.content,
             impDate: this.addHoursAndDays(),
         }).then((reponse)=>{console.log(reponse.data)})
     },
     compareData()
     {
+      var isChange = false;
         this.content = "Đã chỉnh sửa sản phẩm " + this.editedItem.name+'&';
-        if(this.editedItem.name !== this.itemIsChose.name)
+        if(this.editedItem.name != this.itemIsChose.name)
         {
             this.content=this.content + "Tên: "+ this.itemIsChose.name+" -> "+this.editedItem.name+'&';
-        } else {
-            this.content=this.content + "Tên: "+ this.itemIsChose.name+'&';
+            isChange = true;
         }
-        if(this.editedItem.amount !== this.itemIsChose.amount)
+        if(this.editedItem.amount != this.itemIsChose.amount)
         {
             this.content=this.content+"Số lượng: "+ this.itemIsChose.amount.toString() +" -> "+this.editedItem.amount.toString()+'&';
+            isChange = true;
         };
-        if(this.editedItem.importPrice !== this.itemIsChose.importPrice)
+        if(this.editedItem.importPrice != this.itemIsChose.importPrice)
         {
              this.content=this.content+"Giá nhập: "+ this.itemIsChose.importPrice.toString() +" -> "+this.editedItem.importPrice.toString()+'&';
+             isChange = true;
         }
         if(this.editedItem.outportPrice != this.itemIsChose.outportPrice)
         {
              this.content=this.content+"Giá bán: "+ this.itemIsChose.importPrice.toString() +" -> "+this.editedItem.outportPrice.toString()+'&';
+             isChange = true;
         }
         if(this.editedItem.manufacture != this.itemIsChose.manufacture)
         {
              this.content=this.content+"Nhà sản xuất: "+ this.itemIsChose.manufacture +" -> "+this.editedItem.manufacture+'&';
+             isChange = true;
         }
         if(this.editedItem.warrantyPeriod != this.itemIsChose.warrantyPeriod){
              this.content=this.content+"Thời hạn bảo hành: "+ this.itemIsChose.warrantyPeriod +" -> "+this.editedItem.warrantyPeriod+'&';
+             isChange = true;
         }
         if(this.editedItem.category_id != this.itemIsChose.category_id){
              this.content=this.content+"Loại: "+ this.itemIsChose.category_id +" -> "+this.editedItem.category_id + '&';
+             isChange = true;
         }
         if(this.editedItem.description != this.itemIsChose.description){
-             this.content=this.content+"Mô tả: "+ this.itemIsChose.description +" -> "+this.editedItem.description+'&';
+             this.content=this.content+"Mô tả bị thay đổi"+'&';
+             isChange = true;
         }
         if(this.editedItem.tag != this.itemIsChose.tag){
              this.content=this.content+"Tag: "+ this.itemIsChose.tag +" -> "+this.editedItem.tag+'&';
+             isChange = true;
         }
+      return isChange;
     },
-
+    addProductHistory(product) {
+      this.content = "Đã thêm sản phẩm " + product.name+'&';
+      this.content=this.content+"Số lượng: "+ product.amount.toString()+'&';
+      this.content=this.content+"Giá nhập: "+ product.importPrice.toString()+'&';
+      this.content=this.content+"Giá bán: "+ product.outportPrice.toString()+'&';
+      this.content=this.content+"Nhà sản xuất: "+ product.manufacture+'&';
+      this.content=this.content+"Thời hạn bảo hành: "+ product.warrantyPeriod+'&';
+      this.content=this.content+"Loại: "+ product.category_id + '&';
+      this.content=this.content+"Tag: "+ product.tag+'&';
+    },
     //
     addProduct() {
       this.addingProduct = null;
@@ -735,9 +758,15 @@ export default {
         })
         .then((res) => {
           console.log("worked");
+          console.log(res);
+          this.addProductHistory(res.data);
+          this.addHistory();
+          this.content = [];
           this.initialize();
         })
-        .catch((response) => {});
+        .catch((error) => {
+          console.log(error);
+        });
     },
 
     endDelete(product) {
@@ -745,8 +774,11 @@ export default {
         .delete("/api/products/" + product._id)
         .then((res) => {
           console.log("delete.");
+          this.content = "đã xóa sản phẩm " + product.name + '&' + product.name + " đã bị xóa" + '&';
+          this.addHistory();
+          this.content = [];
         })
-        .catch((response) => {});
+        .catch((error) => {});
     },
 
     editItem(item) {
@@ -779,6 +811,8 @@ export default {
         URL.revokeObjectURL(this.formImage);
         this.formImage = null;
         this.previewImage = null;
+        this.content = "";
+        this.itemIsChose = [];
       });
     },
 

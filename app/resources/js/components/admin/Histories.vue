@@ -98,8 +98,11 @@ export default {
       this.histories = response.data;
       this.histories.forEach(element => {
           this.contents = element.content.split('&');
+          //remove the first element
           element.content = this.contents[0];
           this.contents.shift();
+          
+          //remove the last element
           this.contents.pop();
           this.listContents.push(this.contents);
       });
@@ -120,7 +123,7 @@ export default {
       headers: [
         {
           text: "ID",
-          value: "staff_id",
+          value: "staff_name",
           class: "info--text",
           width: "40vh",
           align: "left",
