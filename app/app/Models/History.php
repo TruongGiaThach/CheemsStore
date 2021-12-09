@@ -14,6 +14,7 @@ class History extends Eloquent
 
     protected $connection = 'mongodb';
     protected $colection = 'histories';
+    protected $table = 'histories';
     protected $fillable = [
         'staff_id', 'staff_name', 'content', 'implementDate'
     ];
