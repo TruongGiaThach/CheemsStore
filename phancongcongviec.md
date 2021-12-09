@@ -9,6 +9,7 @@
 	tiếp tục làm thêm dữ liệu excel add cùng lúc
 ## Dũng
 	sửa lại form hóa đơn
+	add UI phần history
 ## Thạch
 	sửa phần nhân viên
 ## tính năng
