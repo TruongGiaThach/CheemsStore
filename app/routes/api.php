@@ -62,7 +62,7 @@ Route::post('/productUpdate/{product_id}', 'ProductController@updateProductAmoun
 /*
 |--------------------------------------------------------------------------
 | API Routes
-|--------------------------------------------------------------------------
+|------------------------------------------------------------------------
 |
 | Here is where you can register API routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
