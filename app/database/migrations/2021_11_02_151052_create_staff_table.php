@@ -17,7 +17,7 @@ class CreateStaffTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('role'); // no need
+            $table->string('position'); 
             $table->string('cmnd');
             $table->string('NumOfDayOff');
             $table->double('salary');

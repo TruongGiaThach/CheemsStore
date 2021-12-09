@@ -455,7 +455,7 @@ export default {
     //close save user
     close() {
       this.dialog = false;
-      this.$refs.observer.reset()
+      this.$refs.observer.reset();
       this.initialize();
     },
     //close delete user
@@ -528,11 +528,11 @@ export default {
       this.creat_default_editing_item();
     },
     async save() {
-      const reuslt = await this.$refs.observer.validate();
+      const result = await this.$refs.observer.validate();
 
       await this.addStaffAndUserAccount();
-      this.products.push(this.editedItem);
-      //this.initialize();
+      
+      this.initialize();
 
       this.close();
     },

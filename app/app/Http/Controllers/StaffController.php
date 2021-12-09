@@ -45,7 +45,11 @@ class StaffController extends Controller
             'cmnd' => $request->cmnd,
             'numOfDayOff' => $request->numOfDayOff,
             'salary' => $request->salary,
-            'dateBegin'=>$request->dateBegin
+            'dateBegin'=>$request->dateBegin,
+            'position'=>$request->position,
+            'number'=>$request->number,
+            'address'=> $request->address,
+            'note'=> $request->note,
         ]);
 
         return response()->json([
@@ -91,7 +95,7 @@ class StaffController extends Controller
         //
         $staff = Staff::find($_id);
         $status = $staff->update(
-            $request->only(['name', 'numOfDayOff','salary'])
+            $request->only(['name', 'numOfDayOff','salary','position','number','address','note'])
         );
 
         return response()->json([

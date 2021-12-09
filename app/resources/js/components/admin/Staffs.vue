@@ -2,22 +2,25 @@
   <v-card height="100%" outlined class="pa-md-4 mx-lg-auto grey lighten-3">
     <div>
       <v-data-table
-      style="
-        height: 91vh;
-        overflow: auto;
-        width: 80%;
-        align: center;
-        margin-left: auto;
-        margin-right: auto;
-      "
+        style="
+          height: 91vh;
+          overflow: auto;
+          width: 80%;
+          align: center;
+          margin-left: auto;
+          margin-right: auto;
+        "
         :headers="headers"
         :items="staffs"
         :search="search"
+        :expanded.sync="expanded"
+        :single-expand="singleExpand"
+        show-expand
         :footer-props="{
-          itemsPerPageOptions: [ 10, 20, 50, 100, -1], 
+          itemsPerPageOptions: [10, 20, 50, 100, -1],
           itemsPerPageText: 'Số lượng',
-          pageText: '{0}-{1} trên {2}' 
-          }"
+          pageText: '{0}-{1} trên {2}',
+        }"
         item-key="email"
         rounded-xl
         class="elevation-1"
@@ -109,6 +112,21 @@
                             </ValidationProvider>
                           </v-col>
                           <v-col cols="12" sm="6" md="4">
+                            <ValidationProvider
+                              v-slot="{ errors }"
+                              name="number"
+                              rules="required|numeric"
+                            >
+                              <v-text-field
+                                v-model="editedItem.number"
+                                label="Số điện thoại"
+                                type="text"
+                                :error-messages="errors"
+                                required
+                              ></v-text-field>
+                            </ValidationProvider>
+                          </v-col>
+                          <v-col cols="12" sm="6" md="4">
                             <v-text-field
                               v-model="editedItem.salary"
                               label="Mức lương"
@@ -118,6 +136,33 @@
                             <v-text-field
                               v-model="editedItem.numOfDayOff"
                               label="Số ngày nghỉ"
+                            ></v-text-field>
+                          </v-col>
+                          <v-col cols="12" sm="6" md="4">
+                            <ValidationProvider
+                              v-slot="{ errors }"
+                              name="position"
+                              rules="required"
+                            >
+                              <v-select
+                                v-model="editItem.position"
+                                :items="positions"
+                                :error-messages="errors"
+                                label="Chức vụ"
+                                required
+                              ></v-select>
+                            </ValidationProvider>
+                          </v-col>
+                          <v-col cols="12" sm="12" md="12">
+                            <v-textarea
+                              rows="3"
+                              max-rows="4"
+                              v-model="editedItem.address"
+                              label="Địa chỉ liên lạc"
+                            ></v-textarea>
+                            <v-text-field
+                              v-model="editedItem.note"
+                              label="Ghi chú thêm"
                             ></v-text-field>
                           </v-col>
                         </v-row>
@@ -162,6 +207,42 @@
               </v-card>
             </v-dialog>
           </v-toolbar>
+        </template>
+        <!-- expand 1 row -->
+        <template v-slot:expanded-item="{ headers, item }">
+          <td :colspan="headers.length">
+            <v-container fluid>
+              <v-row no-gutters>
+                <table class="table_style">
+                  <tr>
+                    <h3>Thông tin thêm về {{ item.name }}</h3>
+                  </tr>
+                  <tr>
+                    <v-list class="text-justify">
+                      <tr>
+                        <td>Số điện thoại:</td>
+                        <td>
+                          {{ item.number }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Địa chỉ:</td>
+                        <td>
+                          {{ item.address }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Ghi chú:</td>
+                        <td>
+                          {{ item.note }}
+                        </td>
+                      </tr>
+                    </v-list>
+                  </tr>
+                </table>
+              </v-row>
+            </v-container>
+          </td>
         </template>
         <!-- delete edit button -->
         <template v-slot:[`item.actions`]="{ item }">
@@ -236,6 +317,7 @@ export default {
         { text: "Số ngày nghỉ", value: "numOfDayOff", class: "info--text" },
         { text: "Lương", value: "salary", class: "info--text" },
         { text: "Ngày vào làm", value: "dateBegin", class: "info--text" },
+        { text: "Chức vụ", value: "position", class: "infor--text" },
         {
           text: "Actions",
           value: "actions",
@@ -244,7 +326,10 @@ export default {
         },
       ],
       state: true,
+      positions: ["Bảo vệ", "Thu ngân", "Thủ kho"],
       staffs: [],
+      expanded: [],
+      singleExpand: true,
       editingItem: null,
       addingUser: null,
       dialog: false,
@@ -258,6 +343,10 @@ export default {
         numOfDayOff: 0,
         salary: 0,
         dateBegin: new Date(Date.now()).toLocaleString().split(",")[0],
+        position: "",
+        number: "",
+        address: "",
+        note: "",
       },
       defaultItem: {
         _id: "",
@@ -267,6 +356,10 @@ export default {
         numOfDayOff: 0,
         salary: 0,
         dateBegin: new Date(Date.now()).toLocaleString().split(",")[0],
+        position: "",
+        number: "",
+        address: "",
+        note: "",
       },
     };
   },
@@ -279,6 +372,10 @@ export default {
       return this.editedIndex === -1
         ? "Thêm nhân viên"
         : "Sửa thông tin nhân viên";
+    },
+
+    positionID: function () {
+      return this.positions.id;
     },
   },
 
@@ -354,11 +451,16 @@ export default {
     },
     endEditing(staff) {
       this.editingItem = null;
+      console.log(staff);
       axios
         .put(`/api/staffs/${staff._id}`, {
           name: staff.name,
           numOfDayOff: staff.numOfDayOff,
           salary: staff.salary,
+          number: staff.number,
+          position: staff.position,
+          address: staff.address,
+          note: staff.note,
         })
         .catch((response) => {});
     },
@@ -380,6 +482,10 @@ export default {
             numOfDayOff: this.editedItem.numOfDayOff,
             salary: this.editedItem.salary,
             dateBegin: this.editedItem.dateBegin,
+            number: this.editedItem.number,
+            position: this.editedItem.position,
+            address: this.editedItem.address,
+            note: this.editedItem.note,
           })
           .then((response) => {
             if (response.data.status == false) {
@@ -414,3 +520,13 @@ export default {
   },
 };
 </script>
+<style scoped>
+.table_style {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+td {
+  padding: 15px;
+}
+</style>
