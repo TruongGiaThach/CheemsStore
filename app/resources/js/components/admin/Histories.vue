@@ -120,7 +120,7 @@ export default {
       headers: [
         {
           text: "ID",
-          value: "staff_id",
+          value: "staff_name",
           class: "info--text",
           width: "40vh",
           align: "left",
