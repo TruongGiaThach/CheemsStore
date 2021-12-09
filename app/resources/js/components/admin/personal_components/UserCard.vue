@@ -147,7 +147,7 @@ extend('email', {
 });
 export default {
   props: {
-      staff: [Object],
+      staff: [],
   },
   data() {
     return {

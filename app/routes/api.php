@@ -22,6 +22,7 @@ Route::patch('staffs/{staff}','StaffController@update');
 Route::delete('staffs/{email}','StaffController@destroy');
 Route::put('staffs/{id}','StaffController@update');
 Route::get('/getStaffs/{email}', 'StaffController@getStaffWithEmail');
+Route::get('/getStaffWithID/{id}', 'StaffController@getStaffWithId');
 //receipt
 Route::get('/receipt', 'ReceiptController@index');
 Route::get('/receipt_detail', 'ReceiptDetailController@index');
@@ -55,8 +56,9 @@ Route::post('/category', 'CategoryController@store');
 Route::put('/category/{category_id}', 'CategoryController@update');
 Route::delete('/category/{category_id}', 'CategoryController@destroy');
 //History
-Route::get('/history', 'HistoryController@index');
-Route::get('/history/{id}','HistoryController@getStaff');
+Route::get('/histories', 'HistoryController@index');
+Route::get('/histories/{id}','HistoryController@getStaff');
+Route::post('/histories', 'HistoryController@store');
 //product
 Route::post('/productUpdate/{product_id}', 'ProductController@updateProductAmount');
 /*

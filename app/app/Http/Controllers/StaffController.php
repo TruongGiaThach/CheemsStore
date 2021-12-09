@@ -106,6 +106,12 @@ class StaffController extends Controller
         $staff = Staff::where('email',$email)->get();
         return response()->json($staff[0]);
     }
+
+    public function getStaffWithId($id)
+    {
+        $staff = Staff::findOrFail($id);
+        return response()->json($staff);
+    }
     /**
      * Remove the specified resource from storage.
      *

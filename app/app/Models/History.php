@@ -8,12 +8,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
 
-class Product extends Eloquent
+class History extends Eloquent
 {
     use HasFactory, SoftDeletes;
 
     protected $connection = 'mongodb';
-    protected $colection = 'historys';
+    protected $colection = 'histories';
     protected $fillable = [
         'staff_id', 'content', 'implementDate'
     ];
