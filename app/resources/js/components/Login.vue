@@ -112,7 +112,6 @@ export default {
             console.log(role);
             localStorage.setItem("bigStore.user", JSON.stringify(user));
             localStorage.setItem("bigStore.jwt", response.data.token);
-            console.log("DUng kun");
 
           if (localStorage.getItem("bigStore.jwt") != null) {
             this.$emit("loggedIn");

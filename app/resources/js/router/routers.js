@@ -1,18 +1,35 @@
-
+import Home from '../components/home/Home'
 import Login from '../components/Login'
 import Register from '../components/Register'
 import Admin from '../components/Admin'
+
+import Layout from '../components/home/HomePageLayout'
 export default [
-    
     {
         path: '/',
-        name: 'login',
-        component: Login
+        redirect: '/home',
     },
     {
-        path: '/register',
-        name: 'register',
-        component: Register
+        path: '/home',
+        name: 'layout',
+        component: Layout,
+        children :[
+            {
+                path: '/home',
+                name: 'home',
+                component: Home,
+            },
+            {
+                path: '/register',
+                name: 'register',
+                component: Register
+            },
+        ]
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: Login
     },
     {
         path: '/admin/:page',
