@@ -148,7 +148,7 @@ export default {
         ["mdi-store-search", "Sản phẩm", "products"],
         ["mdi-account-group", "Khách hàng", "customers"],
         ["mdi-account", "Tài khoản", "users"],
-        ["mdi-account-cog-outline", "Thông tin cá nhân", "staffs"],
+        ["mdi-account-cog-outline", "Nhân viên", "staffs"],
         ["mdi-rancher-outline", "Lịch sử", "histories"],
       ],
       Nav_bar_order: [
