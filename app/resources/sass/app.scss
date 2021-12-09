@@ -4,15 +4,13 @@
 // Variables
 @import 'variables';
 
-
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+@import "order";
 
 @import "invoice";
 
 @import "~font-awesome/scss/font-awesome.scss";
 
 @import "../../node_modules/@coreui/coreui/scss/coreui";
-
-
-
