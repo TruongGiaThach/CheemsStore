@@ -16,6 +16,7 @@ class CreateHistoriesTable extends Migration
         Schema::create('histories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('staff_id');
+            $table->string('staff_name');
             $table->string('content');
             $table->string('implementDate');
             $table->rememberToken();
