@@ -1,4 +1,3 @@
-
 <template>
   <v-card height="100%" outlined class="pa-md-4 mx-lg-auto grey lighten-3">
     <v-row>
