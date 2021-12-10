@@ -31,6 +31,8 @@ Route::delete('/receipt_detail/{receiptDetailId}', 'ReceiptDetailController@dest
 Route::post('/receipts', 'ReceiptController@getByCustomerID');
 Route::get('/receipt/getReceipt', 'ReceiptController@getReceipt');
 Route::put('/receipt/{receiptId}', 'ReceiptController@update');
+Route::get('/getCustomer/{id}', 'ReceiptController@getCustomerWithReceiptId');
+Route::get('/getBill/{id}', 'ReceiptDetailController@getInforBill');
 //customer
 Route::get('/customer', 'CustomerController@index');
 Route::post('/customer', 'CustomerController@store');

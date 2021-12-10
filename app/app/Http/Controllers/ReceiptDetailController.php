@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ReceiptDetail;
 use App\Models\Product;
-
+use App\Models\Receipt;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -21,7 +21,7 @@ class ReceiptDetailController extends Controller
 
     public function find(Request $request)
     {
-        return response()->json(ReceiptDetail::where($request->type,$request->condition)->get(),200); 
+        return response()->json(ReceiptDetail::where($request->type,$request->condition)->get(),200);
     }
 
     public function store(Request $request)
@@ -48,7 +48,7 @@ class ReceiptDetailController extends Controller
     }
 
     public function destroy($receiptDetailId)
-    {   
+    {
         $receiptDetail = ReceiptDetail::findOrFail($receiptDetailId);
 
         $status = $receiptDetail->forceDelete();
@@ -58,27 +58,50 @@ class ReceiptDetailController extends Controller
             'message' => $status ? 'receipt Detail deleted' : 'Error delete receipt Detail'
         ]);
     }
-    
+
     public function getByReceiptId(Request $request)
     {
         $receiptDetail = DB::connection('mongodb')->collection('receipt_detail')
         ->where('receipt_id',$request->receiptID)
         ->get();
         $result = [];
-        if ($receiptDetail != []) 
+        if ($receiptDetail != [])
             {
                         //61a23b83d664c812a133ef06
                 foreach ($receiptDetail as $value){
                     $value = (array)$value;
                     $product =Product::findOrFail($value['product_id']);
-                    
-                    
+
+
                     $value['product_name'] = $product->name;
                     $result[] = (object)$value;
 
                 }
-            }        
-        
+            }
+
+        return response()->json([
+            'status'=> (bool) $receiptDetail,
+            'receipt_details'=> $result,
+        ]);
+    }
+    public function getInforBill($id)
+    {
+        $receipt = Receipt::find($id);
+        $receiptDetail = $receipt->receiptDetail;
+        $result = [];
+        if ($receiptDetail != [])
+            {
+                        //61a23b83d664c812a133ef06
+                foreach ($receiptDetail as $value){
+                    $product =Product::findOrFail($value['product_id']);
+                    $value['product_name'] = $product->name;
+                    $value['importPriceProduct'] = $product->importPrice;
+                    $value['amountProduct'] = $product->amount;
+                    $value['imageProduct'] = $product->image;
+                    $result[] = (object)$value;
+                }
+            }
+
         return response()->json([
             'status'=> (bool) $receiptDetail,
             'receipt_details'=> $result,
