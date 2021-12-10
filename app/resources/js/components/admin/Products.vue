@@ -658,7 +658,7 @@ export default {
     addHoursAndDays()
     {
         let day = new Date()
-        let date = day.getDate().toString()+'/'+day.getMonth()+'/'+day.getFullYear();
+        let date = day.getDate().toString()+'/'+(day.getMonth()+1)+'/'+day.getFullYear();
         let hours =day.getHours() + ':' + day.getMinutes()+ ':' +day.getSeconds()+'  ';
         return hours + date;
     },
@@ -727,7 +727,7 @@ export default {
       this.content=this.content+"Thời hạn bảo hành: "+ product.warrantyPeriod+'&';
       this.content=this.content+"Loại: "+ product.category_id + '&';
       this.content=this.content+"Mô tả: "+ product.description+'&';
-      this.content=this.content+"Tag: "+ product.tag+'&';    
+      this.content=this.content+"Tag: "+ product.tag+'&';
     },
     //
     addProduct() {
