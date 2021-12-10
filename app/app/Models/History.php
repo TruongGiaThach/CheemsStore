@@ -16,7 +16,7 @@ class History extends Eloquent
     protected $colection = 'histories';
     protected $table = 'histories';
     protected $fillable = [
-        'staff_id', 'staff_name', 'content', 'implementDate'
+        'staff_id', 'staff_name', 'product_id', 'product_name', 'action', 'content', 'implementDate'
     ];
     public function staff()
     {

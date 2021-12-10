@@ -145,7 +145,7 @@
                               rules="required"
                             >
                               <v-select
-                                v-model="editItem.position"
+                                v-model="editedItem.position"
                                 :items="positions"
                                 :error-messages="errors"
                                 label="Chức vụ"
