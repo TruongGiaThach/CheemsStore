@@ -177,7 +177,7 @@ export default {
       "Bearer " + localStorage.getItem("bigStore.jwt");
     this.getImage();
     if (this.user.role == "staff") {
-      this.Nav_bar_items.splice(2, 2);
+      this.Nav_bar_items.splice(2, 2);  
       this.Nav_bar_items.push(["mdi-account", "Thông tin cá nhân", "personalInfor"]);
     }
   },

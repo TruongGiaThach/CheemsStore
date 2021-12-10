@@ -4,16 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
-Route::post('login', 'UserController@login');
-Route::post('register', 'UserController@register');
-Route::get('/products', 'ProductController@index');
-Route::get('/products/find', 'ProductController@show');
-Route::post('/products', 'ProductController@store');
-Route::post('/upload-file', 'ProductController@uploadFile');
-Route::get('/products/{product}', 'ProductController@show');
-Route::delete('/products/{product_id}', 'ProductController@destroy');
-Route::post('/products/{product}', "ProductController@update");
-Route::put('/amount/products/{productId}', "ProductController@updateProductAmount");
+
 //staff
 Route::get('/staffs', 'StaffController@index');
 Route::get('/staffs/{staff}', 'StaffController@show');
@@ -44,15 +35,16 @@ Route::put('/receipt/{receiptId}', 'ReceiptController@update');
 Route::get('/customer', 'CustomerController@index');
 Route::post('/customer', 'CustomerController@store');
 Route::get('/customer/find', 'CustomerController@find');
-
+//user
+Route::post('login', 'UserController@login');
+Route::post('register', 'UserController@register');
 Route::get('/users','UserController@index');
 Route::patch('users','UserController@log_out');
-Route::patch('users/{user}','UserController@update');
+Route::patch('users/update_state','UserController@updateStateAccount');
 Route::delete('users/{email}','UserController@destroy');
 Route::get('users/{user}/orders','UserController@showOrders');
-Route::patch('products/{product}/units/add','ProductController@updateUnits');
-Route::resource('/products', 'ProductController')->except(['index']);
 Route::post('/updateUsers/{email}','UserController@updatePassword');
+
 //category
 Route::resource('category', 'CategoryController')->except(['index']);
 Route::get('/category', 'CategoryController@index');
@@ -62,6 +54,16 @@ Route::delete('/category/{category_id}', 'CategoryController@destroy');
 
 //product
 Route::post('/productUpdate/{product_id}', 'ProductController@updateProductAmount');
+Route::get('/products', 'ProductController@index');
+Route::get('/products/find', 'ProductController@show');
+Route::post('/products', 'ProductController@store');
+Route::post('/upload-file', 'ProductController@uploadFile');
+Route::get('/products/{product}', 'ProductController@show');
+Route::delete('/products/{product_id}', 'ProductController@destroy');
+Route::post('/products/{product}', "ProductController@update");
+Route::put('/amount/products/{productId}', "ProductController@updateProductAmount");
+Route::patch('products/{product}/units/add','ProductController@updateUnits');
+Route::resource('/products', 'ProductController')->except(['index']);
 /*
 |--------------------------------------------------------------------------
 | API Routes
