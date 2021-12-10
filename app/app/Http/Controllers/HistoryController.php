@@ -46,6 +46,9 @@ class HistoryController extends Controller
         $history = History::create([
             'staff_id' => $request -> staff_id,
             'staff_name' => $request -> staff_name,
+            'product_id' => $request -> product_id, 
+            'product_name' => $request -> product_name, 
+            'action' => $request -> action,
             'content' => $request -> content,
             'implementDate' => $request -> impDate,
         ]);

@@ -143,7 +143,8 @@ class ProductController extends Controller
 
         return response()->json([
             'status' => $status,
-            'message' => $status ? 'Product Updated!' : 'Error Updating Product'
+            'message' => $status ? 'Product Updated!' : 'Error Updating Product',
+            'data' => $product,
         ]);
     }
 
@@ -184,6 +185,7 @@ class ProductController extends Controller
         $name = $product->image;
         Storage::disk('public')->delete($product->image);
         
+        $name = $product->name;
         $product->forceDelete();
 
         /*
@@ -197,5 +199,7 @@ class ProductController extends Controller
             'message' => $product ? 'Product Deleted!' : 'Error Deleting Product'
         ]);
         */
+
+        return response()->json($name);
     }
 }

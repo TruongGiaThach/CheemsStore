@@ -17,6 +17,9 @@ class CreateHistoriesTable extends Migration
             $table->increments('id');
             $table->string('staff_id');
             $table->string('staff_name');
+            $table->string('product_id');
+            $table->string('product_name');
+            $table->string('action');
             $table->string('content');
             $table->string('implementDate');
             $table->rememberToken();

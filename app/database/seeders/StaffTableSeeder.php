@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class StaffTableSeeder extends Seeder
 {
@@ -15,6 +16,16 @@ class StaffTableSeeder extends Seeder
     {
         //
         DB::table('staff')->delete();
+
+        DB::table('staff')->insert([
+            'name' => "Admin",
+            'email' => "admin@devtest.com",
+            'role' => "admin",
+            'cmnd' => '9999999',
+            'NumOfDayOff' => '0',
+            'salary' => '10000000',
+            'dateBegin' => '2/2/2002',
+        ]);
         
         DB::table('staff')->insert([
             'name' => "thach",
@@ -25,5 +36,6 @@ class StaffTableSeeder extends Seeder
             'salary' => '1000000',
             'dateBegin' => '2/2/2002',
         ]);
+
     }
 }
