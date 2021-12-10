@@ -31,7 +31,7 @@
       <template v-slot:[`item.staff_name`]="{ item }">
         <div class="d-flex justify-center">
           <v-row no-gutters align="center">
-            <v-col class="flex-grow-0">
+            <v-col cols="auto" class="flex-grow-0">
               <p style="margin: 0px"> {{ item.staff_name }} </p>
             </v-col>
             <v-col class="flex-grow-0">
@@ -91,7 +91,7 @@
       <template v-slot:[`item.action`]="{ item }">
         <div class="d-flex justify-center">
           <v-row no-gutters align="center">
-            <v-col class="flex-grow-0">
+            <v-col cols="auto" class="flex-grow-0">
               <p style="margin: 0px"> {{ item.content }} </p>
             </v-col>
             <v-col class="flex-grow-0">
