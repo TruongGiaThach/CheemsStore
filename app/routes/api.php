@@ -24,6 +24,10 @@ Route::put('staffs/{id}','StaffController@update');
 Route::get('/getStaffWithID/{id}', 'StaffController@getStaffWithId');
 Route::get('/getStaffs/{email}', 'StaffController@getStaffWithEmail');
 
+//History
+Route::get('/histories', 'HistoryController@index');
+Route::get('/histories/{id}','HistoryController@getStaff');
+Route::post('/histories', 'HistoryController@store');
 //receipt
 Route::get('/receipt', 'ReceiptController@index');
 Route::get('/receipt_detail', 'ReceiptDetailController@index');
@@ -48,7 +52,7 @@ Route::delete('users/{email}','UserController@destroy');
 Route::get('users/{user}/orders','UserController@showOrders');
 Route::patch('products/{product}/units/add','ProductController@updateUnits');
 Route::resource('/products', 'ProductController')->except(['index']);
-
+Route::post('/updateUsers/{email}','UserController@updatePassword');
 //category
 Route::resource('category', 'CategoryController')->except(['index']);
 Route::get('/category', 'CategoryController@index');
