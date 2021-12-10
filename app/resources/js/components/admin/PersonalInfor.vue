@@ -24,11 +24,11 @@ export default {
       console.log(response.data);
     });
   },
-    data() {
-      return {
-          staff:[],
-      }
-    }
+  data() {
+    return {
+      staff: [],
+    };
+  },
 };
 </script>
 

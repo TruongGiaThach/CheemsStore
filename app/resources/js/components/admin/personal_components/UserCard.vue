@@ -5,7 +5,7 @@
       style="background-color: #2196f3; height: 150px"
     ></v-card-title>
     <div class="avatar">
-      <img class="img" :src="baseUrl + '/images/ganyu.jpg'" />
+      <img class="img" :src="this.image_user" />
     </div>
 
     <v-card-text class="changeFont">
@@ -25,24 +25,16 @@
       <h6 style="color: #2196f3" class="commonFont">{{ staff.position }}</h6>
       <br />
       <br />
-      <p class="commonFont mx-auto" style="width: 80%">
-        {{ description }}
-      </p>
+
       <h6 class="commonFont">{{ staff.email }}</h6>
-      <h6 class="commonFont">{{ staff.dateBegin }}</h6>
+      <h6 class="commonFont">Ngày vào làm: {{ staff.dateBegin }}</h6>
     </v-card-text>
     <v-card-actions>
-      <v-btn class="buttonFont" rounded color="primary" small @click="logOut">
+      <v-btn class="buttonFont" rounded color="primary" @click="logout">
         Đăng xuất
       </v-btn>
       <v-spacer></v-spacer>
-      <v-btn
-        class="buttonFont"
-        rounded
-        color="primary"
-        small
-        @click="changePassword"
-      >
+      <v-btn class="buttonFont" rounded color="primary" @click="changePassword">
         Đổi mật khẩu
       </v-btn>
     </v-card-actions>
@@ -127,12 +119,8 @@
   </v-card>
 </template>
 <script>
-import { max, email, confirmed} from "vee-validate/dist/rules";
-import {
-  extend,
-  ValidationObserver,
-  ValidationProvider,
-} from "vee-validate";
+import { max, email, confirmed } from "vee-validate/dist/rules";
+import { extend, ValidationObserver, ValidationProvider } from "vee-validate";
 extend("confirmed", {
   ...confirmed,
   message: "Mật khẩu không khớp.",
@@ -141,55 +129,63 @@ extend("max", {
   ...max,
   message: "{_field_} Không quá {length} kí tự. ({_value_})",
 });
-extend('email', {
+extend("email", {
   ...email,
-  message: 'Email cần nhập đúng',
+  message: "Email cần nhập đúng",
 });
 export default {
   props: {
-      staff: [],
+    staff: [],
   },
   data() {
     return {
       dialog: false,
+      user: [],
       password: "",
       c_password: "",
       newPassword: "",
-      role: "WIBU CHÚA",
-      name: "Dũng kun",
-      email: "email@gmail.com",
-      description:
-        "Dũng kun đẹp trai, ngày xưa ai lá ngọc cành vàng, ngày nay ai đẹp bằng Dkun ha",
       baseUrl: window.location.origin,
+      image_user: "",
     };
   },
+  beforeMount() {
+   
+    this.user = JSON.parse(localStorage.getItem("bigStore.user"));
+    this.getImage();
+  },
   methods: {
-    logOut() {
+    getImage() {
+      if (this.user.role == "admin") this.image_user = "/images/admin.png";
+      else this.image_user = "/images/CheemsIcons.png";
+      console.log(2);
+    },
+    logout() {
+      let user = JSON.parse(localStorage.getItem("bigStore.user"));
+      axios.patch("/api/users/", { email: user.email }).catch((response) => {});
       localStorage.removeItem("bigStore.jwt");
       localStorage.removeItem("bigStore.user");
       this.$router.push("/");
     },
     changePassword() {
-      this.password="",
-      this.c_password="",
-      this.newPassword="",
-      this.dialog = true;
+      (this.password = ""),
+        (this.c_password = ""),
+        (this.newPassword = ""),
+        (this.dialog = true);
     },
-    close()
-    {
-        this.dialog=false;
+    close() {
+      this.dialog = false;
     },
-    save()
-    {
-      axios.post("/api/updateUsers/" +`${this.email}`,{
-          newPassword: this.newPassword,
-      })
-      .then((response)=>{
+    save() {
+      axios
+        .post("/api/change_pass", {
+          email: this.user.email,
+          old_password: this.password,
+          new_password: this.newPassword,
+        })
+        .then((response) => {
           console.log(response.data);
-          if(response.data!=null) alert("Đổi mật khẩu thành công")
-      })
+        });
     },
-
   },
   components: {
     ValidationProvider,

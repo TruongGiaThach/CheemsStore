@@ -27,14 +27,14 @@
           </v-col>
           <v-col cols="12" sm="6">
             <v-text-field
-              v-model="sdt"
+              v-model="staff.number"
               readonly
               label="Số điện thoại"
             ></v-text-field>
           </v-col>
           <v-col cols="12" sm="12">
             <v-text-field
-              v-model="address"
+              v-model="staff.address"
               readonly
               label="Địa chỉ"
               color="#2196f3;"
@@ -43,7 +43,7 @@
           <v-col cols="12" sm="12">
             <div>
               <h6>Ghi chú:</h6>
-              <textarea v-model="aboutme" style="width: 100%"></textarea>
+              <textarea v-model="staff.note" style="width: 100%"></textarea>
             </div>
           </v-col>
         </v-row>
@@ -58,15 +58,7 @@ export default {
   },
   data() {
     return {
-      name: "Dũng kun",
-      cmnd: "23231212",
-      disabled: null,
-      email: "kun@gmail.com",
-      address: "Xóm Mới Ninh Tây",
-      sdt: "0857550531",
-      salary: 20000,
-      aboutme:
-        "Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.",
+      
     };
   },
 };
