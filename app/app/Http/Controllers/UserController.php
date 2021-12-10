@@ -6,6 +6,8 @@ use Auth;
 use App\Models\User;
 use Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 
 class UserController extends Controller
@@ -20,19 +22,27 @@ class UserController extends Controller
     {
         $status = 401;
         $response = ['error' => 'Unauthorised'];
-
-        if (Auth::attempt($request->only(['email', 'password']))) {
+     
+        //login
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'state' => 'inactive'])) {
             $status = 200;
             $response = [
                 'user' => Auth::user(),
                 'token' => Auth::user()->createToken('bigStore')->accessToken,
             ];
         }
-        $user = User::where('email',$request->email);
-        $user->update(
-            ['state'=>"active"]
-        );    
+
+        $user = Auth::user();
+        if (Auth::check()) {
+            // The user is logged in... 
+            $user->update(
+                ['state'=>"active"]
+            );   
+        }
+        
         return response()->json($response, $status);
+          
+       
     }
 
     public function register(Request $request)
