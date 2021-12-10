@@ -593,7 +593,7 @@ export default {
       let date =
         day.getDate().toString() +
         "/" +
-        day.getMonth() +
+        (day.getMonth()+1) +
         "/" +
         day.getFullYear();
       let hours =
