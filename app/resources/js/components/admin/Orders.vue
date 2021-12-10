@@ -27,7 +27,7 @@
           >
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
-          
+
 
           <v-text-field
                 v-model="search"
@@ -36,7 +36,7 @@
                 single-line
                 hide-details
           ></v-text-field>
-          
+
           <return-product
             @refundFinish="initialize"
           />
@@ -71,15 +71,15 @@
                       </div>
                     </div>
                     <div class="clear">
-                      <div class="column2" style="margin-bottom: 5px">
+                      <div class="marginheadLine" >
                         <span><b style="display: inline">Khách hàng:</b></span>
                         <span>{{ customerItem.name }}</span>
                       </div>
-                      <div class="column2">
+                      <div class="marginheadLine" >
                         <span><b style="display: inline">Email:</b></span>
                         <span>{{ customerItem.email }}</span>
                       </div>
-                      <div class="column2">
+                      <div  class="marginheadLine" >
                         <span><b style="display: inline">Sđt:</b></span>
                         <span>{{ customerItem.number }}</span>
                       </div>
@@ -361,4 +361,8 @@ export default {
   },
 };
 </script>
-
+<style scoped>
+.marginheadLine {
+    margin-left: 15px;
+}
+</style>
