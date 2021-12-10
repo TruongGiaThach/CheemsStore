@@ -646,7 +646,7 @@ export default {
             },
           })
           .then((response) => {
-            this.addHistory(response.data.data._id, response.data.data.name, 'CHANGE')
+            this.addHistory()
             this.itemIsChose = [];
             this.content = "";
           })
@@ -662,13 +662,10 @@ export default {
         let hours =day.getHours() + ':' + day.getMinutes()+ ':' +day.getSeconds()+'  ';
         return hours + date;
     },
-    addHistory(product_id ,product_name,action){
+    addHistory(){
         axios.post('/api/histories/', {
             staff_id: this.staff._id,
             staff_name: this.staff.name,
-            product_id: product_id,
-            product_name: product_name,
-            action: action,
             content: this.content,
             impDate: this.addHoursAndDays(),
         }).then((reponse)=>{console.log(reponse.data)})
@@ -765,7 +762,7 @@ export default {
         .then((response) => {
           console.log("worked");
           this.addProductHistory(response.data)
-          this.addHistory(response.data._id, response.data.name, 'ADD')
+          this.addHistory()
           this.itemIsChose = [];
           this.content = "";
           this.initialize();
@@ -781,7 +778,7 @@ export default {
         .then((response) => {
           console.log("delete.");
           this.content = 'đã xóa sản phẩm ' + response.data + '&';
-          this.addHistory('00000', response.data, 'DELETE');
+          this.addHistory();
           this.itemIsChose = [];
           this.content = "";
         })

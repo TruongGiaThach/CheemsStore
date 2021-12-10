@@ -92,7 +92,7 @@
         <div class="d-flex justify-center">
           <v-row no-gutters align="center">
             <v-col class="flex-grow-0">
-              <p style="margin: 0px"> {{ item.action }} </p>
+              <p style="margin: 0px"> {{ item.content }} </p>
             </v-col>
             <v-col class="flex-grow-0">
               <v-menu
@@ -166,7 +166,6 @@ export default {
           sortable: false,
         },
         { text: "Hành động", value: "action", class: "info--text" },
-        { text: "sản phẩm", value: "product_name", class: "info--text" },
         {
           text: "Thời gian thực hiện",
           value: "implementDate",
