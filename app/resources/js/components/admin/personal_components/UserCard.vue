@@ -33,10 +33,10 @@
     <v-spacer></v-spacer>
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn depressed  color="blue-grey"
-        class="ma-2 white--text"  @click="logout"> Đăng xuất </v-btn>
+      <v-btn depressed large  color="blue-grey"
+        class="white--text"  @click="logout"> Đăng xuất </v-btn>
       <v-spacer></v-spacer>
-      <v-btn depressed color="primary" @click="changePassword">
+      <v-btn depressed large color="primary" @click="changePassword">
         Đổi mật khẩu
       </v-btn>
       <v-spacer></v-spacer>
@@ -175,15 +175,20 @@ export default {
       this.dialog = false;
     },
     save() {
+      console.log(this.password)
+      console.log(this.newPassword)
       axios
-        .post("/api/change_pass", {
+        .patch("/api/users/change_pass", {
           email: this.user.email,
           old_password: this.password,
           new_password: this.newPassword,
+          state:this.user.state
         })
         .then((response) => {
-          console.log(response.data);
+          if(response.data.user != null)
+            alert("Mật khẩu đã được thay đổi")
         });
+      this.close();
     },
   },
   components: {

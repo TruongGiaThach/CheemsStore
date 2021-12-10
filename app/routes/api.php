@@ -46,7 +46,7 @@ Route::patch('users/update_state','UserController@updateStateAccount');
 Route::delete('users/{email}','UserController@destroy');
 Route::get('users/{user}/orders','UserController@showOrders');
 Route::post('/updateUsers/{email}','UserController@updatePassword');
-Route::post('users/change_pass', 'UserController@changePass');
+Route::patch('users/change_pass', 'UserController@changePass');
 
 
 //category
