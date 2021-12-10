@@ -51,7 +51,7 @@
               >
                 <div id="receipt_page">
                    
-                  <v-card-title class="bg-info mx-auto" max-width="inherit">
+                  <v-card-title class="bg-info mx-auto" max-width="inherit" >
                     <v-card-actions max-width="inherit">
                       <v-spacer></v-spacer>
                       <v-btn pill color="normal" @click="close">Trở về </v-btn>

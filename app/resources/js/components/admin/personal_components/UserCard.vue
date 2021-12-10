@@ -22,21 +22,24 @@
           ><v-icon color="#2196f3">mdi-star-outline</v-icon></v-col
         >
       </v-row>
-      <h6 style="color: #2196f3" class="commonFont">{{ staff.position }}</h6>
+      <br />
+      <h5 style="color: #2196f3" class="commonFont">{{ staff.position }}</h5>
       <br />
       <br />
 
       <h6 class="commonFont">{{ staff.email }}</h6>
       <h6 class="commonFont">Ngày vào làm: {{ staff.dateBegin }}</h6>
     </v-card-text>
+    <v-spacer></v-spacer>
     <v-card-actions>
-      <v-btn class="buttonFont" rounded color="primary" @click="logout">
-        Đăng xuất
-      </v-btn>
       <v-spacer></v-spacer>
-      <v-btn class="buttonFont" rounded color="primary" @click="changePassword">
+      <v-btn depressed  color="blue-grey"
+        class="ma-2 white--text"  @click="logout"> Đăng xuất </v-btn>
+      <v-spacer></v-spacer>
+      <v-btn depressed color="primary" @click="changePassword">
         Đổi mật khẩu
       </v-btn>
+      <v-spacer></v-spacer>
     </v-card-actions>
     <v-dialog v-model="dialog" max-width="500px">
       <ValidationObserver ref="observer" v-slot="{ invalid }">
@@ -149,7 +152,6 @@ export default {
     };
   },
   beforeMount() {
-   
     this.user = JSON.parse(localStorage.getItem("bigStore.user"));
     this.getImage();
   },
@@ -167,10 +169,7 @@ export default {
       this.$router.push("/");
     },
     changePassword() {
-      (this.password = ""),
-        (this.c_password = ""),
-        (this.newPassword = ""),
-        (this.dialog = true);
+        this.dialog = true;
     },
     close() {
       this.dialog = false;

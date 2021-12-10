@@ -1,12 +1,15 @@
 <template>
   <v-form style="width: 100%">
-    <v-card style="width: 100%">
+    <v-card
+      style="width: 100%"
+      
+    >
       <v-card-title
-        class="mx-auto"
+        class=" mx-auto"
         max-width="inherit"
-        style="background-color: #2196f3; height=60px;"
+        style="width: 100%;background-color:#2196f3;heigh:80px"
       >
-        <h4 class="text-h5 mx-auto white--text">Thông tin cơ bản</h4>
+        <span class="text-h5 mx-auto white--text"> Thông tin cơ bản</span>
       </v-card-title>
 
       <v-card-text>
@@ -14,16 +17,33 @@
           <v-col cols="12" sm="12"></v-col>
           <v-col cols="12" sm="12"> </v-col>
           <v-col cols="12" sm="4">
-            <v-text-field color="rgb(33, 150, 243)"  v-model="staff.name" readonly label="Tên"></v-text-field>
+            <v-text-field
+              color="rgb(33, 150, 243)"
+              v-model="staff.name"
+              readonly
+              label="Tên"
+            ></v-text-field>
           </v-col>
           <v-col cols="12" sm="4">
-            <v-text-field v-model="staff.cmnd" label="CMND" readonly></v-text-field>
+            <v-text-field
+              v-model="staff.cmnd"
+              label="CMND"
+              readonly
+            ></v-text-field>
           </v-col>
           <v-col cols="12" sm="4">
-            <v-text-field v-model="staff.salary" label="Lương" readonly></v-text-field>
+            <v-text-field
+              v-model="staff.salary"
+              label="Lương"
+              readonly
+            ></v-text-field>
           </v-col>
           <v-col cols="12" sm="6">
-            <v-text-field v-model="staff.email" readonly label="Email"></v-text-field>
+            <v-text-field
+              v-model="staff.email"
+              readonly
+              label="Email"
+            ></v-text-field>
           </v-col>
           <v-col cols="12" sm="6">
             <v-text-field
@@ -43,7 +63,7 @@
           <v-col cols="12" sm="12">
             <div>
               <h6>Ghi chú:</h6>
-              <textarea v-model="staff.note" style="width: 100%"></textarea>
+              <v-textarea v-model="staff.note" style="width: 100%"></v-textarea>
             </div>
           </v-col>
         </v-row>
@@ -54,12 +74,10 @@
 <script>
 export default {
   props: {
-      staff: [],
+    staff: [],
   },
   data() {
-    return {
-      
-    };
+    return {};
   },
 };
 </script>
