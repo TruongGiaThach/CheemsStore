@@ -15,8 +15,15 @@ class Receipt extends Eloquent
     protected $connection = 'mongodb';
     protected $table = 'receipt';
     protected $fillable = [
-        'user_id','createDay','total','VAT',
+        'user_id','createDay','total','VAT','staff_id'
     ];
-    
-    
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class, 'user_id');
+    }
+    public function receiptDetail()
+    {
+        return $this->hasMany(ReceiptDetail::class);
+    }
 }

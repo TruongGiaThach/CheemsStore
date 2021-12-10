@@ -293,6 +293,7 @@ export default {
   name: "create-order",
   data() {
     return {
+      staff: [],
       outOfStock: false,
       baseUrl: window.location.origin,
       products: [],
@@ -370,6 +371,11 @@ export default {
       .catch((error) => {
         console.error(error);
       });
+      let user = JSON.parse(localStorage.getItem("bigStore.user"));
+      axios.get(`/api/getStaffs/${user.email}`).then((response) => {
+      this.staff = response.data;
+      console.log(response.data);
+    });
   },
   computed: {
     filteredProducts() {
@@ -533,6 +539,7 @@ export default {
           createDay: day,
           total: this.endPrice,
           VAT: this.vat,
+          staff_id: this.staff._id,
         })
         .then((response) => {
           this.addRecepitDetail(response.data);
