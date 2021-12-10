@@ -45,7 +45,7 @@
                     >mdi-information-outline</v-icon
                   >
                 </template>
-                <v-card :color="item.color" dark>
+                <v-card :color="item.color">
                   <div
                     class="d-flex flex-no-wrap justify-space-between"
                     v-if="staffInforCheck == 'CHECKING'"
@@ -76,10 +76,10 @@
                         class="text-h5"
                         v-text="item.staff_name"
                       ></v-card-title>
-                      <v-card-subtitle>
+                      <v-card-text>
                         <p>chức vụ: {{ staff.role }}</p>
                         <p>email: {{ staff.email }}</p>
-                      </v-card-subtitle>
+                      </v-card-text>
                     </div>
                   </div>
                 </v-card>
@@ -106,10 +106,12 @@
                   >
                 </template>
                 <v-card class="content" style="width: 100%;">
-                  <v-card-text class="changeFont">
+                  <v-card-title>
                     <h5 style="color: #2196f3" class="commonFont">
                       {{ item.content }}
                     </h5>
+                  </v-card-title>
+                  <v-card-text class="changeFont">
                     <v-row v-for="content in contents" :key="content" >
                         <h6 class="commonFont">
                           {{ content }}
