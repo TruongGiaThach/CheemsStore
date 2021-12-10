@@ -132,6 +132,7 @@ import CreateOrder from "./admin/order_components/createOrder";
 import Staffs from "./admin/Staffs";
 import Customers from "./admin/Customers";
 import Histories from "./admin/Histories";
+import PersonalInfor from "./admin/PersonalInfor";
 export default {
   data() {
     return {
@@ -149,7 +150,6 @@ export default {
         ["mdi-account-group", "Khách hàng", "customers"],
         ["mdi-account-cog-outline", "Nhân viên", "staffs"],
         ["mdi-account", "Tài khoản", "users"],
-  
         ["mdi-rancher-outline", "Lịch sử", "histories"],
       ],
       Nav_bar_order: [
@@ -167,6 +167,7 @@ export default {
     Staffs,
     Users,
     Histories,
+    PersonalInfor
   },
   beforeMount() {
     this.setComponent(this.$route.params.page);
@@ -176,7 +177,8 @@ export default {
       "Bearer " + localStorage.getItem("bigStore.jwt");
     this.getImage();
     if (this.user.role == "staff") {
-      this.Nav_bar_items.splice(2, 1);
+      this.Nav_bar_items.splice(2, 2);  
+      this.Nav_bar_items.push(["mdi-account", "Thông tin cá nhân", "personalInfor"]);
     }
   },
   methods: {
@@ -255,6 +257,15 @@ export default {
               name: "admin-pages",
               params: { page: "histories" },
             });
+          break;
+          case "personalInfor":
+          this.activeComponent = PersonalInfor;
+          if (this.$route.path != "/admin/personalInfor")
+            this.$router.push({
+              name: "admin-pages",
+              params: { page: "personalInfor" },
+            });
+
           break;
         default:
           this.activeComponent = Main;

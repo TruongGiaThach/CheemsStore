@@ -317,7 +317,7 @@ export default {
         { text: "Số ngày nghỉ", value: "numOfDayOff", class: "info--text" },
         { text: "Lương", value: "salary", class: "info--text" },
         { text: "Ngày vào làm", value: "dateBegin", class: "info--text" },
-        { text: "Chức vụ", value: "position", class: "infor--text" },
+        { text: "Chức vụ", value: "position", class: "info--text" },
         {
           text: "Actions",
           value: "actions",

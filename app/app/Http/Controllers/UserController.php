@@ -72,6 +72,18 @@ class UserController extends Controller
             'message' => $user? 'User Loggout!' : 'Error Loggout User'
         ]);
     }
+    public function updateStateAccount(Request $request){
+        $user = User::where('email',$request->email);
+        error_log($request->email);
+        $user->update(
+            ['state'=>$request->state]
+        );  
+        return response()->json([
+            'status' => $user,
+            'message' => $user? 'User state updated!' : 'Error'
+        ]);
+
+    }
     public function details()
     {
         $user = Auth::user();
