@@ -10,9 +10,6 @@
       shadow-lg
       rounded
     "
-    :labels="labels2"
-    :customers="sCustomers"
-    :orders="sOrder"
   >
     <div class="rounded-t mb-0 px-4 py-3 bg-transparent">
       <div class="flex flex-wrap items-center">

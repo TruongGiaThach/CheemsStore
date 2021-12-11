@@ -77,7 +77,7 @@ class ProductController extends Controller
      */
     public function show(Request $request)
     {
-        return response()->json(Product::where($request->type,$request->condition)->get(),200); 
+        return response()->json(Product::where($request->type,$request->condition)->get(),200);
     }
 
     /**
@@ -101,9 +101,9 @@ class ProductController extends Controller
     public function update(Request $request, $product_id)
     {
         $product = Product::findOrFail($product_id);
-        
-        
-        
+
+
+
         $product->name = $request->name;
         $product->amount = $request->amount;
         $product->importPrice = $request->importPrice;
@@ -150,7 +150,7 @@ class ProductController extends Controller
 
     public function updateOne(Request $request, Product $product)
     {
-        
+
     }
 
     public function updateUnits(Request $request, Product $product)
@@ -181,10 +181,10 @@ class ProductController extends Controller
     {
         //
         $product = Product::findOrFail($product_id);
-        
+
         $name = $product->image;
         Storage::disk('public')->delete($product->image);
-        
+
         $name = $product->name;
         $product->forceDelete();
 
@@ -201,5 +201,15 @@ class ProductController extends Controller
         */
 
         return response()->json($name);
+    }
+    public function revertAmount($id)
+    {
+        $product=Product::find($id);
+        $receiptDetail = $product -> receiptDetail;
+        if($receiptDetail != [])
+        {
+            return response()->json(['amount' => $receiptDetail->amount]);
+        }
+        return response()->json(['amount' =>  0]);
     }
 }

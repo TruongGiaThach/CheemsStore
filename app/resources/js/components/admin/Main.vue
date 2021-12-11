@@ -207,22 +207,23 @@ export default {
       check2: 1,
       profit: [],
       revenue: [],
+      cost: [],
       labels: [],
       receiptsDay: [],
       customer_c: [],
-      customer_total: "",
+      customer_total: 0,
       receipt_c: [],
-      receipt_total: "",
+      receipt_total: 0,
       product_c: [],
-      product_total: "",
+      product_total: 0,
       ratio_c: [],
-      ratio_total: "",
+      ratio_total: 0.00,
       // dư lieu duoc lay len
       customers: [],
       receipts: [],
       products: [],
       receiptDetails: [],
-
+      labelYears:[],
       values: [],
       // dayinWeek: ["Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"],
       monthinYear: [
@@ -362,6 +363,7 @@ export default {
       .get("/api/products")
       .then((response) => {
         this.products = response.data;
+        this.revertAmountProduct()
       })
       .catch((error) => {
         console.error(error);
@@ -379,6 +381,15 @@ export default {
     }, 500);
   },
   methods: {
+    revertAmountProduct(){
+        this.receiptDetails.forEach((e)=>{
+            let a =this.products.findIndex(c=>c._id == e.product_id)
+            if(a!=-1){
+                this.products[a].amount+=e.amount
+                console.log(e)
+            }
+        })
+    },
     changeDate1() {
       if (this.check == 1) {
         this.createStatisticWithDay();
@@ -420,7 +431,7 @@ export default {
         .toISOString()
         .slice(0, 10);
       this.labels = this.createLabelWithDay(this.startDay1, this.endDay1);
-      this.createDataWithDay();
+      this.crDataWithDay();
     },
     //bang thong ke 2
     createStatisticWithYear2() {
@@ -940,6 +951,7 @@ export default {
       //   })
       // );
       var labels = [];
+      this.labelYears = []
       var currentDay = new Date(startDay).getDate();
       var currentMonth = new Date(startDay).getMonth() + 1;
       var currentYear = new Date(startDay).getFullYear();
@@ -948,15 +960,18 @@ export default {
         for (; i < 8; i++) {
           if (currentDay > 28) break;
           labels.push(currentDay++ + "/" + currentMonth);
+          this.labelYears.push(currentYear)
         }
         ++i;
         if (this.checkNamNhuan(currentYear)==true && currentDay > 28) {
           labels.push(currentDay + "/" + currentMonth);
+          this.labelYears.push(currentYear)
         }
         currentDay = 1;
         currentMonth += 1;
         for (; i < 8; i++) {
           labels.push(currentDay++ + "/" + currentMonth);
+          this.labelYears.push(currentYear)
         }
         console.log(labels)
         return labels;
@@ -965,6 +980,7 @@ export default {
         for (; i < 8; i++) {
           if (currentDay > 30) break;
           labels.push(currentDay++ + "/" + currentMonth);
+          this.labelYears.push(currentYear)
         }
         console.log(labels)
         ++i;
@@ -972,11 +988,15 @@ export default {
         {
             labels.push(currentDay + "/" + currentMonth);
         }
-        if(this.currentMonth==12) currentMonth =1;
+        if(this.currentMonth==12){
+            currentMonth =1
+            currentYear+=1
+        }
         else currentMonth +=1;
         currentDay =1;
         for (; i < 8; i++) {
           labels.push(currentDay++ + "/" + currentMonth);
+          this.labelYears.push(currentYear)
         }
         return labels;
       }
@@ -1021,6 +1041,38 @@ export default {
       }
       return 1;
     },
+    compareTime(day1,year1,day2)
+    {
+        let temp = day1.split('/')
+        let d = new Date(day2)
+        if(year1!= d.getFullYear()) return fasle;
+        return ((d.getMonth()+1) == temp[1] && d.getDate()== temp[0])
+    },
+    crDataWithDay()
+    {
+        this.revenue=[]
+        this.profit =[]
+        this.cost = []
+        let moneyOfCost = 0
+        let moneyOfRevenue = 0
+        let amountProduct = 0
+        this.labels.forEach((element, index)=>{
+            this.receipts.forEach((e)=>{
+                if(this.compareTime(element,this.labelYears[index], e.created_at)){
+                    moneyOfRevenue+=parseInt(e.total)
+                    moneyOfCost+=parseInt(e.VAT)
+                }
+            })
+            this.products.forEach((e)=>{
+                if(this.compareTime(element,this.labelYears[index], e.created_at)){
+                    moneyOfCost+=parseInt(e.importPrice)*parseInt(e.amount)
+                }
+            })
+            this.revenue.push(moneyOfRevenue)
+            this.cost.push(moneyOfCost)
+            this.profit.push(moneyOfRevenue-moneyOfCost)
+        })
+    }
   },
 };
 </script>

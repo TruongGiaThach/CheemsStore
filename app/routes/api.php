@@ -33,6 +33,7 @@ Route::get('/receipt/getReceipt', 'ReceiptController@getReceipt');
 Route::put('/receipt/{receiptId}', 'ReceiptController@update');
 Route::get('/getCustomer/{id}', 'ReceiptController@getCustomerWithReceiptId');
 Route::get('/getBill/{id}', 'ReceiptDetailController@getInforBill');
+Route::get('/receiptDetail/getCostAndAmount/{id}', 'ReceiptDetailController@getImportPrice');
 //customer
 Route::get('/customer', 'CustomerController@index');
 Route::post('/customer', 'CustomerController@store');
@@ -58,6 +59,7 @@ Route::delete('/category/{category_id}', 'CategoryController@destroy');
 
 //product
 Route::post('/productUpdate/{product_id}', 'ProductController@updateProductAmount');
+Route::get('/revertAmountProduct/{product_id}','ProductController@revertAmount');
 Route::get('/products', 'ProductController@index');
 Route::get('/products/find', 'ProductController@show');
 Route::post('/products', 'ProductController@store');

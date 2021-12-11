@@ -35,7 +35,7 @@ export default {
         type: Array,
         default: [],
       },
-      total: Number,
+      total: 0.0,
     },
     mounted() {
       this.$nextTick(function () {

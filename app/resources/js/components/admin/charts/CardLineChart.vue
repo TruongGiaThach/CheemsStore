@@ -10,9 +10,6 @@
       shadow-lg
       rounded
     "
-    :revenue="revenue"
-    :labels="labels"
-    :profit="profit"
   >
     <div class="rounded-t mb-0 px-4 py-3 bg-transparent">
       <div class="flex flex-wrap items-center">
@@ -21,7 +18,7 @@
             Tổng quan
           </h6>
           <div class="d-flex flex-no-wrap justify-space-between mr-5">
-            <h2 class="text-info text-xl font-semibold">Doanh thu & Lợi nhuận</h2>            
+            <h2 class="text-info text-xl font-semibold">Doanh thu & Lợi nhuận</h2>
             <slot></slot>
           </div>
         </div>
@@ -42,18 +39,15 @@ export default {
     LineChart,
   },
   props: {
-    labels: {
-      type: Array,
-      default: [],
-    },
-    revenue: {
-      type: Array,
-      default: [],
-    },
-    profit: {
-      type: Array,
-      default: [],
-    },
+    labels:[],
+    revenue: [],
+    profit: [],
+  },
+  data(){
+      return {
+          data1: [],
+          options: [],
+      };
   },
   beforeUpdate() {
       if(this.labels.length!=0){
@@ -108,7 +102,7 @@ export default {
               display: true,
               scaleLabel: {
                 display: true,
-                labelString: "Thời gian", 
+                labelString: "Thời gian",
                 fontColor: "black",
               },
               gridLines: {

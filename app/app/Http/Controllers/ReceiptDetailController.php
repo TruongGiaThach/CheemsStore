@@ -107,4 +107,23 @@ class ReceiptDetailController extends Controller
             'receipt_details'=> $result,
         ]);
     }
+    public function getImportPrice($id)
+    {
+        $receipt = Receipt::find($id);
+        $receiptDetail = $receipt->receiptDetail;
+        $result = [];
+        if ($receiptDetail != [])
+        {
+            foreach ($receiptDetail as $value){
+                    $product =Product::findOrFail($value['product_id']);
+                    $value['productAmount'] = $product->amount;
+                    $value['importPriceProduct'] = $product->importPrice;
+                    $result[] = (object)$value;
+            }
+            return response()->json([
+            'status'=> (bool) $receiptDetail,
+            'needData'=> $result,
+        ]);
+        }
+    }
 }
