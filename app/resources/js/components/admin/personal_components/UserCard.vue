@@ -4,10 +4,10 @@
       max-width="inherit"
       style="background-color: #2196f3; height: 150px"
     ></v-card-title>
-    <div class="avatar">
+    <div class="avatar" @click.stop="showAvaterPicker=true">
       <img class="img" :src="this.image_user" />
     </div>
-
+    <avatar-picker v-model="showAvaterPicker" />
     <v-card-text class="changeFont">
       <v-row>
         <v-col cols="12" sm="3"
@@ -124,6 +124,7 @@
 <script>
 import { max, email, confirmed } from "vee-validate/dist/rules";
 import { extend, ValidationObserver, ValidationProvider } from "vee-validate";
+import AvatarPicker from '../user_component/AvatarPicker.vue'
 extend("confirmed", {
   ...confirmed,
   message: "Mật khẩu không khớp.",
@@ -143,6 +144,7 @@ export default {
   data() {
     return {
       dialog: false,
+      showAvaterPicker: false,
       user: [],
       password: "",
       c_password: "",
@@ -189,6 +191,7 @@ export default {
   components: {
     ValidationProvider,
     ValidationObserver,
+    AvatarPicker,
   },
 };
 </script>
