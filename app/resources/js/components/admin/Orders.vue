@@ -95,20 +95,22 @@
                       <v-container>
                         <div class="clear">
                           <div class="column2">
-                            <h5>Cheems #ID {{ billId }}</h5>
-                            <p style="display: inline">
-                              <b>Ngày thanh toán :</b> {{ createDay }}
-                            </p>
+                            <h5><b>CheemsStore</b></h5>
                           </div>
-                          <div>
-                            <div class="column2 align-left">
+                            <div class="column2" style="text-align: left;">
                               <p style="margin-top: 5px; display: inline">
                                 <b>Trạng thái:</b>Đã thanh toán
                               </p>
-                            </div>
                           </div>
                         </div>
                         <div class="clear">
+                            <h5><b>ID: </b> {{billId}}</h5>
+                        </div>
+                        <hr style="margin-left: 20px; margin-right: 37vh; color: #2196f3;">
+                        <div class="clear">
+                            <p style="display: inline">
+                              <b>Ngày thanh toán :</b> {{ createDay }}
+                            </p>
                           <div class="marginheadLine">
                             <span
                               ><b style="display: inline">Khách hàng:</b></span

@@ -217,13 +217,13 @@ export default {
       product_c: [],
       product_total: 0,
       ratio_c: [],
-      ratio_total: 0.00,
+      ratio_total: 0.0,
       // dư lieu duoc lay len
       customers: [],
       receipts: [],
       products: [],
       receiptDetails: [],
-      labelYears:[],
+      labelYears: [],
       values: [],
       // dayinWeek: ["Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"],
       monthinYear: [
@@ -363,7 +363,7 @@ export default {
       .get("/api/products")
       .then((response) => {
         this.products = response.data;
-        this.revertAmountProduct()
+        this.revertAmountProduct();
       })
       .catch((error) => {
         console.error(error);
@@ -381,14 +381,14 @@ export default {
     }, 500);
   },
   methods: {
-    revertAmountProduct(){
-        this.receiptDetails.forEach((e)=>{
-            let a =this.products.findIndex(c=>c._id == e.product_id)
-            if(a!=-1){
-                this.products[a].amount+=e.amount
-                console.log(e)
-            }
-        })
+    revertAmountProduct() {
+      this.receiptDetails.forEach((e) => {
+        let a = this.products.findIndex((c) => c._id == e.product_id);
+        if (a != -1) {
+          this.products[a].amount += e.amount;
+          console.log(e);
+        }
+      });
     },
     changeDate1() {
       if (this.check == 1) {
@@ -468,8 +468,8 @@ export default {
       }
       return labels;
     },
-        createLabelWithMonth(startDay, endDay) {
-      this.labelYears = []
+    createLabelWithMonth(startDay, endDay) {
+      this.labelYears = [];
       var labels = [];
       var monthStart = new Date(startDay).getMonth();
       var monthEnd = new Date(endDay).getMonth();
@@ -478,28 +478,29 @@ export default {
       if (yearStart < yearEnd) {
         labels.push(
           ...this.monthinYear.filter((e, i) => {
-              if(i >= monthStart) this.labelYears.push(yearStart)
+            if (i >= monthStart) this.labelYears.push(yearStart);
             return i >= monthStart;
           })
-        ); console.log(this.labelYears)
+        );
+        console.log(this.labelYears);
         for (var i = 0; i < yearEnd - yearStart - 1; i++) {
           labels.push(...this.monthinYear);
         }
         labels.push(
           ...this.monthinYear.filter((e, i) => {
-              if(i <= monthEnd) this.labelYears.push(yearEnd)
+            if (i <= monthEnd) this.labelYears.push(yearEnd);
             return i <= monthEnd;
           })
         );
       } else {
         labels.push(
           ...this.monthinYear.filter((e, i) => {
-              if(i >= monthStart && i <= monthEnd) this.labelYears.push(yearEnd)
+            if (i >= monthStart && i <= monthEnd) this.labelYears.push(yearEnd);
             return i >= monthStart && i <= monthEnd;
           })
         );
       }
-      console.log(labels)
+      console.log(labels);
       return labels;
     },
     createLabelWithDay(startDay) {
@@ -528,7 +529,7 @@ export default {
       //   })
       // );
       var labels = [];
-      this.labelYears = []
+      this.labelYears = [];
       var currentDay = new Date(startDay).getDate();
       var currentMonth = new Date(startDay).getMonth() + 1;
       var currentYear = new Date(startDay).getFullYear();
@@ -537,52 +538,48 @@ export default {
         for (; i < 8; i++) {
           if (currentDay > 28) break;
           labels.push(currentDay++ + "/" + currentMonth);
-          this.labelYears.push(currentYear)
+          this.labelYears.push(currentYear);
         }
         ++i;
-        if (this.checkNamNhuan(currentYear)==true && currentDay > 28) {
+        if (this.checkNamNhuan(currentYear) == true && currentDay > 28) {
           labels.push(currentDay + "/" + currentMonth);
-          this.labelYears.push(currentYear)
+          this.labelYears.push(currentYear);
         }
         currentDay = 1;
         currentMonth += 1;
         for (; i < 8; i++) {
           labels.push(currentDay++ + "/" + currentMonth);
-          this.labelYears.push(currentYear)
+          this.labelYears.push(currentYear);
         }
-        console.log(labels)
+        console.log(labels);
         return labels;
       } else {
         var i = 0;
         for (; i < 8; i++) {
           if (currentDay > 30) break;
           labels.push(currentDay++ + "/" + currentMonth);
-          this.labelYears.push(currentYear)
+          this.labelYears.push(currentYear);
         }
-        console.log(labels)
+        console.log(labels);
         ++i;
-        if(this.checkMonth(currentMonth)=="chan" && currentDay > 30)
-        {
-            labels.push(currentDay + "/" + currentMonth);
-            this.labelYears.push(currentYear)
+        if (this.checkMonth(currentMonth) == "chan" && currentDay > 30) {
+          labels.push(currentDay + "/" + currentMonth);
+          this.labelYears.push(currentYear);
         }
-        if(this.currentMonth==12){
-            currentMonth =1
-            currentYear+=1
-        }
-        else currentMonth +=1;
-        currentDay =1;
+        if (this.currentMonth == 12) {
+          currentMonth = 1;
+          currentYear += 1;
+        } else currentMonth += 1;
+        currentDay = 1;
         for (; i < 8; i++) {
           labels.push(currentDay++ + "/" + currentMonth);
-          this.labelYears.push(currentYear)
+          this.labelYears.push(currentYear);
         }
         return labels;
       }
     },
     checkNamNhuan(year) {
-      if (
-        ((year % 4 === 0 && year % 100 !== 0) || year % 400 !== 0)
-      ){
+      if ((year % 4 === 0 && year % 100 !== 0) || year % 400 !== 0) {
         return true;
       }
       return false;
@@ -592,66 +589,86 @@ export default {
       else if (month == 2) return "2";
       else return "chan";
     },
-    compareTime(time1,year1,time2,cate)
-    {
-        if(cate== "day"){
-            let temp = time1.split('/')
-            let d = new Date(time2)
-            if(year1!= d.getFullYear()) return fasle;
-            return ((d.getMonth()+1) == temp[1] && d.getDate()== temp[0])
-        } else if( cate =="month")
-        {
-            let cut = time1.slice(6,time1.length)
-            let day = new Date(time2)
-            if(year1 != day.getFullYear()) return false;
-            return cut == (day.getMonth()+1)
-        } else {
-            let day = new Date(time2)
-            return time1 == day.getFullYear()
-        }
+    compareTime(time1, year1, time2, cate) {
+      if (cate == "day") {
+        let temp = time1.split("/");
+        let d = new Date(time2);
+        if (year1 != d.getFullYear()) return fasle;
+        return d.getMonth() + 1 == temp[1] && d.getDate() == temp[0];
+      } else if (cate == "month") {
+        let cut = time1.slice(6, time1.length);
+        let day = new Date(time2);
+        if (year1 != day.getFullYear()) return false;
+        return cut == day.getMonth() + 1;
+      } else {
+        let day = new Date(time2);
+        return time1 == day.getFullYear();
+      }
     },
-    crData(cate)
-    {
-        this.revenue=[]
-        this.profit =[]
-        this.cost = []
-        let moneyOfCost = 0
-        let moneyOfRevenue = 0
-        this.labels.forEach((element, index)=>{
-            this.receipts.forEach((e)=>{
-                if(this.compareTime(element,this.labelYears[index], e.created_at, cate)){
-                    moneyOfRevenue+=parseInt(e.total)
-                    moneyOfCost+=parseInt(e.VAT)
-                }
-            })
-            this.products.forEach((e)=>{
-                if(this.compareTime(element,this.labelYears[index], e.created_at, cate)){
-                    moneyOfCost+=parseInt(e.importPrice)*parseInt(e.amount)
-                }
-            })
-            this.revenue.push(moneyOfRevenue)
-            this.cost.push(moneyOfCost)
-            this.profit.push(moneyOfRevenue-moneyOfCost)
-            moneyOfRevenue = 0
-            moneyOfCost = 0
-        })
+    crData(cate) {
+      this.revenue = [];
+      this.profit = [];
+      this.cost = [];
+      let moneyOfCost = 0;
+      let moneyOfRevenue = 0;
+      this.labels.forEach((element, index) => {
+        this.receipts.forEach((e) => {
+          if (
+            this.compareTime(
+              element,
+              this.labelYears[index],
+              e.created_at,
+              cate
+            )
+          ) {
+            moneyOfRevenue += parseInt(e.total);
+            moneyOfCost += parseInt(e.VAT);
+          }
+        });
+        this.products.forEach((e) => {
+          if (
+            this.compareTime(
+              element,
+              this.labelYears[index],
+              e.created_at,
+              cate
+            )
+          ) {
+            moneyOfCost += parseInt(e.importPrice) * parseInt(e.amount);
+          }
+        });
+        this.revenue.push(moneyOfRevenue);
+        this.cost.push(moneyOfCost);
+        this.profit.push(moneyOfRevenue - moneyOfCost);
+        moneyOfRevenue = 0;
+        moneyOfCost = 0;
+      });
     },
-    crData2(cate)
-    {
-        this.sCustomers = []
-        this.sOrder = []
-        let customerAmount =[]
-        let productAmount = []
-        this.labels2.forEach((element, index)=>{
-            customerAmount = this.customers.filter((e)=>{
-                return (this.compareTime(element,this.labelYears[index], e.created_at, cate))
-            })
-            productAmount = this.receiptDetails.filter((e)=>{
-                return (this.compareTime(element,this.labelYears[index], e.created_at, cate))
-            })
-            this.sCustomers.push(customerAmount.length)
-            this.sOrder.push(productAmount.length)
-        })
+    crData2(cate) {
+      this.sCustomers = [];
+      this.sOrder = [];
+      let customerAmount = [];
+      let productAmount = [];
+      this.labels2.forEach((element, index) => {
+        customerAmount = this.customers.filter((e) => {
+          return this.compareTime(
+            element,
+            this.labelYears[index],
+            e.created_at,
+            cate
+          );
+        });
+        productAmount = this.receiptDetails.filter((e) => {
+          return this.compareTime(
+            element,
+            this.labelYears[index],
+            e.created_at,
+            cate
+          );
+        });
+        this.sCustomers.push(customerAmount.length);
+        this.sOrder.push(productAmount.length);
+      });
     },
   },
 };
