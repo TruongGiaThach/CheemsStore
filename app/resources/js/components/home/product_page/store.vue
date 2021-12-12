@@ -9,7 +9,7 @@
             <div class= "cant-find">
                 <h4 v-if="products.length < 1">Không tìm thấy sản phẩm nào!</h4>
             </div>
-            <span class ="box-container" v-for="(product,index) in historyList" :key="index">
+            <span class ="box-container" v-for="(product,index) in productsList" :key="index">
                 <v-card class = "product-box" :href="'/product/' + product._id">
                     <div>
                         <img :src = "baseUrl +'/images/' + product.image">
@@ -51,7 +51,7 @@ export default {
             page: 1,
 			pageSize: 40,
             listCount: 0,
-            historyList: [],
+           productsList: [],
         }
     },
     beforeMount() {
@@ -114,15 +114,15 @@ export default {
         initPage() {
 			this.listCount = this.products.length;
 			if (this.listCount < this.pageSize) {
-				this.historyList = this.products;
+				this.productsList = this.products;
 			} else {
-				this.historyList = this.products.slice(0, this.pageSize);
+				this.productsList = this.products.slice(0, this.pageSize);
 			}
 		},
 		updatePage(pageIndex) {
 			let start = (pageIndex - 1) * this.pageSize;
 			let end = pageIndex * this.pageSize;
-			this.historyList = this.products.slice(start, end);
+			this.productsList = this.products.slice(start, end);
 			this.page = pageIndex;
 		},
      },
