@@ -38,62 +38,70 @@
             <nav class="navbar navbar-expand-md navbar-light navbar-laravel mainbar sticky-top">
                     <div class="container">
                         <div class ="brand">
-                            <router-link :to="{name: 'home'}" class="navbar-brand">
+                            <a href="/home" class="navbar-brand">
                                 <div>
                                     <img id="logo" :src = "require('../../../../public/images/CheemsIcons.png').default" width="55em">
                                     <h2 id="title">
                                         <b>Cheems Store</b>
                                     </h2>
                                 </div>
-                            </router-link>
+                            </a>
                         </div>
 
                         <!-- Left Side Of Navbar -->
                         <div class="navbar-nav mr-auto">
-                            <form class="form-inline search-box">
-                                <input class="form-control mr-sm-2 " type="search" placeholder="Nhập từ khóa cần tìm" aria-label="Search" size="50">
-                                <button class="btn btn-warning my-2 my-sm-0 cheems-color" type="submit">
+                            <div class="mobile-menu">
+                                <v-btn
+                                @click="dialog = true"
+                                >
+                                    <v-icon>fas fa-list</v-icon>
+                                </v-btn>
+                                <v-dialog
+                                v-model="dialog"
+                                >
+                                <div class="menu">
+                                    <side-menu></side-menu>
+                                </div>
+                                    
+                                </v-dialog>
+                            </div>
+
+                            <form class="form-inline search-box" :action="'/store/' + this.category + '/' + this.search" method="get">
+                                <input class="form-control mr-sm-2 " v-model="search" type="search" placeholder="Nhập từ khóa cần tìm" aria-label="Search" size="50">
+                                <button class="btn btn-warning my-2 my-sm-0 cheems-color">
                                     <i class="fas fa-search fa-lg"></i>
                                 </button>
                             </form>
                         </div>
 
                         <!-- Right Side Of Navbar -->
-                        
                         <div class="navbar-nav ml-auto">
                             <div class="dropdown">
                                 <div class="btn dropdown " id="dropdownMenuButton" aria-expanded="false" >
-                                    <router-link :to="{ name: 'category' }" class="nav-link">
+                                    <a href="/store/all" class="nav-link">
                                         <div class = "navbar-icon">
                                             <i class="fas fa-tag fa-2x"></i>
                                             <p>
                                                 <b>Khuyến mãi</b>
                                             </p>
                                         </div>
-                                    </router-link>
+                                    </a>
                                 </div>
                             </div>
                             
-                            <!-- <div class="dropdown" >
+                            <div class="dropdown">
                                 <div class="btn dropdown " id="dropdownMenuButton" aria-expanded="false" >
-                                    <router-link :to="{ name: 'login' }" class="nav-link" v-if="!isLoggedIn">
+                                    <a href="/store/all" class="nav-link">
                                         <div class = "navbar-icon">
-                                            <i class="fas fa-heart fa-2x"></i>
+                                            <i class="fas fa-store-alt fa-2x"></i>
                                             <p>
-                                                <b>Yêu thích</b>
+                                                <b>Cửa hàng</b>
                                             </p>
                                         </div>
-                                    </router-link>
-                                    <router-link :to="{ name: 'login' }" class="nav-link" v-if="isLoggedIn">
-                                        <div class = "navbar-icon">
-                                            <i class="fas fa-heart fa-2x"></i>
-                                            <p>
-                                                <b>Yêu thích</b>
-                                            </p>
-                                        </div>
-                                    </router-link>
+                                    </a>
                                 </div>
-                            </div> -->
+                            </div>
+
                             <div class="dropdown">
                                 <div class="btn dropdown " id="dropdownMenuButton" aria-expanded="false" >
                                     <router-link :to="{ name: 'login' }" class="nav-link" v-if="!isLoggedIn">
@@ -192,22 +200,39 @@
             </footer>
         </div>
 </template>
- <script>
- import ScrollTopArrow from './tool_components/scroll-to-top-button/ScrollTopArrow'
+<script>
+import ScrollTopArrow from './tool_components/scroll-to-top-button/ScrollTopArrow'
+import {eventBus} from  '../../app'
+import SideMenu from './SideMenu.vue'
+
     export default {
         name: "layout",
         data() {
             return {
                 name: null,
                 user_type: 'user',
-                isLoggedIn: localStorage.getItem('bigStore.jwt') != null
+                isLoggedIn: localStorage.getItem('bigStore.jwt') != null,
+                search: '',
+                category: 'all',
+                dialog: false,
             }
+        },
+        components: {
+            ScrollTopArrow,
+            SideMenu,
+        },
+        created() {
+            eventBus.$on('categorySelected', (category) => {
+                this.category = category;
+                });
         },
         mounted() {
             this.setDefaults()
         },
-        components: {
-            ScrollTopArrow
+        watch: {
+        dialog(val) {
+            val || this.close();
+            },
         },
         methods : {
             setDefaults() {
@@ -221,12 +246,15 @@
                 this.isLoggedIn = localStorage.getItem('bigStore.jwt') != null
                 this.setDefaults()
             },
-            logout(){
+            logout() {
                 localStorage.removeItem('bigStore.jwt')
                 localStorage.removeItem('bigStore.user')
                 this.change()
                 this.$router.push('/')
-            }
+            },
+            close() {
+                this.dialog = false;
+            },
         }
     }
 </script>
@@ -238,7 +266,6 @@
 .topbar{
     height: 2.55em;
     background-color: #d2691e;
-    padding-bottom: 2.8em;
 }
 .contactinfo ul li:first-child{
     margin-left: -15px;
@@ -257,9 +284,6 @@
 }
 .contactinfo ul li a:hover{
 	background:inherit;
-}
-.social-icons{
-    margin-top: -0.55em;
 }
 .social-icons ul li a {
   border: 0 none;
@@ -363,7 +387,11 @@
 .cheems-color{
     background-color: #d2691e;
 }
-
+.menu{
+    position: absolute;
+    top: 20%;
+    left: 5%;
+}
 /***************************
 *******Main footer CSS******
 ****************************/

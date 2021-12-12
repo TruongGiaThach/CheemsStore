@@ -1,7 +1,13 @@
 <template>
         <v-app>
             <home-slider></home-slider>
-            <side-menu></side-menu>
+            <div class="overlap">
+                <div class="category-menu-area">
+                    <div class="side-menu">
+                        <side-menu></side-menu>
+                    </div>
+                </div>
+            </div>
             <!--Home body -->
             <div class = "body">
                 <brand-slider></brand-slider>
@@ -22,11 +28,6 @@ import BestSeller from './BestSeller.vue'
 import ProductForYou from './ProductForYou.vue'
 
     export default {
-        data(){
-            return {
-                products : []
-            }
-        },
         components: {
             HomeSlider,
             SideMenu,
@@ -35,12 +36,24 @@ import ProductForYou from './ProductForYou.vue'
             BestSeller,
             ProductForYou,
         },
-        mounted(){
-            axios.get("api/products/").then(response => this.products = response.data)      
-        }
     }
 </script>
 <style>
+
+.overlap{
+    position: relative;
+    bottom:0;
+    background-color:transparent;
+    width: 100%;
+    height: 39em;
+    margin-top: -39em;
+}
+.overlap .category-menu-area{
+    position: absolute;
+    top: 1.6em;
+    left: 11em;
+    border-radius: 10px;
+}
 /********************************
 *******Home body CSS*************
 *********************************/
@@ -59,11 +72,12 @@ import ProductForYou from './ProductForYou.vue'
     margin-top: 4em;
 }
 .body .title h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 950;
-    font-size: 135%;
+    font-size: 100%;
 }
 .body .title h3{
-    font-weight: 900;
+    font-weight: 700;
     color:#ffff;
     padding-top: 0.7em;
 }

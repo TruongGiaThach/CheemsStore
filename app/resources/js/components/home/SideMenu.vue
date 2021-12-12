@@ -1,11 +1,9 @@
 <template>
     <!--Product category sidebar -->
-    <div class = "overlap">
-        <div class = "category-menu-area">
             <div class = "side-menu">
                 <div class="side-menu-section">
                     <table>
-                        <a href="#Cheems">
+                        <a href="/store/cate1">
                         <tr>
                             <td>
                                 <img :src= "require('../../../../public/images/icons8-washing-machine-50.png').default" width="20px">
@@ -27,7 +25,7 @@
                 </div>
                 <div class="side-menu-section">
                     <table>
-                        <a href="#Cheems">
+                        <a href="/store/cate2">
                         <tr>
                             <td>
                                 <img :src= "require('../../../../public/images/icons8-laptop-50.png').default" width="20px">
@@ -49,7 +47,7 @@
                 </div>
                 <div class="side-menu-section">
                     <table>
-                        <a href="#Cheems">
+                        <a href="/store/cate3">
                         <tr>
                             <td>
                                 <img :src= "require('../../../../public/images/icons8-tv-50.png').default" width="20px">
@@ -71,7 +69,7 @@
                 </div>
                 <div class="side-menu-section">
                     <table>
-                        <a href="#Cheems">
+                        <a href="/store/cate4">
                         <tr>
                             <td>
                                 <img :src= "require('../../../../public/images/icons8-touchscreen-50.png').default" width="20px">
@@ -93,7 +91,7 @@
                 </div>
                 <div class="side-menu-section">
                     <table>
-                        <a href="#Cheems">
+                        <a href="/store/cate5">
                         <tr>
                             <td>
                                 <img :src= "require('../../../../public/images/icons8-workstation-50.png').default" width="20px">
@@ -115,7 +113,7 @@
                 </div>
                 <div class="side-menu-section">
                     <table>
-                        <a href="#Cheems">
+                        <a href="/store/cate6">
                         <tr>
                             <td>
                                 <img :src= "require('../../../../public/images/icons8-monitor-50.png').default" width="20px">
@@ -137,7 +135,7 @@
                 </div>
                 <div class="side-menu-section">
                     <table>
-                        <a href="#Cheems">
+                        <a href="/store/cate7">
                         <tr>
                             <td>
                                 <img :src= "require('../../../../public/images/icons8-electronics-50.png').default" width="20px">
@@ -159,7 +157,7 @@
                 </div>
                 <div class="side-menu-section">
                     <table>
-                        <a href="#Cheems">
+                        <a href="/store/cate8">
                         <tr>
                             <td>
                                 <img :src= "require('../../../../public/images/icons8-game-controller-50.png').default" width="20px">
@@ -181,7 +179,7 @@
                 </div>
                 <div class="side-menu-section">
                     <table>
-                        <a href="#Cheems">
+                        <a href="/store/cate9">
                         <tr>
                             <td>
                                 <img :src= "require('../../../../public/images/icons8-computer-mouse-50.png').default" width="20px">
@@ -203,7 +201,7 @@
                 </div>
                 <div class="side-menu-section">
                     <table>
-                        <a href="#Cheems">
+                        <a href="/store/cate10">
                         <tr>
                             <td>
                                 <img :src= "require('../../../../public/images/icons8-subwoofer-50.png').default" width="20px">
@@ -225,7 +223,7 @@
                 </div>
                 <div class="side-menu-section">
                     <table>
-                        <a href="#Cheems">
+                        <a href="/store/cate11">
                         <tr>
                             <td>
                                 <img :src= "require('../../../../public/images/icons8-camera-50.png').default" width="20px">
@@ -247,7 +245,7 @@
                 </div>
                 <div class="side-menu-section">
                     <table>
-                        <a href="#Cheems">
+                        <a href="/store/cate12">
                         <tr>
                             <td>
                                 <img :src= "require('../../../../public/images/icons8-print-50.png').default" width="20px">
@@ -269,7 +267,7 @@
                 </div>
                 <div class="side-menu-section">
                     <table>
-                        <a href="#Cheems">
+                        <a href="/store/cate13">
                         <tr>
                             <td>
                                 <img :src= "require('../../../../public/images/icons8-wi-fi-lock-50.png').default" width="20px">
@@ -291,7 +289,7 @@
                 </div>
                 <div class="side-menu-section">
                     <table>
-                        <a href="#Cheems">
+                        <a href="/store/cate14">
                         <tr>
                             <td>
                                 <img :src= "require('../../../../public/images/icons8-account-50.png').default" width="20px">
@@ -312,40 +310,25 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 </template>
 <style scoped>
 /*****************************
 *******Side Menu CSS**********
 ******************************/
-.overlap{
-    position: relative;
-    bottom:0;
-    background-color:transparent;
-    width: 100%;
-    height: 39em;
-    margin-top: -39em;
-}
-.overlap .category-menu-area{
-    position: absolute;
-    top: 0.8em;
-    left: 11em;
-    border-radius: 10px;
-}
-.overlap .category-menu-area .side-menu{
+.side-menu{
     z-index: 2;
     position: absolute;
     background-color: white;
     width: 16em;
     height: inherit;
     border-radius: inherit;
+    border-radius: 10px;
 }
-.overlap .category-menu-area .mega-dropdown{
+.mega-dropdown{
     z-index: 2;
     display: none;
     position: absolute;
-    height: 30.75em;
+    height: 30.56em;
     background-color: white;
     width: 66.9em;
     left: 16.7em;

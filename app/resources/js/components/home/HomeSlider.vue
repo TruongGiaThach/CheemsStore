@@ -35,4 +35,5 @@
 .carousel-indicators{
     z-index: 2;
 }
+
 </style>
