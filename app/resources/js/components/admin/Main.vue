@@ -204,6 +204,7 @@ export default {
   data() {
     return {
       // du lieu thong ke
+      staffs: [],
       check: 1,
       check2: 1,
       profit: [],
@@ -368,7 +369,9 @@ export default {
       .catch((error) => {
         console.error(error);
       });
-
+    axios.get("/api/staffs").then((response)=>{
+        this.staffs = response.data;
+    });
     for (var i = 5; i > -2; i--) {
       this.time.push("Tháng " + (new Date().getMonth() - i).toString());
     }
@@ -551,7 +554,6 @@ export default {
           labels.push(currentDay++ + "/" + currentMonth);
           this.labelYears.push(currentYear);
         }
-        console.log(labels);
         return labels;
       } else {
         var i = 0;
@@ -560,7 +562,6 @@ export default {
           labels.push(currentDay++ + "/" + currentMonth);
           this.labelYears.push(currentYear);
         }
-        console.log(labels);
         ++i;
         if (this.checkMonth(currentMonth) == "chan" && currentDay > 30) {
           labels.push(currentDay + "/" + currentMonth);
@@ -593,7 +594,7 @@ export default {
       if (cate == "day") {
         let temp = time1.split("/");
         let d = new Date(time2);
-        if (year1 != d.getFullYear()) return fasle;
+        if (year1 != d.getFullYear()) return false;
         return d.getMonth() + 1 == temp[1] && d.getDate() == temp[0];
       } else if (cate == "month") {
         let cut = time1.slice(6, time1.length);
@@ -635,6 +636,19 @@ export default {
             )
           ) {
             moneyOfCost += parseInt(e.importPrice) * parseInt(e.amount);
+          }
+        });
+        this.staffs.forEach((e) => {
+            if (
+            this.compareTime(
+              element,
+              this.labelYears[index],
+              e.created_at,
+              cate
+            )
+          ) {
+            moneyOfCost += parseInt(e.salary);
+            console.log(e.salary)
           }
         });
         this.revenue.push(moneyOfRevenue);

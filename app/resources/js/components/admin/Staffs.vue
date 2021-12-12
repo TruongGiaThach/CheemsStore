@@ -173,7 +173,7 @@
                   <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn color="blue darken-1" text @click="close">
-                      Cancel
+                      Hủy
                     </v-btn>
                     <v-btn
                       color="blue darken-1"
@@ -182,7 +182,7 @@
                       @click="save"
                       :disabled="invalid"
                     >
-                      Save
+                      Lưu
                     </v-btn>
                   </v-card-actions>
                 </v-card>
@@ -197,7 +197,7 @@
                 <v-card-actions>
                   <v-spacer></v-spacer>
                   <v-btn color="blue darken-1" text @click="closeDelete"
-                    >Cancel</v-btn
+                    >Hủy</v-btn
                   >
                   <v-btn color="blue darken-1" text @click="deleteItemConfirm"
                     >OK</v-btn
