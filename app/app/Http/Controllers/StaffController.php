@@ -45,7 +45,11 @@ class StaffController extends Controller
             'cmnd' => $request->cmnd,
             'numOfDayOff' => $request->numOfDayOff,
             'salary' => $request->salary,
-            'dateBegin'=>$request->dateBegin
+            'dateBegin'=>$request->dateBegin,
+            'position'=>$request->position,
+            'number'=>$request->number,
+            'address'=> $request->address,
+            'note'=> $request->note,
         ]);
 
         return response()->json([
@@ -67,6 +71,18 @@ class StaffController extends Controller
         return response()->json($staff,200); 
     }
 
+    public function getStaffWithEmail($email)
+    {
+        $staff = Staff::where('email',$email)->get();
+        return response()->json($staff[0]);
+    }
+    
+    
+    public function getStaffWithId($id)
+    {
+        $staff = Staff::findOrFail($id);
+        return response()->json($staff);
+    }
    
     /**
      * Show the form for editing the specified resource.
@@ -91,7 +107,7 @@ class StaffController extends Controller
         //
         $staff = Staff::find($_id);
         $status = $staff->update(
-            $request->only(['name', 'numOfDayOff','salary'])
+            $request->only(['name', 'numOfDayOff','salary','position','number','address','note'])
         );
 
         return response()->json([

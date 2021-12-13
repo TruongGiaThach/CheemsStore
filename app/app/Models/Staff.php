@@ -15,11 +15,12 @@ class Staff extends Eloquent
     protected $connection = 'mongodb';
     protected $colection = 'staff';
     protected $fillable = [
-        '_id','email', 'name', 'cmnd', 'numOfDayOff','salary','dateBegin'
+        '_id','email', 'name', 'cmnd', 'numOfDayOff','salary','dateBegin','position',
+        'number','address','note',
     ];
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'email');
+        return $this->belongsTo(User::class, 'email', 'email');
     }
 }

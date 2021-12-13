@@ -15,12 +15,16 @@ class Product extends Eloquent
     protected $connection = 'mongodb';
     protected $colection = 'products';
     protected $fillable = [
-        '_id','name','image','amount','importPrice','outportPrice','manufacture','warrantyPeriod',
+        'name','image','amount','importPrice','outportPrice','manufacture','warrantyPeriod',
         'category_id','description','tag'
     ];
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
-    
+    public function receiptDetail()
+    {
+        return $this->belongsTo(ReceiptDetail::class, 'product_id');
+    }
 }
+

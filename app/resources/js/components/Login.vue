@@ -72,7 +72,10 @@
                   <div class="text-center d-flex justify-content-between mt-4">
                     <p>
                       Tạo bởi
-                      <a href="https://youtu.be/tzYPr9w22VU" class="font-italic text-muted">
+                      <a
+                        href="https://youtu.be/tzYPr9w22VU"
+                        class="font-italic text-muted"
+                      >
                         <u>Cheems family</u></a
                       >
                     </p>
@@ -113,14 +116,18 @@ export default {
             localStorage.setItem("bigStore.user", JSON.stringify(user));
             localStorage.setItem("bigStore.jwt", response.data.token);
 
-          if (localStorage.getItem("bigStore.jwt") != null) {
-            this.$emit("loggedIn");
-            this.$router.push({
-              name: "admin-pages",
-              params: { page: "main" },
-            });
-          }
-        });
+            if (localStorage.getItem("bigStore.jwt") != null) {
+              this.$emit("loggedIn");
+              this.$router.push({
+                name: "admin-pages",
+                params: { page: "main" },
+              });
+            }
+          })
+          .catch((error) => {
+            ///if status code 401...
+            alert("Lỗi đăng nhập");
+          });
       }
     },
     clear() {
@@ -145,7 +152,7 @@ export default {
     },
 
     validPassword: function (password) {
-      if (password.length > 5) {
+      if (password.length >= 1) {
         return true;
       }
     },

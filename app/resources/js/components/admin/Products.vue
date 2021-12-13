@@ -1,15 +1,16 @@
 <template>
-  <v-card
-    height="100%" outlined class="pa-md-4 mx-lg-auto grey lighten-3">
+  <v-card height="100%" outlined class="pa-md-4 mx-lg-auto grey lighten-3">
     <v-row>
       <v-col cols="12" md="3">
-        <v-card style="
-        height: 91vh;
-        align: center;
-        margin-left: auto;
-        margin-right: auto;
-        overflow: hidden;
-        ">
+        <v-card
+          style="
+            height: 91vh;
+            align: center;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+          "
+        >
           <v-toolbar color="primary" dark>
             <v-toolbar-title>Danh mục</v-toolbar-title>
 
@@ -36,12 +37,7 @@
               @resetAll="initialize"
             />
           </v-toolbar>
-          <v-list
-          style="
-          height: 90%;
-          overflow-y: scroll;
-          "
-          >
+          <v-list style="height: 90%; overflow-y: scroll">
             <v-list-item-group
               v-model="selected"
               active-class="gray--text"
@@ -82,22 +78,22 @@
 
       <v-col cols="12" md="9">
         <v-data-table
-        style="
-        height: 91vh;
-        overflow: auto;
-        align: center;
-        margin-left: auto;
-        margin-right: auto;
-        "
+          style="
+            height: 91vh;
+            overflow: auto;
+            align: center;
+            margin-left: auto;
+            margin-right: auto;
+          "
           :headers="headers"
           :items="tableData"
           :search="search"
           :single-expand="singleExpand"
           :expanded.sync="expanded"
           :footer-props="{
-          itemsPerPageOptions: [ 10, 20, 50, 100, -1], 
-          itemsPerPageText: 'Số lượng',
-          pageText: '{0}-{1} trên {2}' 
+            itemsPerPageOptions: [10, 20, 50, 100, -1],
+            itemsPerPageText: 'Số lượng',
+            pageText: '{0}-{1} trên {2}',
           }"
           fixed-header
           item-key="name"
@@ -123,7 +119,13 @@
               <v-spacer></v-spacer>
               <v-dialog v-model="dialog" max-width="500px">
                 <template v-slot:activator="{ on, attrs }">
-                  <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">
+                  <v-btn
+                    color="primary"
+                    dark
+                    class="mb-2"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
                     Thêm sản phẩm
                   </v-btn>
                 </template>
@@ -415,6 +417,9 @@ extend("required", {
 export default {
   data() {
     return {
+      content: "",
+      itemIsChose: [],
+      staff: [],
       baseUrl: window.location.origin,
       selected: "ALL",
       formImage: null,
@@ -435,33 +440,33 @@ export default {
           align: "left",
           sortable: false,
           value: "name",
-          class: "info--text" 
+          class: "info--text"
         },
         {
           text: "Số lượng",
           value: "amount",
-          class: "info--text" 
+          class: "info--text"
         },
         {
           text: "Giá mua",
           value: "importPrice",
-          class: "info--text" 
+          class: "info--text"
         },
         {
           text: "giá bán",
           value: "outportPrice",
-          class: "info--text" 
+          class: "info--text"
         },
         {
           text: "Tag",
           value: "tag",
-          class: "info--text" 
+          class: "info--text"
         },
         {
           text: "",
           value: "actions",
           sortable: false,
-          class: "info--text" 
+          class: "info--text"
         },
       ],
       editedIndex: -1,
@@ -531,10 +536,18 @@ export default {
   },
 
   created() {
+    this.getUser();
     this.initialize();
   },
 
   methods: {
+    getUser(){
+        let user = JSON.parse(localStorage.getItem("bigStore.user"));
+        axios.get(`/api/getStaffs/${user.email}`).then((response) => {
+            this.staff = response.data;
+            console.log(this.staff);
+        });
+    },
     nameExists: function () {
       if (this.editItem.name !== "") {
         var exists = this.products.some(function () {
@@ -601,38 +614,122 @@ export default {
       };
     },
     endEditing(product) {
-      let formData = new FormData();
-      formData.append("name", this.editedItem.name);
-      formData.append("amount", this.editedItem.amount);
-      formData.append("importPrice", this.editedItem.importPrice);
-      formData.append("outportPrice", this.editedItem.outportPrice);
-      formData.append("manufacture", this.editedItem.manufacture);
-      formData.append("warrantyPeriod", this.editedItem.warrantyPeriod);
-      formData.append("category_id", this.editedItem.category_id);
-      formData.append("description", this.editedItem.description);
-      formData.append("tag", this.editedItem.tag);
-      formData.append("name", this.editedItem.name);
+      if(this.compareData()) {
+        let formData = new FormData();
+        formData.append("name", this.editedItem.name);
+        formData.append("amount", this.editedItem.amount);
+        formData.append("importPrice", this.editedItem.importPrice);
+        formData.append("outportPrice", this.editedItem.outportPrice);
+        formData.append("manufacture", this.editedItem.manufacture);
+        formData.append("warrantyPeriod", this.editedItem.warrantyPeriod);
+        formData.append("category_id", this.editedItem.category_id);
+        formData.append("description", this.editedItem.description);
+        formData.append("tag", this.editedItem.tag);
+        formData.append("name", this.editedItem.name);
 
-      if (document.getElementById("image").files[0]) {
-        formData.append("image", document.getElementById("image").files[0]);
-        this.editedItem.image =
-          this.editedItem.name +
-          "." +
-          document.getElementById("image").files[0].name.split(".")[1];
-        console.log(document.getElementById("image").files[0]);
-        console.log(this.editedItem.image);
+        if (document.getElementById("image").files[0]) {
+          formData.append("image", document.getElementById("image").files[0]);
+          this.editedItem.image =
+            this.editedItem.name +
+            "." +
+            document.getElementById("image").files[0].name.split(".")[1];
+          console.log(document.getElementById("image").files[0]);
+          console.log(this.editedItem.image);
+        }
+
+        formData.append("_method", "PUT");
+
+        axios
+          .post(`/api/products/${product._id}`, formData, {
+            header: {
+              "Content-Type": "multipart/form-data",
+            },
+          })
+          .then((response) => {
+            this.addHistory()
+            this.itemIsChose = [];
+            this.content = "";
+          })
+          .catch((error) => {});
       }
-
-      formData.append("_method", "PUT");
-
-      axios
-        .post(`/api/products/${product._id}`, formData, {
-          header: {
-            "Content-Type": "multipart/form-data",
-          },
-        })
-        .catch((response) => {});
     },
+
+    //add history
+    addHoursAndDays()
+    {
+        let day = new Date()
+        let date = day.getDate().toString()+'/'+(day.getMonth()+1)+'/'+day.getFullYear();
+        let hours =day.getHours() + ':' + day.getMinutes()+ ':' +day.getSeconds()+'  ';
+        return hours + date;
+    },
+    addHistory(){
+        axios.post('/api/histories/', {
+            staff_id: this.staff._id,
+            staff_name: this.staff.name,
+            content: this.content,
+            impDate: this.addHoursAndDays(),
+        }).then((reponse)=>{console.log(reponse.data)})
+    },
+    compareData()
+    {
+      var isChange = false;
+        this.content = "Đã chỉnh sửa sản phẩm " + this.editedItem.name+'&';
+        if(this.editedItem.name !== this.itemIsChose.name)
+        {
+            this.content=this.content + "Tên: "+ this.itemIsChose.name+" -> "+this.editedItem.name+'&';
+            isChange = true;
+        }
+        if(this.editedItem.amount !== this.itemIsChose.amount)
+        {
+            this.content=this.content+"Số lượng: "+ this.itemIsChose.amount.toString() +" -> "+this.editedItem.amount.toString()+'&';
+            isChange = true;
+        };
+        if(this.editedItem.importPrice !== this.itemIsChose.importPrice)
+        {
+             this.content=this.content+"Giá nhập: "+ this.itemIsChose.importPrice.toString() +" -> "+this.editedItem.importPrice.toString()+'&';
+            isChange = true;
+        }
+        if(this.editedItem.outportPrice != this.itemIsChose.outportPrice)
+        {
+             this.content=this.content+"Giá bán: "+ this.itemIsChose.importPrice.toString() +" -> "+this.editedItem.outportPrice.toString()+'&';
+            isChange = true;
+        }
+        if(this.editedItem.manufacture != this.itemIsChose.manufacture)
+        {
+             this.content=this.content+"Nhà sản xuất: "+ this.itemIsChose.manufacture +" -> "+this.editedItem.manufacture+'&';
+             isChange = true;
+        }
+        if(this.editedItem.warrantyPeriod != this.itemIsChose.warrantyPeriod){
+             this.content=this.content+"Thời hạn bảo hành: "+ this.itemIsChose.warrantyPeriod +" -> "+this.editedItem.warrantyPeriod+'&';
+            isChange = true;
+        }
+        if(this.editedItem.category_id != this.itemIsChose.category_id){
+             this.content=this.content+"Loại: "+ this.itemIsChose.category_id +" -> "+this.editedItem.category_id + '&';
+             isChange = true;
+        }
+        if(this.editedItem.description != this.itemIsChose.description){
+             this.content=this.content+"Mô tả: "+ this.itemIsChose.description +" -> "+this.editedItem.description+'&';
+             isChange = true;
+        }
+        if(this.editedItem.tag != this.itemIsChose.tag){
+             this.content=this.content+"Tag: "+ this.itemIsChose.tag +" -> "+this.editedItem.tag+'&';
+             isChange = true;
+        }
+      return isChange;
+    },
+    addProductHistory(product) {
+      this.content = "Đã thêm sản phẩm " + product.name+'&';
+      this.content=this.content + "Tên: "+ product.name+'&';
+      this.content=this.content+"Số lượng: "+ product.amount.toString()+'&';
+      this.content=this.content+"Giá nhập: "+ product.importPrice.toString()+'&';
+      this.content=this.content+"Giá bán: "+ product.outportPrice.toString()+'&';
+      this.content=this.content+"Nhà sản xuất: "+ product.manufacture+'&';
+      this.content=this.content+"Thời hạn bảo hành: "+ product.warrantyPeriod+'&';
+      this.content=this.content+"Loại: "+ product.category_id + '&';
+      this.content=this.content+"Mô tả: "+ product.description+'&';
+      this.content=this.content+"Tag: "+ product.tag+'&';
+    },
+    //
     addProduct() {
       this.addingProduct = null;
 
@@ -662,20 +759,30 @@ export default {
             "Content-Type": "multipart/form-data",
           },
         })
-        .then((res) => {
+        .then((response) => {
           console.log("worked");
+          this.addProductHistory(response.data)
+          this.addHistory()
+          this.itemIsChose = [];
+          this.content = "";
           this.initialize();
         })
-        .catch((response) => {});
+        .catch((error) => {
+          console.log(error)
+        });
     },
 
     endDelete(product) {
       axios
         .delete("/api/products/" + product._id)
-        .then((res) => {
+        .then((response) => {
           console.log("delete.");
+          this.content = 'đã xóa sản phẩm ' + response.data + '&';
+          this.addHistory();
+          this.itemIsChose = [];
+          this.content = "";
         })
-        .catch((response) => {});
+        .catch((error) => {});
     },
 
     editItem(item) {
@@ -683,6 +790,7 @@ export default {
         this.baseUrl + "/images/" + item.image + "?time=" + Date.now();
       this.editedIndex = this.products.indexOf(item);
       this.editedItem = Object.assign({}, item);
+      this.itemIsChose = item;
       this.dialog = true;
     },
 

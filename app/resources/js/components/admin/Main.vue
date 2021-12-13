@@ -9,50 +9,68 @@
       <v-row align-content-end full-width>
         <v-col cols="12" md="3">
           <v-card color="#321fdb" height="180">
-            <customer-chart :customers="customer_c" :time="time" :total="customer_total"></customer-chart>
+            <customer-chart
+              :customers="customer_c"
+              :time="time"
+              :total="customer_total"
+            ></customer-chart>
           </v-card>
         </v-col>
         <v-col cols="12" md="3">
           <v-card color="#39f" height="180">
-            <receipt-amount-chart :receipts="receipt_c" :time="time" :total="receipt_total"></receipt-amount-chart>
+            <receipt-amount-chart
+              :receipts="receipt_c"
+              :time="time"
+              :total="receipt_total"
+            ></receipt-amount-chart>
           </v-card>
         </v-col>
         <v-col cols="12" md="3">
           <v-card color="#f9b115" height="180">
-            <product-amount-chart :products="product_c" :time="time" :total="product_total"></product-amount-chart>
+            <product-amount-chart
+              :products="product_c"
+              :time="time"
+              :total="product_total"
+            ></product-amount-chart>
           </v-card>
         </v-col>
         <v-col cols="12" md="3">
           <v-card color="#e55353" height="180">
-            <buy-ratio-chart :ratio="ratio_c" :time="time" :total="ratio_total"></buy-ratio-chart>
+            <buy-ratio-chart
+              :ratio="ratio_c"
+              :time="time"
+              :total="ratio_total"
+            ></buy-ratio-chart>
           </v-card>
         </v-col>
       </v-row>
       <v-row align-content-end full-width>
         <v-col>
           <v-card>
-            
             <card-line-chart
               v-model="startDay1"
               :labels="labels"
               :revenue="revenue"
               :profit="profit"
             >
-              <div
-                class="btn-group"
-                role="group"
-              >
-              <div class="calender">
-                <input type="date" id="endDay" v-model="endDay1" :max='this.today' v-on:input="changeDate1()"/>
-              </div>
-              
+              <div class="btn-group" role="group">
+                <div class="calender">
+                  <input
+                    type="date"
+                    id="endDay"
+                    v-model="endDay1"
+                    :max="this.today"
+                    v-on:input="changeDate1()"
+                  />
+                </div>
+
                 <input
                   type="radio"
                   class="btn-check"
                   name="btnradio1"
                   id="btnradio1"
                   autocomplete="off"
-                  value=1 
+                  value="1"
                   v-model="check"
                   checked
                 />
@@ -69,7 +87,7 @@
                   name="btnradio1"
                   id="btnradio2"
                   autocomplete="off"
-                  value=2
+                  value="2"
                   v-model="check"
                 />
                 <label
@@ -85,7 +103,7 @@
                   name="btnradio1"
                   id="btnradio3"
                   autocomplete="off"
-                  value=3 
+                  value="3"
                   v-model="check"
                 />
                 <label
@@ -103,24 +121,28 @@
         <v-col>
           <v-card>
             <card-bar-chart
-            :labels ="labels2"
-            :customers="sCustomers"
-            :orders="sOrder"
+              v-model="startDay2"
+              :labels="labels2"
+              :customers="sCustomers"
+              :orders="sOrder"
             >
-                <div
-                class="btn-group"
-                role="group"
-              >
-              <div class="calender">
-                <input type="date" id="endDay" v-model="endDay2" :max='this.today' v-on:input="changeDate2()"/>
-              </div>
+              <div class="btn-group" role="group">
+                <div class="calender">
+                  <input
+                    type="date"
+                    id="endDay"
+                    v-model="endDay2"
+                    :max="this.today"
+                    v-on:input="changeDate2()"
+                  />
+                </div>
                 <input
                   type="radio"
                   class="btn-check"
                   name="btnradio2"
                   id="btnradio4"
                   autocomplete="off"
-                  value=1 
+                  value="1"
                   v-model="check2"
                   checked
                 />
@@ -137,7 +159,7 @@
                   name="btnradio2"
                   id="btnradio5"
                   autocomplete="off"
-                  value=2 
+                  value="2"
                   v-model="check2"
                 />
                 <label
@@ -153,7 +175,7 @@
                   name="btnradio2"
                   id="btnradio6"
                   autocomplete="off"
-                  value=3 
+                  value="3"
                   v-model="check2"
                 />
                 <label
@@ -182,26 +204,27 @@ export default {
   data() {
     return {
       // du lieu thong ke
+      staffs: [],
       check: 1,
       check2: 1,
       profit: [],
       revenue: [],
+      cost: [],
       labels: [],
-      receiptsDay: [],
       customer_c: [],
-      customer_total: '',
+      customer_total: 0,
       receipt_c: [],
-      receipt_total: '',
+      receipt_total: 0,
       product_c: [],
-      product_total: '',
+      product_total: 0,
       ratio_c: [],
-      ratio_total: '',
+      ratio_total: 0.0,
       // dư lieu duoc lay len
       customers: [],
       receipts: [],
       products: [],
       receiptDetails: [],
-
+      labelYears: [],
       values: [],
       // dayinWeek: ["Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"],
       monthinYear: [
@@ -224,9 +247,13 @@ export default {
       sCustomers: [],
       labels2: [],
       today: new Date().toISOString().slice(0, 10),
-      startDay1: new Date((new Date()).valueOf() - 86400000*7).toISOString().slice(0, 10),
+      startDay1: new Date(new Date().valueOf() - 86400000 * 7)
+        .toISOString()
+        .slice(0, 10),
       endDay1: new Date().toISOString().slice(0, 10),
-      startDay2: new Date((new Date()).valueOf() - 86400000*7).toISOString().slice(0, 10),
+      startDay2: new Date(new Date().valueOf() - 86400000 * 7)
+        .toISOString()
+        .slice(0, 10),
       endDay2: new Date().toISOString().slice(0, 10),
     };
   },
@@ -241,53 +268,56 @@ export default {
   beforeMount() {
     var ratio = [];
     var ratioTotal = 0;
-
     axios
       .get("/api/customer/")
       .then((response) => {
-        if(response.data.length > 0){
+        if (response.data.length > 0) {
           this.customers = response.data;
-                this.customer_total = response.data.length;
-                var count = 0;
-                var month = 0;
-                var day = new Date(response.data[0].created_at).getMonth();
-                  for(var i = 0; i < response.data.length; i++){
-                    if(new Date(response.data[i].created_at).getMonth() != day){
-                      day = new Date(response.data[i].created_at).getMonth();
-                      this.customer_c.push(count);
-                      count = 1;
-                      month++;
-                      if(month > 6) return;
-                    }else{count++;}
-                  }
-                this.customer_c.push(count);
-              }
+          this.customer_total = response.data.length;
+          var count = 0;
+          var month = 0;
+          var day = new Date(response.data[0].created_at).getMonth();
+          for (var i = 0; i < response.data.length; i++) {
+            if (new Date(response.data[i].created_at).getMonth() != day) {
+              day = new Date(response.data[i].created_at).getMonth();
+              this.customer_c.push(count);
+              count = 1;
+              month++;
+              if (month > 6) return;
+            } else {
+              count++;
+            }
+          }
+          this.customer_c.push(count);
+        }
       })
       .catch((error) => {
         console.error(error);
       });
-      axios
+    axios
       .get("/api/receipt_detail")
       .then((response) => {
-        if(response.data.length > 0){
+        if (response.data.length > 0) {
           this.receiptDetails = response.data;
-                this.product_total = response.data.length;
-                var count = 0;
-                var month = 0;
-                var day = new Date(response.data[0].created_at).getMonth();
-                  for(var i = 0; i < response.data.length; i++){
-                    if(new Date(response.data[i].created_at).getMonth() != day){
-                      day = new Date(response.data[i].created_at).getMonth();
-                      ratio[month] = count;
-                      this.product_c.push(count);
-                      count = 1;
-                      month++;
-                      if(month > 6) return;
-                    }else{count += response.data[i].amount;}
-                  }
-                this.product_c.push(count);
-                ratio[month] = count;
-              }
+          this.product_total = response.data.length;
+          var count = 0;
+          var month = 0;
+          var day = new Date(response.data[0].created_at).getMonth();
+          for (var i = 0; i < response.data.length; i++) {
+            if (new Date(response.data[i].created_at).getMonth() != day) {
+              day = new Date(response.data[i].created_at).getMonth();
+              ratio[month] = count;
+              this.product_c.push(count);
+              count = 1;
+              month++;
+              if (month > 6) return;
+            } else {
+              count += response.data[i].amount;
+            }
+          }
+          this.product_c.push(count);
+          ratio[month] = count;
+        }
       })
       .catch((error) => {
         console.error(error);
@@ -295,36 +325,37 @@ export default {
     axios
       .get("/api/receipt/")
       .then((response) => {
-        if(response.data.length > 0){
+        if (response.data.length > 0) {
           this.receipts = response.data;
           for (var i = 0; i < response.data.length; i++) {
             this.values.push(response.data[i].total);
           }
-                this.receipt_total = response.data.length;
-                var count = 0;
-                var month = 0;
-                var day = new Date(response.data[0].created_at).getMonth();
-                  for(var i = 0; i < response.data.length; i++){
-                    if(new Date(response.data[i].created_at).getMonth() != day){
-                      day = new Date(response.data[i].created_at).getMonth();
-                      //add Ratio (tù vl, nhưng mà đel làm khác đc ae à, ngồi cả ngày chỉ còn cách nhét vô đây thôi)
-                      ratio[month] = (ratio[month] / count);
-                      ratioTotal += ratio[month];
-                      this.ratio_c.push(ratio[month].toFixed(2));
-                      this.receipt_c.push(count);
-                      count = 1;
-                      month++;
-                      if(month > 6) return;
-                    }else{count++;}
-                  }
-                this.receipt_c.push(count);
-                ratio[month] = (ratio[month] / count);
-                ratioTotal += ratio[month];
-                ratioTotal = ratioTotal / ratio.length;
-                this.ratio_c.push(ratio[month].toFixed(2));
-                this.ratio_total = ratioTotal.toFixed(2);
-
-              }
+          this.receipt_total = response.data.length;
+          var count = 0;
+          var month = 0;
+          var day = new Date(response.data[0].created_at).getMonth();
+          for (var i = 0; i < response.data.length; i++) {
+            if (new Date(response.data[i].created_at).getMonth() != day) {
+              day = new Date(response.data[i].created_at).getMonth();
+              //add Ratio (tù vl, nhưng mà đel làm khác đc ae à, ngồi cả ngày chỉ còn cách nhét vô đây thôi)
+              ratio[month] = ratio[month] / count;
+              ratioTotal += ratio[month];
+              this.ratio_c.push(ratio[month].toFixed(2));
+              this.receipt_c.push(count);
+              count = 1;
+              month++;
+              if (month > 6) return;
+            } else {
+              count++;
+            }
+          }
+          this.receipt_c.push(count);
+          ratio[month] = ratio[month] / count;
+          ratioTotal += ratio[month];
+          ratioTotal = ratioTotal / ratio.length;
+          this.ratio_c.push(ratio[month].toFixed(2));
+          this.ratio_total = ratioTotal.toFixed(2);
+        }
       })
       .catch((error) => {
         console.error(error);
@@ -333,336 +364,103 @@ export default {
       .get("/api/products")
       .then((response) => {
         this.products = response.data;
+        this.revertAmountProduct();
       })
       .catch((error) => {
         console.error(error);
       });
-
-    for(var i = 5; i > -2; i--){
+    axios.get("/api/staffs").then((response)=>{
+        this.staffs = response.data;
+    });
+    for (var i = 5; i > -2; i--) {
       this.time.push("Tháng " + (new Date().getMonth() - i).toString());
     }
   },
   created() {
     //Tạo line chart
     setTimeout(() => {
-      this.createStatisticWithDay()
-      this.createStatisticWithDay2()
-      }, 500);
+      this.createStatisticWithDay();
+      this.createStatisticWithDay2();
+    }, 500);
   },
   methods: {
-    changeDate1(){
-      if (this.check == 1){
-        this.createStatisticWithDay()
-      }else if(this.check == 2){
-        this.createStatisticWithMonth()
-      }else{
-        this.createStatisticWithYear()
+    revertAmountProduct() {
+      this.receiptDetails.forEach((e) => {
+        let a = this.products.findIndex((c) => c._id == e.product_id);
+        if (a != -1) {
+          this.products[a].amount += e.amount;
+          console.log(e);
+        }
+      });
+    },
+    changeDate1() {
+      if (this.check == 1) {
+        this.createStatisticWithDay();
+      } else if (this.check == 2) {
+        this.createStatisticWithMonth();
+      } else {
+        this.createStatisticWithYear();
       }
     },
-    changeDate2(){
-      if (this.check2 == 1){
-        this.createStatisticWithDay()
-      }else if(this.check2 == 2){
-        this.createStatisticWithMonth()
-      }else{
-        this.createStatisticWithYear()
+    changeDate2() {
+      if (this.check2 == 1) {
+        this.createStatisticWithDay2();
+      } else if (this.check2 == 2) {
+        this.createStatisticWithMonth2();
+      } else {
+        this.createStatisticWithYear2();
       }
     },
     createStatisticWithYear() {
-      this.startDay1 = new Date((new Date(this.endDay1)).valueOf() - 31536000000*7).toISOString().slice(0, 10);
+      this.startDay1 = new Date(
+        new Date(this.endDay1).valueOf() - 31536000000 * 7
+      )
+        .toISOString()
+        .slice(0, 10);
       this.labels = this.createLabelWithYear(this.startDay1, this.endDay1);
-      this.createDataWithYear();
+      this.crData("year");
     },
     createStatisticWithMonth() {
-      this.startDay1 = new Date((new Date(this.endDay1)).valueOf() - 2678400000*7).toISOString().slice(0, 10);
+      this.startDay1 = new Date(
+        new Date(this.endDay1).valueOf() - 2678400000 * 7
+      )
+        .toISOString()
+        .slice(0, 10);
       this.labels = this.createLabelWithMonth(this.startDay1, this.endDay1);
-      this.createDataWithMonth();
+      this.crData("month");
     },
     createStatisticWithDay() {
-      this.startDay1 = new Date((new Date(this.endDay1)).valueOf() - 86400000*7).toISOString().slice(0, 10);
-      this.labels = this.createLabelWithDay(this.startDay1, this.endDay1);
-      this.createDataWithDay();
+      this.startDay1 = new Date(new Date(this.endDay1).valueOf() - 86400000 * 7)
+        .toISOString()
+        .slice(0, 10);
+      this.labels = this.createLabelWithDay(this.startDay1);
+      this.crData("day");
     },
     //bang thong ke 2
     createStatisticWithYear2() {
-      this.startDay2 = new Date((new Date(this.endDay2)).valueOf() - 31536000000*7).toISOString().slice(0, 10);
+      this.startDay2 = new Date(
+        new Date(this.endDay2).valueOf() - 31536000000 * 7
+      )
+        .toISOString()
+        .slice(0, 10);
       this.labels2 = this.createLabelWithYear(this.startDay2, this.endDay2);
-      this.createDataWithYear2();
+      this.crData2("year");
     },
     createStatisticWithMonth2() {
-      this.startDay2 = new Date((new Date(this.endDay2)).valueOf() - 2678400000*7).toISOString().slice(0, 10);
-      this.labels2=this.createLabelWithMonth(this.startDay2, this.endDay2);
-      this.createDataWithMonth2();
+      this.startDay2 = new Date(
+        new Date(this.endDay2).valueOf() - 2678400000 * 7
+      )
+        .toISOString()
+        .slice(0, 10);
+      this.labels2 = this.createLabelWithMonth(this.startDay2, this.endDay2);
+      this.crData2("month");
     },
     createStatisticWithDay2() {
-      this.startDay2 = new Date((new Date(this.endDay2)).valueOf() - 86400000*7).toISOString().slice(0, 10);
-      this.labels2=this.createLabelWithDay(this.startDay2, this.endDay2);
-      this.createDataWithDay2();
-    },
-    createDataWithYear2()
-    {
-        this.sCustomers=[]
-        this.sOrder =[]
-        var receiptsDay = this.receipts.filter((e) => {
-            return (
-                new Date(e.createDay).getYear() <= new Date(this.endDay2).getYear() &&
-                new Date(e.createDay).getYear() >= new Date(this.startDay2).getYear()
-            );
-        });
-        var productAmount = []
-        var CustomerAmount = []
-        receiptsDay.forEach(element => {
-            var receiptDetailDay = this.receiptDetails.filter((f) => {
-                return f.receipt_id === element._id;
-            });
-            productAmount.push(receiptDetailDay.reduce((total,value)=>{
-                return total + parseInt(value.amount)
-            },0))
-            CustomerAmount.push(1)
-        });
-        for(var i=0; i< receiptsDay.length-1;i++)
-        {
-            if (
-            new Date(receiptsDay[i].createDay).getYear() ===
-            new Date(receiptsDay[i + 1].createDay).getYear()
-            )  {
-                productAmount[i]+=productAmount[i+1]
-                CustomerAmount[i]+=1
-                CustomerAmount.splice(i+1,1)
-                productAmount.splice(i+1,1)
-                receiptsDay.splice(i + 1, 1);
-                if(receiptsDay.length===1) break;
-                i--;
-            }
-        }
-         var j = 0;
-      var i = 0;
-      var yearcheck = new Date(this.startDay2);
-      var lengths = this.labels2.length;
-      for (; i <= lengths; i++) {
-        var yearRec = new Date(receiptsDay[j].createDay);
-        if (yearcheck.getYear() < yearRec.getYear()) {
-          this.sCustomers.push(0)
-          this.sOrder.push(0)
-        } else if (yearcheck.getYear() === yearRec.getYear()) {
-          this.sCustomers.push(CustomerAmount[j])
-          this.sOrder.push(productAmount[j])
-          j++;
-          if (j >= receiptsDay.length) { i++;break;}
-        } else {
-          break;
-        }
-        yearcheck.setFullYear(yearcheck.getFullYear()+1)
-      }
-      for(;i<lengths;i++)
-      {
-        this.sCustomers.push(0)
-          this.sOrder.push(0)
-      }
-
-    },
-    createDataWithMonth2()
-    {
-        this.sCustomers=[]
-        this.sOrder =[]
-        var receiptsDay = this.receipts.filter((e) => {
-            return (
-            new Date(e.createDay).getYear() <= new Date(this.endDay2).getYear() &&
-            (new Date(e.createDay).getYear() >
-                new Date(this.startDay2).getYear() ||
-                ((new Date(e.createDay).getYear() ===
-                new Date(this.startDay2).getYear()) &&
-                (new Date(e.createDay).getMonth() >=
-                    new Date(this.startDay2).getMonth())))
-            );
-        });
-        var productAmount = []
-        var CustomerAmount = []
-        receiptsDay.forEach(element => {
-            var receiptDetailDay = this.receiptDetails.filter((f) => {
-                return f.receipt_id === element._id;
-            });
-            productAmount.push(receiptDetailDay.reduce((total,value)=>{
-                return total + parseInt(value.amount)
-            },0))
-            CustomerAmount.push(1)
-        });
-        for(var i=0; i< receiptsDay.length-1;i++)
-        {
-            if (
-          (new Date(receiptsDay[i].createDay).getMonth() ===
-            new Date(receiptsDay[i + 1].createDay).getMonth()) &&
-          (new Date(receiptsDay[i].createDay).getYear() ===
-            new Date(receiptsDay[i + 1].createDay).getYear())
-            ){
-                productAmount[i]+=productAmount[i+1]
-                CustomerAmount[i]+=1
-                CustomerAmount.splice(i+1,1)
-                productAmount.splice(i+1,1)
-                receiptsDay.splice(i + 1, 1);
-                if(receiptsDay.length===1) break;
-                i--;
-            }
-        }
-      var j = 0;
-      var i = 0;
-      var monthcheck = new Date(this.startDay2);
-      var lengths = this.labels2.length;
-      for (; i < lengths; i++) {
-        var monthRec = new Date(receiptsDay[j].createDay);
-        if (monthcheck.getYear() < monthRec.getYear()) {
-          this.sCustomers.push(0)
-          this.sOrder.push(0)
-        } else if (monthcheck.getYear() === monthRec.getYear()) {
-          if (monthcheck.getMonth() === monthRec.getMonth()) {
-            this.sCustomers.push(CustomerAmount[j])
-          this.sOrder.push(productAmount[j]);
-            j++;
-            if (j >= receiptsDay.length){ i++;break;}
-          } else
-          {
-            this.sCustomers.push(0)
-         this.sOrder.push(0)
-          }
-        } else {
-          break;
-        }
-        monthcheck.setMonth(monthcheck.getMonth()+1);
-      }
-      for(;i<lengths;i++)
-      {
-         this.sCustomers.push(0)
-         this.sOrder.push(0)
-      }
-    },
-    createDataWithDay2()
-    {
-        this.sCustomers=[]
-        this.sOrder =[]
-        var receiptsDay = this.receipts.filter((e) => {
-            return (
-            new Date(e.createDay).getTime() <= new Date(this.endDay2).getTime() &&
-            new Date(e.createDay).getTime() >= new Date(this.startDay2).getTime()
-            );
-        });
-        var productAmount = []
-        var CustomerAmount =[]
-        receiptsDay.forEach(element => {
-            var receiptDetailDay = this.receiptDetails.filter((f) => {
-                return f.receipt_id === element._id;
-            });
-            productAmount.push(receiptDetailDay.reduce((total,value)=>{
-                return total + parseInt(value.amount)
-            },0))
-            CustomerAmount.push(1)
-        });
-        for(var i=0; i< receiptsDay.length-1;i++)
-        {
-            if (receiptsDay[i].createDay === receiptsDay[i + 1].createDay) {
-                productAmount[i]+=productAmount[i+1]
-                CustomerAmount[i]+=1
-                CustomerAmount.splice(i+1,1)
-                productAmount.splice(i+1,1)
-                receiptsDay.splice(i + 1, 1);
-                if(receiptsDay.length===1) break;
-                i--;
-            }
-        }
-        var lengths = 7;  //this.daysdifference(this.startDay2, this.endDay2);
-        var j = 0;
-        var i= 0;
-        var datecheck = new Date(this.startDay2);
-      for (; i <= lengths; i++) {
-        var dateRec = new Date(receiptsDay[j].createDay);
-        if (datecheck.getTime() < dateRec.getTime()) {
-          this.sOrder.push(0)
-          this.sCustomers.push(0)
-        } else if (datecheck.getTime() === dateRec.getTime()) {
-          this.sCustomers.push(CustomerAmount[j])
-          this.sOrder.push(productAmount[j])
-          j++;
-          if (j >= receiptsDay.length) { i++;break;}
-        } else {
-          break;
-        }
-        datecheck.setDate(datecheck.getDate() + 1);
-      }
-      for(;i<=lengths;i++)
-      {
-          this.sOrder.push(0)
-          this.sCustomers.push(0)
-      }
-    },
-    createDataWithYear() {
-      this.revenue = [];
-      this.profit = [];
-      this.receiptsDay = [];
-      var receiptsDay = this.receipts.filter((e) => {
-        return (
-          new Date(e.createDay).getYear() <= new Date(this.endDay1).getYear() &&
-          new Date(e.createDay).getYear() >= new Date(this.startDay1).getYear()
-        );
-      });
-      receiptsDay.sort(this.compareDay);
-      var revenue = receiptsDay.map((e) => {
-        var receiptDetailDay = this.receiptDetails.filter((f) => {
-          return f.receipt_id === e._id;
-        });
-        this.receiptsDay.push(receiptDetailDay);
-        return parseInt(e.total);
-      });
-      // loi nhuan chua sap xep
-      var profit = [];
-      this.receiptsDay.forEach((element, ind) => {
-        var amount = element.map((value) => {
-          return value.amount;
-        });
-        var product = this.products.filter((e) => {
-          return e._id === element[0].product_id;
-        });
-        var importPrices = product.reduce((acc, value, index) => {
-          return acc + parseInt(value.importPrice) * parseInt(amount[index]);
-        }, 0);
-        profit.push(revenue[ind] - importPrices);
-      });
-      for (var i = 0; i < receiptsDay.length - 1; i++) {
-        if (
-          new Date(receiptsDay[i].createDay).getYear() ===
-          new Date(receiptsDay[i + 1].createDay).getYear()
-        ) {
-          revenue[i] += revenue[i + 1];
-          profit[i] += profit[i + 1];
-          revenue.splice(i + 1, 1);
-          profit.splice(i + 1, 1);
-          receiptsDay.splice(i + 1, 1);
-          if(receiptsDay.length===1) break;
-          i--;
-        }
-      }
-      var j = 0;
-      var i = 0;
-      var yearcheck = new Date(this.startDay1);
-      var lengths = this.labels.length;
-      for (; i <= lengths; i++) {
-        var yearRec = new Date(receiptsDay[j].createDay);
-        if (yearcheck.getYear() < yearRec.getYear()) {
-          this.revenue.push(0);
-          this.profit.push(0);
-        } else if (yearcheck.getYear() === yearRec.getYear()) {
-          this.revenue.push(revenue[j]);
-          this.profit.push(profit[j]);
-          j++;
-          if (j >= receiptsDay.length) { i++;break;}
-        } else {
-          break;
-        }
-        yearcheck.setFullYear(yearcheck.getFullYear()+1)
-      }
-      for(;i<lengths;i++)
-      {
-        this.revenue.push(0);
-        this.profit.push(0);
-      }
+      this.startDay2 = new Date(new Date(this.endDay2).valueOf() - 86400000 * 7)
+        .toISOString()
+        .slice(0, 10);
+      this.labels2 = this.createLabelWithDay(this.startDay2);
+      this.crData2("day");
     },
     createLabelWithYear(startDay, endDay) {
       var labels = [];
@@ -671,93 +469,10 @@ export default {
       for (var i = yearStart; i <= yearEnd; i++) {
         labels.push(i);
       }
-      return labels
-    },
-    createDataWithMonth() {
-      this.revenue = [];
-      this.profit = [];
-      this.receiptsDay = [];
-      var receiptsDay = this.receipts.filter((e) => {
-        return (
-          new Date(e.createDay).getYear() <= new Date(this.endDay1).getYear() &&
-          (new Date(e.createDay).getYear() >
-            new Date(this.startDay1).getYear() ||
-            ((new Date(e.createDay).getYear() ===
-              new Date(this.startDay1).getYear()) &&
-              (new Date(e.createDay).getMonth() >=
-                new Date(this.startDay1).getMonth())))
-        );
-      });
-      receiptsDay.sort(this.compareDay);
-      var revenue = receiptsDay.map((e) => {
-        var receiptDetailDay = this.receiptDetails.filter((f) => {
-          return f.receipt_id === e._id;
-        });
-        this.receiptsDay.push(receiptDetailDay);
-        return parseInt(e.total);
-      });
-      // loi nhuan chua sap xep
-      var profit = [];
-      this.receiptsDay.forEach((element, ind) => {
-        var amount = element.map((value) => {
-          return value.amount;
-        });
-        var product = this.products.filter((e) => {
-          return e._id === element[0].product_id;
-        });
-        var importPrices = product.reduce((acc, value, index) => {
-          return acc + parseInt(value.importPrice) * parseInt(amount[index]);
-        }, 0);
-        profit.push(revenue[ind] - importPrices);
-      });
-      for (var i = 0; i < receiptsDay.length - 1; i++) {
-        if (
-          (new Date(receiptsDay[i].createDay).getMonth() ===
-            new Date(receiptsDay[i + 1].createDay).getMonth()) &&
-          (new Date(receiptsDay[i].createDay).getYear() ===
-            new Date(receiptsDay[i + 1].createDay).getYear())
-        ) {
-          revenue[i] += revenue[i + 1];
-          profit[i] += profit[i + 1];
-          revenue.splice(i + 1, 1);
-          profit.splice(i + 1, 1);
-          receiptsDay.splice(i + 1, 1);
-          if(receiptsDay.length===1) break;
-          i--;
-        }
-      }
-      var j = 0;
-      var i = 0;
-      var monthcheck = new Date(this.startDay1);
-      var lengths = this.labels.length;
-      for (; i < lengths; i++) {
-        var monthRec = new Date(receiptsDay[j].createDay);
-        if (monthcheck.getYear() < monthRec.getYear()) {
-          this.revenue.push(0);
-          this.profit.push(0);
-        } else if (monthcheck.getYear() === monthRec.getYear()) {
-          if (monthcheck.getMonth() === monthRec.getMonth()) {
-            this.revenue.push(revenue[j]);
-            this.profit.push(profit[j]);
-            j++;
-            if (j >= receiptsDay.length){ i++;break;}
-          } else
-          {
-            this.revenue.push(0);
-            this.profit.push(0);
-          }
-        } else {
-          break;
-        }
-        monthcheck.setMonth(monthcheck.getMonth()+1);
-      }
-      for(;i<lengths;i++)
-      {
-         this.revenue.push(0);
-         this.profit.push(0);
-      }
+      return labels;
     },
     createLabelWithMonth(startDay, endDay) {
+      this.labelYears = [];
       var labels = [];
       var monthStart = new Date(startDay).getMonth();
       var monthEnd = new Date(endDay).getMonth();
@@ -766,97 +481,32 @@ export default {
       if (yearStart < yearEnd) {
         labels.push(
           ...this.monthinYear.filter((e, i) => {
+            if (i >= monthStart) this.labelYears.push(yearStart);
             return i >= monthStart;
           })
         );
+        console.log(this.labelYears);
         for (var i = 0; i < yearEnd - yearStart - 1; i++) {
           labels.push(...this.monthinYear);
         }
         labels.push(
           ...this.monthinYear.filter((e, i) => {
+            if (i <= monthEnd) this.labelYears.push(yearEnd);
             return i <= monthEnd;
           })
         );
       } else {
         labels.push(
           ...this.monthinYear.filter((e, i) => {
+            if (i >= monthStart && i <= monthEnd) this.labelYears.push(yearEnd);
             return i >= monthStart && i <= monthEnd;
           })
         );
       }
-      return labels
+      console.log(labels);
+      return labels;
     },
-    createDataWithDay() {
-      this.revenue = [];
-      this.profit = [];
-      this.receiptsDay = [];
-      var receiptsDay = this.receipts.filter((e) => {
-        return (
-          new Date(e.createDay).getTime() <= new Date(this.endDay1).getTime() &&
-          new Date(e.createDay).getTime() >= new Date(this.startDay1).getTime()
-        );
-      });
-      receiptsDay.sort(this.compareDay);
-      //doanh thu chua sap xep
-      var revenue = receiptsDay.map((e) => {
-        var receiptDetailDay = this.receiptDetails.filter((f) => {
-          return f.receipt_id === e._id;
-        });
-        this.receiptsDay.push(receiptDetailDay);
-        return parseInt(e.total);
-      });
-      // loi nhuan chua sap xep
-      var profit = [];
-      this.receiptsDay.forEach((element, ind) => {
-        var amount = element.map((value) => {
-          return value.amount;
-        });
-        var product = this.products.filter((e) => {
-          return e._id === element[0].product_id;
-        });
-        var importPrices = product.reduce((acc, value, index) => {
-          return acc + parseInt(value.importPrice) * parseInt(amount[index]);
-        }, 0);
-        profit.push(revenue[ind] - importPrices);
-      });
-      //1 troi yeu thuong:)))
-      for (var i = 0; i < receiptsDay.length - 1; i++) {
-        if (receiptsDay[i].createDay === receiptsDay[i + 1].createDay) {
-          revenue[i] += revenue[i + 1];
-          profit[i] += profit[i + 1];
-          revenue.splice(i + 1, 1);
-          profit.splice(i + 1, 1);
-          receiptsDay.splice(i + 1, 1);
-          if(receiptsDay.length===1) break;
-          i--;
-        }
-      }
-      var j = 0;
-      var i= 0;
-      var datecheck = new Date(this.startDay1);
-      var lengths = 7; //this.daysdifference(this.startDay1, this.endDay1);
-      for (; i <= lengths; i++) {
-        var dateRec = new Date(receiptsDay[j].createDay);
-        if (datecheck.getTime() < dateRec.getTime()) {
-          this.revenue.push(0);
-          this.profit.push(0);
-        } else if (datecheck.getTime() === dateRec.getTime()) {
-          this.revenue.push(revenue[j]);
-          this.profit.push(profit[j]);
-          j++;
-          if (j >= receiptsDay.length) { i++;break;}
-        } else {
-          break;
-        }
-        datecheck.setDate(datecheck.getDate() + 1);
-      }
-      for(;i<=lengths;i++)
-      {
-          this.revenue.push(0);
-          this.profit.push(0);
-      }
-    },
-    createLabelWithDay(startDay, endDay) {
+    createLabelWithDay(startDay) {
       // push tuần đầu tiên
       // var labels = [];
       // var rangeDay = 7; //this.daysdifference(startDay, endDay)
@@ -882,62 +532,179 @@ export default {
       //   })
       // );
       var labels = [];
+      this.labelYears = [];
       var currentDay = new Date(startDay).getDate();
-      var currentMonth = new Date(startDay).getMonth();
-      for(var i = 0; i < 8; i++){
-        labels.push(currentDay + i + '/' + (currentMonth + 1));
+      var currentMonth = new Date(startDay).getMonth() + 1;
+      var currentYear = new Date(startDay).getFullYear();
+      if (currentMonth == 2) {
+        var i = 0;
+        for (; i < 8; i++) {
+          if (currentDay > 28) break;
+          labels.push(currentDay++ + "/" + currentMonth);
+          this.labelYears.push(currentYear);
+        }
+        ++i;
+        if (this.checkNamNhuan(currentYear) == true && currentDay > 28) {
+          labels.push(currentDay + "/" + currentMonth);
+          this.labelYears.push(currentYear);
+        }
+        currentDay = 1;
+        currentMonth += 1;
+        for (; i < 8; i++) {
+          labels.push(currentDay++ + "/" + currentMonth);
+          this.labelYears.push(currentYear);
+        }
+        return labels;
+      } else {
+        var i = 0;
+        for (; i < 8; i++) {
+          if (currentDay > 30) break;
+          labels.push(currentDay++ + "/" + currentMonth);
+          this.labelYears.push(currentYear);
+        }
+        ++i;
+        if (this.checkMonth(currentMonth) == "chan" && currentDay > 30) {
+          labels.push(currentDay + "/" + currentMonth);
+          this.labelYears.push(currentYear);
+        }
+        if (this.currentMonth == 12) {
+          currentMonth = 1;
+          currentYear += 1;
+        } else currentMonth += 1;
+        currentDay = 1;
+        for (; i < 8; i++) {
+          labels.push(currentDay++ + "/" + currentMonth);
+          this.labelYears.push(currentYear);
+        }
+        return labels;
       }
-
-
-      return labels;
     },
-    // tim ngay giua 2 thoi diem
-
-    // daysdifference(startDay, endDay) {
-    //   var startDay1 = new Date(startDay);
-    //   var endDay1 = new Date(endDay);
-
-    //   var millisBetween = startDay1.getTime() - endDay1.getTime();
-    //   var days = millisBetween / (1000 * 3600 * 24);
-
-    //   return Math.round(Math.abs(days));
-    // },
-
-    //so sanh ngay de sort
-    compareDay(date1, date2) {
-      var datemot = new Date(date1.createDay);
-      var datehai = new Date(date2.createDay);
-      if (datehai.getFullYear() > datemot.getFullYear()) {
-        return -1;
+    checkNamNhuan(year) {
+      if ((year % 4 === 0 && year % 100 !== 0) || year % 400 !== 0) {
+        return true;
       }
-      if (datehai.getMonth() > datemot.getMonth()) {
-        return -1;
+      return false;
+    },
+    checkMonth(month) {
+      if (month == 4 || month == 6 || month == 9 || month == 11) return "le";
+      else if (month == 2) return "2";
+      else return "chan";
+    },
+    compareTime(time1, year1, time2, cate) {
+      if (cate == "day") {
+        let temp = time1.split("/");
+        let d = new Date(time2);
+        if (year1 != d.getFullYear()) return false;
+        return d.getMonth() + 1 == temp[1] && d.getDate() == temp[0];
+      } else if (cate == "month") {
+        let cut = time1.slice(6, time1.length);
+        let day = new Date(time2);
+        if (year1 != day.getFullYear()) return false;
+        return cut == day.getMonth() + 1;
+      } else {
+        let day = new Date(time2);
+        return time1 == day.getFullYear();
       }
-      if (datehai.getDate() > datemot.getDate()) {
-        return -1;
-      }
-      return 1;
+    },
+    crData(cate) {
+      this.revenue = [];
+      this.profit = [];
+      this.cost = [];
+      let moneyOfCost = 0;
+      let moneyOfRevenue = 0;
+      this.labels.forEach((element, index) => {
+        this.receipts.forEach((e) => {
+          if (
+            this.compareTime(
+              element,
+              this.labelYears[index],
+              e.created_at,
+              cate
+            )
+          ) {
+            moneyOfRevenue += parseInt(e.total);
+            moneyOfCost += parseInt(e.VAT);
+          }
+        });
+        this.products.forEach((e) => {
+          if (
+            this.compareTime(
+              element,
+              this.labelYears[index],
+              e.created_at,
+              cate
+            )
+          ) {
+            moneyOfCost += parseInt(e.importPrice) * parseInt(e.amount);
+          }
+        });
+        this.staffs.forEach((e) => {
+            if (
+            this.compareTime(
+              element,
+              this.labelYears[index],
+              e.created_at,
+              cate
+            )
+          ) {
+            moneyOfCost += parseInt(e.salary);
+            console.log(e.salary)
+          }
+        });
+        this.revenue.push(moneyOfRevenue);
+        this.cost.push(moneyOfCost);
+        this.profit.push(moneyOfRevenue - moneyOfCost);
+        moneyOfRevenue = 0;
+        moneyOfCost = 0;
+      });
+    },
+    crData2(cate) {
+      this.sCustomers = [];
+      this.sOrder = [];
+      let customerAmount = [];
+      let productAmount = [];
+      this.labels2.forEach((element, index) => {
+        customerAmount = this.customers.filter((e) => {
+          return this.compareTime(
+            element,
+            this.labelYears[index],
+            e.created_at,
+            cate
+          );
+        });
+        productAmount = this.receiptDetails.filter((e) => {
+          return this.compareTime(
+            element,
+            this.labelYears[index],
+            e.created_at,
+            cate
+          );
+        });
+        this.sCustomers.push(customerAmount.length);
+        this.sOrder.push(productAmount.length);
+      });
     },
   },
 };
 </script>
 
 <style scoped>
-.calender{
+.calender {
   border: 1px solid #2196f3;
   height: 2.6em;
-  border-radius:3px;
+  border-radius: 3px;
   margin-right: 1em;
 }
-.calender #endDay{
+.calender #endDay {
   padding: 0.5em;
   vertical-align: center;
-  color:rgb(100, 100, 100);
+  color: rgb(100, 100, 100);
 }
-.calender #endDay:focus{
-  outline-color:#2196f3;
+.calender #endDay:focus {
+  outline-color: #2196f3;
 }
 ::-webkit-calendar-picker-indicator {
-filter: invert(40%) sepia(0%) saturate(0%) hue-rotate(50deg) brightness(96%) contrast(89%);
+  filter: invert(40%) sepia(0%) saturate(0%) hue-rotate(50deg) brightness(96%)
+    contrast(89%);
 }
 </style>

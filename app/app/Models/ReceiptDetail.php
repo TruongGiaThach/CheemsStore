@@ -20,7 +20,7 @@ class ReceiptDetail extends Eloquent
     protected $table = 'receipt_detail';
     public function product()
     {
-        return $this->hasOne(Product::class,'_id' , 'product_id');
+        return $this->hasOne(Product::class, 'product_id');
     }
     public function receipt()
     {

@@ -20,9 +20,9 @@ class ReceiptController extends Controller
     }
     public function getByCustomerID(Request $request)
     {
-         
+
         error_log($request->customerID);
-        
+
       //  $receipt = Receipt::where('user_id',"6196655b4e781e6b24412523")->get();
         $receipt = DB::connection('mongodb')->collection('receipt')
                     ->where('user_id',$request->customerID)->get();
@@ -41,9 +41,13 @@ class ReceiptController extends Controller
      */
     public function getReceipt(Request $request)
     {
-        return response()->json(Receipt::where($request->type,$request->condition)->get(),200); 
+        return response()->json(Receipt::where($request->type,$request->condition)->get(),200);
     }
 
+    public function getCustomerWithReceiptId($id)
+    {
+        return response()->json(Receipt::find($id)->customer()->get());
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -68,6 +72,7 @@ class ReceiptController extends Controller
             'createDay' => $request -> createDay,
             'total' => $request -> total,
             'VAT'  => $request -> VAT,
+            'staff_id' => $request -> staff_id,
         ]);
 
         return response()->json($receipt);
@@ -131,7 +136,7 @@ class ReceiptController extends Controller
         $status = $receipt->delete();
 
         return response()->json([
-            
+
         ]);
     }
 }

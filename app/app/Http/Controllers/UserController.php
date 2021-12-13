@@ -6,6 +6,8 @@ use Auth;
 use App\Models\User;
 use Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 
 class UserController extends Controller
@@ -20,19 +22,27 @@ class UserController extends Controller
     {
         $status = 401;
         $response = ['error' => 'Unauthorised'];
-
-        if (Auth::attempt($request->only(['email', 'password']))) {
+     
+        //login
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'state' => 'inactive'])) {
             $status = 200;
             $response = [
                 'user' => Auth::user(),
                 'token' => Auth::user()->createToken('bigStore')->accessToken,
             ];
         }
-        $user = User::where('email',$request->email);
-        $user->update(
-            ['state'=>"active"]
-        );    
+
+        $user = Auth::user();
+        if (Auth::check()) {
+            // The user is logged in... 
+            $user->update(
+                ['state'=>"active"]
+            );   
+        }
+        
         return response()->json($response, $status);
+          
+       
     }
 
     public function register(Request $request)
@@ -71,6 +81,44 @@ class UserController extends Controller
             'status' => $user,
             'message' => $user? 'User Loggout!' : 'Error Loggout User'
         ]);
+    }
+    public function updateStateAccount(Request $request){
+        $user = User::where('email',$request->email);
+        error_log($request->email);
+        $user->update(
+            ['state'=>$request->state]
+        );  
+        return response()->json([
+            'status' => $user,
+            'message' => $user? 'User state updated!' : 'Error'
+        ]);
+
+    }
+    public function changePass(Request $request){
+        $status = 401;
+        $response = ['error' => 'Unauthorised'];
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'old_password' => 'required|min:1',
+            'new_password' => 'required|min:1',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 401);
+        }
+
+        //login
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->old_password])) {
+            $status = 200;
+            $response = [
+                'user' => Auth::user(),
+            ];
+            $user = Auth::user();
+            $user->update(
+                ['password'=>bcrypt($request->new_password)]
+            );  
+        }
+        return response()->json($response, $status);
     }
     public function details()
     {

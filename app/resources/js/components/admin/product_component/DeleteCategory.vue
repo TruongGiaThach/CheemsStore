@@ -47,7 +47,7 @@
             </v-row>
 
             <v-subheader v-if="categoryChecked && productOfCategory.length != 0">
-             
+
               <v-row justify="start">
                 <v-col cols="12" md="2">
                   <v-checkbox
@@ -102,13 +102,13 @@
                   v-for="(item, index) in productOfCategory"
                 >
                   <v-list-item :key="item.name">
-                    <product-listitem 
-                      @ActionCommand="productProcessing" 
+                    <product-listitem
+                      @ActionCommand="productProcessing"
                       @turnOffAll="turnOffTickAll"
-                      :productIndex="index" 
-                      :product="item" 
-                      :categoryList="categoryChosenList" 
-                      :SelectAllToggle="tickAllProduct" 
+                      :productIndex="index"
+                      :product="item"
+                      :categoryList="categoryChosenList"
+                      :SelectAllToggle="tickAllProduct"
                       :SelectAllACtion="tickAllProduct_ActionSelect"
                       :SelectAllCate="tickAllProduct_CateSelect"
                       ref="ProductListItem"
@@ -136,7 +136,7 @@
             color="blue darken-1"
             type="submit"
             text
-            :disabled="invalid" 
+            :disabled="invalid"
             @click="save"
           >
             {{ this.productOfCategory.length == 0?'Xóa':'Chuyển'}}
@@ -202,7 +202,7 @@ export default {
                   this.checkResult = 'đã xóa/di chuyển hết sản phẩm. có thể xóa'
                   this.checkResultColor = 'green--text'
                   return false;
-                } 
+                }
                 else {
                   console.log('no product found')
                   this.checkResult = 'danh mục không có sản phẩm. có thể xóa'
@@ -255,9 +255,9 @@ export default {
         },
     },
     methods: {
-        
 
-        productProcessing(event) {
+
+       productProcessing(event) {
           if(event[0])
           {
             if(event[1] == 'DELETE') {

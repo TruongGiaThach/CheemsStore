@@ -17,11 +17,14 @@ class CreateStaffTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('role'); // no need
+            $table->string('position'); 
             $table->string('cmnd');
             $table->string('NumOfDayOff');
             $table->double('salary');
             $table->date('dateBegin');
+            $table->string('number');
+            $table->string('address');
+            $table->string('note');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
