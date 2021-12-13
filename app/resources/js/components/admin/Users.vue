@@ -231,37 +231,39 @@
                   >Bạn có chắc muốn xóa tài khoản này?</v-card-title
                 >
                 <v-card-actions>
-                  <v-spacer></v-spacer>
+                  <v-spacer></v-spacer
+                  ><v-btn color="error" text @click="deleteItemConfirm"
+                    >Xóa</v-btn
+                  >
                   <v-btn color="blue darken-1" text @click="closeDelete"
                     >Hủy</v-btn
                   >
-                  <v-btn color="blue darken-1" text @click="deleteItemConfirm"
-                    >OK</v-btn
-                  >
+
                   <v-spacer></v-spacer>
                 </v-card-actions>
               </v-card>
             </v-dialog>
             <!-- dialog khi ban row -->
-            <v-dialog v-model="dialogBanAccount" max-width="500px">
+            <v-dialog v-model="dialogBanAccount" max-width="600px">
               <v-card>
                 <v-card-title class="text-h5"
                   >Bạn có chắc muốn cấm tài khoản này?</v-card-title
                 >
                 <v-card-actions>
-                  <v-spacer></v-spacer>
+                  <v-spacer></v-spacer
+                  ><v-btn color="error" text @click="banItemConfirm"
+                    >Cấm</v-btn
+                  >
                   <v-btn color="blue darken-1" text @click="closeBan"
                     >Hủy</v-btn
                   >
-                  <v-btn color="blue darken-1" text @click="banItemConfirm"
-                    >OK</v-btn
-                  >
+
                   <v-spacer></v-spacer>
                 </v-card-actions>
               </v-card>
             </v-dialog>
             <!-- dialog khi unban row -->
-            <v-dialog v-model="dialogUnBanAccount" max-width="500px">
+            <v-dialog v-model="dialogUnBanAccount" max-width="600px">
               <v-card>
                 <v-card-title class="text-h5"
                   >Bạn có chắc muốn mở khóa tài khoản này?</v-card-title
@@ -271,8 +273,8 @@
                   <v-btn color="blue darken-1" text @click="closeUnBan"
                     >Hủy</v-btn
                   >
-                  <v-btn color="blue darken-1" text @click="unBanItemConfirm"
-                    >OK</v-btn
+                  <v-btn color="green" text @click="unBanItemConfirm"
+                    >Xác nhận</v-btn
                   >
                   <v-spacer></v-spacer>
                 </v-card-actions>
@@ -361,6 +363,7 @@
             small
             @click="deleteItem(item)"
             v-if="item.email != `admin@devtest.com`"
+            color="error"
           >
             mdi-delete
           </v-icon>

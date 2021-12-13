@@ -369,8 +369,8 @@ export default {
       .catch((error) => {
         console.error(error);
       });
-    axios.get("/api/staffs").then((response)=>{
-        this.staffs = response.data;
+    axios.get("/api/staffs").then((response) => {
+      this.staffs = response.data;
     });
     for (var i = 5; i > -2; i--) {
       this.time.push("Tháng " + (new Date().getMonth() - i).toString());
@@ -606,6 +606,23 @@ export default {
         return time1 == day.getFullYear();
       }
     },
+    getCostSalary(time1, year1, time2, cate) {
+      if (cate == "day") {
+        let temp = time1.split("/");
+        let d = new Date(time2);
+        if (temp[0] == "1" && temp[1] > d.getMonth() + 1) {
+          if (d.getMonth() + 1 == parseInt(temp[1]) - 1)
+            return parseInt(temp[0]);
+          else return 1;
+        } else return 0;
+      } else if (cate == "month") {
+        let cut = time1.slice(6, time1.length);
+        let day = new Date(time2);
+        if(parseInt(temp[0]) -1 == day.getMonth()+1 && yeat1 == day.getYear()){
+          return parseInt(temp[0])
+        }
+      }
+    },
     crData(cate) {
       this.revenue = [];
       this.profit = [];
@@ -638,8 +655,8 @@ export default {
             moneyOfCost += parseInt(e.importPrice) * parseInt(e.amount);
           }
         });
-        this.staffs.forEach((e) => {
-            if (
+        /*this.staffs.forEach((e) => {
+          if (
             this.compareTime(
               element,
               this.labelYears[index],
@@ -648,9 +665,9 @@ export default {
             )
           ) {
             moneyOfCost += parseInt(e.salary);
-            console.log(e.salary)
+            console.log(e.salary);
           }
-        });
+        });*/
         this.revenue.push(moneyOfRevenue);
         this.cost.push(moneyOfCost);
         this.profit.push(moneyOfRevenue - moneyOfCost);

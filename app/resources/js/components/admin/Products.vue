@@ -325,16 +325,17 @@
               <v-dialog v-model="dialogDelete" max-width="500px">
                 <v-card>
                   <v-card-title class="text-h6"
-                    >bạn có chắc muốn xóa sản phẩm này?</v-card-title
+                    >Bạn có chắc muốn xóa sản phẩm này?</v-card-title
                   >
                   <v-card-actions>
                     <v-spacer></v-spacer>
+                    <v-btn color="error" text @click="deleteItemConfirm"
+                      >Đồng ý</v-btn
+                    >
                     <v-btn color="blue darken-1" text @click="closeDelete"
                       >Hủy</v-btn
                     >
-                    <v-btn color="blue darken-1" text @click="deleteItemConfirm"
-                      >Đồng ý</v-btn
-                    >
+                    
                     <v-spacer></v-spacer>
                   </v-card-actions>
                 </v-card>
@@ -368,19 +369,21 @@
                   </v-col>
                   <v-col cols="12" md="8">
                     <h3 class="text-justify">{{ item.name }}</h3>
-                    <p>nhà sản xuất: {{ item.manufacture }}</p>
-                    <p>thời hạn bảo hành: {{ item.warrantyPeriod }} tháng</p>
-                    <p class="text-justify">{{ item.description }}</p>
+                    <p>Nhà sản xuất: {{ item.manufacture }}</p>
+                    <p>Thời hạn bảo hành: {{ item.warrantyPeriod }} tháng</p>
+                    <p class="text-justify">Ghi chú: {{ item.description }}</p>
                   </v-col>
                 </v-row>
               </v-container>
             </td>
           </template>
           <template v-slot:[`item.actions`]="{ item }">
-            <v-icon small class="mr-2" @click="editItem(item)">
+            <v-icon small class="mr-2" @click="editItem(item)" color="info">
               mdi-pencil
             </v-icon>
-            <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
+            <v-icon small @click="deleteItem(item)" color="error">
+              mdi-delete
+            </v-icon>
           </template>
           <template v-slot:no-data>
             <h6 class="text-center">No data found!</h6>
@@ -440,33 +443,33 @@ export default {
           align: "left",
           sortable: false,
           value: "name",
-          class: "info--text"
+          class: "info--text",
         },
         {
           text: "Số lượng",
           value: "amount",
-          class: "info--text"
+          class: "info--text",
         },
         {
           text: "Giá mua",
           value: "importPrice",
-          class: "info--text"
+          class: "info--text",
         },
         {
           text: "giá bán",
           value: "outportPrice",
-          class: "info--text"
+          class: "info--text",
         },
         {
           text: "Tag",
           value: "tag",
-          class: "info--text"
+          class: "info--text",
         },
         {
           text: "",
           value: "actions",
           sortable: false,
-          class: "info--text"
+          class: "info--text",
         },
       ],
       editedIndex: -1,
@@ -541,12 +544,12 @@ export default {
   },
 
   methods: {
-    getUser(){
-        let user = JSON.parse(localStorage.getItem("bigStore.user"));
-        axios.get(`/api/getStaffs/${user.email}`).then((response) => {
-            this.staff = response.data;
-            console.log(this.staff);
-        });
+    getUser() {
+      let user = JSON.parse(localStorage.getItem("bigStore.user"));
+      axios.get(`/api/getStaffs/${user.email}`).then((response) => {
+        this.staff = response.data;
+        console.log(this.staff);
+      });
     },
     nameExists: function () {
       if (this.editItem.name !== "") {
@@ -614,7 +617,7 @@ export default {
       };
     },
     endEditing(product) {
-      if(this.compareData()) {
+      if (this.compareData()) {
         let formData = new FormData();
         formData.append("name", this.editedItem.name);
         formData.append("amount", this.editedItem.amount);
@@ -646,7 +649,7 @@ export default {
             },
           })
           .then((response) => {
-            this.addHistory()
+            this.addHistory();
             this.itemIsChose = [];
             this.content = "";
           })
@@ -655,79 +658,141 @@ export default {
     },
 
     //add history
-    addHoursAndDays()
-    {
-        let day = new Date()
-        let date = day.getDate().toString()+'/'+(day.getMonth()+1)+'/'+day.getFullYear();
-        let hours =day.getHours() + ':' + day.getMinutes()+ ':' +day.getSeconds()+'  ';
-        return hours + date;
+    addHoursAndDays() {
+      let day = new Date();
+      let date =
+        day.getDate().toString() +
+        "/" +
+        (day.getMonth() + 1) +
+        "/" +
+        day.getFullYear();
+      let hours =
+        day.getHours() + ":" + day.getMinutes() + ":" + day.getSeconds() + "  ";
+      return hours + date;
     },
-    addHistory(){
-        axios.post('/api/histories/', {
-            staff_id: this.staff._id,
-            staff_name: this.staff.name,
-            content: this.content,
-            impDate: this.addHoursAndDays(),
-        }).then((reponse)=>{console.log(reponse.data)})
+    addHistory() {
+      axios
+        .post("/api/histories/", {
+          staff_id: this.staff._id,
+          staff_name: this.staff.name,
+          content: this.content,
+          impDate: this.addHoursAndDays(),
+        })
+        .then((reponse) => {
+          console.log(reponse.data);
+        });
     },
-    compareData()
-    {
+    compareData() {
       var isChange = false;
-        this.content = "Đã chỉnh sửa sản phẩm " + this.editedItem.name+'&';
-        if(this.editedItem.name !== this.itemIsChose.name)
-        {
-            this.content=this.content + "Tên: "+ this.itemIsChose.name+" -> "+this.editedItem.name+'&';
-            isChange = true;
-        }
-        if(this.editedItem.amount !== this.itemIsChose.amount)
-        {
-            this.content=this.content+"Số lượng: "+ this.itemIsChose.amount.toString() +" -> "+this.editedItem.amount.toString()+'&';
-            isChange = true;
-        };
-        if(this.editedItem.importPrice !== this.itemIsChose.importPrice)
-        {
-             this.content=this.content+"Giá nhập: "+ this.itemIsChose.importPrice.toString() +" -> "+this.editedItem.importPrice.toString()+'&';
-            isChange = true;
-        }
-        if(this.editedItem.outportPrice != this.itemIsChose.outportPrice)
-        {
-             this.content=this.content+"Giá bán: "+ this.itemIsChose.importPrice.toString() +" -> "+this.editedItem.outportPrice.toString()+'&';
-            isChange = true;
-        }
-        if(this.editedItem.manufacture != this.itemIsChose.manufacture)
-        {
-             this.content=this.content+"Nhà sản xuất: "+ this.itemIsChose.manufacture +" -> "+this.editedItem.manufacture+'&';
-             isChange = true;
-        }
-        if(this.editedItem.warrantyPeriod != this.itemIsChose.warrantyPeriod){
-             this.content=this.content+"Thời hạn bảo hành: "+ this.itemIsChose.warrantyPeriod +" -> "+this.editedItem.warrantyPeriod+'&';
-            isChange = true;
-        }
-        if(this.editedItem.category_id != this.itemIsChose.category_id){
-             this.content=this.content+"Loại: "+ this.itemIsChose.category_id +" -> "+this.editedItem.category_id + '&';
-             isChange = true;
-        }
-        if(this.editedItem.description != this.itemIsChose.description){
-             this.content=this.content+"Mô tả: "+ this.itemIsChose.description +" -> "+this.editedItem.description+'&';
-             isChange = true;
-        }
-        if(this.editedItem.tag != this.itemIsChose.tag){
-             this.content=this.content+"Tag: "+ this.itemIsChose.tag +" -> "+this.editedItem.tag+'&';
-             isChange = true;
-        }
+      this.content = "Đã chỉnh sửa sản phẩm " + this.editedItem.name + "&";
+      if (this.editedItem.name !== this.itemIsChose.name) {
+        this.content =
+          this.content +
+          "Tên: " +
+          this.itemIsChose.name +
+          " -> " +
+          this.editedItem.name +
+          "&";
+        isChange = true;
+      }
+      if (this.editedItem.amount !== this.itemIsChose.amount) {
+        this.content =
+          this.content +
+          "Số lượng: " +
+          this.itemIsChose.amount.toString() +
+          " -> " +
+          this.editedItem.amount.toString() +
+          "&";
+        isChange = true;
+      }
+      if (this.editedItem.importPrice !== this.itemIsChose.importPrice) {
+        this.content =
+          this.content +
+          "Giá nhập: " +
+          this.itemIsChose.importPrice.toString() +
+          " -> " +
+          this.editedItem.importPrice.toString() +
+          "&";
+        isChange = true;
+      }
+      if (this.editedItem.outportPrice != this.itemIsChose.outportPrice) {
+        this.content =
+          this.content +
+          "Giá bán: " +
+          this.itemIsChose.importPrice.toString() +
+          " -> " +
+          this.editedItem.outportPrice.toString() +
+          "&";
+        isChange = true;
+      }
+      if (this.editedItem.manufacture != this.itemIsChose.manufacture) {
+        this.content =
+          this.content +
+          "Nhà sản xuất: " +
+          this.itemIsChose.manufacture +
+          " -> " +
+          this.editedItem.manufacture +
+          "&";
+        isChange = true;
+      }
+      if (this.editedItem.warrantyPeriod != this.itemIsChose.warrantyPeriod) {
+        this.content =
+          this.content +
+          "Thời hạn bảo hành: " +
+          this.itemIsChose.warrantyPeriod +
+          " -> " +
+          this.editedItem.warrantyPeriod +
+          "&";
+        isChange = true;
+      }
+      if (this.editedItem.category_id != this.itemIsChose.category_id) {
+        this.content =
+          this.content +
+          "Loại: " +
+          this.itemIsChose.category_id +
+          " -> " +
+          this.editedItem.category_id +
+          "&";
+        isChange = true;
+      }
+      if (this.editedItem.description != this.itemIsChose.description) {
+        this.content =
+          this.content +
+          "Mô tả: " +
+          this.itemIsChose.description +
+          " -> " +
+          this.editedItem.description +
+          "&";
+        isChange = true;
+      }
+      if (this.editedItem.tag != this.itemIsChose.tag) {
+        this.content =
+          this.content +
+          "Tag: " +
+          this.itemIsChose.tag +
+          " -> " +
+          this.editedItem.tag +
+          "&";
+        isChange = true;
+      }
       return isChange;
     },
     addProductHistory(product) {
-      this.content = "Đã thêm sản phẩm " + product.name+'&';
-      this.content=this.content + "Tên: "+ product.name+'&';
-      this.content=this.content+"Số lượng: "+ product.amount.toString()+'&';
-      this.content=this.content+"Giá nhập: "+ product.importPrice.toString()+'&';
-      this.content=this.content+"Giá bán: "+ product.outportPrice.toString()+'&';
-      this.content=this.content+"Nhà sản xuất: "+ product.manufacture+'&';
-      this.content=this.content+"Thời hạn bảo hành: "+ product.warrantyPeriod+'&';
-      this.content=this.content+"Loại: "+ product.category_id + '&';
-      this.content=this.content+"Mô tả: "+ product.description+'&';
-      this.content=this.content+"Tag: "+ product.tag+'&';
+      this.content = "Đã thêm sản phẩm " + product.name + "&";
+      this.content = this.content + "Tên: " + product.name + "&";
+      this.content =
+        this.content + "Số lượng: " + product.amount.toString() + "&";
+      this.content =
+        this.content + "Giá nhập: " + product.importPrice.toString() + "&";
+      this.content =
+        this.content + "Giá bán: " + product.outportPrice.toString() + "&";
+      this.content =
+        this.content + "Nhà sản xuất: " + product.manufacture + "&";
+      this.content =
+        this.content + "Thời hạn bảo hành: " + product.warrantyPeriod + "&";
+      this.content = this.content + "Loại: " + product.category_id + "&";
+      this.content = this.content + "Mô tả: " + product.description + "&";
+      this.content = this.content + "Tag: " + product.tag + "&";
     },
     //
     addProduct() {
@@ -761,14 +826,14 @@ export default {
         })
         .then((response) => {
           console.log("worked");
-          this.addProductHistory(response.data)
-          this.addHistory()
+          this.addProductHistory(response.data);
+          this.addHistory();
           this.itemIsChose = [];
           this.content = "";
           this.initialize();
         })
         .catch((error) => {
-          console.log(error)
+          console.log(error);
         });
     },
 
@@ -777,7 +842,7 @@ export default {
         .delete("/api/products/" + product._id)
         .then((response) => {
           console.log("delete.");
-          this.content = 'đã xóa sản phẩm ' + response.data + '&';
+          this.content = "đã xóa sản phẩm " + response.data + "&";
           this.addHistory();
           this.itemIsChose = [];
           this.content = "";
