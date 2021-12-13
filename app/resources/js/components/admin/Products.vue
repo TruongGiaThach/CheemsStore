@@ -368,9 +368,9 @@
                   </v-col>
                   <v-col cols="12" md="8">
                     <h3 class="text-justify">{{ item.name }}</h3>
-                    <p>nhà sản xuất: {{ item.manufacture }}</p>
-                    <p>thời hạn bảo hành: {{ item.warrantyPeriod }} tháng</p>
-                    <p class="text-justify">{{ item.description }}</p>
+                    <p>Nhà sản xuất: {{ item.manufacture }}</p>
+                    <p>Thời hạn bảo hành: {{ item.warrantyPeriod }} tháng</p>
+                    <p class="text-justify">Ghi chú: {{ item.description }}</p>
                   </v-col>
                 </v-row>
               </v-container>
