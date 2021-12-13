@@ -26,8 +26,10 @@
                             Sản phẩm này được miễn phí giao hàng
                         </td>
                     </tr>
-                    <tr colspan="2">
-                        <v-divider></v-divider>
+                    <tr v-if="(this.productInfo.outportPrice > 800000)">
+                        <td colspan="2">
+                            <v-divider></v-divider>
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="2" class="info-title">
