@@ -2,7 +2,7 @@
     <!--Top Sellers Slider -->
     <div class = "top-sellers-slider">
         <div class="title">
-            <h3>Thương hiệu nổi bật</h3>
+            <h3>Bán chạy trong tháng</h3>
         </div>
     </div>  
 </template>

@@ -129,7 +129,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .cant-find{
     margin-top: 5%;
     margin-bottom: 5%;

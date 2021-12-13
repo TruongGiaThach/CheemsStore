@@ -1,6 +1,6 @@
 <template>
         <!--Carousel Slider -->
-        <div id="carouselControls" class="carousel slide" data-ride="carousel">
+        <div id="carouselControls" class="carousel slide carousel-fade" data-ride="carousel">
                 <!--Slider indicators -->
             <ol class="carousel-indicators">
                 <li data-target="#carouselControls" data-slide-to="0" class="active"></li>
@@ -9,7 +9,7 @@
             </ol>
             <!--Sliders-->
             <div class="carousel-inner">
-                <div class="carousel-item active">
+                <div class="carousel-item active" data-interval="3000">
                 <img :src="require('../../../../public/images/1.webp').default" class="d-block w-120" alt="...">
                 </div>
                 <div class="carousel-item">

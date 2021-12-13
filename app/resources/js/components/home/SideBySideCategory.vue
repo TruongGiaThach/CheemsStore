@@ -8,9 +8,11 @@
                 </div>
                 <div class="row">
                     <div class="col col-4 banner">
-                        <router-link :to="{name: 'product'}" id="banner-interaction">
-                            <img :src="require('../../../../public/images/category.webp').default" class="d-block" alt="...">
-                        </router-link>
+                        <div class="banner-container">
+                            <a href="/store/cate2" id="banner-interaction">
+                                <img :src="require('../../../../public/images/category.webp').default" class="d-block" alt="...">
+                            </a>
+                        </div>
                     </div>
                     <div class="col col-8 product-category">
                         <div class="row">
@@ -54,9 +56,11 @@
                 </div>
                 <div class="row">
                     <div class="col col-4 banner">
-                        <router-link :to="{name: 'product'}" id="banner-interaction">
-                            <img :src="require('../../../../public/images/category(1).webp').default" class="d-block" alt="...">
-                        </router-link>
+                        <div class="banner-container">
+                            <a href="/store/cate7" id="banner-interaction">
+                                <img :src="require('../../../../public/images/category(1).webp').default" class="d-block" alt="...">
+                            </a>
+                        </div>
                     </div>
                     <div class="col col-8 product-category">
                         <div class="row">
@@ -102,9 +106,11 @@
                 </div>
                 <div class="row">
                     <div class="col col-4 banner">
-                        <router-link :to="{name: 'product'}" id="banner-interaction">
-                            <img :src="require('../../../../public/images/category(2).webp').default" class="d-block" alt="...">
-                        </router-link>
+                        <div class="banner-container">
+                            <a href="/store/cate1" id="banner-interaction">
+                                <img :src="require('../../../../public/images/category(2).webp').default" class="d-block" alt="...">
+                            </a>
+                        </div> 
                     </div>
                     <div class="col col-8 product-category">
                         <div class="row">
@@ -148,9 +154,11 @@
                 </div>
                 <div class="row">
                     <div class="col col-4 banner">
-                        <router-link :to="{name: 'product'}" id="banner-interaction">
-                            <img :src="require('../../../../public/images/category(3).webp').default" class="d-block" alt="...">
-                        </router-link>
+                        <div class="banner-container">
+                            <a href="/store/cate4" id="banner-interaction">
+                                <img :src="require('../../../../public/images/category(3).webp').default" class="d-block" alt="...">
+                            </a>
+                        </div> 
                     </div>
                     <div class="col col-8 product-category">
                         <div class="row">
@@ -196,9 +204,11 @@
                 </div>
                 <div class="row">
                     <div class="col col-4 banner">
-                        <router-link :to="{name: 'product'}" id="banner-interaction">
-                            <img :src="require('../../../../public/images/category(4).webp').default" class="d-block" alt="...">
-                        </router-link>
+                        <div class="banner-container">
+                            <a href="/store/cate9" id="banner-interaction">
+                                <img :src="require('../../../../public/images/category(4).webp').default" class="d-block" alt="...">
+                            </a>
+                        </div> 
                     </div>
                     <div class="col col-8 product-category">
                         <div class="row">
@@ -242,9 +252,11 @@
                 </div>
                 <div class="row">
                     <div class="col col-4 banner">
-                        <router-link :to="{name: 'product'}" id="banner-interaction">
-                            <img :src="require('../../../../public/images/category(5).webp').default" class="d-block" alt="...">
-                        </router-link>
+                        <div class="banner-container">
+                            <a href="/store/cate12" id="banner-interaction">
+                                <img :src="require('../../../../public/images/category(5).webp').default" class="d-block" alt="...">
+                            </a>
+                        </div> 
                     </div>
                     <div class="col col-8 product-category">
                         <div class="row">
@@ -292,7 +304,7 @@
 .products .category-row{
     margin-top: 2em;
 }
-.products .banner{
+.products .banner-container{
     overflow: hidden;
 }
 .products .product-category .row .col {

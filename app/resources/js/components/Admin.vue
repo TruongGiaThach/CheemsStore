@@ -8,7 +8,9 @@
         elevate-on-scroll
         scroll-target="#scrolling-techniques-7"
       >
-        <v-toolbar-title>Cheems Store</v-toolbar-title>
+        <a href="/home" class="home">
+          <v-toolbar-title>Cheems Store</v-toolbar-title>
+        </a>
 
         <v-spacer></v-spacer>
 
@@ -311,5 +313,11 @@ export default {
 .title {
   font-size: 60px;
   color: #ffffff;
+}
+.home{
+  text-decoration: none;
+  color: chocolate;
+  font-size: 140%;
+  font-weight: 700;
 }
 </style>

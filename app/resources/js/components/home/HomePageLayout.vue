@@ -25,9 +25,9 @@
                         <div class="col-sm-2 ml-auto">
                             <div class="social-icons pull-right">
                                 <ul class="nav nav-pills">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="https://www.facebook.com/cheemsburger/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="https://twitter.com/TheCheemsToken?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><i class="fa fa-google-plus"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -52,7 +52,10 @@
                         <div class="navbar-nav mr-auto">
                             <div class="mobile-menu">
                                 <v-btn
+                                id="button"
                                 @click="dialog = true"
+                                outlined
+                                color="red"
                                 >
                                     <v-icon>fas fa-list</v-icon>
                                 </v-btn>
@@ -267,6 +270,10 @@ import SideMenu from './SideMenu.vue'
     height: 2.55em;
     background-color: #d2691e;
 }
+.contactinfo{
+    position: absolute;
+    top:0.5em;
+}
 .contactinfo ul li:first-child{
     margin-left: -15px;
 }
@@ -284,6 +291,10 @@ import SideMenu from './SideMenu.vue'
 }
 .contactinfo ul li a:hover{
 	background:inherit;
+}
+.social-icons{
+    position: absolute;
+    top:0;
 }
 .social-icons ul li a {
   border: 0 none;
@@ -370,7 +381,6 @@ import SideMenu from './SideMenu.vue'
     min-width: 7.3em;
     text-align: center;
 }
-
 .mr-auto{
     margin-left:8em;
     margin-bottom: 0em;
@@ -386,6 +396,13 @@ import SideMenu from './SideMenu.vue'
 }
 .cheems-color{
     background-color: #d2691e;
+}
+.mobile-menu{
+    margin-right: 1em;
+}
+.mobile-menu #button{
+    color:grey;
+    border: thin solid #CCCCCC;
 }
 .menu{
     position: absolute;
