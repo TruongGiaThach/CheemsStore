@@ -34,7 +34,7 @@
           </v-chip>
         </template>
 
-        <!-- dialog thêm tài khoản và thông tin nhân viên -->
+       
         <template v-slot:top>
           <v-toolbar flat>
             <v-toolbar-title class="info--text">Tài khoản</v-toolbar-title>
@@ -60,6 +60,7 @@
                   Tạo tài khoản mới
                 </v-btn>
               </template>
+               <!-- dialog thêm tài khoản và thông tin nhân viên -->
               <ValidationObserver ref="observer" v-slot="{ invalid }">
                 <v-card class="elevation-12">
                   <v-card-title class="bg-info mx-auto" max-width="inherit">
@@ -498,7 +499,7 @@ export default {
   },
   computed: {
     formTitle() {
-      return "Thêm nhân viên";
+      return "Thêm tài khoản và thông tin nhân viên";
     },
   },
 
