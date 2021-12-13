@@ -3,10 +3,10 @@
     <v-data-table
       style="
         height: 95vh;
+        width: 80%;
         align: center;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 20px;
       "
       :headers="headers"
       :items="histories"
@@ -55,7 +55,7 @@
                       color="primary"
                     ></v-progress-circular>
                   </div>
-                  <div 
+                  <div
                     class="d-flex flex-no-wrap justify-space-between"
                     v-if="staffInforCheck == 'NODATA'"
                   >
@@ -160,7 +160,7 @@ export default {
       staffInforCheck: 'NODATA',
       headers: [
         {
-          text: "ID",
+          text: "Tên nhân viên",
           value: "staff_name",
           class: "info--text",
           width: "40vh",
