@@ -63,8 +63,8 @@
         >
           <template v-slot:top>
             <v-toolbar flat>
-              <v-toolbar-title class="info--text"
-                >DANH SÁCH HÓA ĐƠN</v-toolbar-title
+              <v-toolbar-title style ="color:#2196f3;"
+                >Danh sách hóa đơn</v-toolbar-title
               >
               <v-divider class="mx-4" inset vertical></v-divider>
               <v-spacer></v-spacer>
