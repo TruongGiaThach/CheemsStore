@@ -674,6 +674,7 @@ export default {
     {
       var isChange = false;
         this.content = "Đã chỉnh sửa sản phẩm " + this.editedItem.name+'&';
+        this.content=this.content + "id: "+ this.editedItem._id+'&';
         if(this.editedItem.name !== this.itemIsChose.name)
         {
             this.content=this.content + "Tên: "+ this.itemIsChose.name+" -> "+this.editedItem.name+'&';
@@ -719,6 +720,7 @@ export default {
     },
     addProductHistory(product) {
       this.content = "Đã thêm sản phẩm " + product.name+'&';
+      this.content=this.content + "id: "+ product._id+'&';
       this.content=this.content + "Tên: "+ product.name+'&';
       this.content=this.content+"Số lượng: "+ product.amount.toString()+'&';
       this.content=this.content+"Giá nhập: "+ product.importPrice.toString()+'&';
