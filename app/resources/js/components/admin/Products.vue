@@ -684,115 +684,63 @@ export default {
     },
     compareData() {
       var isChange = false;
-      this.content = "Đã chỉnh sửa sản phẩm " + this.editedItem.name + "&";
-      if (this.editedItem.name !== this.itemIsChose.name) {
-        this.content =
-          this.content +
-          "Tên: " +
-          this.itemIsChose.name +
-          " -> " +
-          this.editedItem.name +
-          "&";
-        isChange = true;
-      }
-      if (this.editedItem.amount !== this.itemIsChose.amount) {
-        this.content =
-          this.content +
-          "Số lượng: " +
-          this.itemIsChose.amount.toString() +
-          " -> " +
-          this.editedItem.amount.toString() +
-          "&";
-        isChange = true;
-      }
-      if (this.editedItem.importPrice !== this.itemIsChose.importPrice) {
-        this.content =
-          this.content +
-          "Giá nhập: " +
-          this.itemIsChose.importPrice.toString() +
-          " -> " +
-          this.editedItem.importPrice.toString() +
-          "&";
-        isChange = true;
-      }
-      if (this.editedItem.outportPrice != this.itemIsChose.outportPrice) {
-        this.content =
-          this.content +
-          "Giá bán: " +
-          this.itemIsChose.importPrice.toString() +
-          " -> " +
-          this.editedItem.outportPrice.toString() +
-          "&";
-        isChange = true;
-      }
-      if (this.editedItem.manufacture != this.itemIsChose.manufacture) {
-        this.content =
-          this.content +
-          "Nhà sản xuất: " +
-          this.itemIsChose.manufacture +
-          " -> " +
-          this.editedItem.manufacture +
-          "&";
-        isChange = true;
-      }
-      if (this.editedItem.warrantyPeriod != this.itemIsChose.warrantyPeriod) {
-        this.content =
-          this.content +
-          "Thời hạn bảo hành: " +
-          this.itemIsChose.warrantyPeriod +
-          " -> " +
-          this.editedItem.warrantyPeriod +
-          "&";
-        isChange = true;
-      }
-      if (this.editedItem.category_id != this.itemIsChose.category_id) {
-        this.content =
-          this.content +
-          "Loại: " +
-          this.itemIsChose.category_id +
-          " -> " +
-          this.editedItem.category_id +
-          "&";
-        isChange = true;
-      }
-      if (this.editedItem.description != this.itemIsChose.description) {
-        this.content =
-          this.content +
-          "Mô tả: " +
-          this.itemIsChose.description +
-          " -> " +
-          this.editedItem.description +
-          "&";
-        isChange = true;
-      }
-      if (this.editedItem.tag != this.itemIsChose.tag) {
-        this.content =
-          this.content +
-          "Tag: " +
-          this.itemIsChose.tag +
-          " -> " +
-          this.editedItem.tag +
-          "&";
-        isChange = true;
-      }
+        this.content = "Đã chỉnh sửa sản phẩm " + this.editedItem.name+'&';
+        this.content=this.content + "id: "+ this.editedItem._id+'&';
+        if(this.editedItem.name !== this.itemIsChose.name)
+        {
+            this.content=this.content + "Tên: "+ this.itemIsChose.name+" -> "+this.editedItem.name+'&';
+            isChange = true;
+        }
+        if(this.editedItem.amount !== this.itemIsChose.amount)
+        {
+            this.content=this.content+"Số lượng: "+ this.itemIsChose.amount.toString() +" -> "+this.editedItem.amount.toString()+'&';
+            isChange = true;
+        };
+        if(this.editedItem.importPrice !== this.itemIsChose.importPrice)
+        {
+             this.content=this.content+"Giá nhập: "+ this.itemIsChose.importPrice.toString() +" -> "+this.editedItem.importPrice.toString()+'&';
+            isChange = true;
+        }
+        if(this.editedItem.outportPrice != this.itemIsChose.outportPrice)
+        {
+             this.content=this.content+"Giá bán: "+ this.itemIsChose.importPrice.toString() +" -> "+this.editedItem.outportPrice.toString()+'&';
+            isChange = true;
+        }
+        if(this.editedItem.manufacture != this.itemIsChose.manufacture)
+        {
+             this.content=this.content+"Nhà sản xuất: "+ this.itemIsChose.manufacture +" -> "+this.editedItem.manufacture+'&';
+             isChange = true;
+        }
+        if(this.editedItem.warrantyPeriod != this.itemIsChose.warrantyPeriod){
+             this.content=this.content+"Thời hạn bảo hành: "+ this.itemIsChose.warrantyPeriod +" -> "+this.editedItem.warrantyPeriod+'&';
+            isChange = true;
+        }
+        if(this.editedItem.category_id != this.itemIsChose.category_id){
+             this.content=this.content+"Loại: "+ this.itemIsChose.category_id +" -> "+this.editedItem.category_id + '&';
+             isChange = true;
+        }
+        if(this.editedItem.description != this.itemIsChose.description){
+             this.content=this.content+"Mô tả: "+ this.itemIsChose.description +" -> "+this.editedItem.description+'&';
+             isChange = true;
+        }
+        if(this.editedItem.tag != this.itemIsChose.tag){
+             this.content=this.content+"Tag: "+ this.itemIsChose.tag +" -> "+this.editedItem.tag+'&';
+             isChange = true;
+        }
       return isChange;
     },
     addProductHistory(product) {
-      this.content = "Đã thêm sản phẩm " + product.name + "&";
-      this.content = this.content + "Tên: " + product.name + "&";
-      this.content =
-        this.content + "Số lượng: " + product.amount.toString() + "&";
-      this.content =
-        this.content + "Giá nhập: " + product.importPrice.toString() + "&";
-      this.content =
-        this.content + "Giá bán: " + product.outportPrice.toString() + "&";
-      this.content =
-        this.content + "Nhà sản xuất: " + product.manufacture + "&";
-      this.content =
-        this.content + "Thời hạn bảo hành: " + product.warrantyPeriod + "&";
-      this.content = this.content + "Loại: " + product.category_id + "&";
-      this.content = this.content + "Mô tả: " + product.description + "&";
-      this.content = this.content + "Tag: " + product.tag + "&";
+      this.content = "Đã thêm sản phẩm " + product.name+'&';
+      this.content=this.content + "id: "+ product._id+'&';
+      this.content=this.content + "Tên: "+ product.name+'&';
+      this.content=this.content+"Số lượng: "+ product.amount.toString()+'&';
+      this.content=this.content+"Giá nhập: "+ product.importPrice.toString()+'&';
+      this.content=this.content+"Giá bán: "+ product.outportPrice.toString()+'&';
+      this.content=this.content+"Nhà sản xuất: "+ product.manufacture+'&';
+      this.content=this.content+"Thời hạn bảo hành: "+ product.warrantyPeriod+'&';
+      this.content=this.content+"Loại: "+ product.category_id + '&';
+      this.content=this.content+"Mô tả: "+ product.description+'&';
+      this.content=this.content+"Tag: "+ product.tag+'&';
     },
     //
     addProduct() {
