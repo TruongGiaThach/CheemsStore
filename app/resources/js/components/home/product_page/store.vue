@@ -10,15 +10,17 @@
                 <h4 v-if="products.length < 1">Không tìm thấy sản phẩm nào!</h4>
             </div>
             <span class ="box-container" v-for="(product,index) in productsList" :key="index">
-                <v-card class = "product-box" :href="'/product/' + product._id">
-                    <div>
-                        <img :src = "baseUrl +'/images/' + product.image">
-                    </div>
-                    <div>
-                        <p>{{product.name}}</p>
-                    </div>
-                </v-card>
-            </span>
+                    <v-card style="text-decoration: none" class = "product-box" :href="'/product/' + product._id">
+                        <div>
+                            <img :src = "baseUrl +'/images/' + product.image">
+                        </div>
+                        <div class="small-description">
+                            <p id="name">{{product.name}}</p>
+                            <p id="amount">Còn {{product.amount}} sản phẩm</p>
+                            <p id="price">{{Number(product.outportPrice).toLocaleString()}} đ</p>
+                        </div>
+                    </v-card>
+                </span>
             <v-pagination
                 class="pagination mb-2" 
                 v-model="page" 
@@ -170,9 +172,27 @@ export default {
     margin-right: auto;
 }
 .product-box p{
+    margin-bottom: -0.2em;
+}
+.product-box .small-description{
+    margin: 1em;
+}
+.product-box #name{
     color:rgb(100, 100, 100);
-    height: 2.87em;
+    font-size: 90%;
+    display: block;
     overflow: hidden;
-    font-weight: bold;
+    white-space: nowrap;
+    text-overflow: ellipsis;   
+}
+.product-box #amount{
+    font-size: 75%;
+    color:chocolate;
+}   
+.product-box #price{
+    font-size: 115%;
+    font-weight: 700;
+    color:blue;
+    margin-top: 0.2em;
 }
 </style>

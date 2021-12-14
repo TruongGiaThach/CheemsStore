@@ -73,7 +73,7 @@ import ProductForYou from './ProductForYou.vue'
 }
 .body .title h1{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 950;
+    font-weight: 700;
     font-size: 100%;
 }
 .body .title h3{

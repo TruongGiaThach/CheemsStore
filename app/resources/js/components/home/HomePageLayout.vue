@@ -180,16 +180,14 @@
                             </div>
                             <div class="col px-md-5">
                                 <h5 id ="title">Liên hệ</h5>
-                                <p>
-                                    <a class ="row " href="tel:0969694200"><i class="fa fa-phone mr-sm-2 fa-lg"></i>
-                                        <p id="title" class="mr-sm-1">Tổng đài: </p>
-                                        <p id="info">0969694200</p>
+                                <div class="contact-info row">
+                                    <a href="tel:0969694200"><i class="fa fa-phone mr-sm-2 fa-lg"></i>
+                                        <p id="title" class="mr-sm-1">Tổng đài: </p><p id="info">0969694200</p>
                                     </a>
-                                    <a class ="row " href="mailto:admin@devtest.com"><i class="fa fa-envelope mr-sm-2 fa-2x"></i>
-                                        <p id="title" class="mr-sm-1">Email: </p>
-                                        <p id="info">admin@devtest.com</p>
+                                    <a href="mailto:admin@devtest.com"><i class="fa fa-envelope mr-sm-2 fa-2x"></i>
+                                        <p id="title" class="mr-sm-1">Email: </p><p id="info">admin@devtest.com</p>
                                     </a>
-                                </p>
+                                </div>
                             </div>
                             <div class="col">
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15672.924961103905!2d106.8030541!3d10.8700089!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xafa66f9c8be3c91!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2jhu4cgVGjDtG5nIHRpbiDEkEhRRyBUUC5IQ00!5e0!3m2!1svi!2sus!4v1636166812657!5m2!1svi!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
@@ -382,7 +380,7 @@ import SideMenu from './SideMenu.vue'
     text-align: center;
 }
 .mr-auto{
-    margin-left:8em;
+    margin-left:6em;
     margin-bottom: 0em;
 }
 .dropdown:hover>.dropdown-menu{
@@ -429,11 +427,14 @@ import SideMenu from './SideMenu.vue'
     font-weight: bold;
     height: 3em;
 }
-
-.main-footer .container .col p{
-    font-size: 90%;
+.main-footer .container .col .contact-info a{
+    text-decoration: none;
+    padding-bottom:1em;
 }
-.main-footer .container .col p p{
+.main-footer .container .col .contact-info #title{
+    display: inline;
+}
+.main-footer .container .col .contact-info #info{
     display: inline;
 }
 /***************************

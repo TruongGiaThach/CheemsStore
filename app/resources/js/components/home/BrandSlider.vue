@@ -5,7 +5,7 @@
             <h3>Thương hiệu nổi bật</h3>
         </div>
         <div class ="slider-tab">
-            <div id="carouseBrands" class="carousel slide" data-ride="carousel" data-interval="false">
+            <div id="carouseBrands" class="carousel slide carousel-fade" data-ride="carousel" data-interval="false">
             <!--Sliders-->
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -24,9 +24,6 @@
                     </div>
                     <div class="carousel-item">
                         <div class="col-xs-3 col-sm-3 col-md-3">
-                            <img :src="require('../../../../public/images/brand-1.webp').default" class="d-block" alt="...">
-                        </div>
-                        <div class="col-xs-3 col-sm-3 col-md-3">
                             <img :src="require('../../../../public/images/brand-2.webp').default" class="d-block" alt="...">
                         </div>
                         <div class="col-xs-3 col-sm-3 col-md-3">
@@ -34,6 +31,9 @@
                         </div>
                         <div class="col-xs-3 col-sm-3 col-md-3">
                             <img :src="require('../../../../public/images/brand-4.webp').default" class="d-block" alt="...">
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3">
+                            <img :src="require('../../../../public/images/brand-5.webp').default" class="d-block" alt="...">
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,6 @@
                     <span class="sr-only">Sau</span>
                 </a>
             </div>
-
         </div>
     </div>
 </template>
@@ -67,7 +66,7 @@
     display:inline-block;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    width: 20em;
+    width: 16em;
     text-align: center;
 }
 .brand-slider .slider-tab{
