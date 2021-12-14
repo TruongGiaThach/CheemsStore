@@ -95,6 +95,8 @@ class UserController extends Controller
 
     }
     public function changePass(Request $request){
+        $status = 401;
+        $response = ['error' => 'Unauthorised'];
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'old_password' => 'required|min:1',
@@ -106,26 +108,17 @@ class UserController extends Controller
         }
 
         //login
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'state' => 'active'])) {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->old_password])) {
             $status = 200;
             $response = [
                 'user' => Auth::user(),
-                'token' => Auth::user()->createToken('bigStore')->accessToken,
             ];
-        }
-
-        $user = Auth::user();
-        if (Auth::check()) {
-            // The user is logged in... 
+            $user = Auth::user();
             $user->update(
                 ['password'=>bcrypt($request->new_password)]
-            );   
+            );  
         }
-        return response()->json([
-            'status' => $user,
-            'message' => $user? 'User password updated!' : 'Error'
-        ]);
-
+        return response()->json($response, $status);
     }
     public function details()
     {

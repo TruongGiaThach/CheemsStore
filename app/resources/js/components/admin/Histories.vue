@@ -2,11 +2,11 @@
   <v-card height="100%" outlined class="pa-md-4 mx-lg-auto grey lighten-3">
     <v-data-table
       style="
-        height: 95vh;
+        height: 91vh;
+        width: 80%;
         align: center;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 20px;
       "
       :headers="headers"
       :items="histories"
@@ -55,7 +55,7 @@
                       color="primary"
                     ></v-progress-circular>
                   </div>
-                  <div 
+                  <div
                     class="d-flex flex-no-wrap justify-space-between"
                     v-if="staffInforCheck == 'NODATA'"
                   >
@@ -67,8 +67,13 @@
                   >
                     <v-avatar class="ma-4" size="140">
                       <v-img
+                        v-if="item.staff_name =='Admin'"
                         style="border-radius: 5px"
                         :src="baseUrl +'/images/' + 'admin.png'"
+                      ></v-img>
+                      <v-img v-else
+                        style="border-radius: 5px"
+                        :src="baseUrl +'/images/' + 'CheemsIcons.png'"
                       ></v-img>
                     </v-avatar>
                     <div>
@@ -77,7 +82,7 @@
                         v-text="item.staff_name"
                       ></v-card-title>
                       <v-card-text>
-                        <p>chức vụ: {{ staff.role }}</p>
+                        <p>chức vụ: {{ staff.position }}</p>
                         <p>email: {{ staff.email }}</p>
                       </v-card-text>
                     </div>
@@ -160,7 +165,7 @@ export default {
       staffInforCheck: 'NODATA',
       headers: [
         {
-          text: "ID",
+          text: "Tên nhân viên",
           value: "staff_name",
           class: "info--text",
           width: "40vh",

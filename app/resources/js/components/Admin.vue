@@ -8,7 +8,9 @@
         elevate-on-scroll
         scroll-target="#scrolling-techniques-7"
       >
-        <v-toolbar-title>Cheems Store</v-toolbar-title>
+        <a href="/home" class="home">
+          <v-toolbar-title>Cheems Store</v-toolbar-title>
+        </a>
 
         <v-spacer></v-spacer>
 
@@ -150,7 +152,7 @@ export default {
         ["mdi-account-group", "Khách hàng", "customers"],
         ["mdi-account-cog-outline", "Nhân viên", "staffs"],
         ["mdi-account", "Tài khoản", "users"],
-        ["mdi-rancher-outline", "Lịch sử", "histories"],
+        ["mdi-history", "Lịch sử", "histories"],
       ],
       Nav_bar_order: [
         ["mdi-cart-plus", "Bán hàng", "createOrder"],
@@ -177,7 +179,7 @@ export default {
       "Bearer " + localStorage.getItem("bigStore.jwt");
     this.getImage();
     if (this.user.role == "staff") {
-      this.Nav_bar_items.splice(2, 2);  
+      this.Nav_bar_items.splice(2, 2);
       this.Nav_bar_items.push(["mdi-account", "Thông tin cá nhân", "personalInfor"]);
     }
   },
@@ -311,5 +313,11 @@ export default {
 .title {
   font-size: 60px;
   color: #ffffff;
+}
+.home{
+  text-decoration: none;
+  color: chocolate;
+  font-size: 140%;
+  font-weight: 700;
 }
 </style>

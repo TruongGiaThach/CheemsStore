@@ -28,7 +28,8 @@ class ProductsTableSeeder extends Seeder
                 'warrantyPeriod' => 69,
                 'category_id' => "cate2",
                 'description' => "Hàng fake",
-                'tag' => "[pc, điện thoại, laptop]"
+                'tag' => "[pc, điện thoại, laptop]",
+                'created_at' => "12/8/2021"
             ],
             [
                 'name' => "ĐIỆn thoại thông minh số 1 Việt Nam",
@@ -40,7 +41,8 @@ class ProductsTableSeeder extends Seeder
                 'warrantyPeriod' => 69,
                 'category_id' => "cate2",
                 'description' => "Hàng fake",
-                'tag' => "[pc, điện thoại, laptop]"
+                'tag' => "[pc, điện thoại, laptop]",
+                'created_at' => "12/8/2021"
             ],
             [
                 'name' => "Cheems111",
@@ -52,7 +54,8 @@ class ProductsTableSeeder extends Seeder
                 'warrantyPeriod' => 69,
                 'category_id' => "cate2",
                 'description' => "Hàng fake",
-                'tag' => "[pc, điện thoại, laptop]"
+                'tag' => "[pc, điện thoại, laptop]",
+                'created_at' => "12/8/2021"
             ],
             [
                 'name' => "Cheems3",
@@ -64,7 +67,8 @@ class ProductsTableSeeder extends Seeder
                 'warrantyPeriod' => 69,
                 'category_id' => "cate2",
                 'description' => "Hàng fake",
-                'tag' => "[pc, điện thoại, laptop]"
+                'tag' => "[pc, điện thoại, laptop]",
+                'created_at' => "12/8/2021"
             ],
             [
                 'name' => "Cheems1",
@@ -77,6 +81,8 @@ class ProductsTableSeeder extends Seeder
                 'category_id' => "cate4",
                 'description' => "Hàng fake",
                 'tag' => "[pc, điện thoại, laptop]"
+                ,
+                'created_at' => "12/10/2021"
             ],
             [
                 'name' => "Cheems4",
@@ -88,7 +94,8 @@ class ProductsTableSeeder extends Seeder
                 'warrantyPeriod' => 69,
                 'category_id' => "cate2",
                 'description' => "Hàng fake",
-                'tag' => "[pc, điện thoại, laptop]"
+                'tag' => "[pc, điện thoại, laptop]",
+                'created_at' => "12/8/2021"
             ],
             [
                 'name' => "XÚC XÍCH PONIE",
@@ -100,7 +107,8 @@ class ProductsTableSeeder extends Seeder
                 'warrantyPeriod' => 69,
                 'category_id' => "cate3",
                 'description' => "Hàng fake",
-                'tag' => "[pc, điện thoại, laptop]"
+                'tag' => "[pc, điện thoại, laptop]",
+                'created_at' => "12/9/2021"
             ],
             [
                 'name' => "88% THỊT",
@@ -112,7 +120,8 @@ class ProductsTableSeeder extends Seeder
                 'warrantyPeriod' => 69,
                 'category_id' => "cate4",
                 'description' => "Hàng fake",
-                'tag' => "[pc, điện thoại, laptop]"
+                'tag' => "[pc, điện thoại, laptop]",
+                'created_at' => "12/10/2021"
             ],
             [
                 'name' => "Cheems5",
@@ -124,7 +133,8 @@ class ProductsTableSeeder extends Seeder
                 'warrantyPeriod' => 69,
                 'category_id' => "cate3",
                 'description' => "Hàng fake",
-                'tag' => "[pc, điện thoại, laptop]"
+                'tag' => "[pc, điện thoại, laptop]",
+                'created_at' => "12/9/2021"
             ],
             [
                 'name' => "Cheems6",
@@ -136,7 +146,8 @@ class ProductsTableSeeder extends Seeder
                 'warrantyPeriod' => 69,
                 'category_id' => "cate1",
                 'description' => "Hàng fake",
-                'tag' => "[pc, điện thoại, laptop]"
+                'tag' => "[pc, điện thoại, laptop]",
+                'created_at' => "12/11/2021"
             ],
             [
                 'name' => "Cheems7",
@@ -148,7 +159,8 @@ class ProductsTableSeeder extends Seeder
                 'warrantyPeriod' => 69,
                 'category_id' => "cate3",
                 'description' => "Hàng fake",
-                'tag' => "[pc, điện thoại, laptop]"
+                'tag' => "[pc, điện thoại, laptop]",
+                'created_at' => "12/9/2021"
             ],
             [
                 'name' => "Cheems8",
@@ -160,7 +172,8 @@ class ProductsTableSeeder extends Seeder
                 'warrantyPeriod' => 69,
                 'category_id' => "cate1",
                 'description' => "Hàng fake",
-                'tag' => "[pc, điện thoại, laptop]"
+                'tag' => "[pc, điện thoại, laptop]",
+                'created_at' => "12/11/2021"
             ],
             [
                 'name' => "Cheems9",
@@ -172,7 +185,8 @@ class ProductsTableSeeder extends Seeder
                 'warrantyPeriod' => 70,
                 'category_id' => "cate3",
                 'description' => "Hàng fake",
-                'tag' => "[pc, điện thoại, laptop]"
+                'tag' => "[pc, điện thoại, laptop]",
+                'created_at' => "12/9/2021"
             ],
             [
                 'name' => "Cheems10",
@@ -184,7 +198,8 @@ class ProductsTableSeeder extends Seeder
                 'warrantyPeriod' => 69,
                 'category_id' => "cate3",
                 'description' => "Hàng fake",
-                'tag' => "[pc, điện thoại, laptop]"
+                'tag' => "[pc, điện thoại, laptop]",
+                'created_at' => "12/9/2021"
             ],
             [
                 'name' => "Cheems11",
@@ -196,7 +211,8 @@ class ProductsTableSeeder extends Seeder
                 'warrantyPeriod' => 69,
                 'category_id' => "cate3",
                 'description' => "Hàng fake",
-                'tag' => "[pc, điện thoại, laptop]"
+                'tag' => "[pc, điện thoại, laptop]",
+                'created_at' => "12/9/2021"
             ],
             [
                 'name' => "Cheems12",
@@ -208,7 +224,8 @@ class ProductsTableSeeder extends Seeder
                 'warrantyPeriod' => 69,
                 'category_id' => "cate3",
                 'description' => "Hàng fake",
-                'tag' => "[pc, laptop]"
+                'tag' => "[pc, laptop]",
+                'created_at' => "12/9/2021"
             ],
         ];
 

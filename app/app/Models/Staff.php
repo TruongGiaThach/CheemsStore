@@ -21,6 +21,6 @@ class Staff extends Eloquent
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'email');
+        return $this->belongsTo(User::class, 'email', 'email');
     }
 }
