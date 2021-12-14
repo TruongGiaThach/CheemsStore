@@ -28,7 +28,7 @@
       <br />
 
       <h6 class="commonFont">{{ staff.email }}</h6>
-      <h6 class="commonFont">Ngày vào làm: {{ staff.dateBegin }}</h6>
+      <h6 class="commonFont">Ngày vào làm:  {{ dayBegin(staff.dateBegin) }}</h6>
     </v-card-text>
     <v-spacer></v-spacer>
     <v-card-actions>
@@ -191,6 +191,10 @@ export default {
             alert("Mật khẩu đã được thay đổi")
         });
       this.close();
+    },
+    dayBegin(day){
+        let date = day.split('/');
+        return date[1]+"/"+date[0]+"/"+date[2]
     },
   },
   components: {
