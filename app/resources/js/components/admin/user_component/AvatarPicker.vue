@@ -35,10 +35,6 @@ export default {
     saved: false
   }),
   props: {
-    currentAvatar: {
-        type: String,
-        required: true
-    },
     value: Boolean
   },
   watch: {

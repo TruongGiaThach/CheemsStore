@@ -193,8 +193,10 @@ export default {
       this.close();
     },
     dayBegin(day){
+        if(day!=undefined){
         let date = day.split('/');
-        return date[1]+"/"+date[0]+"/"+date[2]
+        return date[1]+"/"+date[0]+"/"+date[2]}
+        return day
     },
   },
   components: {
