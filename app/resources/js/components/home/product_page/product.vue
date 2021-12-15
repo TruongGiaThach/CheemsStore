@@ -48,7 +48,7 @@
                         <td class="info-icons">
                             <v-icon small color="blue "> fas fa-shield-alt</v-icon>
                         </td>
-                        <td> 
+                        <td>
                             Cam kết hàng chính hãng 100%
                         </td>
                     </tr>
@@ -77,7 +77,7 @@
                         <td class="info-icons">
                             <v-icon small color="blue "> fas fa-desktop</v-icon>
                         </td>
-                        <td> 
+                        <td>
                             Vệ sinh máy tính, laptop
                         </td>
                     </tr>
@@ -91,7 +91,7 @@
                     </tr>
                 </table>
             </v-card>
-        </div>                  
+        </div>
     </v-app>
 </template>
 
@@ -118,7 +118,7 @@ export default {
               {
                   this.productInfo = response.data[i];
                   return;
-              }   
+              }
           }
         })
         .catch((error) => {
@@ -136,7 +136,7 @@ export default {
     position: relative;
     width: 59%;
     left: 10%;
-    
+
 }
 .product-side #left{
     display: inline-block;
@@ -150,6 +150,9 @@ export default {
     position: absolute;
     display: inline-block;
     top: 2em;
+}
+#right{
+    height: fit-content;
 }
 #right h3{
     font-weight: 600;
