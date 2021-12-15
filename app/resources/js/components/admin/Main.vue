@@ -114,6 +114,10 @@
                 >
               </div>
             </card-line-chart>
+            <v-card-text class="mb-0 mt-0" style="background-color: white;">
+                <h5 style="color: #2196f3;">{{loinhuan}}</h5>
+                <h5 style="color: #2196f3;">{{doanhthu}}</h5>
+            </v-card-text>
           </v-card>
         </v-col>
       </v-row>
@@ -186,6 +190,10 @@
                 >
               </div>
             </card-bar-chart>
+            <v-card-text class="mb-0 mt-0" style="background-color: white;">
+                <h5 style="color: #2196f3;">{{sanpham}}</h5>
+                <h5 style="color: #2196f3;">{{khachhang}}</h5>
+            </v-card-text>
           </v-card>
         </v-col>
       </v-row>
@@ -204,6 +212,10 @@ export default {
   data() {
     return {
       // du lieu thong ke
+      loinhuan: "Tổng lợi nhuận: ",
+      doanhthu: "Tổng doanh thu: ",
+      sanpham: "Tổng sản phẩm đã bán: ",
+      khachhang: "Tổng khách hàng: ",
       staffs: [],
       check: 1,
       check2: 1,
@@ -567,7 +579,7 @@ export default {
           labels.push(currentDay + "/" + currentMonth);
           this.labelYears.push(currentYear);
         }
-        if (this.currentMonth == 12) {
+        if (currentMonth == 12) {
           currentMonth = 1;
           currentYear += 1;
         } else currentMonth += 1;
@@ -624,11 +636,15 @@ export default {
       }
     },
     crData(cate) {
+      this.loinhuan= "Tổng lợi nhuận: ";
+      this.doanhthu = "Tổng doanh thu: ";
       this.revenue = [];
       this.profit = [];
       this.cost = [];
       let moneyOfCost = 0;
       let moneyOfRevenue = 0;
+      let loinhuan = 0;
+      let doanhthu = 0;
       this.labels.forEach((element, index) => {
         this.receipts.forEach((e) => {
           if (
@@ -671,15 +687,23 @@ export default {
         this.revenue.push(moneyOfRevenue);
         this.cost.push(moneyOfCost);
         this.profit.push(moneyOfRevenue - moneyOfCost);
+        loinhuan +=moneyOfRevenue;
+        doanhthu +=moneyOfRevenue - moneyOfCost;
         moneyOfRevenue = 0;
         moneyOfCost = 0;
       });
+      this.loinhuan = this.loinhuan + Number(loinhuan).toLocaleString() + " VNĐ";
+      this.doanhthu = this.doanhthu + Number(doanhthu).toLocaleString() + " VNĐ";
     },
     crData2(cate) {
+      this.sanpham = "Tổng sản phẩm đã bán: ";
+      this.khachhang = "Tổng khách hàng: ";
       this.sCustomers = [];
       this.sOrder = [];
       let customerAmount = [];
       let productAmount = [];
+      let sanpham = 0
+      let khachhang = 0
       this.labels2.forEach((element, index) => {
         customerAmount = this.customers.filter((e) => {
           return this.compareTime(
@@ -699,7 +723,11 @@ export default {
         });
         this.sCustomers.push(customerAmount.length);
         this.sOrder.push(productAmount.length);
+        sanpham += productAmount.length
+        khachhang += customerAmount.length
       });
+      this.sanpham = this.sanpham + sanpham.toString();
+      this.khachhang = this.khachhang + khachhang.toString();
     },
   },
 };
