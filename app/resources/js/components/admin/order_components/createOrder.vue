@@ -318,6 +318,7 @@ export default {
       dialog: false,
       total: 0,
       VAT: 0,
+      Payment: 0,
       createDay: "",
       billId: "",
       headDetail: [
@@ -378,7 +379,6 @@ export default {
       let user = JSON.parse(localStorage.getItem("bigStore.user"));
       axios.get(`/api/getStaffs/${user.email}`).then((response) => {
       this.staff = response.data;
-      console.log(response.data);
     });
   },
   computed: {
@@ -397,13 +397,16 @@ export default {
           total += parseInt(this.items[i].amount * this.items[i].price);
         }
       }
-      return total;
+      this.total = total;
+      return this.total;
     },
     vat() {
-      return (this.totalPrice * 0.1).toFixed(1);
+      this.VAT = (this.totalPrice * 0.1).toFixed(1);
+      return this.VAT;
     },
     endPrice() {
-      return parseInt(this.totalPrice) + parseFloat(this.vat);
+      this.Payment = parseInt(this.totalPrice) + parseFloat(this.VAT);
+      return this.Payment;
     },
     okToGo() {
       if (
@@ -506,11 +509,12 @@ export default {
     },
     //Create new user for each new receipt with new email
     checkExistingCustomer() {
-      this.updateProductAmount();
+      this.updateProductAmount()
       axios
         .get("/api/customer/")
         .then((response) => {
-          for (var i = 0; i < response.data.length; i++) {
+          var length = response.data.length;
+          for (var i = 0; i < length; i++) {
             if (response.data[i].email == this.c_email) {
               return this.addRecepit(response.data[i]);
             }
@@ -520,8 +524,14 @@ export default {
         .catch((error) => {
           console.error(error);
         });
-      this.addItemToPrint();
-      this.dialog = true;
+    },
+    updateProductAmount() {
+      this.products.forEach((element) => {
+        axios
+          .post(`/api/productUpdate/${element._id}`, {
+            amount: element.amount,
+          })
+      });
     },
     newCustomer() {
       axios
@@ -531,7 +541,6 @@ export default {
           number: this.c_number,
         })
         .then((response) => {
-          console.log(response.data);
           this.addRecepit(response.data);
         });
     },
@@ -541,18 +550,21 @@ export default {
         .post("/api/receipt/", {
           user_id: item._id.toString(),
           createDay: day,
-          total: this.endPrice,
-          VAT: this.vat,
+          total: this.Payment,
+          VAT: this.VAT,
           staff_id: this.staff._id,
         })
         .then((response) => {
           this.addRecepitDetail(response.data);
+          this.addItemToPrint();
+          this.dialog = true;
         });
     },
     addRecepitDetail(rec) {
       this.billId = rec._id;
       this.createDay = rec.createDay;
-      for (var i = 0; i < this.items.length; i++) {
+      var length = this.items.length;
+      for (var i = 0; i < length; i++) {
         axios.post("/api/receipt_detail/", {
           receipt_id: rec._id.toString(),
           product_id: this.items[i].id.toString(),
@@ -560,10 +572,10 @@ export default {
           amount: this.items[i].amount,
         });
       }
-      this.dialog = true;
     },
     addItemToPrint() {
-      for (var i = 0; i < this.items.length; i++) {
+      var length = this.items.length;
+      for (var i = 0; i < length; i++) {
         this.items_print.push({
           id: this.items[i].id,
           name: this.items[i].name,
@@ -571,17 +583,6 @@ export default {
           price: Number(this.items[i].price).toLocaleString() + " VNĐ",
         });
       }
-    },
-    updateProductAmount() {
-      this.products.forEach((element) => {
-        axios
-          .post(`/api/productUpdate/${element._id}`, {
-            amount: element.amount,
-          })
-          .then((response) => {
-            console.log(response.data);
-          });
-      });
     },
     printDetail() {
       this.dialog = true;

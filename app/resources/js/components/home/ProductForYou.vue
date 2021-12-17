@@ -37,7 +37,7 @@ export default {
             baseUrl: window.location.origin,
             products: [],
             page: 1,
-			pageSize: 16,
+			pageSize: 15,
             listCount: 0,
             productsList: [],
         }

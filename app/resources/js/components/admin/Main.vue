@@ -113,11 +113,9 @@
                   >Năm</label
                 >
               </div>
+              <h5 class="blue-line">{{loinhuan}}</h5>
+              <h5 class="orange-line">{{doanhthu}}</h5>
             </card-line-chart>
-            <v-card-text class="mb-0 mt-0" style="background-color: white;">
-                <h5 style="color: #2196f3;">{{loinhuan}}</h5>
-                <h5 style="color: #2196f3;">{{doanhthu}}</h5>
-            </v-card-text>
           </v-card>
         </v-col>
       </v-row>
@@ -189,11 +187,9 @@
                   >Năm</label
                 >
               </div>
+              <h5 class="blue-line">{{sanpham}}</h5>
+              <h5 class="orange-line">{{khachhang}}</h5>
             </card-bar-chart>
-            <v-card-text class="mb-0 mt-0" style="background-color: white;">
-                <h5 style="color: #2196f3;">{{sanpham}}</h5>
-                <h5 style="color: #2196f3;">{{khachhang}}</h5>
-            </v-card-text>
           </v-card>
         </v-col>
       </v-row>
@@ -751,5 +747,11 @@ export default {
 ::-webkit-calendar-picker-indicator {
   filter: invert(40%) sepia(0%) saturate(0%) hue-rotate(50deg) brightness(96%)
     contrast(89%);
+}
+.blue-line{
+  color:#2196f3;
+}
+.orange-line{
+  color:chocolate;
 }
 </style>

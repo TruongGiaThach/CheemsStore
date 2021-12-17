@@ -51,7 +51,7 @@ export default {
             products: [],
             category_list: [],
             page: 1,
-			pageSize: 40,
+			pageSize: 30,
             listCount: 0,
            productsList: [],
         }

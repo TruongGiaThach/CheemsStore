@@ -66,4 +66,9 @@
   margin-left:-0.3em;
   padding-top: 2em;
 }
+.col-md-3 img{
+  width:100%;
+  height:9.8em;
+  border-radius: 10px;
+}
 </style>

@@ -136,7 +136,6 @@ export default {
     position: relative;
     width: 59%;
     left: 10%;
-
 }
 .product-side #left{
     display: inline-block;
