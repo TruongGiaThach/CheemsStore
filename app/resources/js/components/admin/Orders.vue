@@ -188,7 +188,7 @@
                         </v-data-table>
                         <br />
                         <div class="column2">
-                          <span><h5 style="display: inline">Tổng:</h5></span>
+                          <span><h5 style="display: inline">Tổng (VNĐ):</h5></span>
                           <span
                             ><b style="color: #2196f3; font-size: 110%">{{
                               total
@@ -196,7 +196,7 @@
                           >
                         </div>
                         <div class="column2">
-                          <span><h5 style="display: inline">VAT:</h5></span>
+                          <span><h5 style="display: inline">VAT (VNĐ):</h5></span>
                           <span
                             ><b style="color: #2196f3; font-size: 110%">{{
                               VAT
@@ -280,7 +280,7 @@ export default {
         width: "40vh",
       },
       { text: "Số Lượng", value: "amount", class: "info--text", width: "15vh" },
-      { text: "Đơn Giá", value: "total", class: "info--text" },
+      { text: "Đơn Giá (VNĐ)", value: "total", class: "info--text" },
     ],
     headers: [
       {
@@ -290,8 +290,8 @@ export default {
         value: "_id",
         class: "info--text",
       },
-      { text: "Tổng", value: "total", class: "info--text" },
-      { text: "VAT", value: "VAT", class: "info--text" },
+      { text: "Tổng (VNĐ)", value: "total", class: "info--text" },
+      { text: "VAT (VNĐ)", value: "VAT", class: "info--text" },
       { text: "Ngày tạo", value: "createDay", class: "info--text" },
       {
         text: "Chi tiết",
@@ -336,9 +336,9 @@ export default {
           this.receipts = response.data;
           for (var i = 0; i < this.receipts.length; i++) {
             this.receipts[i].total =
-              Number(this.receipts[i].total).toLocaleString() + " VNĐ";
+              Number(this.receipts[i].total).toLocaleString();
             this.receipts[i].VAT =
-              Number(this.receipts[i].VAT).toLocaleString() + " VNĐ";
+              Number(this.receipts[i].VAT).toLocaleString();
           }
           this.receipts.reverse();
         })
@@ -364,7 +364,7 @@ export default {
             this.tableDetail.push({
               name: element.product_name,
               amount: element.amount,
-              total: Number(element.unitPrice).toLocaleString() + " VNĐ",
+              total: Number(element.unitPrice).toLocaleString(),
               importPrice: element.importPriceProduct,
               image: element.imageProduct,
               id: element._id,

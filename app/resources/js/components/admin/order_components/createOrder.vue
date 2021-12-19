@@ -141,7 +141,7 @@
                   >
                 </v-form>
               </td>
-              <td>{{ Number(row.item.price).toLocaleString() }} VNĐ</td>
+              <td>{{ Number(row.item.price).toLocaleString() }}</td>
               <td>
                 <v-btn
                   class="mx-2"
@@ -164,16 +164,16 @@
         <div class="conclusion-info">
           <span>
             <h5>
-              Tổng tiền:
-              <p>{{ Number(totalPrice).toLocaleString() }} VNĐ</p>
+              Tổng tiền (VNĐ):
+              <p>{{ Number(totalPrice).toLocaleString() }} </p>
             </h5>
             <h5>
-              Thuế VAT:
-              <p>{{ Number(vat).toLocaleString() }} VNĐ</p>
+              Thuế VAT (VNĐ):
+              <p>{{ Number(vat).toLocaleString() }} </p>
             </h5>
             <h5>
-              Phải trả:
-              <p>{{ Number(endPrice).toLocaleString() }} VNĐ</p>
+              Phải trả (VNĐ):
+              <p>{{ Number(endPrice).toLocaleString() }} </p>
             </h5>
           </span>
         </div>
@@ -254,18 +254,18 @@
                   ></v-data-table>
                   <br />
                   <div class="column2">
-                    <span><h5 style="display: inline">Tổng:</h5></span>
+                    <span><h5 style="display: inline">Tổng (VNĐ):</h5></span>
                     <span
                       ><b style="color: #2196f3; font-size: 110%"
-                        >{{ Number(endPrice).toLocaleString() }} VNĐ</b
+                        >{{ Number(endPrice).toLocaleString() }} </b
                       ></span
                     >
                   </div>
                   <div class="column2">
-                    <span><h5 style="display: inline">VAT:</h5></span>
+                    <span><h5 style="display: inline">VAT (VNĐ):</h5></span>
                     <span
                       ><b style="color: #2196f3; font-size: 110%"
-                        >{{ Number(vat).toLocaleString() }} VNĐ</b
+                        >{{ Number(vat).toLocaleString() }} </b
                       ></span
                     >
                   </div>
@@ -330,7 +330,7 @@ export default {
           class: "info--text",
         },
         { text: "Số lượng", value: "amount", class: "info--text" },
-        { text: "Đơn giá", value: "price", class: "info--text" },
+        { text: "Đơn giá (VNĐ)", value: "price", class: "info--text" },
       ],
       receiptDetail: [
         {
@@ -347,7 +347,7 @@ export default {
           class: "info--text",
           width: "15vh",
         },
-        { text: "Đơn giá", value: "price", class: "info--text" },
+        { text: "Đơn giá (VNĐ)", value: "price", class: "info--text" },
       ],
     };
   },
