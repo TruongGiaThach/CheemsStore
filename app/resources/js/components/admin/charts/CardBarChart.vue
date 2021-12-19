@@ -125,8 +125,8 @@ export default {
             {
               display: true,
               scaleLabel: {
-                display: false,
-                labelString: "Value",
+                display: true,
+                labelString: "Số lượng",
               },
               gridLines: {
                 borderDash: [2],

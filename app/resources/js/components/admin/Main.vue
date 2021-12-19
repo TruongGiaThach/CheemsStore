@@ -45,15 +45,18 @@
         </v-col>
       </v-row>
       <v-row align-content-end full-width>
-        <v-col>
-          <v-card>
-            <card-line-chart
-              v-model="startDay1"
-              :labels="labels"
-              :revenue="revenue"
-              :profit="profit"
-            >
-              <div class="btn-group" role="group">
+        <v-col cols="12" md="3">
+            <v-card class="mb-5">
+              <v-card-title class="pb-0"
+                ><h5 class="title-number">Chọn thời gian</h5>
+                <v-spacer></v-spacer
+                ><v-icon color="black"
+                  >mdi-alarm</v-icon
+                ></v-card-title
+              >
+              <hr class="charlie ml-6 mr-6 mt-0 pt-0" />
+              <v-card-text><div class="center-parent">
+                <div class="btn-group" role="group" >
                 <div class="calender">
                   <input
                     type="date"
@@ -63,7 +66,37 @@
                     v-on:input="changeDate1()"
                   />
                 </div>
-
+                  </div>
+              </div></v-card-text>
+            </v-card>
+            <v-card>
+              <v-card-title class="pb-0"
+                ><h5 class="title-number">Tổng</h5>
+                <v-spacer></v-spacer
+                ><v-icon color="black">mdi-currency-usd</v-icon></v-card-title
+              >
+              <hr class="charlie ml-6 mr-6 mt-0 pt-0 mb-0" />
+              <v-card-text>
+                <h6 class="title-number-1">
+                  Lợi nhuận(VNĐ):
+                  <p style="text-align: right" class="blue-line">{{ loinhuan }}</p>
+                </h6>
+                <h6 class="title-number-1">
+                  Doanh thu(VNĐ):
+                  <p style="text-align: right" class="orange-line">{{ doanhthu }}</p>
+                </h6>
+              </v-card-text>
+            </v-card>
+        </v-col>
+        <v-col cols="12" md="9">
+          <v-card full-width>
+            <card-line-chart
+              v-model="startDay1"
+              :labels="labels"
+              :revenue="revenue"
+              :profit="profit"
+            >
+              <div class="btn-group" role="group">
                 <input
                   type="radio"
                   class="btn-check"
@@ -113,14 +146,55 @@
                   >Năm</label
                 >
               </div>
-              <h5 class="blue-line">{{loinhuan}}</h5>
-              <h5 class="orange-line">{{doanhthu}}</h5>
             </card-line-chart>
           </v-card>
         </v-col>
       </v-row>
       <v-row align-content-end full-width>
-        <v-col>
+          <v-col cols="12" md="3">
+            <v-card class="mb-5">
+              <v-card-title class="pb-0"
+                ><h5 class="title-number">Chọn thời gian</h5>
+                <v-spacer></v-spacer
+                ><v-icon color="black"
+                  >mdi-alarm</v-icon
+                ></v-card-title
+              >
+              <hr class="charlie ml-6 mr-6 mt-0 pt-0" />
+              <v-card-text><div class="center-parent">
+                <div class="btn-group" role="group" >
+                <div class="calender">
+                  <input
+                    type="date"
+                    id="endDay"
+                    v-model="endDay1"
+                    :max="this.today"
+                    v-on:input="changeDate2()"
+                  />
+                </div>
+                  </div>
+              </div></v-card-text>
+            </v-card>
+            <v-card>
+              <v-card-title class="pb-0"
+                ><h5 class="title-number">Số lượng</h5>
+                <v-spacer></v-spacer
+                ><v-icon color="black">mdi-playlist-check</v-icon></v-card-title
+              >
+              <hr class="charlie ml-6 mr-6 mt-0 pt-0 mb-0" />
+              <v-card-text>
+                <h6 class="title-number-1">
+                  Sản phẩm đã bán:
+                  <p style="text-align: right" class="blue-line">{{ sanpham }}</p>
+                </h6>
+                <h6 class="title-number-1">
+                  Khách hàng:
+                  <p style="text-align: right" class="orange-line">{{ khachhang }}</p>
+                </h6>
+              </v-card-text>
+            </v-card>
+        </v-col>
+        <v-col cols="12" md="9">
           <v-card>
             <card-bar-chart
               v-model="startDay2"
@@ -129,15 +203,6 @@
               :orders="sOrder"
             >
               <div class="btn-group" role="group">
-                <div class="calender">
-                  <input
-                    type="date"
-                    id="endDay"
-                    v-model="endDay2"
-                    :max="this.today"
-                    v-on:input="changeDate2()"
-                  />
-                </div>
                 <input
                   type="radio"
                   class="btn-check"
@@ -187,8 +252,6 @@
                   >Năm</label
                 >
               </div>
-              <h5 class="blue-line">{{sanpham}}</h5>
-              <h5 class="orange-line">{{khachhang}}</h5>
             </card-bar-chart>
           </v-card>
         </v-col>
@@ -208,10 +271,10 @@ export default {
   data() {
     return {
       // du lieu thong ke
-      loinhuan: "Tổng lợi nhuận: ",
-      doanhthu: "Tổng doanh thu: ",
-      sanpham: "Tổng sản phẩm đã bán: ",
-      khachhang: "Tổng khách hàng: ",
+      loinhuan: "",
+      doanhthu: "",
+      sanpham: "",
+      khachhang: "",
       staffs: [],
       check: 1,
       check2: 1,
@@ -626,14 +689,17 @@ export default {
       } else if (cate == "month") {
         let cut = time1.slice(6, time1.length);
         let day = new Date(time2);
-        if(parseInt(temp[0]) -1 == day.getMonth()+1 && yeat1 == day.getYear()){
-          return parseInt(temp[0])
+        if (
+          parseInt(temp[0]) - 1 == day.getMonth() + 1 &&
+          year1 == day.getYear()
+        ) {
+          return parseInt(temp[0]);
         }
       }
     },
     crData(cate) {
-      this.loinhuan= "Tổng lợi nhuận: ";
-      this.doanhthu = "Tổng doanh thu: ";
+      this.loinhuan = "";
+      this.doanhthu = "";
       this.revenue = [];
       this.profit = [];
       this.cost = [];
@@ -683,23 +749,23 @@ export default {
         this.revenue.push(moneyOfRevenue);
         this.cost.push(moneyOfCost);
         this.profit.push(moneyOfRevenue - moneyOfCost);
-        loinhuan +=moneyOfRevenue;
-        doanhthu +=moneyOfRevenue - moneyOfCost;
+        loinhuan += moneyOfRevenue;
+        doanhthu += moneyOfRevenue - moneyOfCost;
         moneyOfRevenue = 0;
         moneyOfCost = 0;
       });
-      this.loinhuan = this.loinhuan + Number(loinhuan).toLocaleString() + " VNĐ";
-      this.doanhthu = this.doanhthu + Number(doanhthu).toLocaleString() + " VNĐ";
+      this.loinhuan = this.loinhuan + Number(loinhuan).toLocaleString();
+      this.doanhthu = this.doanhthu + Number(doanhthu).toLocaleString();
     },
     crData2(cate) {
-      this.sanpham = "Tổng sản phẩm đã bán: ";
-      this.khachhang = "Tổng khách hàng: ";
+      this.sanpham = "";
+      this.khachhang = "";
       this.sCustomers = [];
       this.sOrder = [];
       let customerAmount = [];
       let productAmount = [];
-      let sanpham = 0
-      let khachhang = 0
+      let sanpham = 0;
+      let khachhang = 0;
       this.labels2.forEach((element, index) => {
         customerAmount = this.customers.filter((e) => {
           return this.compareTime(
@@ -719,8 +785,8 @@ export default {
         });
         this.sCustomers.push(customerAmount.length);
         this.sOrder.push(productAmount.length);
-        sanpham += productAmount.length
-        khachhang += customerAmount.length
+        sanpham += productAmount.length;
+        khachhang += customerAmount.length;
       });
       this.sanpham = this.sanpham + sanpham.toString();
       this.khachhang = this.khachhang + khachhang.toString();
@@ -739,7 +805,7 @@ export default {
 .calender #endDay {
   padding: 0.5em;
   vertical-align: center;
-  color: rgb(100, 100, 100);
+  color: rgb(2, 2, 2);
 }
 .calender #endDay:focus {
   outline-color: #2196f3;
@@ -748,10 +814,31 @@ export default {
   filter: invert(40%) sepia(0%) saturate(0%) hue-rotate(50deg) brightness(96%)
     contrast(89%);
 }
-.blue-line{
-  color:#2196f3;
+.blue-line {
+  color: #2196f3;
 }
-.orange-line{
-  color:chocolate;
+.orange-line {
+  color: chocolate;
+}
+.charlie {
+  height: 0px;
+  border-radius: 2px;
+  color: #2196f3;
+  border: 2px solid currentColor;
+  width: 80%;
+}
+.title-number {
+  text-align: center;
+  color:black;
+  font-weight: bold;
+}
+.title-number-1 {
+    color:black;
+  font-weight: bold;
+  margin: 0 10px;
+}
+.center-parent {
+  display: flex;
+  justify-content: center;
 }
 </style>
