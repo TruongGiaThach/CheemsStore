@@ -580,7 +580,7 @@ export default {
           id: this.items[i].id,
           name: this.items[i].name,
           amount: this.items[i].amount,
-          price: Number(this.items[i].price).toLocaleString() + " VNĐ",
+          price: Number(this.items[i].price).toLocaleString(),
         });
       }
     },
