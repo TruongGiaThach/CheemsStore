@@ -57,23 +57,6 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => "12/8/2013"
             ],
             [
-                'name' => "Màn hình LCD ACER K222HQL (1920 x 1080/TN/60Hz/5 ms)",
-                'image' => "lcd_screen.webp",
-                'amount' => 10,
-                'importPrice' => 3000000,
-                'outportPrice' => "3199000",
-                'manufacture' => "Cheems",
-                'warrantyPeriod' => 36  ,
-                'category_id' => "cate8",
-                'description' => "- Kích thước: 21.5inche (1920 x 1080), Tỷ lệ 16:9
-                - Tấm nền TN, Góc nhìn: 90 (H) / 65 (V)
-                - Tần số quét: 60Hz , Thời gian phản hồi 5 ms
-                - HIển thị màu sắc: 16.7 triệu màu
-                - Cổng hình ảnh: , 1 x HDMI, 1 x DVI-D, 1 x VGA/D-sub",
-                'tag' => "[pc, màn hình, tv, lcd]",
-                'created_at' => "12/8/2013"
-            ],
-            [
                 'name' => "Keycap Bàn phím Corsair PBT Double-shot (CH-9000234-NA) (Trắng)",
                 'image' => "keycap_white.webp",
                 'amount' => 10,

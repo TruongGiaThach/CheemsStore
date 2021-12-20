@@ -9,32 +9,32 @@
             <!--Sliders-->
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div class="col-xs-3 col-sm-3 col-md-3">
+                        <a href="/store/all/microsoft" class="col-xs-3 col-sm-3 col-md-3">
                             <img :src="require('../../../../public/images/brand-1.webp').default" class="d-block" alt="...">
-                        </div>
-                        <div class="col-xs-3 col-sm-3 col-md-3">
+                        </a>
+                        <a href="/store/all/asus" class="col-xs-3 col-sm-3 col-md-3">
                             <img :src="require('../../../../public/images/brand-2.webp').default" class="d-block" alt="...">
-                        </div>
-                        <div class="col-xs-3 col-sm-3 col-md-3">
+                        </a>
+                        <a href="/store/all/msi" class="col-xs-3 col-sm-3 col-md-3">
                             <img :src="require('../../../../public/images/brand-3.webp').default" class="d-block" alt="...">
-                        </div>
-                        <div class="col-xs-3 col-sm-3 col-md-3">
+                        </a>
+                        <a href="/store/all/hp" class="col-xs-3 col-sm-3 col-md-3">
                             <img :src="require('../../../../public/images/brand-4.webp').default" class="d-block" alt="...">
-                        </div>
+                        </a>
                     </div>
                     <div class="carousel-item">
-                        <div class="col-xs-3 col-sm-3 col-md-3">
+                        <a href="/store/all/asus" class="col-xs-3 col-sm-3 col-md-3">
                             <img :src="require('../../../../public/images/brand-2.webp').default" class="d-block" alt="...">
-                        </div>
-                        <div class="col-xs-3 col-sm-3 col-md-3">
+                        </a>
+                        <a href="/store/all/msi" class="col-xs-3 col-sm-3 col-md-3">
                             <img :src="require('../../../../public/images/brand-3.webp').default" class="d-block" alt="...">
-                        </div>
-                        <div class="col-xs-3 col-sm-3 col-md-3">
+                        </a>
+                        <a href="/store/all/hp" class="col-xs-3 col-sm-3 col-md-3">
                             <img :src="require('../../../../public/images/brand-4.webp').default" class="d-block" alt="...">
-                        </div>
-                        <div class="col-xs-3 col-sm-3 col-md-3">
+                        </a>
+                        <a href="/store/all/lenovo" class="col-xs-3 col-sm-3 col-md-3">
                             <img :src="require('../../../../public/images/brand-5.webp').default" class="d-block" alt="...">
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouseBrands" role="button" data-slide="prev">

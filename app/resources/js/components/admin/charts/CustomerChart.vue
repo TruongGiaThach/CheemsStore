@@ -8,7 +8,7 @@
                     {{total}}
                 </h4>
                 <h6 class = "title-name">
-                    Khách hàng
+                    Khách hàng mới
                 </h6>
                 </div>
                 <div class="icon">

@@ -1,7 +1,7 @@
 <template>
     <v-app>
         <div class="product-side">
-            <v-card >
+            <v-card class="product-card">
                 <div class = "product-image" id="left">
                     <img :src = "baseUrl +'/images/' + productInfo.image">
                 </div>
@@ -136,37 +136,41 @@ export default {
     position: relative;
     width: 59%;
     left: 10%;
+    top: 2em;
+}
+.product-card{
+    height: auto;
 }
 .product-side #left{
     display: inline-block;
     margin: 2em;
+    vertical-align:top;
 }
-#left img{
+.product-side #left img{
     height: 20em;
     width: 20em;
 }
 .product-side #right{
-    position: absolute;
     display: inline-block;
-    top: 2em;
+    width: 60%;
 }
-#right{
-    height: fit-content;
-}
-#right h3{
+.product-side #right h3{
     font-weight: 600;
 }
-#right #manufact{
+.product-side #right #description{
+    height: auto;
+}
+.product-side #right #manufact{
     color:rgb(100, 100, 100);
 }
-#right #manufact a{
+.product-side #right #manufact a{
     color:blue;
 }
-#right #amount{
+.product-side #right #amount{
     color:chocolate;
     font-size: 85%;
 }
-#right #price{
+.product-side #right #price{
     color:blue;
     font-weight: 700;
     font-size: 140%;
