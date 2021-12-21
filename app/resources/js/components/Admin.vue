@@ -27,10 +27,10 @@
               </v-btn>
             </v-list-item>
             <v-list-item active-class="" @click="() => {}">
-              <v-list-item-title>Settings</v-list-item-title>
+              <v-list-item-title>Cài đặt</v-list-item-title>
             </v-list-item>
             <v-list-item active-class="" @click="logout()">
-              <v-list-item-title>Log out</v-list-item-title>
+              <v-list-item-title>Đăng xuất</v-list-item-title>
             </v-list-item>
           </v-list>
         </v-menu>
