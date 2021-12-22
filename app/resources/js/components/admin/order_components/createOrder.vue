@@ -5,31 +5,18 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <a>{{ category_sort.name }}</a>
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <div>
-                  <a class="dropdown-item" v-on:click="allCategorySort()"
-                    >Tất cả</a
-                  >
-                </div>
-                <div v-for="(cate, index) in category" :key="index">
-                  <a
-                    class="dropdown-item"
-                    v-on:click="changeCategorySort(cate)"
-                    >{{ cate.name }}</a
-                  >
-                </div>
-              </div>
-            </li>
+            <v-select class="category-select"
+            :menu-props="{ bottom: true, offsetY: true }"
+            outlined
+            dense
+            label="Tất cả"
+            v-model="category_sort"
+            :items="category"
+            item-text="name"
+            item-value="_id"
+            return-object        
+            single-line
+          ></v-select>
           </ul>
           <div class="form-inline search-box">
             <input
@@ -62,7 +49,7 @@
               <img :src="baseUrl + '/images/' + product.image" />
             </div>
             <div>
-              <p>{{ product.name }}</p>
+              <p id="name">{{ product.name }}</p>
             </div>
             <div
               class="amount"
@@ -306,7 +293,7 @@ export default {
       items_print: [],
       category_sort: {
         name: "Tất cả",
-        id: "0",
+        _id: "0",
       },
       havetoprice: 0,
       search: "",
@@ -372,6 +359,7 @@ export default {
       .get("/api/category/")
       .then((response) => {
         this.category = response.data;
+        this.category.unshift(this.category_sort);
       })
       .catch((error) => {
         console.error(error);
@@ -496,16 +484,9 @@ export default {
     sameCategory(product) {
       if (this.category_sort.name == "Tất cả") {
         return true;
-      } else if (this.category_sort.id == product.category_id) {
+      } else if (this.category_sort._id == product.category_id) {
         return true;
       } else return false;
-    },
-    allCategorySort() {
-      this.category_sort.name = "Tất cả";
-    },
-    changeCategorySort(cate) {
-      this.category_sort.name = cate.name;
-      this.category_sort.id = cate._id;
     },
     //Create new user for each new receipt with new email
     checkExistingCustomer() {
@@ -636,6 +617,10 @@ export default {
 .product-search-menu .navbar {
   height: 7%;
 }
+.product-search-menu .category-select{
+  margin-top: 3em;
+  max-width: 16em;
+}
 .product-search-menu .products-showcase {
   height: 93%;
   overflow: auto;
@@ -657,14 +642,14 @@ export default {
 }
 .product-search-menu .product-box .price {
   position: absolute;
-  right: 0;
+  left: 0;
   background-color: #2196f3;
   color: white;
   font-weight: bold;
   padding-right: 0.2em;
   padding-left: 0.4em;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 .product-search-menu .product-box .amount {
   color: white;
@@ -681,6 +666,13 @@ export default {
   overflow: hidden;
   font-weight: bold;
 }
+.product-search-menu .product-box #name{
+  padding:0.2em; 
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
 /****************************
 *******Sell menu CSS*********
 *****************************/
@@ -693,7 +685,7 @@ export default {
 .conclusion {
   min-height: 10%;
 }
-.sell-menu .customer-info {
+.sell-menu .customer-info { 
   position: relative;
   padding-left: 1em;
   padding-right: 1em;
