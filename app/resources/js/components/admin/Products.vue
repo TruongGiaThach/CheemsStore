@@ -456,13 +456,8 @@ export default {
           class: "info--text",
         },
         {
-          text: "giá bán",
+          text: "Giá bán",
           value: "outportPrice",
-          class: "info--text",
-        },
-        {
-          text: "Tag",
-          value: "tag",
           class: "info--text",
         },
         {
