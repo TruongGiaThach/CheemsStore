@@ -186,7 +186,7 @@
                       <b>{{ name }}</b>
                     </p>
                     <p v-else>
-                      <b>{{ name }}</b>
+                      <b>staff</b>
                     </p>
                   </div>
                 </router-link>
